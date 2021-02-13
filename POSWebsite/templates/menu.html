@@ -1,14 +1,29 @@
-<html>
-    <head>
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+    
         <title>Menu Page</title>
     </head>
     <body>
         <h1>
            Menu Page
         </h1>
+        
         <a href="/home">home</a>
         <a href="/menu">menu</a>
-        <a href="/accounts/login">Login</a>
         <a href="/contact">contact</a>
-    </body>
-</html>
+       
+        
+        
+        {%if us %}
+            {{us.email}} <a href="/accounts/logout">Logout</a>
+        {% else %}
+            <a href="/accounts/login">Login</a>
+        {% endif %}    
+
+{% endblock %}
+
+
+        
