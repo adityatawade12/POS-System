@@ -1,8 +1,9 @@
+{% load static %}
 <html>
     <head>
 
         <title>Home Page</title>
-        <link rel="stylesheet" type="text/css" href="home.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
     </head>
@@ -10,19 +11,25 @@
 
         <header>
             <!-- <img src="https://img.icons8.com/pastel-glyph/64/000000/dinner--v2.png"  href="home.html">     -->
-            <img class="logo" src="compnay_logo_100.png">
-            <a class="company" href="home.html" id="nav_com">le mieux</a>
+            <img class="logo" src="{% static 'images/compnay_logo_100.png' %}">
+            <a class="company" href="/home" id="nav_com">le mieux</a>
             <nav>
                 <ul class="nav_item">
-                    <li><a id="nav_com" href="login.html">LOGIN</a></li>
-                    <li><a id="nav_com" href="menu.html">MENU</a></li>
-                    <li><a id="nav_com" href="contact.html">CONTACT</a></li>
+                    <li>
+                        {%if us %}
+                            {{us.email}} <a id="nav_com" href="/accounts/logout">LOGOUT</a>
+                        {% else %}
+                            <a id="nav_com" href="/accounts/login">LOGIN</a>
+                        {% endif %}   
+                    </li>
+                    <li><a id="nav_com" href="/menu">MENU</a></li>
+                    <li><a id="nav_com" href="/contact">CONTACT</a></li>
                 </ul>
             </nav>
         </header>
-        <div>
-            <!-- <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F826921.jpg&f=1&nofb=1" size= cover> -->
-        </div>
+        <!-- <div>
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F826921.jpg&f=1&nofb=1" size= cover>
+        </div> -->
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
