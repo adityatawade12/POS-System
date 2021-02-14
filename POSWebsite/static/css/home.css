@@ -1,0 +1,69 @@
+* {
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+    /* background-color: #24252a; */
+}
+img {
+    width: 100%;
+}
+li, a {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    /* align-items: center; */
+    padding: 10px 60px;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F826921.jpg&f=1&nofb=1");
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    -webkit-background-size: cover;
+    position: relative;
+}
+
+#nav_com {
+    text-decoration: none;
+    color: #ffebcd;
+}
+
+.nav_item {
+    margin-bottom: 0;
+}
+
+.nav_item li {
+    display: inline-block;
+    padding: 20px;
+}
+
+.nav_item li a {
+    transition: all 0.3s ease 0s;
+    font-size: 20px;
+}
+
+#nav_com:hover {
+    color: #2bcef7;
+}
+
+.logo {
+    cursor: pointer;
+    width: 70px;
+    height: 70px;
+}
+
+.company {
+    font-style: italic;
+    margin-right: auto;
+    font-size: 26px;
+    padding-top: 15px;
+}
+
+.wel-txt {
+    position: absolute;
+    width: 600px;
+    text-align: center;
+
+}
