@@ -27,7 +27,7 @@ header {
 
 #nav_com {
     text-decoration: none;
-    color: blanchedalmond;
+    color: #ffebcd;
 }
 
 .nav_item {
@@ -36,27 +36,29 @@ header {
 
 .nav_item li {
     display: inline-block;
-    padding: 5px 20px;
+    padding: 20px;
 }
 
 .nav_item li a {
     transition: all 0.3s ease 0s;
+    font-size: 20px;
 }
 
 #nav_com:hover {
     color: #2bcef7;
 }
 
-.logo img {
+.logo {
     cursor: pointer;
-    width: 50px;
-    height: auto;
+    width: 70px;
+    height: 70px;
 }
 
-.logo {
+.company {
     font-style: italic;
     margin-right: auto;
-    font-size: 20px;
+    font-size: 26px;
+    padding-top: 15px;
 }
 
 .wel-txt {
