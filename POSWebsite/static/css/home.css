@@ -84,9 +84,9 @@ header {
 }
 
 .barnav {
-    /* position: absolute; */
-    /* display: flex; */
+    position: absolute;
     top: 0;
+    left: 0;
     width: 100%;
     padding: 10px 60px;
     align-items: center;
@@ -123,6 +123,10 @@ header {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/contact.jpg");
 }
 
+#cart {
+    background: #24252a;
+}
+
 .click {
     line-height: 56px;
     padding: 5px 20px;
@@ -138,3 +142,29 @@ header {
     background: blanchedalmond;
     color: #24252a;
 }
+
+.cart {
+    padding: 40px 20px 30px 20px;
+}
+
+.cart:hover {
+    background: blanchedalmond;
+}
+
+.cart:hover img {
+    -webkit-mask-image: url("/images/cart_dark.png");
+}
+
+.cart img {
+    width: 30px;
+    height: 30px;
+}
+/* 
+.cart::after{
+    position: absolute; /* Positions psuedo element relative to .icon */
+    width: 100%; /* Same dimensions as .icon 
+    height: 100%;
+    content: ""; /* Allows psuedo element to show 
+    background: #EC008C; /* The color you want the icon to change to 
+    mix-blend-mode: multiply; /* Only apply color on top of white, use screen if icon is black 
+} */
