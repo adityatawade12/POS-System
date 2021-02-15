@@ -4,9 +4,11 @@
     padding: 0;
     /* background-color: #24252a; */
 }
+
 img {
     width: 100%;
 }
+
 li, a {
     font-size: 16px;
     font-weight: 500;
@@ -15,7 +17,7 @@ li, a {
 header {
     display: flex;
     justify-content: flex-end;
-    /* align-items: center; */
+    align-items: center;
     padding: 10px 60px;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F826921.jpg&f=1&nofb=1");
     height: 100vh;
@@ -31,12 +33,14 @@ header {
 }
 
 .nav_item {
+    cursor: pointer;
     margin-bottom: 0;
+    float: right;
 }
 
 .nav_item li {
     display: inline-block;
-    padding: 20px;
+    padding: 30px 20px;
 }
 
 .nav_item li a {
@@ -44,8 +48,14 @@ header {
     font-size: 20px;
 }
 
-#nav_com:hover {
-    color: #2bcef7;
+#navi:hover {
+    transition: all 0.3s ease 0s;
+    background: blanchedalmond;
+}
+#navi:hover a{
+    transition: all 0.3s ease 0s;
+    /* font-weight: 500; */
+    color: #24252a;
 }
 
 .logo {
@@ -55,15 +65,86 @@ header {
 }
 
 .company {
-    font-style: italic;
-    margin-right: auto;
+    float: left;
+    padding: 10px 10px 10px 0px;
+}
+
+.company a {
     font-size: 26px;
-    padding-top: 15px;
+    font-style: italic;
+    vertical-align: middle;
+}
+
+.company:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.company:hover svg{
+    color: rgb(112, 169, 255);
+}
+
+.company:hover a{
+    fill: rgb(112, 169, 255);
 }
 
 .wel-txt {
     position: absolute;
     width: 600px;
     text-align: center;
+}
 
+.barnav {
+    /* position: absolute; */
+    /* display: flex; */
+    top: 0;
+    width: 100%;
+    padding: 10px 60px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.barnav.fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #24252aee;
+    color: #ffebcd;
+    padding: 0px 60px;
+    transition: all 0.3s ease 0s;
+}
+
+.scroll {
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    -webkit-background-size: cover;
+    padding: 200px 300px;
+}
+
+#menu {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/menu.jpg");
+}
+
+#offers {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("http://data.freehdw.com/godfather-black-offer-mafia-movie-movies-hd-background.jpg");
+}
+
+#contact {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/contact.jpg");
+}
+
+.click {
+    line-height: 56px;
+    padding: 5px 20px;
+    font-size: 18px;
+    border-radius: 40px;
+    background-color: #24252a6e;
+    color: blanchedalmond;
+    border: 2px solid blanchedalmond;
+    text-decoration: none;
+}
+
+.click:hover {
+    background: blanchedalmond;
+    color: #24252a;
 }
