@@ -67,24 +67,14 @@ header {
 .company {
     float: left;
     padding: 10px 10px 10px 0px;
-}
-
-.company a {
     font-size: 26px;
     font-style: italic;
-    vertical-align: middle;
+    color: blanchedalmond;
 }
 
 .company:hover {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-.company:hover svg{
-    color: rgb(112, 169, 255);
-}
-
-.company:hover a{
-    fill: rgb(112, 169, 255);
+    /* filter: drop-shadow(1px 1px 0.3px cyan); */
+    filter: drop-shadow(1px 1px 10px black);
 }
 
 .wel-txt {
