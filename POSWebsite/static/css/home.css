@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+
 * {
     box-sizing: border-box; 
     margin: 0;
@@ -66,10 +68,11 @@ header {
 
 .company {
     float: left;
-    padding: 10px 10px 10px 0px;
-    font-size: 26px;
-    font-style: italic;
+    padding: 10px 10px 0px 0px;
+    font-size: 40px;
+    /* font-style: italic; */
     color: blanchedalmond;
+    font-family: 'Parisienne', cursive;
 }
 
 .company:hover {
@@ -136,6 +139,7 @@ header {
     color: blanchedalmond;
     border: 2px solid blanchedalmond;
     text-decoration: none;
+    margin: auto;
 }
 
 .click:hover {
@@ -151,20 +155,11 @@ header {
     background: blanchedalmond;
 }
 
-.cart:hover img {
+/* .cart:hover img {
     -webkit-mask-image: url("/images/cart_dark.png");
-}
+} */
 
 .cart img {
     width: 30px;
     height: 30px;
 }
-/* 
-.cart::after{
-    position: absolute; /* Positions psuedo element relative to .icon */
-    width: 100%; /* Same dimensions as .icon 
-    height: 100%;
-    content: ""; /* Allows psuedo element to show 
-    background: #EC008C; /* The color you want the icon to change to 
-    mix-blend-mode: multiply; /* Only apply color on top of white, use screen if icon is black 
-} */
