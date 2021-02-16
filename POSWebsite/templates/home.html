@@ -4,8 +4,6 @@
     <head>
 
         <title>Home Page</title>
-        <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
-        <!-- <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet"> -->
         <link rel="stylesheet" type="text/css" href="/static/css/home.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         
@@ -49,9 +47,11 @@
                 </a>
                 <ul class="nav_item">
                     <li id="navi">
-                        
+                        {% if us %}
+                            <a id="nav_com" href="/accounts/logout">LOGOUT</a>
+                        {% else %}
                             <a id="nav_com" href="/accounts/login">LOGIN</a>
-                           
+                        {% endif %}
                     </li>
                     <li id="navi"><a id="nav_com" onclick="scrolldiv('offers')">OFFERS</a></li>
                     <li id="navi"><a id="nav_com" onclick="scrolldiv('menu')">MENU</a></li>
