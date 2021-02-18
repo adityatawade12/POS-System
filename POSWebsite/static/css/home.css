@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Vampiro+One&display=swap');
+@import url('https://allfont.net/allfont.css?fonts=scifly');
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Port+Lligat+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
 * {
     box-sizing: border-box; 
@@ -6,6 +10,14 @@
     padding: 0;
     /* background-color: #24252a; */
 }
+
+/* @font-face {
+    font-family: 'SciFly-Sans';
+    src: url('fonts/Open_Sans/OpenSans-BoldItalic.eot');
+    src: url('/fonts/SciFly-Sans.tff') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+} */
 
 img {
     width: 100%;
@@ -29,9 +41,14 @@ header {
     position: relative;
 }
 
-#nav_com {
+#navi {
     text-decoration: none;
+}
+
+#navlist {
+    /* font-size: 20px; */
     color: #ffebcd;
+    list-style: none;
 }
 
 .nav_item {
@@ -40,7 +57,7 @@ header {
     float: right;
 }
 
-.nav_item li {
+.nav_item a {
     display: inline-block;
     padding: 30px 20px;
 }
@@ -54,9 +71,8 @@ header {
     transition: all 0.3s ease 0s;
     background: blanchedalmond;
 }
-#navi:hover a{
-    transition: all 0.3s ease 0s;
-    /* font-weight: 500; */
+#navi:hover li{
+    transition: all 0.4s ease 0s;
     color: #24252a;
 }
 
@@ -72,7 +88,9 @@ header {
     font-size: 40px;
     /* font-style: italic; */
     color: blanchedalmond;
-    font-family: 'Parisienne', cursive;
+    /* font-family: 'Parisienne', cursive; */
+    /* font-family: 'Vampiro one'; */
+    font-family: 'Cedarville Cursive', cursive;
 }
 
 .company:hover {
@@ -91,9 +109,13 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 10px 60px;
+    padding: 0px 60px 5px;
     align-items: center;
     justify-content: space-between;
+}
+
+.barnav li {
+    font-size: 25px;
 }
 
 .barnav.fixed-top {
@@ -106,12 +128,18 @@ header {
     transition: all 0.3s ease 0s;
 }
 
+.barnav.fixed-top li {
+    font-size: 20px;
+}
+
 .scroll {
     height: 100vh;
     background-size: cover;
     background-position: center center;
     -webkit-background-size: cover;
     padding: 200px 300px;
+    /* font-family: 'SciFly-Sans'; */
+    font-family: 'Port Lligat Sans', sans-serif;
 }
 
 #menu {
@@ -140,6 +168,7 @@ header {
     border: 2px solid blanchedalmond;
     text-decoration: none;
     margin: auto;
+    font-family: 'Varela Round', sans-serif;
 }
 
 .click:hover {
@@ -162,4 +191,10 @@ header {
 .cart img {
     width: 30px;
     height: 30px;
+}
+
+marquee {
+    background-color: #ffebcde5;
+    color: #24252a;
+    font-family: "Varela Round";
 }
