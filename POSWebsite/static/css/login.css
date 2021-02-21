@@ -1,9 +1,5 @@
 @import url("fonts.css");
 
-* {
-  overflow: hidden;
-}
-
 body, html {
   overflow: hidden;
   height: 100%;
@@ -18,20 +14,47 @@ header {
 }
 
 .scroll-pre {
-  height: 100px;
+  height: 90px;
   width: 100%;
   background-color: inherit;
+}
+
+form {
+  width: 400px;
+  height: 500px;
+  float: right;
+  background: #24252ae8;
+  margin-right: 200px;
+  margin-top: 190px;
+}
+
+.bgimg {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/login.jpg");
+  background-size: cover;
 } 
 
+.credits {
+  color: blanchedalmond;
+  position: absolute;
+  bottom: 15px;
+  left: 10px;
+}
+
+.credits img {
+  height: 20px;
+  width: 20px;
+  vertical-align: sub;
+}
 
 /* swanand cho code */
 /* Bordered form */
-form {
+/* form {
     border: 3px solid #f1f1f1;
-  }
+  } */
   
   /* Full-width inputs */
-  input[type=text], input[type=password] {
+  input[type=text], input[type=email], input[type=password] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
