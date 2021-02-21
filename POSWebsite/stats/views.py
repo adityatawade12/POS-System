@@ -20,3 +20,7 @@ def menu(request):
 def contact(request):
     us=curuser()
     return render(request,'contact.html',{'us':us})
+
+def nav(request):
+    us=curuser()
+    return render(request,'nav.html',{'us':us})

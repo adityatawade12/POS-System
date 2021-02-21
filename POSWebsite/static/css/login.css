@@ -1,3 +1,30 @@
+@import url("fonts.css");
+
+* {
+  overflow: hidden;
+}
+
+body, html {
+  overflow: hidden;
+  height: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-position: center center;
+  position: relative;
+}
+
+.scroll-pre {
+  height: 100px;
+  width: 100%;
+  background-color: inherit;
+} 
+
+
+/* swanand cho code */
 /* Bordered form */
 form {
     border: 3px solid #f1f1f1;

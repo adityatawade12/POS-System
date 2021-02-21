@@ -1,8 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Vampiro+One&display=swap');
-@import url('https://allfont.net/allfont.css?fonts=scifly');
-@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Port+Lligat+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('fonts.css');
 
 * {
     box-sizing: border-box; 
@@ -10,14 +6,6 @@
     padding: 0;
     /* background-color: #24252a; */
 }
-
-/* @font-face {
-    font-family: 'SciFly-Sans';
-    src: url('fonts/Open_Sans/OpenSans-BoldItalic.eot');
-    src: url('/fonts/SciFly-Sans.tff') format('truetype');
-    font-weight: 400;
-    font-style: italic;
-} */
 
 img {
     width: 100%;
@@ -28,6 +16,7 @@ li, a {
     font-weight: 500;
 }
 
+/* NAVBAR */
 header {
     display: flex;
     justify-content: flex-end;
@@ -41,70 +30,7 @@ header {
     position: relative;
 }
 
-#navi {
-    text-decoration: none;
-}
-
-#navlist {
-    /* font-size: 20px; */
-    color: #ffebcd;
-    list-style: none;
-}
-
-.nav_item {
-    cursor: pointer;
-    margin-bottom: 0;
-    float: right;
-}
-
-.nav_item a {
-    display: inline-block;
-    padding: 30px 20px;
-}
-
-.nav_item li a {
-    transition: all 0.3s ease 0s;
-    font-size: 20px;
-}
-
-#navi:hover {
-    transition: all 0.3s ease 0s;
-    background: blanchedalmond;
-}
-#navi:hover li{
-    transition: all 0.4s ease 0s;
-    color: #24252a;
-}
-
-.logo {
-    cursor: pointer;
-    width: 70px;
-    height: 70px;
-}
-
-.company {
-    float: left;
-    padding: 10px 10px 0px 0px;
-    font-size: 40px;
-    /* font-style: italic; */
-    color: blanchedalmond;
-    /* font-family: 'Parisienne', cursive; */
-    /* font-family: 'Vampiro one'; */
-    font-family: 'Cedarville Cursive', cursive;
-}
-
-.company:hover {
-    /* filter: drop-shadow(1px 1px 0.3px cyan); */
-    filter: drop-shadow(1px 1px 10px black);
-}
-
-.wel-txt {
-    position: absolute;
-    width: 600px;
-    text-align: center;
-}
-
-.barnav {
+.home_navbar {
     position: absolute;
     top: 0;
     left: 0;
@@ -114,11 +40,11 @@ header {
     justify-content: space-between;
 }
 
-.barnav li {
+.home_navbar li {
     font-size: 25px;
 }
 
-.barnav.fixed-top {
+.home_navbar.fixed-top {
     position: fixed;
     top: 0;
     width: 100%;
@@ -126,19 +52,34 @@ header {
     color: #ffebcd;
     padding: 0px 60px;
     transition: all 0.3s ease 0s;
+    /*
+    transition: background .25s ease-in-out,color .25s ease-in-out,box-shadow .25s ease-in-out,opacity .25s ease-in-out,visibility .25s ease-in-out;
+        transition-property: background, color, box-shadow, opacity, visibility;
+        transition-duration: 0.25s, 0.25s, 0.25s, 0.25s, 0.25s;
+        transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+        transition-delay: 0s, 0s, 0s, 0s, 0s;
+    */
 }
 
-.barnav.fixed-top li {
+.home_navbar.fixed-top li {
     font-size: 20px;
 }
 
+/* WELCOME TEXT IN HEADER */
+.wel-txt {
+    position: absolute;
+    width: 600px;
+    text-align: center;
+}
+
+
+/* SCROLLING PAGES */
 .scroll {
     height: 100vh;
     background-size: cover;
     background-position: center center;
     -webkit-background-size: cover;
     padding: 200px 300px;
-    /* font-family: 'SciFly-Sans'; */
     font-family: 'Port Lligat Sans', sans-serif;
 }
 
@@ -149,6 +90,11 @@ header {
 #offers {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("http://data.freehdw.com/godfather-black-offer-mafia-movie-movies-hd-background.jpg");
 }
+marquee {
+    background-color: #ffebcde5;
+    color: #24252a;
+    font-family: "Varela Round";
+}
 
 #contact {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/contact.jpg");
@@ -158,6 +104,7 @@ header {
     background: #24252a;
 }
 
+/* BUTTONS */
 .click {
     line-height: 56px;
     padding: 5px 20px;
@@ -172,6 +119,7 @@ header {
 }
 
 .click:hover {
+    transition: all 0.4s ease 0s;
     background: blanchedalmond;
     color: #24252a;
 }
@@ -191,10 +139,4 @@ header {
 .cart img {
     width: 30px;
     height: 30px;
-}
-
-marquee {
-    background-color: #ffebcde5;
-    color: #24252a;
-    font-family: "Varela Round";
 }

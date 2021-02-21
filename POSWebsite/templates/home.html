@@ -5,11 +5,12 @@
 
         <title>Home Page</title>
         <link rel="stylesheet" type="text/css" href="/static/css/home.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/navbar.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         
         <script>
             document.addEventListener("scroll", function () {
-                const navbar = document.querySelector(".barnav");
+                const navbar = document.querySelector(".home_navbar");
                 const navbarHeight = 50;
 
                 const distanceFromTop = Math.abs(
@@ -38,7 +39,7 @@
 
         <header>
             <!-- <img src="https://img.icons8.com/pastel-glyph/64/000000/dinner--v2.png"  href="home.html">     -->
-            <nav class="barnav">
+            <nav class="home_navbar">
                 <a href="/home">
                     <div class="company">
                         <img class="logo" src="/static/css/images/compnay_logo_100.png">le mieux
@@ -46,17 +47,17 @@
                 </a>
                 <ul class="nav_item">
                     {% if us %}
-                    <a id="navi" href="/accounts/logout">
-                        <li id="navlist">LOGOUT</li>
+                    <a class="navi" href="/accounts/logout">
+                        <li>LOGOUT</li>
                     {% else %}
-                    <a id="navi" href="/accounts/login">
-                        <li id="navlist">LOGIN</li>
+                    <a class="navi" href="/accounts/login">
+                        <li>LOGIN</li>
                     {% endif %}
                     
-                    <a id="navi" onclick="scrolldiv('offers')"><li id="navlist">OFFERS</li></a>
-                    <a id="navi" onclick="scrolldiv('menu')"><li id="navlist">MENU</li></a>
-                    <a id="navi" onclick="scrolldiv('contact')"><li id="navlist">CONTACT</li></a>
-                    <!-- <li id="navi"> -->
+                    <a class="navi" onclick="scrolldiv('offers')"><li>OFFERS</li></a>
+                    <a class="navi" onclick="scrolldiv('menu')"><li>MENU</li></a>
+                    <a class="navi" onclick="scrolldiv('contact')"><li>CONTACT</li></a>
+                    <!-- <li class="navi"> -->
                         <!-- <a class="cart" onclick="scrolldiv('cart')"><img src="/static/css/images/cart.png" alt="CART"></a> -->
                     <!-- </li> -->
                 </ul>

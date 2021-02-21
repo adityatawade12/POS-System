@@ -1,0 +1,10 @@
+body, html {
+    overflow: hidden;
+    height: 100%;
+  }
+
+.scroll-pre {
+    height: 100px;
+    width: 100%;
+    background-color: inherit;
+} 

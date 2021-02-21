@@ -5,25 +5,25 @@
 
     
         <title>Menu Page</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
+
     </head>
     <body>
-        <h1>
+        
+        <header>
+{% endblock content %}
+{% block tail %}
+        </header>
+        
+        <div class="scroll-pre"></div>
+
+        <h1 class="start_page">
            Menu Page
         </h1>
         
-        <a href="/home">home</a>
-        <a href="/menu">menu</a>
-        <a href="/contact">contact</a>
-       
         
-        
-        {%if us %}
-            {{us.email}} <a href="/accounts/logout">Logout</a>
-        {% else %}
-            <a href="/accounts/login">Login</a>
-        {% endif %}    
-
-{% endblock %}
+{% endblock tail %}
 
 
         
