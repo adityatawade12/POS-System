@@ -3,6 +3,8 @@
 body, html {
   overflow: hidden;
   height: 100%;
+  color: blanchedalmond;
+  font-family: 'Varela Round';
 }
 
 header {
@@ -20,12 +22,13 @@ header {
 }
 
 form {
-  width: 400px;
-  height: 500px;
-  float: right;
-  background: #24252ae8;
-  margin-right: 200px;
-  margin-top: 190px;
+  width: 432px;
+    height: 500px;
+    float: right;
+    background: #24252ae8;
+    margin-right: 200px;
+    margin-top: 190px;
+    padding: 10px 30px;
 }
 
 .bgimg {
@@ -47,21 +50,36 @@ form {
   vertical-align: sub;
 }
 
+input {
+  width: 100%;
+  margin: 8px 0px 0px 0px;
+  /* padding: 0px 1px; */
+  /* display: inline-block; */
+  /* box-sizing: border-box; */
+  background-color: transparent;
+  border-block-style: none;
+  border-bottom-style: groove;
+  border-inline: none;
+}
+
+h1 {
+  font-family: 'Varela Round';
+  font-size: 50px;
+  color: blanchedalmond;
+  font-weight: 100;
+}
+
+.link {
+  text-decoration: none;
+  color: dodgerblue;
+}
+
 /* swanand cho code */
 /* Bordered form */
 /* form {
     border: 3px solid #f1f1f1;
   } */
-  
-  /* Full-width inputs */
-  input[type=text], input[type=email], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-  }
+
   
   /* Set a style for all buttons */
   button {
@@ -78,14 +96,7 @@ form {
   button:hover {
     opacity: 0.8;
   }
-  
-  /* Extra style for the cancel button (red) */
-  .cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
-  }
-  
+
   /* Center the avatar image inside this container */
   .imgcontainer {
     text-align: center;

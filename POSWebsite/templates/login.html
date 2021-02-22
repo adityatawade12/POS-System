@@ -12,28 +12,28 @@
       <header>
 {% endblock content %}
 {% block tail %}
+      </header>
 
-    </header>
-    <!-- <div class="scroll-pre"></div> -->
     <div class="bgimg">
 
       <form action="/accounts/login" method="POST">
               {% csrf_token %}
         <div class="container">
-          <label for="email"><b>Email</b></label>
-          <input type="email" placeholder="Enter email" id="email" name="email" required>
-        </br ></br>
-          <label for="password"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" id="password" name="password" required>
-      </br></br>
-          <button type="submit"  id="btnsubmit">Login</button>
-          <button action="/accounts/signup">Signup</button>
-          
+          <h1 id="sign-head">Sign in</h1>New user? <a class="link" href="/accounts/signup">Create an account</a>
+          <br>
+          <br>
+          <br>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        <br><br>
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+          <br><br><br>
+          <button type="submit"  id="btnsubmit">Login</button>          
         </div>
-
-        <div class="container">
-          <span class="psw"><a href="#">Forgot password?</a></span>
-        </div>
+        <!-- <div class="container"> -->
+          <span class="psw"><a class="link" href="#">Forgot password?</a></span>
+        <!-- </div> -->
       </form>
     </div>
 
