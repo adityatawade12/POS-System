@@ -4,20 +4,18 @@
 {% block content %}
     
         <title>Contact Page</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}">
+
     </head>
     <body>
-        <h1>
-           Contact Page
-        </h1>
-        <a href="/home">home</a>
-        <a href="/menu">menu</a>
-        <a href="/contact">contact</a>
-       
         
+        <header>
+{% endblock content %}
+{% block tail %}
+        </header>
         
-        {%if us %}
-            {{us.email}} <a href="/accounts/logout">Logout</a>
-        {% else %}
-            <a href="/accounts/login">Login</a>
-        {% endif %}    
-{% endblock %}
+        <div class="scroll-pre"></div>
+        <h1>Contact Page</h1>
+        
+{% endblock tail %}
