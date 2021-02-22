@@ -60,6 +60,11 @@ input {
   border-block-style: none;
   border-bottom-style: groove;
   border-inline: none;
+  color: blanchedalmond;
+}
+
+input:focus {
+  outline: none;
 }
 
 h1 {
