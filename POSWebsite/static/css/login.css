@@ -23,17 +23,17 @@ header {
 
 form {
   width: 432px;
-    height: 500px;
-    float: right;
-    background: #24252ae8;
-    margin-right: 200px;
-    margin-top: 190px;
-    padding: 10px 30px;
+  height: 500px;
+  float: right;
+  background: #24252ae8;
+  margin-right: 200px;
+  margin-top: 190px;
+  padding: 10px 30px;
 }
 
 .bgimg {
-  height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/login.jpg");
+  height: 100vh;
   background-size: cover;
 } 
 
@@ -61,7 +61,7 @@ form {
 }
 
 label {
-  font-size: 20px;
+  font-size: 18px;
   color: #92897a;
 }
 input {
@@ -75,7 +75,7 @@ input {
   border-bottom-style: groove;
   border-inline: none;
   color: blanchedalmond;
-  font-size: 15px;
+  font-size: 20px;
   font-family: 'Adobe Clean';
 }
 
@@ -115,51 +115,3 @@ button:hover {
   background-color: blanchedalmond;
   transition: all 0.4s ease 0s;
 }
-
-/* swanand cho code */
-/* Bordered form */
-/* form {
-    border: 3px solid #f1f1f1;
-  } */
-
-  
-  
-  
-  /* Add a hover effect for buttons */
-  button:hover {
-    opacity: 0.8;
-  }
-
-  /* Center the avatar image inside this container */
-  .imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-  }
-  
-  /* Avatar image */
-  img.avatar {
-    width: 40%;
-    border-radius: 50%;
-  }
-  
-  /* Add padding to containers */
-  .container {
-    padding: 16px;
-  }
-  
-  /* The "Forgot password" text */
-  span.psw {
-    float: right;
-    padding-top: 16px;
-  }
-  
-  /* Change styles for span and cancel button on extra small screens */
-  @media screen and (max-width: 300px) {
-    span.psw {
-      display: block;
-      float: none;
-    }
-    .cancelbtn {
-      width: 100%;
-    }
-  }
