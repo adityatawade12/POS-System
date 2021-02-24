@@ -20,10 +20,12 @@
     <ul class="nav_item">
         {% if us %}
         <a class="navi" href="/accounts/logout">
-            <li>LOGOUT</li>
+            <li>{{us.email}}, LOGOUT</li>
+        </a>
         {% else %}
         <a class="navi" href="/accounts/login">
             <li>LOGIN</li>
+        </a>
         {% endif %}
         
         <a class="navi" href="#"><li>OFFERS</li></a>

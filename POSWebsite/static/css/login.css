@@ -37,6 +37,16 @@ form {
   background-size: cover;
 } 
 
+.login-form {
+  padding: 15px;
+  height: 480px;
+}
+
+#frgt-pass {
+  float: right;
+  padding-top: 25px;
+}
+
 .credits {
   color: blanchedalmond;
   position: absolute;
@@ -50,6 +60,10 @@ form {
   vertical-align: sub;
 }
 
+label {
+  font-size: 20px;
+  color: #92897a;
+}
 input {
   width: 100%;
   margin: 8px 0px 0px 0px;
@@ -61,22 +75,45 @@ input {
   border-bottom-style: groove;
   border-inline: none;
   color: blanchedalmond;
+  font-size: 15px;
+  font-family: 'Adobe Clean';
 }
 
 input:focus {
   outline: none;
+  border-bottom-style: double;
+  border-color: blanchedalmond;
 }
 
 h1 {
   font-family: 'Varela Round';
   font-size: 50px;
   color: blanchedalmond;
-  font-weight: 100;
 }
 
 .link {
   text-decoration: none;
   color: dodgerblue;
+}
+
+button {
+  background-color: transparent;
+  color: blanchedalmond;
+  padding: 14px 20px;
+  margin-left: 90px;
+  border: 1px solid;
+  cursor: pointer;
+  width: 50%;
+  border-radius: 100px;
+  font-family: 'Varela Round';
+  font-size: 15px;
+  font-weight: bold;
+}
+
+button:hover {
+  color: #24252a;
+  background-color: blanchedalmond;
+  transition: all 0.4s ease 0s;
 }
 
 /* swanand cho code */
@@ -86,16 +123,7 @@ h1 {
   } */
 
   
-  /* Set a style for all buttons */
-  button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-  }
+  
   
   /* Add a hover effect for buttons */
   button:hover {
