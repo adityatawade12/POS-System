@@ -1,10 +1,126 @@
-body, html {
-    overflow: hidden;
-    height: 100%;
+body{
+    overflow: scroll;
+    background-image: url("https://images-ext-2.discordapp.net/external/xO9QEQMV8CjgkyzB3NCC92nI6vR8oPls-ioiToyZ42A/%3Fixid%3DMXwxMjA3fDB8MHxzZWFyY2h8Nzh8fHJlc3RhdXJhbnR8ZW58MHx8MHw%253D%26ixlib%3Drb-1.2.1%26auto%3Dformat%26fit%3Dcrop%26w%3D500%26q%3D60/https/images.unsplash.com/photo-1593160688806-4a3604ef4cbd");
+    background-size:cover;
+    background-position: center center;
+    -webkit-background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    height: 100vh;
   }
 
+  ::-webkit-scrollbar {
+    display: none;
+}
+
 .scroll-pre {
-    height: 100px;
+    height: 10%;
     width: 100%;
     background-color: inherit;
-} 
+}
+
+
+.cards_own{
+  margin: 0 auto;
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-auto-rows: auto;
+  gap: 20px;
+  font-family: sans-serif;
+  padding-top: 30px;
+  padding-left:20px ;
+  float: left;
+}
+
+.cartinside{
+  float: right;
+  text-align: center;
+  position: fixed;
+  /*position: -webkit-sticky;*/
+  right: 10px;
+  width: 500px;
+  height: 500px;
+  top: 200px;
+  display: flex;
+  box-shadow: 0 0 6px #000;
+  
+}
+
+.cards * {
+  box-sizing: border-box;
+}
+
+.card__image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+  border-top: 2px solid #333333;
+  border-right: 2px solid #333333;
+  border-left: 2px solid #333333;
+}
+
+.card__content {
+  line-height: 1.5;
+  font-size: 0.9em;
+  padding: 15px;
+  background: #fafafa;
+  border-right: 2px solid #333333;
+  border-left: 2px solid #333333;
+}
+
+.card__content > p:first-of-type {
+  margin-top: 0;
+}
+
+.card__content > p:last-of-type {
+  margin-bottom: 0;
+  height:100px ;
+  width:190px;
+}
+
+.card__info {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #555555;
+  background: #eeeeee;
+  font-size: 0.8em;
+  border-bottom: 2px solid #333333;
+  border-right: 2px solid #333333;
+  border-left: 2px solid #333333;
+}
+
+.card__info i {
+  font-size: 0.9em;
+  margin-right: 8px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-top-right-radius:10px;
+  border-bottom-left-radius: 10px;
+  margin-bottom:10%;
+}
+
+.click {
+  line-height: 56px;
+  padding: 5px 20px;
+  font-size: 18px;
+  border-radius: 40px;
+  background-color: #24252a;
+  color: rgb(214, 182, 95);
+  border: 2px solid rgb(205, 255, 234);
+  text-decoration: none;
+  margin: auto;
+  font-family: 'Varela Round', sans-serif;
+}
