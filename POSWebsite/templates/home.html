@@ -11,7 +11,7 @@
         <script>
             document.addEventListener("scroll", function () {
                 const navbar = document.querySelector(".home_navbar");
-                const navbarHeight = 50;
+                const navbarHeight = 20;
 
                 const distanceFromTop = Math.abs(
                     document.body.getBoundingClientRect().top
@@ -24,21 +24,12 @@
             function scrolldiv(arg) { 
                 var elem = document.getElementById(arg); 
                 elem.scrollIntoView();
-            } 
-
-            // $(function() {
-            //     $('.scroll').on('scroll', function(e) {
-            //         e.preventDefault();
-            //         $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
-            //     });
-            // });
-
+            }
         </script>
     </head>
     <body>
 
         <header>
-            <!-- <img src="https://img.icons8.com/pastel-glyph/64/000000/dinner--v2.png"  href="home.html">     -->
             <nav class="home_navbar">
                 <a href="/home">
                     <div class="company">
@@ -47,13 +38,15 @@
                 </a>
                 <ul class="nav_item">
                     {% if us %}
-                    <a class="navi" href="/accounts/logout">
-                        <li>LOGOUT</li>
+                        <a class="navi" href="/accounts/logout">
+                            <li>{{us.email}}, LOGOUT</li>
+                        </a>
                     {% else %}
-                    <a class="navi" href="/accounts/login">
-                        <li>LOGIN</li>
+                        <a class="navi" href="/accounts/login">
+                            <li>LOGIN</li>
+                        </a>
                     {% endif %}
-                    
+                            
                     <a class="navi" onclick="scrolldiv('offers')"><li>OFFERS</li></a>
                     <a class="navi" onclick="scrolldiv('menu')"><li>MENU</li></a>
                     <a class="navi" onclick="scrolldiv('contact')"><li>CONTACT</li></a>
@@ -62,6 +55,9 @@
                     <!-- </li> -->
                 </ul>
             </nav>
+            <div class="wel-txt">
+                WELCOME!
+            </div>
         </header>
         
         <div class="scroll" id="offers">

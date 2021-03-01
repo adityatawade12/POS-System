@@ -67,9 +67,13 @@ header {
 
 /* WELCOME TEXT IN HEADER */
 .wel-txt {
-    position: absolute;
+    /* position: absolute; */
     width: 600px;
     text-align: center;
+    margin: auto;
+    font-size: 100px;
+    font-family: 'Port Lligat Sans';
+    color: blanchedalmond;
 }
 
 

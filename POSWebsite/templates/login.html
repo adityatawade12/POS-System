@@ -3,7 +3,7 @@
 
 {% block content %}
     
-        <title>Login Page</title>
+        <title>Login</title>
         <link rel="stylesheet" href="{% static 'css/login.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
         
@@ -17,24 +17,28 @@
     <div class="bgimg">
 
       <form action="/accounts/login" method="POST">
-              {% csrf_token %}
-        <div class="container">
+        {% csrf_token %}
+        
+        <div class="login-form">
           <h1 id="sign-head">Sign in</h1>New user? <a class="link" href="/accounts/signup">Create an account</a>
           <br>
           <br>
           <br>
           <label for="email">Email</label>
           <input type="email" id="email" name="email" required>
-        <br><br>
+          <br>
+          <br>
           <label for="password">Password</label>
           <input type="password" id="password" name="password" required>
-          <br><br><br>
-          <button type="submit"  id="btnsubmit">Login</button>          
+          <br>
+          <br>
+          <br>
+          <button type="submit"  id="btnsubmit">Login</button>
+          <a class="link" id="frgt-pass" href="#">Forgot password?</a>
         </div>
-        <!-- <div class="container"> -->
-          <span class="psw"><a class="link" href="#">Forgot password?</a></span>
-        <!-- </div> -->
+
       </form>
+
     </div>
 
     <div class="credits"><img src="{% static 'css/images/camera.png' %}" alt="">: Daniel Krieger</div>
