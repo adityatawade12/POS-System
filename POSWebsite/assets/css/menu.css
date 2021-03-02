@@ -39,7 +39,7 @@ body{
   text-align: center;
   position: fixed;
   /*position: -webkit-sticky;*/
-  /*right: 10px;*/
+  right: 10px;
   width: 500px;
   height: 500px;
   top: 200px;
@@ -128,7 +128,7 @@ body{
   color: blanchedalmond;
   padding-top:3%;
   font-family: Lucida Bright;
-  margin-left:1%;
+  margin-left: 5%;
   font-size:40px;
   max-width:60% ;
   border-bottom: 2px solid blanchedalmond;
@@ -136,10 +136,4 @@ body{
 
 .catline{
   color:blanchedalmond;
-}
-
-.cont1{
-  margin-left:3% ;
-  margin-right: 1%;
-  max-width: 98%;
 }

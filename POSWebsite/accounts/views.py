@@ -15,7 +15,6 @@ config = {
     "databaseURL": "https://mkstrial-91474-default-rtdb.firebaseio.com",
     "serviceAccount": "accounts/mkstrial-91474-firebase-adminsdk-ks5kv-b1e2114ee3.json",
     "storageBucket": "mkstrial-91474.appspot.com",
-    
 }
 pirebase = pyrebase.initialize_app(config)
 authe = pirebase.auth()

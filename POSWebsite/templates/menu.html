@@ -3,7 +3,6 @@
 
 {% block content %}
 
-
 <title>Menu Page</title>
 <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
@@ -11,7 +10,6 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
-
 <body>
 
         <header>
@@ -22,150 +20,33 @@
         <div class="scroll-pre"></div>
 
 
-        <div >
-                <div class="row">
-                        <div class="col-lg-9" style="margin-left:4%;max-width: 65%;margin-top:5%;">
-                                <div class="" style="float: left;">
+        <div class="cont1">
+                <p class="Category">Snacks</p>
+                <div class="row"  style="border: 2px solid blue;">
+                        <div class="col-lg-8" style="padding-top: 1%;border: 2px solid red;">
+                                <div  style="float: left;">
                                         <div class="row">
-                                                <div class="col-lg-4">
-                                                        <div class="card" style="width: 85%;border:2px solid black;">
+                                                {% for item in items  %}
+                                                <div class="col-md-4" >
+                                                        <div class="card" style="width:85%;border:2px solid white;border-top-right-radius:10% ;border-bottom-left-radius:10%;">
                                                                 <img class="card-img-top"
-                                                                        src="{% static 'css/images/friedrice.jpg' %}"
-                                                                        alt="Card image cap">
-                                                                <div class="card-body"style="background-color: blanchedalmond;">
-                                                                        <h5 class="card-title-1">Fried Rice</h5>
-                                                                        <p class="card-text" >Some quick example text to
-                                                                                build on the card title and make up the
-                                                                                bulk of the card's content.</p>
+                                                                        src="{{item.Image}}"
+                                                                        alt="Card image cap" style="border-top-right-radius:10% ;">
+                                                                <div class="card-body"style="background-color: blanchedalmond ;border-bottom-left-radius:10% ;">
+                                                                        <h5 class="card-title-1">{{item.Name}}</h5>
+                                                                        <p class="card-text" style="font-size: small;" >{{item.Description}}</p>
                                                                         <a href="#" class="click" onclick="myfunct()">Add to Cart</a>
                                                                 </div>
                                                         </div>
                                                 </div>
-                                                <div class="col-lg-4">
-                                                        <div class="card" style="width: 85%;border:2px solid black ;">
-                                                                <img class="card-img-top"
-                                                                        src="{% static 'css/images/friedrice.jpg' %}"
-                                                                        alt="Card image cap">
-                                                                <div class="card-body"style="background-color: blanchedalmond;">
-                                                                        <h5 class="card-title">Vada Pav</h5>
-                                                                        <p class="card-text">Some quick example text to
-                                                                                build on the card title and make up the
-                                                                                bulk of the card's content.</p>
-                                                                        <a href="#" class="click" onclick="myfunct()">Add to Cart</a>
-                                                                </div>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                        <div class="card" style="width: 85%;border:2px solid black ;">
-                                                                <img class="card-img-top"
-                                                                        src="{% static 'css/images/friedrice.jpg' %}"
-                                                                        alt="Card image cap">
-                                                                <div class="card-body"style="background-color: blanchedalmond;">
-                                                                        <h5 class="card-title">Pav Bhaji</h5>
-                                                                        <p class="card-text">Some quick example text to
-                                                                                build on the card title and make up the
-                                                                                bulk of the card's content.</p>
-                                                                        <a href="#" class="click" onclick="myfunct()">Add to Cart</a>
-                                                                </div>
-                                                        </div>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                        <div class="card" style="width: 85%;border:2px solid black ;">
-                                                                <img class="card-img-top"
-                                                                        src="{% static 'css/images/friedrice.jpg' %}"
-                                                                        alt="Card image cap">
-                                                                <div class="card-body"style="background-color: blanchedalmond;">
-                                                                        <h5 class="card-title">Masala Dosa</h5>
-                                                                        <p class="card-text">Some quick example text to
-                                                                                build on the card title and make up the
-                                                                                bulk of the card's content.</p>
-                                                                        <a href="#" class="click" onclick="myfunct()">Add to Cart</a>
-                                                                </div>
-                                                        </div>
-                                                </div>
-
-                                                <div class="col-lg-4">
-                                                        <div class="card" style="width:85%;border:2px solid black ;">
-                                                                <img class="card-img-top"
-                                                                        src="{% static 'css/images/friedrice.jpg' %}"
-                                                                        alt="Card image cap">
-                                                                <div class="card-body"style="background-color: blanchedalmond;">
-                                                                        <h5 class="card-title">Card title</h5>
-                                                                        <p class="card-text">Some quick example text to
-                                                                                build on the card title and make up the
-                                                                                bulk of the card's content.</p>
-                                                                        <a href="#" class="click" onclick="myfunct()">Add to Cart</a>
-                                                                </div>
-                                                        </div>
-                                                </div>
-
-                                                <div class="col-lg-4">
-                                                        <div class="card" style="width:85%;border:2px solid black ;">
-                                                                <img class="card-img-top"
-                                                                        src="{% static 'css/images/friedrice.jpg' %}"
-                                                                        alt="Card image cap">
-                                                                <div class="card-body"style="background-color: blanchedalmond;">
-                                                                        <h5 class="card-title">Card title</h5>
-                                                                        <p class="card-text">Some quick example text to
-                                                                                build on the card title and make up the
-                                                                                bulk of the card's content.</p>
-                                                                        <a href="#" class="click" onclick="myfunct()">Add to Cart</a>
-                                                                </div>
-                                                        </div>
-                                                </div>
-
-                                                <div class="col-lg-4">
-                                                        <div class="card" style="width:85%;border:2px solid black ;">
-                                                                <img class="card-img-top"
-                                                                        src="{% static 'css/images/friedrice.jpg' %}"
-                                                                        alt="Card image cap">
-                                                                <div class="card-body"style="background-color: blanchedalmond;">
-                                                                        <h5 class="card-title">Card title</h5>
-                                                                        <p class="card-text">Some quick example text to
-                                                                                build on the card title and make up the
-                                                                                bulk of the card's content.</p>
-                                                                        <a href="#" class="click" onclick="myfunct()">Add to Cart</a>
-                                                                </div>
-                                                        </div>
-                                                </div>
-
-                                                <div class="col-lg-4">
-                                                        <div class="card" style="width:85%;border:2px solid black ;">
-                                                                <img class="card-img-top"
-                                                                        src="{% static 'css/images/friedrice.jpg' %}"
-                                                                        alt="Card image cap">
-                                                                <div class="card-body"style="background-color: blanchedalmond;">
-                                                                        <h5 class="card-title">Card title</h5>
-                                                                        <p class="card-text">Some quick example text to
-                                                                                build on the card title and make up the
-                                                                                bulk of the card's content.</p>
-                                                                        <a href="#" class="click" onclick="myfunct()">Add to Cart</a>
-                                                                </div>
-                                                        </div>
-                                                </div>
-
-                                                <div class="col-lg-4">
-                                                        <div class="card" style="width:85%;border:2px solid black ;">
-                                                                <img class="card-img-top"
-                                                                        src="{% static 'css/images/friedrice.jpg' %}"
-                                                                        alt="Card image cap">
-                                                                <div class="card-body"style="background-color: blanchedalmond;">
-                                                                        <h5 class="card-title">Card title</h5>
-                                                                        <p class="card-text">Some quick example text to
-                                                                                build on the card title and make up the
-                                                                                bulk of the card's content.</p>
-                                                                        <a href="#" class="click" onclick="myfunct()">Add to Cart</a>
-                                                                </div>
-                                                        </div>
-                                                </div>
-
+                                                {% endfor %}
                                         </div>
                                 </div>
                         </div>
-                        <div class="col-lg-3">
-                                <div class="cartinside">
+                        <div class="col-lg-4" style="border: 2px solid white;">
+                                <!--<div class="cartinside">
                                         
-                                </div>
+                                </div> -->
                         </div>
                 </div>
         </div>
