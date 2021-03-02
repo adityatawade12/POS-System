@@ -1,10 +1,85 @@
-body, html {
-    overflow: hidden;
-    height: 100%;
+body {
+  background-image:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("https://cdn.hipwallpaper.com/i/21/81/ZV2ITW.jpg");
+  background-size:cover;
+  background-position: center center;
+  -webkit-background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  height: 100vh;
   }
 
-.scroll-pre {
-    height: 100px;
+ .scroll-pre {
+    height: 89.6px;
     width: 100%;
-    background-color: inherit;
-} 
+    /* background-color: inherit; */
+}
+
+.cont1 {
+  display: inline-block;
+  width: 75%;
+}
+
+.div_card {
+    /* margin: 2em !important; */
+    display: inline-block;
+    padding: 2em;
+}
+
+._cart {
+  position: fixed !important;
+  width: 25%;
+  top: 140px;
+  right: 20px;
+  margin: 30px !important;
+}
+
+@media (max-width: 992px)
+{
+  ._cart {
+    top: auto;
+    width: 80%;
+    right: auto;
+    margin: 10%;
+    position: unset !important;
+  }
+
+  .cont1 {
+    width: auto;
+    display: inline-grid;
+  }
+}
+
+.card_img {
+  background-size: cover;
+  background-position: center center;
+  -webkit-background-size: cover;
+  border-top-right-radius:10%;
+}
+
+
+@media (max-width: 576px)
+{
+  .card_img {
+    height: 60% !important;
+  }
+
+  .div_card {
+    padding: 2em 4em;
+  }
+
+    ._cards {
+      padding-bottom: 5em;
+  }
+}
+.click {
+  line-height: 56px;
+  padding: 5px 20px;
+  font-size: 18px;
+  border-radius: 40px;
+  background-color: #24252a;
+  color: rgb(214, 182, 95);
+  border: 2px solid rgb(205, 255, 234);
+  text-decoration: none;
+  margin: auto;
+  font-family: 'Varela Round', sans-serif;
+}
