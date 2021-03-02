@@ -1,40 +1,47 @@
+{% extends "base.html" %}
 {% load static %}
-<html>
-    <head>
-        <title>Login Page</title>
+
+{% block content %}
+    
+        <title>Login</title>
         <link rel="stylesheet" href="{% static 'css/login.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
+        
     </head>
     <body>
-        <h1>
-           Login Page
-        </h1>
-        <a href="/home">home</a>
-        <a href="/menu">menu</a>
-        <a href="/accounts/login">Login</a>
-        <a href="/accounts/signup">Signup</a>
-        <a href="/contact">contact</a>
-        <center><h1>Welcome to POS Restaurant</h1></center>
+      <header>
+{% endblock content %}
+{% block tail %}
+      </header>
 
+    <div class="bgimg">
 
-<form action="action_page.php" method="post">
-  <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
-  </br ></br>
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-</br></br>
-    <button type="submit">Login</button>
-    <button type="submit" onclick="location.href='signup.html';">Signup</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
+      <form action="/accounts/login" method="POST">
+        {% csrf_token %}
+        
+        <div class="login-form">
+          <h1 id="sign-head">Sign in</h1>New user? <a class="link" href="/accounts/signup">Create an account</a>
+          <br>
+          <br>
+          <br>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+          <br>
+          <br>
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+          <br>
+          <br>
+          <br>
+          <button type="submit"  id="btnsubmit">Login</button>
+          <a class="link" id="frgt-pass" href="#">Forgot password?</a>
+        </div>
 
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
-  </div>
-</form>
-    </body>
-</html>
+      </form>
+
+    </div>
+
+    <div class="credits"><img src="{% static 'css/images/camera.png' %}" alt="">: Daniel Krieger</div>
+    <script src="{% static 'js/signup.js' %}"></script>
+
+{% endblock tail %}

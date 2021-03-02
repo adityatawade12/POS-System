@@ -1,0 +1,8 @@
+{
+<<<<<<< HEAD
+    "python.pythonPath": "C:\\Users\\astaw\\envs\\test\\Scripts\\python.exe"
+=======
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
+>>>>>>> eeeda94aa3b9359f1dc83ccbf7259e33fdcc20db
+}

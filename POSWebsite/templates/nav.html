@@ -1,0 +1,35 @@
+<!-- {% extends "login.html" %}
+{% load static %}
+{% block navbar %} -->
+
+<nav class="barnav">
+    <a href="/home">
+        <div class="company">
+            <img class="logo" src="{% static 'css/images/compnay_logo_100.png' %}">le mieux
+        </div>
+    </a>
+    <ul class="nav_item">
+        {% if us %}
+        <a id="navi" href="/accounts/logout">
+            <li id="navlist">LOGOUT</li>
+        {% else %}
+        <a id="navi" href="/accounts/login">
+            <li id="navlist">LOGIN</li>
+        {% endif %}
+        
+        <a id="navi" href="#"><li id="navlist">OFFERS</li></a>
+        <a id="navi" href="/menu"><li id="navlist">MENU</li></a>
+        <a id="navi" href="/contact"><li id="navlist">CONTACT</li></a>
+        <!-- <li id="navi"> -->
+            <!-- <a class="cart" onclick="scrolldiv('cart')"><img src="/static/css/images/cart.png" alt="CART"></a> -->
+        <!-- </li> -->
+    </ul>
+</nav>
+
+<!-- {% endblock navbar %} -->
+<!-- <script>
+            // $.get("/nav", function(data){
+            //     $("#nav-placeholder").replaceWith(data);
+            // });
+            $("#nav-placeholder").load("{% static 'nav.html' %}");
+        </script>  -->

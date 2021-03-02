@@ -1,0 +1,147 @@
+@import url('fonts.css');
+
+* {
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+    /* background-color: #24252a; */
+}
+
+img {
+    width: 100%;
+}
+
+li, a {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* NAVBAR */
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 60px;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F826921.jpg&f=1&nofb=1");
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    -webkit-background-size: cover;
+    position: relative;
+}
+
+.home_navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0px 60px 5px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home_navbar li {
+    font-size: 25px;
+}
+
+.home_navbar.fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #24252aee;
+    color: #ffebcd;
+    padding: 0px 60px;
+    transition: all 0.3s ease 0s;
+    /*
+    transition: background .25s ease-in-out,color .25s ease-in-out,box-shadow .25s ease-in-out,opacity .25s ease-in-out,visibility .25s ease-in-out;
+        transition-property: background, color, box-shadow, opacity, visibility;
+        transition-duration: 0.25s, 0.25s, 0.25s, 0.25s, 0.25s;
+        transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+        transition-delay: 0s, 0s, 0s, 0s, 0s;
+    */
+}
+
+.home_navbar.fixed-top li {
+    font-size: 20px;
+}
+
+/* WELCOME TEXT IN HEADER */
+.wel-txt {
+    /* position: absolute; */
+    width: 600px;
+    text-align: center;
+    margin: auto;
+    font-size: 100px;
+    font-family: 'Port Lligat Sans';
+    color: blanchedalmond;
+}
+
+
+/* SCROLLING PAGES */
+.scroll {
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    -webkit-background-size: cover;
+    padding: 200px 300px;
+    font-family: 'Port Lligat Sans', sans-serif;
+}
+
+#menu {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/menu.jpg");
+}
+
+#offers {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("http://data.freehdw.com/godfather-black-offer-mafia-movie-movies-hd-background.jpg");
+}
+
+marquee {
+    background-color: #ffebcde5;
+    color: #24252a;
+    font-family: "Varela Round";
+}
+
+#contact {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/contact.jpg");
+}
+
+#cart {
+    background: #24252a;
+}
+
+/* BUTTONS */
+.click {
+    line-height: 56px;
+    padding: 5px 20px;
+    font-size: 18px;
+    border-radius: 40px;
+    background-color: #24252a6e;
+    color: blanchedalmond;
+    border: 2px solid blanchedalmond;
+    text-decoration: none;
+    margin: auto;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.click:hover {
+    transition: all 0.4s ease 0s;
+    background: blanchedalmond;
+    color: #24252a;
+}
+
+.cart {
+    padding: 40px 20px 30px 20px;
+}
+
+.cart:hover {
+    background: blanchedalmond;
+}
+
+/* .cart:hover img {
+    -webkit-mask-image: url("/images/cart_dark.png");
+} */
+
+.cart img {
+    width: 30px;
+    height: 30px;
+}

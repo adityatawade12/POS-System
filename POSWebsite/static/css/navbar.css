@@ -1,0 +1,124 @@
+@import url("fonts.css");
+
+* {
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    /* background-color: #24252a; */
+}
+
+body {
+    overflow: overlay;
+}
+
+img {
+    width: 100%;
+}
+
+li, a {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+} 
+ 
+::-webkit-scrollbar-thumb {
+  background: rgba(90, 90, 90, 0.7);
+}
+  
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+    
+
+/* NAVBAR */
+.barnav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #24252a;
+    color: #ffebcd;
+    padding: 0px 60px;
+    transition: all 0.3s ease 0s;
+    /*
+    transition: background .25s ease-in-out,color .25s ease-in-out,box-shadow .25s ease-in-out,opacity .25s ease-in-out,visibility .25s ease-in-out;
+        transition-property: background, color, box-shadow, opacity, visibility;
+        transition-duration: 0.25s, 0.25s, 0.25s, 0.25s, 0.25s;
+        transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+        transition-delay: 0s, 0s, 0s, 0s, 0s;
+    */
+}
+
+.barnav li {
+    font-size: 20px;
+}
+
+/* NAVBAR ITEMS */
+.navi {
+    text-decoration: none;
+}
+
+.navi li {
+    /* font-size: 20px; */
+    color: #ffebcd;
+    list-style: none;
+    font-family: 'Varela Round';
+    font-weight: bold;
+}
+
+.nav_item {
+    cursor: pointer;
+    margin-bottom: 0;
+    float: right;
+}
+
+.nav_item a {
+    display: inline-block;
+    padding: 30px 20px;
+}
+
+.nav_item li a {
+    transition: all 0.3s ease 0s;
+    font-size: 20px;
+}
+
+.navi:hover {
+    transition: all 0.3s ease 0s;
+    background: blanchedalmond;
+}
+.navi:hover li{
+    transition: all 0.4s ease 0s;
+    color: #24252a;
+}
+
+/* COMPANY LOGO AND NAME */
+.logo {
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+}
+
+.company {
+    float: left;
+    padding: 9px 10px 0px 0px;
+    font-size: 47px;
+    /* font-style: italic; */
+    color: blanchedalmond;
+    /* font-family: 'Parisienne', cursive; */
+    /* font-family: 'Vampiro one'; */
+    font-family: 'Cedarville Cursive', cursive;
+    vertical-align: middle;
+}
+
+.company div {
+    float: right;
+}
+
+.company:hover {
+    /* filter: drop-shadow(1px 1px 0.3px cyan); */
+    filter: drop-shadow(1px 1px 10px black);
+}

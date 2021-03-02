@@ -1,19 +1,91 @@
 {% load static %}
+
 <html>
     <head>
+
         <title>Home Page</title>
+        <link rel="stylesheet" type="text/css" href="/static/css/home.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/navbar.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        
+        <script>
+            document.addEventListener("scroll", function () {
+                const navbar = document.querySelector(".home_navbar");
+                const navbarHeight = 20;
+
+                const distanceFromTop = Math.abs(
+                    document.body.getBoundingClientRect().top
+                );
+
+                if (distanceFromTop >= navbarHeight) navbar.classList.add("fixed-top");
+                else navbar.classList.remove("fixed-top");
+            });
+            
+            function scrolldiv(arg) { 
+                var elem = document.getElementById(arg); 
+                elem.scrollIntoView();
+            }
+        </script>
     </head>
     <body>
-        <h1>
-            Home Page
-        </h1>
-        <a href="/home">home</a>
-        <a href="/menu">menu</a>
-        <a href="/accounts/login">Login</a>
-        <a href="/contact">contact</a>
 
-        <img src="{% static 'images/img.jpeg' %}">
-
+        <header>
+            <nav class="home_navbar">
+                <a href="/home">
+                    <div class="company">
+                        <img class="logo" src="/static/css/images/compnay_logo_100.png">le mieux
+                    </div>
+                </a>
+                <ul class="nav_item">
+                    {% if us %}
+                        <a class="navi" href="/accounts/logout">
+                            <li>{{us.email}}, LOGOUT</li>
+                        </a>
+                    {% else %}
+                        <a class="navi" href="/accounts/login">
+                            <li>LOGIN</li>
+                        </a>
+                    {% endif %}
+                            
+                    <a class="navi" onclick="scrolldiv('offers')"><li>OFFERS</li></a>
+                    <a class="navi" onclick="scrolldiv('menu')"><li>MENU</li></a>
+                    <a class="navi" onclick="scrolldiv('contact')"><li>CONTACT</li></a>
+                    <!-- <li class="navi"> -->
+                        <!-- <a class="cart" onclick="scrolldiv('cart')"><img src="/static/css/images/cart.png" alt="CART"></a> -->
+                    <!-- </li> -->
+                </ul>
+            </nav>
+            <div class="wel-txt">
+                WELCOME!
+            </div>
+        </header>
         
+        <div class="scroll" id="offers">
+        <marquee direction="right">GET UPTO 50% OFF ON YOUR FIRST ORDER</marquee>
+        </div>
+        
+        <div class="scroll" id="menu">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br>
+            <a class="click" href="/menu">SEE MENU</a>
+        </div>
+        
+        <!-- <div class="scroll" id="cart">
+            <a class="click" href="#">PROCEED TO CHECKOUT</a>
+        </div> -->
+        
+        <div class="scroll" id="contact">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+
     </body>
 </html>

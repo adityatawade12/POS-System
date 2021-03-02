@@ -1,50 +1,63 @@
+{% extends "base.html" %}
 {% load static %}
-<html>
-    <head>
-        <title>Signup Page</title>
+
+{% block content %}
+    
+        <title>Signup</title>
         <link rel="stylesheet" href="{% static 'css/signup.css' %}">
-    </head>
-    <body>
-        <h1>
-           Signup Page
-        </h1>
-        <a href="/home">home</a>
-        <a href="/menu">menu</a>
-        <a href="/accounts/login">Login</a>
-        <a href="/accounts/signup">Signup</a>
-        <a href="/contact">contact</a>
-        <form action="action_page.php" style="border:1px solid #ccc">
-            <div class="container">
-              <h1>Sign Up</h1>
-              <p>Please fill in this form to create an account.</p>
-              <hr>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
+  </head>
+  <body>
+    <header>
+{% endblock content %}
+{% block tail %}
+    </header>
+
+    <!-- <div class="scroll-pre"></div> -->
+    
+    <div class="bgimg">
+      <form action="/accounts/signup" method="POST">
+        {% csrf_token %}
+        <div class="container">
+          <h1>Sign Up</h1>
+          Already have an account? <a class="link" href="/accounts/login">Sign in</a>
+          <br><br><br>
+
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+          <br><br>
           
-              <label for="email"><b>Email</b></label>
-              <input type="text" placeholder="Enter Email" name="email" required>
-            </br></br>
-              <label for="psw"><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" name="psw" required>
-        </br></br>
-              <label for="psw-repeat"><b>Repeat Password</b></label>
-              <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-        </br></br>
-              
-          <label>
+          <label for="email">Email</label>
+          <input type="text" id="email" name="email" required>
+          <br><br>
           
-            <label for="add"><b>Address</b></label>
-              <input type="text" placeholder="Address" name="add" required>
-          </label>
-          <label>
-            <label for="cont"><b>Contact Number</b></label>
-            <input type="text" placeholder="Contact number" name="cont" required>
-        </label>
-              <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+          <label for="password">Password</label>
+          <input type="password" name="password" required>
+          <br><br>
           
-              <div class="clearfix">
-                <button type="button" class="cancelbtn" onclick="location.href='login.html';">Cancel</button>
-                <button type="submit" class="signupbtn">Sign Up</button>
-              </div>
-            </div>
-          </form>
-    </body>
-</html>
+          <label for="psw-repeat">Repeat Password</label>
+          <input type="password" id="password-rpt" name="psw-repeat" required>
+          <br><br>
+
+          <label for="add">Address</label>
+          <input type="text" name="address" required>
+          <br><br>
+          
+          <label for="cont">Contact Number</label>
+          <input type="text" name="phone" required>
+          <br><br>
+        
+          <p>By creating an account you agree to our <a href="#" class="link">Terms & Privacy</a>.</p>
+          <br>
+            
+          <div>
+            <button type="submit" id="submit">Create account</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- <div class="credits"><img src="{% static 'css/images/camera.png' %}" alt="">: Daniel Krieger</div> -->
+  
+    <script src="{% static 'js/signup.js' %}"></script>
+{% endblock %}

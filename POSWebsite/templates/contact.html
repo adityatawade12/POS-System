@@ -1,14 +1,21 @@
-<html>
-    <head>
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    
         <title>Contact Page</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}">
+
     </head>
     <body>
-        <h1>
-           Contact Page
-        </h1>
-        <a href="/home">home</a>
-        <a href="/menu">menu</a>
-        <a href="/accounts/login">Login</a>
-        <a href="/contact">contact</a>
-    </body>
-</html>
+        
+        <header>
+{% endblock content %}
+{% block tail %}
+        </header>
+        
+        <div class="scroll-pre"></div>
+        <h1>Contact Page</h1>
+        
+{% endblock tail %}
