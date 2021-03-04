@@ -39,7 +39,7 @@ body{
   text-align: center;
   position: fixed;
   /*position: -webkit-sticky;*/
-  /*right: 10px;*/
+  right: 10px;
   width: 500px;
   height: 500px;
   top: 200px;
@@ -122,14 +122,13 @@ body{
   text-decoration: none;
   margin: auto;
   font-family: 'Varela Round', sans-serif;
-  float: bottom;
 }
 
 .Category{
   color: blanchedalmond;
   padding-top:3%;
   font-family: Lucida Bright;
-  margin-left:1%;
+  margin-left: 5%;
   font-size:40px;
   max-width:60% ;
   border-bottom: 2px solid blanchedalmond;
@@ -137,16 +136,4 @@ body{
 
 .catline{
   color:blanchedalmond;
-}
-
-.cont1{
-  margin-left:3% ;
-  margin-right: 2%;
-  max-width: 98%;
-}
-._cart {
-  width: 30%;
-  right: 0;
-  margin-left: 70%;
-  /* height:auto; */
 }
