@@ -87,6 +87,11 @@ header {
     color: blanchedalmond;
 }
 
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/menu.jpg");
+    background-size: cover;
+    background-attachment: fixed;    
+}
 
 /* SCROLLING PAGES */
 .scroll {
@@ -102,9 +107,9 @@ header {
     vertical-align: middle;
 }
 
-#menu {
+/* #menu {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/menu.jpg");
-}
+} */
 
 #offers {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("http://data.freehdw.com/godfather-black-offer-mafia-movie-movies-hd-background.jpg");
@@ -139,7 +144,7 @@ marquee {
 }
 
 .click:hover {
-    transition: all 0.4s ease 0s;
+    transition: all 0.4s ease-in-out;
     background: blanchedalmond;
     color: #24252a;
 }

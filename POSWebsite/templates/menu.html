@@ -20,41 +20,66 @@
                 <div class="cont1">
                         <p class="Category">Snacks</p>
                         <!-- <div class="row"  style="border: 2px solid blue;"> -->
-                                <div class="div_card container" style=" min-width: 500px;max-width:95%;border: 2px solid red;">
+                                <div class="div_card container" style=" min-width: 500px;max-width:95%;">
                                         <div  style="float: left;padding-left: auto;padding-right: auto">
                                                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 g-4">
                                                         {% for item in items  %}
-                                                        <div class="_cards" style="height: 100%;">
-                                                                <div style="height: 35rem;">
+                                                        <div class="_cards" >
+                                                                <div style="height: 100%;">
                                                                         <!--class="card-img-top" --> 
                                                                         <div class="card_img" style="height: 40%; background-image: url('{{item.Image}}');">
                                                                                 <!-- <img class="card-img-top" alt="Card image cap" style=""> -->
                                                                         </div>
-                                                                        <div class="card-body"style="background-color: blanchedalmond ; max-height:60%;border-bottom-left-radius:10% ;font-size:100%;overflow:hidden ">
+                                                                        <div class="card-body"style="background-color: blanchedalmond ; max-height:60%;font-size:100%;overflow:hidden ">
                                                                                 <!-- <br> -->
-                                                                                <div style="height: 20%;border:green 2px solid ;">
-                                                                                        <h5 class="card-title-1" style="font-size: 1.3em;font-weight: bold;">{{item.Name}}</h5>
+                                                                                <div style="height: 20%;font-size: 1.2em;">
+                                                                                        <h5 class="card-title-1" style="font-size: 1.1em;font-weight: bold;">{{item.Name}}</h5>
+                                                                                </div>
+                                                                                <div id="desrc">
+                                                                                        <p class="card-text" style="font-size: 0.8em;  " >{{item.Description}}</p>
                                                                                 </div>
                                                                                 <br>
-                                                                                <!-- {{item.Description}} -->
-                                                                                <div style="height: 50%;overflow: hidden;text-overflow: ellipsis; border:yellow 2px solid ;">
-                                                                                        <p class="card-text" style="font-size: 0.8em;  " >fansjfb asjfbiasf safhs isahfip oihfspai isafio jasfon sjafoh asfiphuga ljsbaip safpisafn asfpisafp saolbf safh siahfp aksfpsasfj alksfpsaf sanfpisafn sakfnp</p>
-                                                                                </div>
-                                                                                <br>
-                                                                                <div style="height: 30%;border:black 2px solid ;">
-                                                                                        <a href="#" class="click" onclick="myfunct()">Add</a>
+                                                                                <div style="height: 30%; display: flex; align-items: center;">
+                                                                                         <a href="#" id="click" onclick="myfunct()">Add to cart&emsp;&#8377;{{item.Price}}</a>
                                                                                 </div>
                                                                                 
                                                                         </div>
                                                                 </div>
                                                         </div>
                                                         {% endfor %}
+
+                                                        <!-- repeat loop  -->
+                                                        {% for item in items  %}
+                                                        <div class="_cards" >
+                                                                <div style="height: 100%;">
+                                                                        <!--class="card-img-top" --> 
+                                                                        <div class="card_img" style="height: 40%; background-image: url('{{item.Image}}');">
+                                                                                <!-- <img class="card-img-top" alt="Card image cap" style=""> -->
+                                                                        </div>
+                                                                        <div class="card-body"style="background-color: blanchedalmond ; max-height:60%;font-size:100%;overflow:hidden ">
+                                                                                <!-- <br> -->
+                                                                                <div style="height: 20%;font-size: 1.2em;">
+                                                                                        <h5 class="card-title-1" style="font-size: 1.1em;font-weight: bold;">{{item.Name}}</h5>
+                                                                                </div>
+                                                                                <div id="desrc">
+                                                                                        <p class="card-text" style="font-size: 0.8em;  " >{{item.Description}}</p>
+                                                                                </div>
+                                                                                <br>
+                                                                                <div style="height: 30%; display: flex; align-items: center;">
+                                                                                         <a href="#" id="click" onclick="myfunct()">Add to cart&emsp;&#8377;{{item.Price}}</a>
+                                                                                </div>
+                                                                                
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        {% endfor %}
+                                                        <!-- repeat loop  -->
                                                 </div>
                                         </div>
                                 </div>
                                 <!-- </div> -->
                 </div>
-                <div class="_cart" style="border: 2px solid green; position: sticky;">
+                <div class="_cart" style="position: sticky;">
                         <div style="background-color: aliceblue; width:100%; height:30px;top:25%; "> hello</div>
                                 <div class="cartinside">
                                         <div>
@@ -64,6 +89,28 @@
                                 </div>
                         </div>
                 </div>
-
+                
+                
+                <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam provident itaque, dignissimos nam pariatur minima possimus enim ipsum? Cupiditate autem architecto delectus, inventore facere quis amet velit accusantium qui.
+                </p>
+                <br>
+                <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam provident itaque, dignissimos nam pariatur minima possimus enim ipsum? Cupiditate autem architecto delectus, inventore facere quis amet velit accusantium qui.
+                </p>
+                <br>
+                <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam provident itaque, dignissimos nam pariatur minima possimus enim ipsum? Cupiditate autem architecto delectus, inventore facere quis amet velit accusantium qui.
+                </p>
+                <br>
+                <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam provident itaque, dignissimos nam pariatur minima possimus enim ipsum? Cupiditate autem architecto delectus, inventore facere quis amet velit accusantium qui.
+                </p>
+                <br>
+                <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam provident itaque, dignissimos nam pariatur minima possimus enim ipsum? Cupiditate autem architecto delectus, inventore facere quis amet velit accusantium qui.
+                </p>
+                <br>
+                
                 <script src="{% static 'js/menu.js' %}"></script>
 {% endblock tail %}       
