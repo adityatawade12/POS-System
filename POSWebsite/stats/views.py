@@ -24,3 +24,4 @@ def contact(request):
 def nav(request):
     us=curuser()
     return render(request,'nav.html',{'us':us})
+
