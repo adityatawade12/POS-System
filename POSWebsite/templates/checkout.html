@@ -1,9 +1,9 @@
-<!-- {% extends "base.html" %}
+{% extends "base.html" %}
 {% load static %}
 
-{% block content %} -->
+{% block content %}
 
-<title>Menu Page</title>
+<title>Checkout</title> 
 <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -12,28 +12,204 @@
 </head>
 <body>
 
-        <!-- <header>
+        <header>
                 {% endblock content %}
                 {% block tail %}
-        </header> -->
+        </header>
 
         <div class="scroll-pre"></div>
 
 
-        <div >
-                <!-- <p class="Category">Snacks</p> -->
-                <div class="row">
-                        <div class="col-lg-9" style="margin-left:4%;max-width: 65%;padding-right:2%;padding-top: 1%;">
-                                <div class="" style="float: left;">
-                                        <div class="row">
-                                                <div class="col-lg-12"   >
-                                                    <div class="pos-card">
-                                                        <div class="pos-img">
-                                                            <img src="chole bhature.cms" width=100 height=100>
-                                                        </div>
-
-                                                        <div class="pos-namecards">
-                                                            Chole Bhature
-                                                        </div>
-                                                        <div class="pos-desc">Chole Bhature description</div>
-                                                    </div>
+        <div>
+            <!-- <p class="Category">Snacks</p> -->
+            <div class="row">
+                <div class="col-lg-9" style="margin-left:4%;max-width: 65%;padding-right:2%;padding-top: 1%;">
+                    <div class="" style="float: left;">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="pos-card" style="background-color: rgba(68, 209, 150, 0.253); height:200px ; width:800">
+                                    <div class="pos-img">
+                                        <img src="chole bhature.cms"
+                                            style="width: 100; height: 100; float: left; margin-left: 10; margin-top: 10;">
+                                    </div>
+    
+                                    <div class="pos-namecards"
+                                        style="margin-left: 125; margin-top: 10px; color: rgb(148, 206, 39); font-size: 0.8em;">Chole
+                                        Bhature</div>
+    
+                                    <!-- <br> -->
+                                    <div class="pos-desc"
+                                        style="margin-left:125; margin-top: 10; color: blue; font-size: 0.8em; width:400">
+                                        <p>Chole Bhature description Lorem ipsum dolor sit amet consectetur adipisicing
+                                            elit. Illum laborum itaque eaque reiciendis consequuntu djdjdjdjdjdd jekhfkhfk
+                                            jddksjdkjw wjdwkdjkdkk</p>
+                                    </div>
+    
+                                    <!-- <h2>Simple Quantity increment buttons with Javascript </h2> -->
+                                    <div class="cart-quantity cart-column" style="margin-left: 50px; float:right; margin-right: 20;">
+                                        <button class='btn minus-btn disabled' type="button"" onclick="myfunc()" style=" background-color:
+                                            orange; height: 30; width: 40; padding: 0px;" >-</button>
+                                        <input readonly class="cart-quantity-input" id="quantity" type="text" value="1"
+                                            style="width:50; height: 30; background-color: rgb(31, 28, 28); color: honeydew;">
+                                        <button class='btn plus-btn' type="button" onclick="myfunc()"
+                                            style="background-color: orange; height: 30; width:40; padding: 0px;">+</button>
+                                        <!-- <button class="btn btn-danger" type="button">REMOVE</button> -->
+                                    </div>
+                                    <script>
+                                        document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
+                                        var valueCount
+                                        document.querySelector(".plus-btn").addEventListener("click", function () {
+                                            valueCount = document.getElementById("quantity").value;
+                                            valueCount++;
+                                            document.getElementById("quantity").value = valueCount
+                                            if (valueCount > 1) {
+                                                document.querySelector(".minus-btn").removeAttribute("disabled");
+                                                document.querySelector(".minus-btn").classList.remove("disabled");
+                                                }
+                                            })
+                                        document.querySelector(".minus-btn").addEventListener("click", function () {
+                                            valueCount = document.getElementById("quantity").value;
+                                            valueCount--
+                                            document.getElementById("quantity").value = valueCount
+                                            if (valueCount == 1) {
+                                                document.querySelector(".minus-btn").setAttribute("disabled",
+                                                "disabled")
+                                            }
+                                            
+                                        })
+                                    </script>
+                                    <div class="pos-total price" style="margin-left: 650; margin-top:75;">
+                                        <label for="pos-pricecalc">Price:₹</label>
+                                        <input readonly type="text" id="pos-totprice" value="30" style="width: 75; background-color: grey; color: honeydew;">
+                                    </div>
+                                    <script>
+                                       
+                                        function myfunc(){
+                                            
+                                            var x=30;
+                                            document.getElementById("pos-totprice").value=x*valueCount;
+                                            console.log(document.getElementById("pos-totprice").value);
+                                            subtots(document.getElementById("pos-totprice").value);
+                                        }
+                                    
+                                        // let inputElem = document.querySelector('input');
+                                        // inputElem.addEventListener('input', () => {
+                                        //     console.log(inputElem.value); // Log the new value after an input is made
+                                        // });
+                                        // $(document).ready(function()
+                                        // {
+                                            /*
+                                            * binding onChange event here
+                                            * you can replace .change with .blur
+                                            */
+                                            // $('#teacher').change(UpdateInfo);
+                                        //     $('#quantity').change(UpdateInfo);
+                                        // });
+    
+                                        // function UpdateInfo()
+                                        // {
+                                        //     // var teacher = $('#teacher').val();
+                                        //     var quantity = $('#quantity').value;
+                                        //     var info = quantity*document.getElementById("pos-totprice").value;
+                                        //     $('#pos-totprice').val(info);
+                                        //     console.log(document.getElementById("pos-totprice").value);
+                                        // console.log(document.getElementById("quantity").value);
+                                        // }
+    
+    
+                                        
+                                        // window.onload=function(){
+                                        // document.getElementById("pos-totprice").value=document.getElementById("quantity").value*30;
+                                        // }
+                                        // document.getElementById("pos-totprice").innerText=valueCount*document.getElementById("pos-totprice").innerText;
+                                    </script>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3" style="background-color: black; height: 100%; margin-top: 20px; ">
+                    <!-- <div class="deldet"> -->
+                        <div class="orddet" style="color: ivory; border-bottom: 1px solid rgb(196, 190, 190); text-align: center;">Delivery details</div>
+                        <div class="usrnam" style="margin-top: 20; margin-left: 20;">
+                            <input type="text" placeholder="Name">
+                        </div>
+                        <div class="addrinfo" style="margin-top: 20; border-bottom: 1px solid rgb(196, 190, 190); color: honeydew;">Address</div>
+                        <div class="addrline">
+                            <input type="text" placeholder="Address Line 1" style="margin-top: 10; margin-left: 20;">
+                            <input type="text" placeholder="Address Line 2" style="margin-top: 10; margin-left: 20;">
+                            <div class="statedet" style="margin-top: 20; margin-left: 20;">
+                                <!-- <label for="State" style="margin-top: 20;">State</label> -->
+                                <select name="State">
+                                    <option value="State" selected disabled>State</option>
+                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                    <option value="Assam">Assam</option>
+                                    <option value="Bihar">Bihar</option>
+                                    <option value="Chandigarh">Chandigarh</option>
+                                    <option value="Chattisgarh">Chattisgarh</option>
+                                    <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                                    <option value="Delhi">Delhi</option>
+                                    <option value="Goa">Goa</option>
+                                    <option value="Gujarat">Gujarat</option>
+                                    <option value="Haryana">Haryana</option>
+                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                    <option value="Jharkhand">Jharkhand</option>
+                                    <option value="Karnataka">Karnataka</option>
+                                    <option value="Kerala">Kerala</option>
+                                    <option value="Ladakh">Ladakh</option>
+                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                    <option value="Manipur">Manipur</option>
+                                    <option value="Meghalaya">Meghalaya</option>
+                                    <option value="Mizoram">Mizoram</option>
+                                    <option value="Nagaland">Nagaland</option>
+                                    <option value="Odisha">Odisha</option>
+                                    <option value="Puducherry">Puducherry</option>
+                                    <option value="Punjab">Punjab</option>
+                                    <option value="Rajasthan">Rajasthan</option>
+                                    <option value="Sikkim">Sikkim</option>
+                                    <option value="Tamil Nadu">Tamil Nadu</option>
+                                    <option value="Telangana">Telangana</option>
+                                    <option value="Tripura">Tripura</option>
+                                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                    <option value="Uttarakhand">Uttarakhand</option>
+                                    <option value="West Bengal">West Bengal</option>
+                                </select>
+                            </div>
+                            <input type="text" placeholder="City" style="margin-top: 10; margin-left: 20;">
+                            <input type="text" placeholder="Pincode" style="margin-top: 10; margin-left: 20;">
+                        </div>
+                        <div class="billvalfinal" style="margin-left: 20; margin-top: 10; color: honeydew; border-top: 1px solid gray">
+                            <div class="subtot" style="display: inline; ">Subtotal:</div>
+                            <div id="subtotval" style="display: inline; margin-left: 50;">30</div>
+                            <br>
+                            <div class="gsttot" style="display: inline; margin-top: 20;">GST:</div>
+                            <div class="gsttotval" style="display: inline; margin-left: 85;">18%</div>
+                            <br>
+                            <div class="postot" style="display: inline;">Total:</div>
+                            <div class="postotval" style="display: inline; margin-left: 80;">35.4</div>
+                        </div>
+                        <div class="protopay" style="margin-top: 20; margin-left: 20; margin-bottom: 30; text-align: center;">
+                            <input type="button" value="Checkout" onclick="myfunction()" style=" background-color: blue; color: whitesmoke;border: wheat; border-radius: 0.5em; ">
+                        </div>
+                        <script>
+                            function subtots(y){
+                                document.getElementById("subtotval").value=y;
+                            }
+                            function myfunction(){
+                                alert("Your order will be delivered to your address\nThank you for ordering  :)")
+                            }
+                        </script>
+                    <!-- </div> -->
+                            
+                </div>
+            </div>
+        </div>
+            
+        </body>
+        
+        </html>
+  {% endblock tail %}
