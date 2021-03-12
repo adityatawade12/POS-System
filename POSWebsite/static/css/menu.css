@@ -30,6 +30,7 @@ body {
   width: 25%;
   top: 140px;
   right: 20px;
+  background-color: blanchedalmond;
   margin: 30px !important;
 }
 
@@ -72,7 +73,7 @@ body {
       padding-bottom: 5em;
   }
 }
-#click {
+.click {
   /* line-height: 56px; */
   padding: 5px 10px;
   font-size: 0.8em;
@@ -84,7 +85,7 @@ body {
   font-family: 'Varela Round', sans-serif;
   font-weight: bold;
 }
-#click:hover {
+.click:hover {
   background-color: #24252a9e;
   color: blanchedalmond;
 }
@@ -106,4 +107,51 @@ body {
 
   height: 50%;
   min-height: 40px;
+}
+
+.cartinside {
+  overflow: scroll;
+  height: 15em;
+}
+.cartinside::-webkit-scrollbar-thumb {
+  background: rgba(175, 164, 148, 0.692);
+}
+
+.cartinside::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cartinside ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#list li {
+	background: #fff;
+	height: 40px;
+	line-height: 40px;
+	color: #666;
+  width:100%
+}
+
+#list li:nth-child(2n){
+	background: #706b6b;
+}
+
+li span:nth-child(1) {
+	/* background: #e74c3c; */
+	/* height: 40px;
+	margin-right: 20px;*/
+	text-align: center; 
+	color: #e74c3c;
+	width: 40px;
+	display: inline-block;
+	/* transition: 0.2s linear; */
+	/* opacity: 0; */
+}
+
+li:hover span {
+	width: 40px;
+	opacity: 1.0;
 }
