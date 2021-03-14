@@ -25,3 +25,7 @@ def menu(request):
     print(items)
     us=curuser()
     return render(request,'menu.html',{'us':us,'items':items})
+
+def feedback(request):
+    us=curuser()
+    return render(request,'feedback.html',{'us':us})

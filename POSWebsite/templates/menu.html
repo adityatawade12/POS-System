@@ -4,9 +4,8 @@
 {% block content %}
 
         <title>Menu Page</title>
-        <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
+        <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}"> -->
         <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         </head>
         <body>
 
@@ -40,7 +39,7 @@
                                                                                 </div>
                                                                                 <br>
                                                                                 <div style="height: 30%; display: flex; align-items: center;">
-                                                                                         <a href="#" id="click" onclick="myfunct()">Add to cart&emsp;&#8377;{{item.Price}}</a>
+                                                                                        <button class="click" onclick="myfunct()">Add to cart&emsp;&#8377;{{item.Price}}</button>
                                                                                 </div>
                                                                                 
                                                                         </div>
@@ -66,7 +65,7 @@
                                                                                 </div>
                                                                                 <br>
                                                                                 <div style="height: 30%; display: flex; align-items: center;">
-                                                                                         <a href="#" id="click" onclick="myfunct()">Add to cart&emsp;&#8377;{{item.Price}}</a>
+                                                                                         <button class="click" onclick="myfunct()">Add to cart&emsp;&#8377;{{item.Price}}</button>
                                                                                 </div>
                                                                                 
                                                                         </div>
@@ -79,17 +78,26 @@
                                 </div>
                                 <!-- </div> -->
                 </div>
-                <div class="_cart" style="position: sticky;">
-                        <div style="background-color: aliceblue; width:100%; height:30px;top:25%; "> hello</div>
-                                <div class="cartinside">
-                                        <div>
-                                        SOMETHING<br>
-                                        SOMETHING<br>
-                                        SOMETHING<br>
+                <div class="_cart">
+                        <div style="top: 25%; position: sticky; background-color: blanchedalmond;">
+                                <div style="height: 2em;"> hello</div>
+                                        <div class="cartinside">
+                                                SOMETHING<br>
+                                                SOMETHING<br>
+                                                SOMETHING<br>
+                                                SOMETHING<br>
+                                                SOMETHING<br>
+                                                SOMETHING<br>
+                                                SOMETHING<br>
+                                                SOMETHING<br>
+                                                SOMETHING<br>
+                                                SOMETHING<br>
+                                                SOMETHING<br>
+                                                SOMETHING<br>
+                                                SOMETHING<br>
+                                        </div>
                                 </div>
                         </div>
-                </div>
-                
                 
                 <p>
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam provident itaque, dignissimos nam pariatur minima possimus enim ipsum? Cupiditate autem architecto delectus, inventore facere quis amet velit accusantium qui.
