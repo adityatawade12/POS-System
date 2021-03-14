@@ -32,6 +32,10 @@ body {
   right: 20px;
   background-color: blanchedalmond;
   margin: 30px !important;
+  border-radius: 3em;
+  /* justify-content: center; */
+  /* display: flex; */
+  height: 50%;
 }
 
 @media (max-width: 992px)
@@ -56,6 +60,7 @@ body {
   background-position: center center;
   -webkit-background-size: cover;
   border-top-right-radius:10%;
+  min-height: 9rem;
 }
 
 
@@ -75,11 +80,15 @@ body {
 }
 .click {
   /* line-height: 56px; */
-  padding: 5px 10px;
+  /* height: 1em; */
+  padding: 3.5px 10px;
   font-size: 0.8em;
   border-radius: 40px;
-  color: #24252a;
   border: 0.15em solid #24252a9e;
+}
+.click a{
+  color: #24252a;
+  
   text-decoration: none;
   margin: auto;
   font-family: 'Varela Round', sans-serif;
@@ -87,6 +96,9 @@ body {
 }
 .click:hover {
   background-color: #24252a9e;
+  
+}
+.click:hover a{
   color: blanchedalmond;
 }
 
@@ -95,7 +107,17 @@ body {
 }
 
 ._cards {
-  height: 23rem;
+  height: 20rem;
+}
+
+.Category{
+  color: blanchedalmond;
+
+  font-family: Lucida Bright;
+  margin-left:3%;
+  font-size:40px;
+  max-width:60% ;
+  border-bottom: 2px solid blanchedalmond;
 }
 
 #desrc {
@@ -110,8 +132,10 @@ body {
 }
 
 .cartinside {
-  overflow: scroll;
-  height: 15em;
+  overflow: overlay;
+  height: 12em;
+  margin:1em auto;
+  width: 90%;
 }
 .cartinside::-webkit-scrollbar-thumb {
   background: rgba(175, 164, 148, 0.692);
@@ -128,15 +152,15 @@ body {
 }
 
 #list li {
-	background: #fff;
+	background: rgb(204, 144, 89);
 	height: 40px;
 	line-height: 40px;
-	color: #666;
+	color: #000;
   width:100%
 }
 
 #list li:nth-child(2n){
-	background: #706b6b;
+	background: blanchedalmond;
 }
 
 li span:nth-child(1) {
@@ -154,4 +178,47 @@ li span:nth-child(1) {
 li:hover span {
 	width: 40px;
 	opacity: 1.0;
+}
+
+.indebtn{
+  padding:0.2em 0.8em;
+  text-decoration: none;
+  font-weight: bold;
+  color:#24252a ;
+  display: inline-block;
+  height: 100%;
+
+}
+.indebtn:hover{
+  background:#24252a9e ;
+  color: blanchedalmond;
+ 
+  /* height:30%; */
+  /* line-height: 70%; */
+}
+.inc{
+  margin-left: 0.6em;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  border-left: solid 2px#24252a9e ;
+}
+.dec{
+  margin-right: 0.6em;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-right: solid 2px #24252a9e ;
+
+}
+.click1 {
+ 
+  /* height: 3em; */
+  font-size: 0.8em;
+  border-radius: 40px;
+  color: #24252a;
+  border: 0.15em solid #24252a9e;
+  text-decoration: none;
+  margin: auto;
+  font-family: 'Varela Round', sans-serif;
+  font-weight: bold;
+  /* display: none; */
 }
