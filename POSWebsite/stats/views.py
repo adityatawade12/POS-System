@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from accounts.views import curuser
-
+from orders.views import menuItems
 
 # Create your views here.
 def home(request):
@@ -9,13 +9,13 @@ def home(request):
     return render(request,'home.html',{'us':us})
 
 def home1(request):
-    
-    
     return redirect('/home')
 
 def menu(request):
+    items=menuItems()
+    print(items)
     us=curuser()
-    return render(request,'menu.html',{'us':us})
+    return render(request,'menu.html',{'us':us,'items':items})
 
 def contact(request):
     us=curuser()
