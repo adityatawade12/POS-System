@@ -1,15 +1,63 @@
 {% load static %}
-<!-- <header> -->
 
-    <html>
+    <!doctype html>
+    <html lang="en">
         <head>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- </header> -->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+
 
 {% block content %}
 {% endblock content %}
+        
+            <nav class="navbar navbar-expand-lg fixed-top">
+                <div class="container-fluid">
+                    <a class="company" href="/home">
+                        <!-- <div> -->
+                            <img class="logo" src="{% static 'css/images/compnay_logo_100.png' %}">
+                            <div>le mieux</div>
+                        <!-- </div> -->
+                    </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <img src="/static/css/images/down.png" style="width: 25px; height: 25px;">
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav_item navbar-nav me-auto mb-2 mb-lg-0">
+                        <a class="navi nav-link" href="#"><li>OFFERS</li></a>
+                        <a class="navi nav-link" href="/menu"><li>MENU</li></a>
+                        <a class="navi nav-link" href="/contact"><li>CONTACT</li></a>
 
+                        {% if us %}
+                            <li class="nav-item dropdown">
+                                <a class="navi nav-link dropdown-toggle _down" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{us.email}}
+                                </a>
+                                <ul class="dropdown-menu _drop" aria-labelledby="navbarDropdown" data-bs-popper="none">
+                                    <li><a class="dropdown-item" href="#">Cart</a></li>
+                                    <li><a class="dropdown-item" href="#">Wishlist</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="/accounts/logout"> LOGOUT</a></li>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <a class="navi nav-link" href="/accounts/login">
+                                <li>LOGIN</li>
+                            </a>
+                        {% endif %}
+                    </ul>
+                    <!-- <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form> -->
+                </div>
+                </div>
+            </nav>   
 
+<<<<<<< HEAD
 <nav class="barnav">
     <a href="/home">
         <div class="company">
@@ -40,19 +88,22 @@
         <!-- </li> -->
     </ul>
 </nav>
+=======
+>>>>>>> Omkar
 
 
 {% block tail %}
 {% endblock tail %}
 
 
-<footer>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-analytics.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-firestore.js"></script>
-        <script src="{% static 'js/fb.js' %}"></script>
+        <footer>
+            <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-analytics.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-firestore.js"></script>
+            <script src="{% static 'js/fb.js' %}"></script>
+        </footer>
     </body>
 </html>
-</footer>

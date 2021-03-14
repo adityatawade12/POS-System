@@ -13,7 +13,7 @@ def home1(request):
 
 def menu(request):
     items=menuItems()
-    print(items)
+    # print(items)
     us=curuser()
     return render(request,'menu.html',{'us':us,'items':items})
 
@@ -24,3 +24,4 @@ def contact(request):
 def nav(request):
     us=curuser()
     return render(request,'nav.html',{'us':us})
+

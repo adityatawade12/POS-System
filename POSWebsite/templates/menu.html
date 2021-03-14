@@ -7,14 +7,10 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
- -->
- <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet' type='text/css'>
- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
- 
+<link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
 </head>
+
 <body>
 
         <header>
@@ -24,56 +20,238 @@
 
         <div class="scroll-pre"></div>
 
-
-        <div class="cont1" style="height: 100%;">
+        <div class="cont1">
                 <p class="Category">Snacks</p>
-                <div class="row"  style="border: 2px solid blue;height:100%">
-                        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12" style=" height:100%; min-width: 500px;max-width:100%;padding-top: 1%;border: 2px solid red;">
-                                <div  style="float: left;padding-left: auto;padding-right: auto">
-                                        <div class="row">
-                                                {% for item in items  %}
-                                                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6 " style="min-height: 350px; height: 100%;min-width: 220px; max-width: 250px;"  >
-                                                        
-                                                        <div class="card" style=" width:95%;border:2px solid white;border-top-right-radius:8% ;border-bottom-left-radius:10%;height: 20rem;">
-                                                                <!--class="card-img-top" --> 
-                                                                <div style="height: 40%;">
-                                                                        <img 
-                                                                        src="{{item.Image}}"
-                                                                        alt="Card image cap" style="border-top-right-radius:10% ; max-height: 100%;">
+                <!-- <div class="row"  style="border: 2px solid blue;"> -->
+                <div class="div_card container" style=" min-width: 500px;max-width:95%;">
+                        <div style="float: left;padding-left: auto;padding-right: auto">
+                                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 g-4">
+                                        {% for item in items  %}
+                                        {% if item.Category == "Snacks" %}
+                                        <div class="_cards">
+                                                <div id="{{item.Name}}" style="height: 100%;">
+                                                        <!--class="card-img-top" -->
+                                                        <div class="card_img"
+                                                                style="height: 40%; background-image: url('{{item.Image}}');">
+                                                                <!-- <img class="card-img-top" alt="Card image cap" style=""> -->
+                                                        </div>
+                                                        <div class="card-body"
+                                                                style="background-color: blanchedalmond ; max-height:60%;font-size:100%;overflow:hidden ">
+                                                                <!-- <br> -->
+                                                                <div style="height: 20%;font-size: 1.2em;">
+                                                                        <h5 class="card-title-1"
+                                                                                style="font-size: 1.1em;font-weight: bold;">
+                                                                                {{item.Name}}</h5>
                                                                 </div>
-                                                                
-                                                                <div class="card-body"style="background-color: blanchedalmond ; max-height:60%;border-bottom-left-radius:10% ;font-size:100%;overflow:hidden ">
-                                                                        <div style="height: 20%;border:green 2px solid ;">
-                                                                                <h5 class="card-title-1" style="font-size: 1.3em;font-weight: bold;">{{item.Name}}</h5>
+                                                                <div id="desrc">
+                                                                        <p class="card-text"
+                                                                                style="font-size: 0.8em;  ">
+                                                                                {{item.Description}}</p>
+                                                                </div>
+                                                                <br>
+                                                                <div style="display: flex; justify-content: center;">
+                                                                <div class="click"
+                                                                        style=" align-items: center;position: absolute;">
+                                                                        <a href="javascript:void(0)" 
+                                                                                id="{{item.Name}}"
+                                                                                onclick="newCartItem(this.id,`{{item.Price}}`)">Add
+                                                                                to
+                                                                                cart&emsp;&#8377;{{item.Price}}</a>
+
+                                                                </div>
+                                                                <div
+                                                                        style="align-items: center;display: flex;visibility: hidden;">
+
+                                                                        <div class="click1"><a class="indebtn dec"
+                                                                                        href="javascript:void(0)">-</a>1<a
+                                                                                        class="indebtn inc"
+                                                                                        href="javascript:void(0)">+</a>
                                                                         </div>
-                                                                        <!-- {{item.Description}} -->
-                                                                        <div style="height: 50%;overflow: hidden;text-overflow: ellipsis; border:yellow 2px solid ;">
-                                                                                <p class="card-text" style="font-size: 0.8em;  " >fansjfb asjfbiasf safhs isahfip oihfspai isafio jasfon sjafoh asfiphuga ljsbaip safpisafn asfpisafp saolbf safh siahfp aksfpsasfj alksfpsaf sanfpisafn sakfnp</p>
-                                                                        </div>
-                                                                        <div style="height: 30%;border:black 2px solid ;">
-                                                                                <a href="#" id="{{item.Name}}" class="click" onclick="myfunct(this.id)">Add</a>
-                                                                        </div>
-                                                                        
                                                                 </div>
                                                         </div>
+
+                                                        </div>
                                                 </div>
-                                                {% endfor %}
                                         </div>
-                                </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12" style="border: 2px solid white; padding-top: 5%; padding-bottom: 5%;">
-                                <!--<div class="cartinside">
-                                        
-                                </div> -->
-                                
-                                <div style="background-color: aliceblue; width:100%; height:auto;top:25%; position: sticky;"> hello <br>
-                                        <ul id="list">
-                                                
-                                        </ul>
+                                        {% endif %}
+                                        {% endfor %}
+
+                                        <!-- repeat loop  -->
+
+                                        <!-- repeat loop  -->
                                 </div>
                         </div>
                 </div>
+                <p class="Category">Appetizers</p>
+                <!-- <div class="row"  style="border: 2px solid blue;"> -->
+                <div class="div_card container" style=" min-width: 500px;max-width:95%;">
+                        <div style="float: left;padding-left: auto;padding-right: auto">
+                                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 g-4">
+                                        {% for item in items  %}
+                                        {% if item.Category == "Appetizer" %}
+                                        <div class="_cards">
+                                                <div id="{{item.Name}}" style="height: 100%;">
+                                                        <!--class="card-img-top" -->
+                                                        <div class="card_img"
+                                                                style="height: 40%; background-image: url('{{item.Image}}');">
+                                                                <!-- <img class="card-img-top" alt="Card image cap" style=""> -->
+                                                        </div>
+                                                        <div class="card-body"
+                                                                style="background-color: blanchedalmond ; max-height:60%;font-size:100%;overflow:hidden ">
+                                                                <!-- <br> -->
+                                                                <div style="height: 20%;font-size: 1.2em;">
+                                                                        <h5 class="card-title-1"
+                                                                                style="font-size: 1.1em;font-weight: bold;">
+                                                                                {{item.Name}}</h5>
+                                                                </div>
+                                                                <div id="desrc">
+                                                                        <p class="card-text"
+                                                                                style="font-size: 0.8em;  ">
+                                                                                {{item.Description}}</p>
+                                                                </div>
+                                                                <br>
+                                                                <div style="display: flex; justify-content: center;">
+                                                                <div class="click"
+                                                                        style=" align-items: center;position: absolute;">
+                                                                        <a href="javascript:void(0)" 
+                                                                                id="{{item.Name}}"
+                                                                                onclick="newCartItem(this.id,`{{item.Price}}`)">Add
+                                                                                to
+                                                                                cart&emsp;&#8377;{{item.Price}}</a>
+
+                                                                </div>
+                                                                <div
+                                                                        style="align-items: center;display: flex;visibility: hidden;">
+
+                                                                        <div class="click1"><a class="indebtn dec"
+                                                                                        href="javascript:void(0)">-</a>1<a
+                                                                                        class="indebtn inc"
+                                                                                        href="javascript:void(0)">+</a>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        {% endif %}
+                                        {% endfor %}
+
+                                        
+                                        <!-- repeat loop  -->
+
+                                        <!-- repeat loop  -->
+                                </div>
+                        </div>
+                </div>
+                <p class="Category">Main Course</p>
+                <!-- <div class="row"  style="border: 2px solid blue;"> -->
+                <div class="div_card container" style=" min-width: 500px;max-width:95%;">
+                        <div style="float: left;padding-left: auto;padding-right: auto">
+                                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 g-4">
+                                        {% for item in items  %}
+                                        {% if item.Category == "Main Course" %}
+                                        <div class="_cards">
+                                                <div id="{{item.Name}}" style="height: 100%;">
+                                                        <!--class="card-img-top" -->
+                                                        <div class="card_img"
+                                                                style="height: 40%; background-image: url('{{item.Image}}');">
+                                                                <!-- <img class="card-img-top" alt="Card image cap" style=""> -->
+                                                        </div>
+                                                        <div class="card-body"
+                                                                style="background-color: blanchedalmond ; max-height:60%;font-size:100%;overflow:hidden ">
+                                                                <!-- <br> -->
+                                                                <div style="height: 20%;font-size: 1.2em;">
+                                                                        <h5 class="card-title-1"
+                                                                                style="font-size: 1.1em;font-weight: bold;">
+                                                                                {{item.Name}}</h5>
+                                                                </div>
+                                                                <div id="desrc">
+                                                                        <p class="card-text"
+                                                                                style="font-size: 0.8em;  ">
+                                                                                {{item.Description}}</p>
+                                                                </div>
+                                                                <br>
+                                                                <div style="display: flex; justify-content: center;">
+                                                                <div class="click"
+                                                                        style=" align-items: center;position: absolute;">
+                                                                        <a href="javascript:void(0)" 
+                                                                                id="{{item.Name}}"
+                                                                                onclick="newCartItem(this.id,`{{item.Price}}`)">Add
+                                                                                to
+                                                                                cart&emsp;&#8377;{{item.Price}}</a>
+
+                                                                </div>
+                                                                <div
+                                                                        style="align-items: center;display: flex;visibility: hidden;">
+
+                                                                        <div class="click1"><a class="indebtn dec"
+                                                                                        href="javascript:void(0)">-</a>1<a
+                                                                                        class="indebtn inc"
+                                                                                        href="javascript:void(0)">+</a>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        {% endif %}
+                                        {% endfor %}
+
+                                        <!-- repeat loop  -->
+
+                                        <!-- repeat loop  -->
+                                </div>
+                        </div>
+                </div>
+                <!-- </div> -->
         </div>
-        <script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+        <div class="_cart">
+                <div style="display:flex;width:70%;margin: 0 auto; justify-content: center; height: 1.5em;font-size: 2em;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;border-bottom: 2px solid black;">
+                        Cart
+                      
+                </div>
+                <div class="cartinside">
+                        <ul id="list">
+
+                        </ul>
+                </div>
+        </div>
+
+
+
+
+        <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam provident itaque, dignissimos
+                nam pariatur minima possimus enim ipsum? Cupiditate autem architecto delectus, inventore facere quis
+                amet velit accusantium qui.
+        </p>
+        <br>
+        <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam provident itaque, dignissimos
+                nam pariatur minima possimus enim ipsum? Cupiditate autem architecto delectus, inventore facere quis
+                amet velit accusantium qui.
+        </p>
+        <br>
+        <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam provident itaque, dignissimos
+                nam pariatur minima possimus enim ipsum? Cupiditate autem architecto delectus, inventore facere quis
+                amet velit accusantium qui.
+        </p>
+        <br>
+        <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam provident itaque, dignissimos
+                nam pariatur minima possimus enim ipsum? Cupiditate autem architecto delectus, inventore facere quis
+                amet velit accusantium qui.
+        </p>
+        <br>
+        <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam provident itaque, dignissimos
+                nam pariatur minima possimus enim ipsum? Cupiditate autem architecto delectus, inventore facere quis
+                amet velit accusantium qui.
+        </p>
+        <br>
+
         <script src="{% static 'js/menu.js' %}"></script>
         {% endblock tail %}

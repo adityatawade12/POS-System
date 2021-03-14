@@ -3,11 +3,10 @@
 body{
   color: blanchedalmond;
   font-family: 'Varela Round';
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/login2.jpg");
-  /* height: 100vh; */
+  /* background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/login2.jpg"); */
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("images/login1.jpeg");
   background-size: cover;
   background-attachment: fixed;
-  /* overflow: overlay; */
 }
 
 .scroll-pre {
@@ -54,6 +53,7 @@ h1 {
   font-family: 'Varela Round';
   font-size: 50px;
   color: blanchedalmond;
+  margin-top: 0.3em;
 }
 
 .link {
