@@ -13,3 +13,6 @@ def menuItems():
     for doc in docs:
         dishes.append(doc.to_dict())
     return dishes
+
+def checkout(request):
+    return render(request,'checkout.html')
