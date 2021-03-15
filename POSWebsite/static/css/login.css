@@ -1,9 +1,11 @@
 @import url("fonts.css");
 
-body, html {
-  overflow: overlay;
-  height: 100%;
+body {
+  /* overflow: overlay; */
+  height: 100vh;
   color: blanchedalmond;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/restro2.jpg");height: 100vh;
+  background-size: cover;
   font-family: 'Varela Round';
 }
 
@@ -32,9 +34,9 @@ form {
 
 .bgimg {
   /* background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/login.jpg"); */
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/restro2.jpg");
+  /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/restro2.jpg"); */
   height: 100vh;
-  background-size: cover;
+  /* background-size: cover; */
 } 
 
 .login-form {
@@ -85,7 +87,7 @@ input:focus {
   border-color: blanchedalmond;
 }
 
-h1 {
+form h1 {
   font-family: 'Varela Round';
   font-size: 3.1em;
   color: blanchedalmond;

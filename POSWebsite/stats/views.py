@@ -25,3 +25,8 @@ def nav(request):
     us=curuser()
     return render(request,'nav.html',{'us':us})
 
+
+
+def feedback(request):
+    us=curuser()
+    return render(request,'feedback.html',{'us':us})

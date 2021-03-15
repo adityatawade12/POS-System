@@ -50,16 +50,15 @@
                                                                 </div>
                                                                 <br>
                                                                 <div style="display: flex; justify-content: center;">
-                                                                <div class="click"
+                                                                <div class="click {{item.Name}}"
                                                                         style=" align-items: center;position: absolute;">
                                                                         <a href="javascript:void(0)" 
-                                                                                id="{{item.Name}}"
-                                                                                onclick="newCartItem(this.id,`{{item.Price}}`)">Add
+                                                                        >Add
                                                                                 to
                                                                                 cart&emsp;&#8377;{{item.Price}}</a>
 
                                                                 </div>
-                                                                <div
+                                                                <div class="{{item.Name}} incdec"
                                                                         style="align-items: center;display: flex;visibility: hidden;">
 
                                                                         <div class="click1"><a class="indebtn dec"
@@ -111,16 +110,15 @@
                                                                 </div>
                                                                 <br>
                                                                 <div style="display: flex; justify-content: center;">
-                                                                <div class="click"
+                                                                <div class="click {{item.Name}}"
                                                                         style=" align-items: center;position: absolute;">
                                                                         <a href="javascript:void(0)" 
-                                                                                id="{{item.Name}}"
-                                                                                onclick="newCartItem(this.id,`{{item.Price}}`)">Add
+                                                                        >Add
                                                                                 to
                                                                                 cart&emsp;&#8377;{{item.Price}}</a>
 
                                                                 </div>
-                                                                <div
+                                                                <div class="incdec {{item.Name}}"
                                                                         style="align-items: center;display: flex;visibility: hidden;">
 
                                                                         <div class="click1"><a class="indebtn dec"
@@ -173,16 +171,16 @@
                                                                 </div>
                                                                 <br>
                                                                 <div style="display: flex; justify-content: center;">
-                                                                <div class="click"
+                                                                <div class="click {{item.Name}}" 
                                                                         style=" align-items: center;position: absolute;">
                                                                         <a href="javascript:void(0)" 
-                                                                                id="{{item.Name}}"
-                                                                                onclick="newCartItem(this.id,`{{item.Price}}`)">Add
+                                                                                 
+                                                                                >Add
                                                                                 to
                                                                                 cart&emsp;&#8377;{{item.Price}}</a>
 
                                                                 </div>
-                                                                <div
+                                                                <div class="{{item.Name}} incdec"
                                                                         style="align-items: center;display: flex;visibility: hidden;">
 
                                                                         <div class="click1"><a class="indebtn dec"
@@ -208,49 +206,28 @@
                 <!-- </div> -->
         </div>
         <div class="_cart">
-                <div style="display:flex;width:70%;margin: 0 auto; justify-content: center; height: 1.5em;font-size: 2em;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;border-bottom: 2px solid black;">
-                        Cart
-                      
+                <div style="top: 25%; position: sticky; background-color: blanchedalmond;padding-top: 2em;padding-bottom: 1em;border-radius: 4em;">
+                        <div style="display:flex;width:70%;margin: 0 auto; justify-content: center; height: 1.5em;font-size: 2em;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;border-bottom: 2px solid black;">
+                                Cart
+                              
+                        </div>
+                        <div class="cartinside">
+                                <ul id="list">
+        
+                                </ul>
+                        </div>
+                        <div class="checkout" style="display:flex;width:70%;margin: 0 auto; justify-content: center; height: 1.5em;font-size: 2em;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;border-bottom: 2px solid black;">
+                                <a href="javascript:void(0)" >Checkout</a>
+                              
+                        </div>
                 </div>
-                <div class="cartinside">
-                        <ul id="list">
-
-                        </ul>
-                </div>
+                
         </div>
 
 
 
 
-        <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam provident itaque, dignissimos
-                nam pariatur minima possimus enim ipsum? Cupiditate autem architecto delectus, inventore facere quis
-                amet velit accusantium qui.
-        </p>
-        <br>
-        <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam provident itaque, dignissimos
-                nam pariatur minima possimus enim ipsum? Cupiditate autem architecto delectus, inventore facere quis
-                amet velit accusantium qui.
-        </p>
-        <br>
-        <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam provident itaque, dignissimos
-                nam pariatur minima possimus enim ipsum? Cupiditate autem architecto delectus, inventore facere quis
-                amet velit accusantium qui.
-        </p>
-        <br>
-        <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam provident itaque, dignissimos
-                nam pariatur minima possimus enim ipsum? Cupiditate autem architecto delectus, inventore facere quis
-                amet velit accusantium qui.
-        </p>
-        <br>
-        <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam provident itaque, dignissimos
-                nam pariatur minima possimus enim ipsum? Cupiditate autem architecto delectus, inventore facere quis
-                amet velit accusantium qui.
-        </p>
+        
         <br>
 
         <script src="{% static 'js/menu.js' %}"></script>
