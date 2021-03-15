@@ -1,4 +1,3 @@
-
 function myfunction(){
     
     document.querySelector(".idbtnsplus").addEventListener("click", function () {
@@ -6,11 +5,13 @@ function myfunction(){
         valueCount++;
         document.getElementsByClassName("quanvalue").value = valueCount;
     })
-        document.querySelector(".idbtnsminus").addEventListener("click", function () {
+
+    document.querySelector(".idbtnsminus").addEventListener("click", function () {
         valueCount = document.getElementsByClassName("quanvalue").value;
         valueCount--;
         document.getElementsByClassName("quanvalue").value = valueCount;
     })
+    
 }
 function alfunction(){
     $("#check").click(function(){
