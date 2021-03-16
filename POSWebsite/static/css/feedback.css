@@ -1,31 +1,27 @@
 @import url("fonts.css");
 
-body{
+body {
+  /* overflow: overlay; */
   color: blanchedalmond;
+  /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/feedback.jpg");height: 100vh; */
+  background-color: #24252a;
   font-family: 'Varela Round';
-  /* background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/login2.jpg"); */
-  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("images/login1.jpeg");
-  background-size: cover;
   /* background-attachment: fixed; */
   height: 150vh;
+  background-size: cover;
+    background-position: center center;
+    -webkit-background-size: cover;
+  padding-top: 100px;
 }
 
-.scroll-pre {
-  height: 90px;
-  width: 100%;
-  background-color: inherit;
+.form-div {
+  padding: 10vh 20vw 5vh 20vw;
 }
 
-.bgimg {
-  height: 130vh;
-}
-
-form {
-  width: 432px;
-  float: right;
-  background: #24252ae8;
-  margin: 120px 200px 30px 0px;
-  padding: 10px 30px;
+.form-div #butn {
+  padding-left: 0;
+  display: flex;
+  justify-content: center;
 }
 
 label {
@@ -61,41 +57,37 @@ h1 {
   margin-top: 0.3em;
 }
 
-.link {
-  text-decoration: none;
-  color: dodgerblue;
+textarea {
+  width: 100%;
+  background: transparent;
+  border: #92897a 1px solid;
+  color: blanchedalmond;
+  font-size: 20px;
+  font-family: 'Adobe Clean';
 }
 
-#submit {
+textarea:focus {
+  outline: none;
+  border-bottom-style: double;
+  border: blanchedalmond 2px solid;
+}
+
+#click {
   background-color: transparent;
   color: blanchedalmond;
   padding: 14px 20px;
-  margin-left: 90px;
   border: 1px solid;
   cursor: pointer;
-  width: 50%;
+  width: auto;
   border-radius: 100px;
   font-family: 'Varela Round';
-  font-size: 15px;
+  font-size: 20px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-#submit:hover {
+#click:hover {
   color: #24252a;
   background-color: blanchedalmond;
   transition: all 0.4s ease 0s;
 }
-/* 
-.credits {
-  color: blanchedalmond;
-  position: absolute;
-  bottom: 15px;
-  left: 10px;
-}
-
-.credits img {
-  height: 20px;
-  width: 20px;
-  vertical-align: sub;
-} */
