@@ -50,7 +50,7 @@ var cart=[];
 // });
 cart = JSON.parse(document.getElementById('cartitems').textContent);
 console.log(cart)
-if (cart.length>0){
+if (cart!=null && cart.length>0 ){
     
     cart.forEach((ci,cii)=>{
     clx=ci.itemName.split(' ').join('.');
@@ -60,6 +60,8 @@ if (cart.length>0){
     $(".click."+clx).parent().children('div').eq(1).children('div').eq(0).html( '<a class="indebtn dec" href="javascript:void(0)" >-</a>'+ci.itemQty+'<a class="indebtn inc" href="javascript:void(0)" >+</a>')
    
 })
+}else{
+    cart=[]
 }
 
 
