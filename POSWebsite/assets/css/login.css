@@ -1,0 +1,132 @@
+@import url("fonts.css");
+
+body, html {
+  overflow: hidden;
+  height: 100%;
+  color: blanchedalmond;
+  font-family: 'Varela Round';
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-position: center center;
+  position: relative;
+}
+
+.scroll-pre {
+  height: 90px;
+  width: 100%;
+  background-color: inherit;
+}
+
+form {
+  width: 432px;
+    height: 500px;
+    float: right;
+    background: #24252ae8;
+    margin-right: 200px;
+    margin-top: 190px;
+    padding: 10px 30px;
+}
+
+.bgimg {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/login.jpg");
+  background-size: cover;
+} 
+
+.credits {
+  color: blanchedalmond;
+  position: absolute;
+  bottom: 15px;
+  left: 10px;
+}
+
+.credits img {
+  height: 20px;
+  width: 20px;
+  vertical-align: sub;
+}
+
+input {
+  width: 100%;
+  margin: 8px 0px 0px 0px;
+  /* padding: 0px 1px; */
+  /* display: inline-block; */
+  /* box-sizing: border-box; */
+  background-color: transparent;
+  border-block-style: none;
+  border-bottom-style: groove;
+  border-inline: none;
+}
+
+h1 {
+  font-family: 'Varela Round';
+  font-size: 50px;
+  color: blanchedalmond;
+  font-weight: 100;
+}
+
+.link {
+  text-decoration: none;
+  color: dodgerblue;
+}
+
+/* swanand cho code */
+/* Bordered form */
+/* form {
+    border: 3px solid #f1f1f1;
+  } */
+
+  
+  /* Set a style for all buttons */
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  /* Add a hover effect for buttons */
+  button:hover {
+    opacity: 0.8;
+  }
+
+  /* Center the avatar image inside this container */
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+  }
+  
+  /* Avatar image */
+  img.avatar {
+    width: 40%;
+    border-radius: 50%;
+  }
+  
+  /* Add padding to containers */
+  .container {
+    padding: 16px;
+  }
+  
+  /* The "Forgot password" text */
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+      display: block;
+      float: none;
+    }
+    .cancelbtn {
+      width: 100%;
+    }
+  }

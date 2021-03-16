@@ -3,3 +3,5 @@ POSWebsite/orders/__pycache__/*
 POSWebsite/*/__pycache__/
 POSWebsite/stats/__pycache__/*
 POSWebsite/db.sqlite3
+.vscode
+*/.vscode

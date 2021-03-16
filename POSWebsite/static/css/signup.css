@@ -6,13 +6,18 @@ body{
   /* background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/login2.jpg"); */
   background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("images/login1.jpeg");
   background-size: cover;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
+  height: 150vh;
 }
 
 .scroll-pre {
   height: 90px;
   width: 100%;
   background-color: inherit;
+}
+
+.bgimg {
+  height: 130vh;
 }
 
 form {

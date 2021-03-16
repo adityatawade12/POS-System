@@ -1,6 +1,13 @@
 body, html {
-    overflow: hidden;
+    overflow: overlay;
     height: 100%;
+    background-image:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("https://images.pexels.com/photos/954677/pexels-photo-954677.jpeg?cs=srgb&dl=pexels-devon-rockola-954677.jpg&fm=jpg");
+  background-size:cover;
+  background-position: center center;
+  -webkit-background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  /* height: 100vh; */
   }
 
 .scroll-pre {
@@ -8,3 +15,19 @@ body, html {
     width: 100%;
     background-color: inherit;
 } 
+.fa-map-marker
+{
+  color: white;
+}
+p
+{
+  color: white;
+}
+/* h1
+{
+  color: white;
+}
+h3
+{
+  color: antiquewhite;
+} */
