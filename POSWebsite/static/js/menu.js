@@ -129,9 +129,9 @@ $(".click1").on("click", "a", function(event){
 cartRefresh()
 });
 
-$("ul").on("click", "span", function(event){
-    var t= $(this).parent().children("span")[1].outerText
-    //    console.log(t)
+$("#list").on("click", "span", function(event){
+    var t= $(this).parent().parent().attr('class').slice(4)
+       console.log(t)
        cart.forEach((item, index) => {
         if(item.itemName==t){
             delete cart[index]
@@ -140,13 +140,14 @@ $("ul").on("click", "span", function(event){
     
 });
 cart=cart.filter(el => el);
+var t= $(this).parent().parent().attr('class').slice(4).split(' ').join(".")
 console.log(cart)
 t=t.split(' ').join('.');
 // console.log($(".incdec."+t))
 $("."+t+".incdec").children('div').eq(0).html('<a class="indebtn dec" href="javascript:void(0)" >-</a>1<a class="indebtn inc" href="javascript:void(0)" >+</a>')
     $(".incdec."+t).css({"visibility": "hidden"})
     $("."+t+".click").css({"visibility": "visible"})
-	$(this).parent().fadeOut(300,function(){
+	$(this).parent().parent().fadeOut(300,function(){
        
 		$(this).remove();
 
@@ -161,35 +162,37 @@ $("."+t+".incdec").children('div').eq(0).html('<a class="indebtn dec" href="java
 function cartRefresh(){
     var int=""
 
-cart.forEach((item, index) => {
-    // $("#list").append("<li><span><i class='fa fa-trash'></i></span> " + item.itemName +" "+item.itemQty +"</li>")
-//     int+=`<li><div class="_cards" style="display: flex; justify-content: center;">
-//     <div style="height: 100%;">
-//             <!--class="card-img-top" --> 
-//             <div class="card_img" style="height: 40%; background-image: url('`+item.itemImage+`');">
-//                     <!-- <img class="card-img-top" alt="Card image cap" style=""> -->
-//             </div>
-//             <div class="card-body"style="background-color: blanchedalmond ; max-height:60%;font-size:100%;overflow:hidden ">
-//                     <!-- <br> -->
-//                     <div style="height: 20%;font-size: 1.2em;">
-//                             <h5 class="card-title-1" style="font-size: 1.1em;font-weight: bold;">`+item.itemName+`</h5>
-//                     </div>
-//                     <div style="height: 30%; display: flex; align-items: center;">
-//                             &emsp;&#8377;`+item.totalPrice+`
-//                     </div>
-//             </div>
-//     </div>
-// </div></li>`;
-    int+="<li><span><i class='fa fa-trash'></i></span> <span>" + item.itemName +"</span> <span>"+item.itemQty +"</span> <span>"+item.totalPrice +"</span></li>"
-    
+    cart.forEach((item, index) => {
 
-});
-document.getElementById("list").innerHTML=int
+        int+=`<div class="row `+item.itemName+`" style="height: 6em;">
+            <div class="col-4" id="cart_img">
+                    <div style="background-image: url('`+item.itemImage+`');"></div>
+                    <!-- <img src=`+item.itemImage+`> -->
+            </div>
+            <div class="col-4">
+                    <a href="#`+item.itemName+`" style="text-decoration: none; color: #24252a;">`+item.itemName+`</a>
+            </div>
+            <div class="col-1">
+                    `+item.itemQty+`
+            </div>
+            <div class="col-2">
+                    &#8377;`+item.totalPrice+`
+            </div>
+            <div class="col-1">
+                    <span><i class='fa fa-trash'></i></span>
+            </div>
+        </div> `
+
+    });
+    if (int.length == 0)
+    {
+        int = `Your Cart is empty!`;
+    }
+    myCart();
+    document.getElementById("list").innerHTML=int
 }
 
-
-
-  $(".checkout a").click(function() {
+  function myCart() {
     cart1=JSON.stringify(cart)
     // create an AJAX call
     console.log(cart)
@@ -201,14 +204,19 @@ document.getElementById("list").innerHTML=int
         url: "/orders/checkout",
         // on success
         success: function(response) {
-            alert("Thankyou for reaching us out ");
+            // alert("Thankyou for reaching us out ");
         },
         // on error
         error: function(response) {
             // alert the error if any error occured
-            alert(response.responseJSON.errors);
+            // alert(response.responseJSON.errors);
             console.log(response.responseJSON.errors)
         }
     });
     return false;
-});
+}
+
+function scrolldiv(arg) { 
+    var elem = document.getElementById(arg); 
+    elem.scrollIntoView();
+}
