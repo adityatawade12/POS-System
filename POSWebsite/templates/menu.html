@@ -79,6 +79,41 @@
                                                 {% endfor %}
                                         </div>
                                 </div>
+
+                                <p class="Category">Main Course</p>
+                                <div  style="float: left;padding-left: auto;padding-right: auto">
+                                        <div class="row">
+                                                {% for item in items  %}
+                                                {% if item.Category == "Main Course" %}
+                                                <div class="col-xl-3 col-lg-4 col-6 " style="height: 100%;"  >
+                                                        <div class="card" style=" width:95%;border:2px solid white;border-top-right-radius:8% ;border-bottom-left-radius:10%;height: 20rem;">
+                                                                <!--class="card-img-top" --> 
+                                                                <div style="height: 40%;">
+                                                                        <img 
+                                                                        src="{{item.Image}}"
+                                                                        alt="Card image cap" style="border-top-right-radius:10% ; max-height: 100%;">
+                                                                </div>
+                                                                
+                                                                <div class="card-body"style="background-color: blanchedalmond ; max-height:60%;border-bottom-left-radius:10% ;font-size:100%;overflow:hidden ">
+                                                                        <div style="height: 20%;border:green 2px solid ;">
+                                                                                <h5 class="card-title-1" style="font-size: 1.3em;font-weight: bold;">{{item.Name}}</h5>
+                                                                        </div>
+                                                                        <!-- {{item.Description}} -->
+                                                                        <div style="height: 50%;overflow: hidden;text-overflow: ellipsis; border:yellow 2px solid ;">
+                                                                                <p class="card-text" style="font-size: 0.8em;  " >fansjfb asjfbiasf safhs isahfip oihfspai isafio jasfon sjafoh asfiphuga ljsbaip safpisafn asfpisafp saolbf safh siahfp aksfpsasfj alksfpsaf sanfpisafn sakfnp</p>
+                                                                        </div>
+                                                                        <div style="height: 30%;border:black 2px solid ;">
+                                                                                <a href="#" class="click" onclick="myfunct()">Add</a>
+                                                                        </div>
+                                                                        
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                {% endif %}
+                                                {% endfor %}
+                                        </div>
+                                </div>
+
                         </div>
                 {% endfor %}
         </div>
