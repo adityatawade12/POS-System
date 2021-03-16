@@ -82,43 +82,27 @@
                         <div style="top: 25%; position: sticky; background-color: blanchedalmond;">
                                 <div style="height: 2em;"> hello</div>
                                         <div class="cartinside">
-                                                SOMETHING<br>
-                                                SOMETHING<br>
-                                                SOMETHING<br>
-                                                SOMETHING<br>
-                                                SOMETHING<br>
-                                                SOMETHING<br>
-                                                SOMETHING<br>
-                                                SOMETHING<br>
-                                                SOMETHING<br>
-                                                SOMETHING<br>
-                                                SOMETHING<br>
-                                                SOMETHING<br>
-                                                SOMETHING<br>
+                                                <div class="_cards" style="display: flex; justify-content: center;">
+                                                        <div style="height: 100%;">
+                                                                <!--class="card-img-top" --> 
+                                                                <div class="card_img" style="height: 40%; background-image: url('{{item.Image}}');">
+                                                                        <!-- <img class="card-img-top" alt="Card image cap" style=""> -->
+                                                                </div>
+                                                                <div class="card-body"style="background-color: blanchedalmond ; max-height:60%;font-size:100%;overflow:hidden ">
+                                                                        <!-- <br> -->
+                                                                        <div style="height: 20%;font-size: 1.2em;">
+                                                                                <h5 class="card-title-1" style="font-size: 1.1em;font-weight: bold;">Medu Vada</h5>
+                                                                        </div>
+                                                                        <div style="height: 30%; display: flex; align-items: center;">
+                                                                                &emsp;&#8377;{{item.Price}}
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </div>
                                         </div>
                                 </div>
                         </div>
-                
-                <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam provident itaque, dignissimos nam pariatur minima possimus enim ipsum? Cupiditate autem architecto delectus, inventore facere quis amet velit accusantium qui.
-                </p>
-                <br>
-                <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam provident itaque, dignissimos nam pariatur minima possimus enim ipsum? Cupiditate autem architecto delectus, inventore facere quis amet velit accusantium qui.
-                </p>
-                <br>
-                <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam provident itaque, dignissimos nam pariatur minima possimus enim ipsum? Cupiditate autem architecto delectus, inventore facere quis amet velit accusantium qui.
-                </p>
-                <br>
-                <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam provident itaque, dignissimos nam pariatur minima possimus enim ipsum? Cupiditate autem architecto delectus, inventore facere quis amet velit accusantium qui.
-                </p>
-                <br>
-                <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa laboriosam provident itaque, dignissimos nam pariatur minima possimus enim ipsum? Cupiditate autem architecto delectus, inventore facere quis amet velit accusantium qui.
-                </p>
-                <br>
+                </div>
                 
                 <script src="{% static 'js/menu.js' %}"></script>
-{% endblock tail %}       
+{% endblock tail %}
