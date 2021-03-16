@@ -213,11 +213,15 @@
                         </div>
                         <div class="cartinside">
                                 <ul id="list">
-        
+                                        {% if cartitems %}
+                                        {% for item in cartitems  %}
+                                        <li><span><i class='fa fa-trash'></i></span> <span>{{item.itemName}}</span> <span>{{item.itemQty}}</span> <span>{{item.totalPrice}}</span></li>
+                                        {% endfor %}
+                                        {% endif %}
                                 </ul>
                         </div>
                         <div class="checkout" style="display:flex;width:70%;margin: 0 auto; justify-content: center; height: 1.5em;font-size: 2em;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;border-bottom: 2px solid black;">
-                                <a href="javascript:void(0)" >Checkout</a>
+                                <a  href="javascript:void(0)" >Checkout</a>
                               
                         </div>
                 </div>
@@ -229,6 +233,7 @@
 
         
         <br>
-
+        {{ items|json_script:"items" }}
+        {{ cartitems|json_script:"cartitems" }}
         <script src="{% static 'js/menu.js' %}"></script>
         {% endblock tail %}

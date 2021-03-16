@@ -1,53 +1,83 @@
-// var dishes=( function(){
-//     fetch('/orders/items', {
-//         method: 'get'
-//     })
-//     .then(response => response.json())
-//     .then(jsonData => {
-//         console.log(typeof(jsonData))
-//         return jsonData;
-//     })
-//     .catch(err => {
-//             //error block
-//             console.log(err)
-//         })
-// })();
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+  }
+  const csrftoken = getCookie('csrftoken');
 
 var dishes;
 
-$.ajax({
-    'async': false,
-    'type': "GET",
-    'global': false,
-    'dataType': 'html',
-    'url': "/orders/items",
+// $.ajax({
+//     'async': false,
+//     'type': "GET",
+//     'global': false,
+//     'dataType': 'html',
+//     'url': "/orders/items",
     
-    'success': function (data) {
-        dishes = data;
-        // console.log(dishes)
-    }
-});
+//     'success': function (data) {
+//         dishes = data;
+//         // console.log(dishes)
+//     }
+// });
 // console.log(myVariable)
-myObject = JSON.parse(dishes);
-console.log(myObject)
+dishes = JSON.parse(document.getElementById('items').textContent);
+// console.log(myObject)
 var cart=[];
 
-myObject.forEach((i,i1)=>{
-    console.log(i)
+// $.ajax({
+//     'async': false,
+//     'type': "GET",
+//     'global': false,
+//     'dataType': 'html',
+    
+//     'url': "/orders/menuCart",
+    
+//     'success': function (data) {
+//         cartItems = data;
+//         // console.log(dishes)
+//     }
+// });
+cart = JSON.parse(document.getElementById('cartitems').textContent);
+console.log(cart)
+if (cart.length>0){
+    
+    cart.forEach((ci,cii)=>{
+    clx=ci.itemName.split(' ').join('.');
+    console.log(clx)
+    $(".click."+clx).css({"visibility": "hidden"});
+    $(".click."+clx).parent().children('div').eq(1).css({"visibility": "visible"})
+    $(".click."+clx).parent().children('div').eq(1).children('div').eq(0).html( '<a class="indebtn dec" href="javascript:void(0)" >-</a>'+ci.itemQty+'<a class="indebtn inc" href="javascript:void(0)" >+</a>')
+   
 })
+}
+
 
 $(".click").on("click",function(event){
     
     $(this).parent().children('div').eq(1).css({"visibility": "visible"})
     $(this).css({"visibility": "hidden"});
     var name=$(this).attr('class').slice(6)
-    myObject.forEach((i,x)=>{
+    // var image=null
+    dishes.forEach((i,x)=>{
         if(name==i.Name){
             price=i.Price
+            img=i.Image
+
         }
     })
     // var price=$(this).children('a').eq(0).attr('class')
-    cart.push({itemName:name,itemQty:1,itemPrice:price,totalPrice:price})
+    cart.push({itemName:name,itemQty:1,itemPrice:price,totalPrice:price,itemImage:img})
     
     cartRefresh()
     
@@ -60,8 +90,7 @@ $(".click1").on("click", "a", function(event){
    
     var t= $(this).parent().parent().parent().parent().parent().attr('id')
     var r=$(this).attr('class').split(" ")[1]
-    console.log(t)
-    console.log(r)
+   
        cart.forEach((item, index) => {
         if(item.itemName==t){
             if(r=='inc'){
@@ -84,6 +113,9 @@ $(".click1").on("click", "a", function(event){
                 
             
         });
+
+        cart=cart.filter(el => el);
+        console.log(cart)
            }
            $(this).parent().html('<a class="indebtn dec" href="javascript:void(0)" >-</a>'+item.itemQty+'<a class="indebtn inc" href="javascript:void(0)" >+</a>')
             
@@ -105,7 +137,8 @@ $("ul").on("click", "span", function(event){
         
     
 });
-
+cart=cart.filter(el => el);
+console.log(cart)
 t=t.split(' ').join('.');
 // console.log($(".incdec."+t))
 $("."+t+".incdec").children('div').eq(0).html('<a class="indebtn dec" href="javascript:void(0)" >-</a>1<a class="indebtn inc" href="javascript:void(0)" >+</a>')
@@ -128,9 +161,52 @@ function cartRefresh(){
 
 cart.forEach((item, index) => {
     // $("#list").append("<li><span><i class='fa fa-trash'></i></span> " + item.itemName +" "+item.itemQty +"</li>")
+//     int+=`<li><div class="_cards" style="display: flex; justify-content: center;">
+//     <div style="height: 100%;">
+//             <!--class="card-img-top" --> 
+//             <div class="card_img" style="height: 40%; background-image: url('`+item.itemImage+`');">
+//                     <!-- <img class="card-img-top" alt="Card image cap" style=""> -->
+//             </div>
+//             <div class="card-body"style="background-color: blanchedalmond ; max-height:60%;font-size:100%;overflow:hidden ">
+//                     <!-- <br> -->
+//                     <div style="height: 20%;font-size: 1.2em;">
+//                             <h5 class="card-title-1" style="font-size: 1.1em;font-weight: bold;">`+item.itemName+`</h5>
+//                     </div>
+//                     <div style="height: 30%; display: flex; align-items: center;">
+//                             &emsp;&#8377;`+item.totalPrice+`
+//                     </div>
+//             </div>
+//     </div>
+// </div></li>`;
     int+="<li><span><i class='fa fa-trash'></i></span> <span>" + item.itemName +"</span> <span>"+item.itemQty +"</span> <span>"+item.totalPrice +"</span></li>"
     
 
 });
 document.getElementById("list").innerHTML=int
 }
+
+
+
+  $(".checkout a").click(function() {
+    cart1=JSON.stringify(cart)
+    // create an AJAX call
+    console.log(cart)
+    console.log(cart1)
+    $.ajax({
+        data: {cart:cart1}, // get the form data
+        method: "POST", 
+        headers: { "X-CSRFToken": csrftoken  },// GET or POST
+        url: "/orders/checkout",
+        // on success
+        success: function(response) {
+            alert("Thankyou for reaching us out ");
+        },
+        // on error
+        error: function(response) {
+            // alert the error if any error occured
+            alert(response.responseJSON.errors);
+            console.log(response.responseJSON.errors)
+        }
+    });
+    return false;
+});

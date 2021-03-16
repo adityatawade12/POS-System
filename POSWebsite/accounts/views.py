@@ -18,7 +18,7 @@ config = {
 }
 pirebase = pyrebase.initialize_app(config)
 authe = pirebase.auth()
-
+# user=authe.current_user
 # Create your views here.
 def login(request):
     if request.method =="POST":
@@ -33,8 +33,9 @@ def login(request):
         #print(user['idToken'])
         session_id=user['idToken']
         request.session['uid']=str(session_id)
-        us=authe.current_user
-        return render(request, "menu.html",{"e":email,"us":us})
+        # us=authe.current_user
+        # return render(request, "menu.html",{"e":email,"us":us})
+        return redirect('/menu')
     else:
         
         us=authe.current_user
@@ -65,10 +66,18 @@ def signup(request):
 
 
 def logout(request):
-    
+    try:
+        del request.session['uid']
+    except:
+        pass
     authe.current_user=None
     return redirect('/home')
 
 
-def curuser():
+def curuser(request):
+    try:
+        x=authe.get_account_info(request.session['uid'])
+    except:
+        x="null"
+    print("user authe",x)
     return authe.current_user
