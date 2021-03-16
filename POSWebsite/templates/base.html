@@ -61,6 +61,34 @@
             </nav>   
 
 
+<!-- <nav class="barnav">
+    <a href="/home">
+        <div class="company">
+            <img class="logo" src="{% static 'css/images/compnay_logo_100.png' %}">
+            <div>le mieux</div>
+        </div>
+    </a>
+    <ul class="nav_item">
+        {% if us %}
+        <a class="navi" href="/accounts/logout">
+            <li>{{us.email}}, LOGOUT</li>
+        </a>
+        {% else %}
+        <a class="navi" href="/accounts/login">
+            <li>LOGIN</li>
+        </a>
+        {% endif %}
+        
+        <a class="navi" href="#"><li>OFFERS</li></a>
+        <a class="navi" href="/menu"><li>MENU</li></a>
+        <a class="navi" href="/contact"><li>CONTACT</li></a>
+        <!-- <li class="navi"> -->
+            <!-- <a class="cart" onclick="scrolldiv('cart')"><img src="/static/css/images/cart.png" alt="CART"></a> -->
+        <!-- </li> -->
+    </ul>
+</nav> -->
+
+
 
 {% block tail %}
 {% endblock tail %}
