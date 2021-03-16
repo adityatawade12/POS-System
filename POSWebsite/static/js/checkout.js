@@ -23,7 +23,7 @@ window.onclick = function(event) {
 $(".but").on("click","a",function(event){
     var r=$(this).attr('class').split(" ")[0]
     var t=$(this).parent().attr('class').slice(4)
-    console.log(t)
+    console.log(t);
     console.log(r);
     cart.forEach((item,index)=>{
         if(item.itemName==t){
@@ -32,6 +32,12 @@ $(".but").on("click","a",function(event){
             }else{
                 item.itemQty=item.itemQty+1;
             }
+            if(item.itemQty==0){
+                $(this).parent().parent().parent().parent().parent().parent().parent().css({"display": "none"})
+                delete cart[index];
+            }
+            cart=cart.filter(el => el);
+            console.log(cart)
             item.totalPrice=item.itemPrice*item.itemQty;
             $(this).parent().parent().parent().parent().children('div').eq(2).html('<h2 class="card-title-checkout">&#8377; '+item.totalPrice+' </h2>')
             $(this).parent().html('<a href="javascript:void(0)" class="minus">-</a><span style="width: 35px;" class="quanval"> '+item.itemQty+' </span><a href="javascript:void(0)" class="plus">+</a>')
