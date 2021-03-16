@@ -26,16 +26,12 @@ body {
 }
 
 ._cart {
-  position: fixed !important;
+  position: absolute !important;
   width: 25%;
   top: 140px;
   right: 20px;
-  background-color: blanchedalmond;
+  height: 430vh;
   margin: 30px !important;
-  border-radius: 3em;
-  /* justify-content: center; */
-  /* display: flex; */
-  height: 50%;
 }
 
 @media (max-width: 992px)
@@ -44,9 +40,14 @@ body {
     top: auto;
     width: 80%;
     left: 0;
-    bottom: 0;
-    margin: 0% 5% !important;
+    bottom: 2em;
+    margin: auto !important;
     position: sticky !important;
+    height: 6em;
+  }
+
+  .cartinside {
+    height: 6em !important;
   }
 
   .cont1 {
@@ -84,6 +85,8 @@ body {
   padding: 3.5px 10px;
   font-size: 0.8em;
   border-radius: 40px;
+  color: #24252a;
+  background-color: transparent;
   border: 0.15em solid #24252a9e;
 }
 .click a{
@@ -133,7 +136,7 @@ body {
 
 .cartinside {
   overflow: overlay;
-  height: 12em;
+  height: 12.48em;
   margin:1em auto;
   width: 90%;
 }
@@ -222,4 +225,37 @@ li:hover span {
   font-family: 'Varela Round', sans-serif;
   font-weight: bold;
   /* display: none; */
+}
+  
+.cartinside::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.checkout{
+  font-size: 0.8em;
+  border-radius: 40px;
+  color: #24252a;
+  border: 0.15em solid #24252a9e;
+  
+  margin: auto;
+  font-family: 'Varela Round', sans-serif;
+  font-weight: bold;
+  background: #24252a;
+  color: blanchedalmond;
+}
+.checkout a{
+  background: transparent;
+  color: blanchedalmond;
+  text-decoration: none;
+  
+}
+.checkout:hover{
+  background: blanchedalmond;
+  
+}
+.checkout:hover a{
+  background: transparent;
+  color: #24252a;
+  text-decoration: none;
+  
 }

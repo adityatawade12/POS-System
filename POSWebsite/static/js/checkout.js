@@ -1,49 +1,55 @@
-/*function myfunction(){
-    
-    document.querySelector(".idbtnsplus").addEventListener("click", function () {
-        valueCount = document.getElementsByClassName("quanval").value;
-        valueCount++;
-        document.getElementsByClassName("quanvalue").value = valueCount;
-    })
-
-    document.querySelector(".idbtnsminus").addEventListener("click", function () {
-        valueCount = document.getElementsByClassName("quanvalue").value;
-        valueCount--;
-        document.getElementsByClassName("quanvalue").value = valueCount;
-    })
-    
-}
-function alfunction(){
-    $("#check").click(function(){
-        alert("Thank you for placing your order!!\n Your order will be delivered at your address :)");
-    });
-}*/
+var cart = JSON.parse(document.getElementById('cart').textContent);
+console.log(cart);
+updateTotal(cart);
 
 var modal = document.getElementById("myModal");
-
 var btn = document.getElementById("mapbtn");
-
-// Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal 
 btn.onclick = function() {
   modal.style.display = "block";
 }
 
-// When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 }
 
-function myfunction(){
-    var x = document.getElementsByClassName("quanval").innerText;
-    console.log(x);
+$(".but").on("click","a",function(event){
+    var r=$(this).attr('class').split(" ")[0]
+    var t=$(this).parent().attr('class').slice(4)
+    console.log(t)
+    console.log(r);
+    cart.forEach((item,index)=>{
+        if(item.itemName==t){
+            if(r=="minus"){
+                item.itemQty=item.itemQty-1;
+            }else{
+                item.itemQty=item.itemQty+1;
+            }
+            item.totalPrice=item.itemPrice*item.itemQty;
+            $(this).parent().parent().parent().parent().children('div').eq(2).html('<h2 class="card-title-checkout">&#8377; '+item.totalPrice+' </h2>')
+            $(this).parent().html('<a href="javascript:void(0)" class="minus">-</a><span style="width: 35px;" class="quanval"> '+item.itemQty+' </span><a href="javascript:void(0)" class="plus">+</a>')
+            updateTotal(cart);
+        }
+    });
+    console.log(cart)
+})
+
+function updateTotal(cart){
+    var subT=0;
+    var grnT=0;
+    cart.forEach((item,index)=>{
+        subT=subT+item.totalPrice;
+    });
+    console.log(subT);
+    grnT=0.05*subT+subT;
+    console.log(grnT);
+    $(".subT").html('<h6>Sub-Total:&emsp13;<span> '+subT+' </span></h6>')
+    $(".grnT").html('<h6>Grand-Total:&emsp13;<span> '+grnT+' </span></h6>')
 }

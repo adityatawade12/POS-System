@@ -125,6 +125,11 @@ marquee {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/contact.jpg");
 }
 
+#contact li {
+    font-size: 1.5em;
+    list-style: none;
+}
+
 #cart {
     background: #24252a;
 }
@@ -164,4 +169,10 @@ marquee {
 .cart img {
     width: 30px;
     height: 30px;
+}
+
+#map div {
+    height: 15em;
+    width: 25em;
+    background-color: #24252a;
 }

@@ -11,9 +11,10 @@
 }
 .card
 {
-    padding: 3%;
+    /*padding: 2%;*/
     background-color: blanchedalmond;
     box-shadow: 10px;
+    width: 50vw;
 }
 .swanny
 {
@@ -63,7 +64,7 @@
     height: 25%;
     padding-top: 0.5%;
 }
-.idbutnsplus
+.plus
 {
     right: 15px;
     padding-bottom: .3rem;
@@ -80,7 +81,7 @@
       border-radius: 5px;
        border:1px solid black; 
 }
-.idbutnsminus
+.minus
 {
     right: 15px;
     padding-bottom: .4rem;
@@ -97,7 +98,7 @@
       border-radius: 5px;
       border:1px solid black; 
 }
-.idbutnsplus:hover
+.plus:hover
 {
     background-color: transparent;
     color: #24252a;
@@ -105,7 +106,7 @@
 
     /* border:2px solid black; */
 }
-.idbutnsminus:hover
+.minus:hover
 {
     background-color: transparent;
     color: #24252a;
@@ -267,4 +268,11 @@
     transition: all 0.4s ease-in-out;
     background: rgb(15, 77, 172);
     color: white;
+}
+
+.card-title-checkout {
+    font-size: 1.50rem;
+    margin-bottom: .2rem;
+    padding: 0;
+    width: 100%;
 }
