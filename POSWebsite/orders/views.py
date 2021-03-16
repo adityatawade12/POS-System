@@ -2,9 +2,7 @@ from django.shortcuts import render
 import accounts.views  
 from firebase_admin import firestore
 # Create your views here.
-import accounts.views
-from firebase_admin import firestore
-# Create your views here.
+
 
 db=firestore.client()
 
