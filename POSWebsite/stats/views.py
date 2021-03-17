@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from accounts.views import curuser
 from orders.views import menuItems
 from orders.views import menuCart
+from orders.views import menuCategory
 
 # Create your views here.
 def home(request):
@@ -14,12 +15,14 @@ def home1(request):
 
 def menu(request):
     items=menuItems()
+    category = menuCategory(items)
     # print(items)
+    # print(category)
 
     us=curuser(request)
     cartItems=menuCart(request)
     
-    return render(request,'menu.html',{'us':us,'items':items,'cartitems':cartItems})
+    return render(request,'menu.html',{'us':us,'items':items,'cartitems':cartItems, 'category':category})
 
 def contact(request):
     us=curuser(request)

@@ -9,14 +9,6 @@ body {
   font-family: 'Varela Round';
 }
 
-/* header {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  background-position: center center;
-  position: relative;
-} */
-
 .scroll-pre {
   height: 90px;
   width: 100%;

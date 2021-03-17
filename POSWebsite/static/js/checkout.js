@@ -1,3 +1,20 @@
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+          }
+      }
+  }
+  return cookieValue;
+}
+const csrftoken = getCookie('csrftoken');
+
 var cart = JSON.parse(document.getElementById('cart').textContent);
 console.log(cart);
 updateTotal(cart);
@@ -42,6 +59,7 @@ $(".but").on("click","a",function(event){
             $(this).parent().parent().parent().parent().children('div').eq(2).html('<h2 class="card-title-checkout">&#8377; '+item.totalPrice+' </h2>')
             $(this).parent().html('<a href="javascript:void(0)" class="minus">-</a><span style="width: 35px;" class="quanval"> '+item.itemQty+' </span><a href="javascript:void(0)" class="plus">+</a>')
             updateTotal(cart);
+            myCart();
         }
     });
     console.log(cart)
@@ -58,4 +76,28 @@ function updateTotal(cart){
     console.log(grnT);
     $(".subT").html('<h6>Sub-Total:&emsp13;<span> '+subT+' </span></h6>')
     $(".grnT").html('<h6>Grand-Total:&emsp13;<span> '+grnT+' </span></h6>')
+}
+
+function myCart() {
+  cart1=JSON.stringify(cart)
+  // create an AJAX call
+  console.log(cart)
+  console.log(cart1)
+  $.ajax({
+      data: {cart:cart1}, // get the form data
+      method: "POST", 
+      headers: { "X-CSRFToken": csrftoken  },// GET or POST
+      url: "/orders/checkout",
+      // on success
+      success: function(response) {
+          // alert("Thankyou for reaching us out ");
+      },
+      // on error
+      error: function(response) {
+          // alert the error if any error occured
+          // alert(response.responseJSON.errors);
+          console.log(response.responseJSON.errors)
+      }
+  });
+  return false;
 }

@@ -19,13 +19,21 @@ def menuItems():
         dishes.append(doc.to_dict())
     return dishes
 
+def menuCategory(dishes):
+    cat=[]
+    for item in dishes:
+        if item['Category'] not in cat:
+            cat.append(item['Category'])
+    # print(cat)
+    return cat
+
 def menuItems1(request):
     docs = db.collection(u'dishes').stream()
     dishes=[]
     for doc in docs:
         dishes.append(doc.to_dict())
     dishes1 = json.dumps(dishes)    
-    # print(dishes1)
+    print(dishes1)
     return HttpResponse(dishes1)
 
 def checkout(request):
