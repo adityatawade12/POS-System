@@ -18,36 +18,10 @@ function getCookie(name) {
 
 var dishes;
 
-// $.ajax({
-//     'async': false,
-//     'type': "GET",
-//     'global': false,
-//     'dataType': 'html',
-//     'url': "/orders/items",
-    
-//     'success': function (data) {
-//         dishes = data;
-//         // console.log(dishes)
-//     }
-// });
-// console.log(myVariable)
 dishes = JSON.parse(document.getElementById('items').textContent);
-// console.log(myObject)
+
 var cart=[];
 
-// $.ajax({
-//     'async': false,
-//     'type': "GET",
-//     'global': false,
-//     'dataType': 'html',
-    
-//     'url': "/orders/menuCart",
-    
-//     'success': function (data) {
-//         cartItems = data;
-//         // console.log(dishes)
-//     }
-// });
 cart = JSON.parse(document.getElementById('cartitems').textContent);
 console.log(cart)
 if (cart!=null && cart.length>0 ){
@@ -64,9 +38,7 @@ if (cart!=null && cart.length>0 ){
     cart=[]
 }
 
-
 $(".click").on("click",function(event){
-    
     $(this).parent().children('div').eq(1).css({"visibility": "visible"})
     $(this).css({"visibility": "hidden"});
     var name=$(this).attr('class').slice(6)
@@ -75,33 +47,24 @@ $(".click").on("click",function(event){
         if(name==i.Name){
             price=i.Price
             img=i.Image
-
         }
     })
     // var price=$(this).children('a').eq(0).attr('class')
     cart.push({itemName:name,itemQty:1,itemPrice:price,totalPrice:price,itemImage:img})
-    
     cartRefresh()
     
 })
 
-
-
-
 $(".click1").on("click", "a", function(event){
-   
     var t= $(this).parent().parent().parent().parent().parent().attr('id')
     var r=$(this).attr('class').split(" ")[1]
    
        cart.forEach((item, index) => {
         if(item.itemName==t){
             if(r=='inc'){
-                
                 item.itemQty+=1
-                
             }else{
                 item.itemQty-=1
-               
             }
             item.totalPrice=item.itemPrice*item.itemQty
            if(item.itemQty==0){
@@ -112,19 +75,13 @@ $(".click1").on("click", "a", function(event){
                 if(item.itemName==t){
                     delete cart[index1]
                 }
-                
-            
         });
 
         cart=cart.filter(el => el);
         console.log(cart)
            }
-           $(this).parent().html('<a class="indebtn dec" href="javascript:void(0)" >-</a>'+item.itemQty+'<a class="indebtn inc" href="javascript:void(0)" >+</a>')
-            
+           $(this).parent().html('<a class="indebtn dec" href="javascript:void(0)" >-</a>'+item.itemQty+'<a class="indebtn inc" href="javascript:void(0)" >+</a>')   
         }
-        
-        
-    
 });
 cartRefresh()
 });
@@ -136,8 +93,7 @@ $("#list").on("click", "span", function(event){
         if(item.itemName==t){
             delete cart[index]
         }
-        
-    
+           
 });
 cart=cart.filter(el => el);
 var t= $(this).parent().parent().attr('class').slice(4).split(' ').join(".")
@@ -153,10 +109,8 @@ $("."+t+".incdec").children('div').eq(0).html('<a class="indebtn dec" href="java
 
 	});
 	event.stopPropagation();
+    myCart();
 });
-
-
-
 
 
 function cartRefresh(){

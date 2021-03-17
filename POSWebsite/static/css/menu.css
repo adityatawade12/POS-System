@@ -179,8 +179,8 @@ li:hover span {
   color:#24252a ;
   display: inline-block;
   height: 100%;
-
 }
+
 .indebtn:hover{
   background:#24252a9e ;
   color: blanchedalmond;
@@ -188,18 +188,19 @@ li:hover span {
   /* height:30%; */
   /* line-height: 70%; */
 }
+
 .inc{
   margin-left: 0.6em;
   border-top-right-radius: 40px;
   border-bottom-right-radius: 40px;
   border-left: solid 2px#24252a9e ;
 }
+
 .dec{
   margin-right: 0.6em;
   border-top-left-radius: 40px;
   border-bottom-left-radius: 40px;
   border-right: solid 2px #24252a9e ;
-
 }
 
 .click1 {

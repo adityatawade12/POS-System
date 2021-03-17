@@ -10,7 +10,7 @@ from accounts.views import *
 
 # Create your views here.
 db = firestore.client()
-db=firestore.client()
+
 
 def menuItems():
     docs = db.collection(u'dishes').stream()
@@ -68,7 +68,17 @@ def menuCart(request):
                 return None
         else:
             print(u'No such document!')
+
             return None
         
     else:
         return None
+
+def check(request):
+    us=curuser(request)
+    print("RUnningh!")
+    cart=menuCart(request)
+
+    return render(request,'checkout.html',{"us":us,"cart":cart})
+
+

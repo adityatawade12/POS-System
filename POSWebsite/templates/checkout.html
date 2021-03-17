@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<title>Checkout</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/checkout.css' %}">
+<link rel="javascript" type="text/js" href="{%static 'js/checkout.js' %}" >
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> -->
+</head>
+
+<body>
+
+    <header>
+        {% endblock content %}
+        {% block tail %}
+    </header>
+
+    <div class="scroll-pre"></div>
+    <div class="contain" style="margin-left:3%;margin-bottom: 3%;">
+
+        <div class="row"  >
+            <div class="col-lg-7" style="margin-top: 5%;">
+                <div class="" style="float: left;height:76vh;overflow: overlay;width:100%">
+                    {% for item in cart %}
+                    <div class="row">
+                        <div class="swanny">
+                            <div class="card">
+                                <!-- <h5 class="card-header">Featured</h5> -->
+                                <div class="row">
+                                    <div class="col-3"  >
+                                        <img src={{item.itemImage}} style="height:6em;width:7em" >
+                                    </div>
+                                    <div class="col-7">
+                                        <div class="card-body" style="margin-left: 0%;">
+                                            <div class="tle" style="margin-bottom: 3%;">
+                                                <h2 class="card-title-checkout">{{item.itemName}}</h2>
+                                            </div>
+                                            
+                                            <div class="but {{item.itemName}}">
+                                               <a href="javascript:void(0)" class="minus">-</a>
+                                                <span style="width: 35px;" class="quanval">{{item.itemQty}}</span>
+                                                <a href="javascript:void(0)" class="plus">+</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-2" style="padding:1.5em 0;"> 
+                                        
+                                            <h2 class="card-title-checkout">&#8377;{{item.totalPrice}}</h2>
+                    
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-5" style="height: auto;margin-top: 5%;">
+                <div class="fincont" style="padding:1.5%;" >
+                    <div class="ordetail" >
+                        <h2 style="color:brown;border-bottom:2px solid black;">Order Details</h2>
+                    </div>
+                    <br>
+                    <h4 style="color:brown;">Price Details</h4>
+                    <div style="border-bottom:2px solid brown;">
+                        <div class="subT"><h6>Sub-Total:&emsp13;<span>100</span></h6></div>
+                        <div><h6>GST-Charge:&emsp13;<span>5%</span></h6></div>
+                        <div class="grnT"><h6>Grand-Total:&emsp13;<span>100</span></h6></div>
+                    </div>
+                    <br>
+                    <h4 style="color:brown;">Pick-Up/Dine-In Address</h4>
+                    <div class="addmap" style="border-bottom:2px solid brown;">
+                        <a href="javascript:void(0)" id="mapbtn" class="click">Choose ur location</a>
+                        <div id="myModal" class="modal">
+                            <div class="modal-content">
+                              <span class="close">&times;</span>
+                              <ul>
+                                  <li><a href="javascript:void(0)"  class="click">A1-304,Keshav Heights,Parsik Nagar,Kalwa,Thane</a></li>
+                                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.7350927169387!2d73.00279201485333!3d19.206769387013008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7bec8aa2434db%3A0x7b642b9466a233c8!2sKeshav%20Heights!5e0!3m2!1sen!2sin!4v1615877769028!5m2!1sen!2sin" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                  <li><a href="javascript:void(0)"  class="click">Choose another location</a></li>
+                              </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="protopay" style="margin-bottom: 10%;">
+                        <a href="javascript:void(0)" class="click">Place Order</a>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- </body> -->
+    {{ cart|json_script:"cart"}}
+    <script src="{% static 'js/checkout.js' %}"></script>
+    {% endblock tail %}
