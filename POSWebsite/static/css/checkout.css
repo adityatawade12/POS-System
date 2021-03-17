@@ -14,7 +14,7 @@
     /*padding: 2%;*/
     background-color: blanchedalmond;
     box-shadow: 10px;
-    width: 50vw;
+    /* width: 50vw; */
 }
 .swanny
 {
@@ -184,7 +184,7 @@
 .protopay
 {
     margin-top: 5%; 
-    margin-bottom: 10%; 
+    padding-bottom: 0;
     text-align: center;
 }
 #check
@@ -204,16 +204,21 @@
     position: absolute !important;
     width: 35%;
     top: 140px;
-    right: 20px;
+    right: 1%;
     background-color: blanchedalmond;
     margin: 30px !important;
     border-radius: 2em;
-    /* justify-content: center; */
-    /* display: flex; */
-    height:60%;
-    padding-bottom: 10%;
 }
-
+.fincont div, h4 {
+    text-align: center;
+    font-size: 1.8em;
+}
+.fincont div {
+    padding-bottom: 1em;
+}
+.fincont li {
+    list-style: none;
+}
 .modal {
     display: none; 
     position: fixed;
@@ -226,39 +231,38 @@
     overflow: auto; 
     background-color: rgb(0,0,0); 
     background-color: rgba(0,0,0,0.4); 
-  }
+}
   
-  /* Modal Content */
-  .modal-content {
+/* Modal Content */
+.modal-content {
     background-color: #f1ddc3;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
     width: 40%;
-  }
+}
   
-  /* The Close Button */
-  .close {
+/* The Close Button */
+.close {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
+}
   
-  .close:hover,
-  .close:focus {
+.close:hover, .close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
-  }
-  .click {
+}
+
+.click {
     line-height: 56px;
     padding: 5px 20px;
     font-size: 18px;
     border-radius: 40px;
-    background-color: rgb(238, 207, 153);
-    color: black;
-    border: 2px solid black;
+    color: #a52a2a;
+    border: 2px solid #a52a2a;
     text-decoration: none;
     margin: auto;
     font-family: 'Varela Round', sans-serif;
@@ -266,8 +270,8 @@
 
 .click:hover {
     transition: all 0.4s ease-in-out;
-    background: rgb(15, 77, 172);
-    color: white;
+    color: blanchedalmond;
+    background-color: #a52a2a;
 }
 
 .card-title-checkout {
