@@ -22,22 +22,22 @@
     </header>
 
     <div class="scroll-pre"></div>
-    <div class="contain" style="margin-left:3%">
+    <div class="contain" style="margin-left:3%;margin-bottom: 3%;">
 
-        <div class="row" >
+        <div class="row"  >
             <div class="col-lg-7" style="margin-top: 5%;">
-                <div class="" style="float: left;">
+                <div class="" style="float: left;height:76vh;overflow: overlay;width:100%">
                     {% for item in cart %}
                     <div class="row">
                         <div class="swanny">
                             <div class="card">
                                 <!-- <h5 class="card-header">Featured</h5> -->
                                 <div class="row">
-                                    <div class="col-2" style="width:7em;" >
+                                    <div class="col-3" style="" >
                                         <img src={{item.itemImage}} style="height:6em;width:7em" >
                                     </div>
-                                    <div class="col-8">
-                                        <div class="card-body" style="margin-left: 5%;">
+                                    <div class="col-7">
+                                        <div class="card-body" style="margin-left: 0%;">
                                             <div class="tle" style="margin-bottom: 3%;">
                                                 <h2 class="card-title-checkout">{{item.itemName}}</h2>
                                             </div>
