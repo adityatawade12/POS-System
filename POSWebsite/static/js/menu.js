@@ -136,9 +136,35 @@ cart.forEach((item, index) => {
     int+="<li><span><i class='fa fa-trash'></i></span> <span>" + item.itemName +"</span> <span>"+item.itemQty +"</span> <span>"+item.totalPrice +"</span></li>"
     
 });
+dbcartUpdate()
 document.getElementById("list").innerHTML=int
 
-cart1=JSON.stringify(cart)
+/*cart1=JSON.stringify(cart)
+    // create an AJAX call
+    console.log(cart)
+    console.log(cart1)
+    $.ajax({
+        data: {cart:cart1}, // get the form data
+        method: "POST", 
+        headers: { "X-CSRFToken": csrftoken  },// GET or POST
+        url: "/orders/checkout",
+        // on success
+        success: function(response) {
+            
+        },
+        // on error
+        error: function(response) {
+            // alert the error if any error occured
+            
+            console.log(response.responseJSON.errors)
+        }
+    });
+    return false;*/
+
+}
+
+function dbcartUpdate(){
+    cart1=JSON.stringify(cart)
     // create an AJAX call
     console.log(cart)
     console.log(cart1)
@@ -159,6 +185,5 @@ cart1=JSON.stringify(cart)
         }
     });
     return false;
-
 }
 
