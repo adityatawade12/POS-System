@@ -2,11 +2,11 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWtzMTgiLCJhIjoiY2ttZGR0dXZnMmtjdzJwb2poanV1d
 var map = new mapboxgl.Map({
   container: 'map',
   zoom:15,
-  center:[12.554729, 55.70651],
+  center:[72.94318719476757,19.188422818024094],
   style: 'mapbox://styles/mapbox/streets-v11'
 });
 var marker = new mapboxgl.Marker({draggable: true})
-.setLngLat([12.554729, 55.70651])
+.setLngLat([ 72.94318719476757,19.188422818024094])
 .addTo(map);
   function onDragEnd() {
 var lngLat = marker.getLngLat();
@@ -16,6 +16,8 @@ map.flyTo({
 // coordinates.style.display = 'block';
 
 console.log('Longitude: ' + lngLat.lng + 'Latitude: ' + lngLat.lat);
+setMarker(lngLat.lng,lngLat.lat)
+
 }
 
 marker.on('dragend', onDragEnd);
@@ -37,7 +39,7 @@ showUserLocation:false,
 showAccuracyCircle:false
 })
 map.addControl(geolocate);
-
+var adtext="";
 // Add the geocoder to the map
 
 // geolocate.on('geolocate', function(loc) {
@@ -101,16 +103,20 @@ function setMarker(lng,lat){
         url:"https://api.tomtom.com/search/2/reverseGeocode/+"+lat+","+lng+".JSON?key=ZYNJngIGXOiQca5cvigxA8tTQmdOcpbG"
     },
     success: function (result) {
-        var jsondata = JSON.parse(result);
+        console.log(result)
+        // result = result.replaceAll("'", "\"");
         
-        if (jsondata.responseCode == 200) {
-                display_rev_geocode_result(jsondata.results[0]);
-                console.log(jsondata.results[0])
-                
+        var jsondata = JSON.parse(result);
+        console.log(jsondata)
+        if (jsondata!= undefined) {
+                // display_rev_geocode_result(jsondata);
+                adtext=jsondata.addresses[0].address.municipalitySubdivision+","+jsondata.addresses[0].address.municipality+","+jsondata.addresses[0].address.postalCode
+                console.log(adtext)
+                document.getElementById('addText').innerHTML=adtext
         }
         /*handle the error codes and put the responses in divs. more error codes can be viewed in the documentation*/
         else{
-           document.getElementById('result').innerHTML="No Result found" ;
+           document.getElementById('addText').innerHTML="No Result found" ;
         }
     }
 });
@@ -119,4 +125,5 @@ function setMarker(lng,lat){
 function changeAddText(){
     console.log($("#addText").text())
 }
+
 

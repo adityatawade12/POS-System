@@ -28,6 +28,7 @@ var span2 = document.getElementsByClassName("close")[1];
 
 btn.onclick = function() {
   modal.style.display = "block";
+
 }
 
 btn2.onclick = function() {
@@ -36,6 +37,8 @@ btn2.onclick = function() {
 
 span.onclick = function() {
   modal.style.display = "none";
+  $('.addList').css({"visibility":"visible" })
+  $('.addMap').css({"visibility":"hidden" })
 }
 
 span2.onclick = function() {
@@ -112,3 +115,27 @@ function myCart() {
   });
   return false;
 }
+
+$('#newLoc').click(function(){
+  $('.addList').css({"visibility": "hidden"})
+  $('.addMap').css({"visibility": "visible"})
+  $('.mapboxgl-canvas').css({"width":"100%"})
+})
+
+$('#locConf').click(function(){
+  var x=$('.add1').val()+","+$('.add2').val()+","+$("#addText").text()
+  console.log(x)
+  $(".addT").text(x)
+  $(".addT1").val(x)
+  modal.style.display = "none";
+  $('.addList').css({"visibility":"visible" })
+  $('.addMap').css({"visibility":"hidden" })
+})
+
+$(".click.addC").click(function(){
+  $(".addT").text($(this).text())
+  modal.style.display = "none";
+  $('.addList').css({"visibility":"visible" })
+  $('.addMap').css({"visibility":"hidden" })
+  // window.location.href = '/home';
+})

@@ -80,26 +80,43 @@
 
                     <div class="addmap" style="border-bottom:2px solid brown;">
                         <a href="javascript:void(0)" id="mapbtn" class="click">Choose ur location</a>
+                        <div class="addT"></div>
+                        <input type="text" class="addT1">
                         <div id="myModal" class="modal" style="display: none;">
-                            <div class="modal-content">
+                            <div class="modal-content" >
                               <span class="close">×</span>
-                              <div>
-                                <ul>
-                                    <li><a href="javascript:void(0)" class="click">A1-304,Keshav Heights,Parsik Nagar,Kalwa,Thane</a></li>
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.7350927169387!2d73.00279201485333!3d19.206769387013008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7bec8aa2434db%3A0x7b642b9466a233c8!2sKeshav%20Heights!5e0!3m2!1sen!2sin!4v1615877769028!5m2!1sen!2sin" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                                    <li><a href="javascript:void(0)" class="click">Choose another location</a></li>
-                                </ul>
+                              <div class="addList" style="position: absolute;height:80%;width: 100%;margin: 7% auto">
+                                <h3>Choose your Location</h3>
+                                <div style="overflow:overlay ;height: 100%;padding: 0 1em;">
+                                   
+                                    <div class="click addC" id="newLoc">Choose another location</div>
+                                    <div class="click addC">A1-304,Keshav Heights,Parsik Nagar,Kalwa,Thane A1-304,Keshav Heights,Parsik Nagar,Kalwa,Thane</div>
+                                    <div class="click addC">A1-304,Keshav Heights,Parsik Nagar,Kalwa,Thane</div>
+                                    <div class="click addC">A1-304,Keshav Heights,Parsik Nagar,Kalwa,Thane</div>
+                                    <div class="click addC">A1-304,Keshav Heights,Parsik Nagar,Kalwa,Thane</div>
+                                    <div class="click addC">A1-304,Keshav Heights,Parsik Nagar,Kalwa,Thane</div>
+                                    <div class="click addC">A1-304,Keshav Heights,Parsik Nagar,Kalwa,Thane</div>
+                                    <div class="click addC">A1-304,Keshav Heights,Parsik Nagar,Kalwa,Thane</div>
+                                </div>
+                                
                               </div>
-                              <div style="margin: 0 auto;">
+                              <div style="margin: 0 auto;visibility: hidden;" class="addMap">
                                 <h3>Choose your Location</h3>
                                 <div id='map' style='width: 400px; height: 250px; margin:0 auto'></div>
+                                Your Location: 
+                                  <span id="addText">jbva adjvba daovbpav iadvp</span><br>
+                                  <label for="add1">Flat No/Building Name:</label>
+                                  <input name="add1" class="add1" style="width:20rem;margin-bottom:2px ;" type="text" placeholder="flatNo,building">
+                                  <label for="add2">Locality:</label>
+                                  <input name="add2" class="add2" style="width:20rem;margin-bottom:2px ;" type="text" placeholder="locality"><br>
+                                  <a href="javascript:void(0)" id="locConf">Confirm</a>
                               </div>
-                              <div>
+                              <!-- <div>
                                 Your Location: 
                                   <span id="addText">jbva adjvba daovbpav iadvp</span><br>
                                   <label for="add1">Address:</label>
                                   <input name="add1" style="width:20rem" type="text" placeholder="flatNo,building">
-                              </div>
+                              </div> -->
                               
                             </div>
                                                      
