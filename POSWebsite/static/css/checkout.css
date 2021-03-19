@@ -280,3 +280,9 @@
     padding: 0;
     width: 100%;
 }
+.col ::-webkit-scrollbar-track {
+    background: transparent;
+}
+.col ::-webkit-scrollbar-thumb {
+    background: #ffebcd47;
+}
