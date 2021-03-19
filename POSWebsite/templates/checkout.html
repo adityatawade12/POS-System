@@ -26,6 +26,7 @@
 
         <div class="row"  >
             <div class="col-lg-7" style="margin-top: 5%;">
+                <h2 style="color: blanchedalmond;">Items you have selected:</h2>
                 <div class="" style="float: left;height:76vh;overflow: overlay;width:100%">
                     {% for item in cart %}
                     <div class="row">
@@ -81,7 +82,7 @@
                         <a href="javascript:void(0)" id="mapbtn" class="click">Choose ur location</a>
                         <div id="myModal" class="modal">
                             <div class="modal-content">
-                              <span class="close">&times;</span>
+                              <span class="close" >&times;</span>
                               <ul>
                                   <li><a href="javascript:void(0)"  class="click">A1-304,Keshav Heights,Parsik Nagar,Kalwa,Thane</a></li>
                                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.7350927169387!2d73.00279201485333!3d19.206769387013008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7bec8aa2434db%3A0x7b642b9466a233c8!2sKeshav%20Heights!5e0!3m2!1sen!2sin!4v1615877769028!5m2!1sen!2sin" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
@@ -91,7 +92,45 @@
                         </div>
                     </div>
                     <div class="protopay" style="margin-bottom: 10%;">
-                        <a href="javascript:void(0)" class="click">Place Order</a>
+                        <a href="javascript:void(0)" id="place" class="click">Place Order</a>
+                        <div id="myMod" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <h3>BILL</h3>
+                                <div style="background-color: white;padding:1%;border-radius: 1em;border-bottom: 2px solid brown;">
+                                <ul class="ba" style="padding-left:20%;">
+                                    <li>
+                                        <div id="finalL">
+                                            <div>Food Item</div>
+                                            <div>&emsp; Quantity</div>
+                                            <div>Price</div>
+                                        </div>
+                                    </li>
+                                    <br>
+                                {% for item in cart %}
+                                    <li>
+                                        <div id="finalL">
+                                            <div>{{item.itemName}}</div>
+                                            <div>&emsp;&emsp;{{item.itemQty}}</div>
+                                            <div>{{item.totalPrice}}</div>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                                </ul>
+                                    <br><br>
+                                    <div style="border-bottom: 2px solid brown;">
+                                    <div style="margin-left: 25%;" >
+                                        <div class="subT"><h6>Sub-Total:&emsp13;<span>100</span></h6></div>
+                                        <div><h6>GST-Charge:&emsp13;<span>5%</span></h6></div>
+                                        <div class="grnT"><h6>Grand-Total:&emsp13;<span>100</span></h6></div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-left: 25%;">
+                                        <a href="javascript:void(0)" class="click">Pay Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <br>
                 </div>

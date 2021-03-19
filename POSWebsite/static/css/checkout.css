@@ -185,7 +185,6 @@
 {
     margin-top: 5%; 
     margin-bottom: 10%; 
-    text-align: center;
 }
 #check
 {
@@ -234,7 +233,7 @@
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 40%;
+    width: 45%;
   }
   
   /* The Close Button */
@@ -275,4 +274,22 @@
     margin-bottom: .2rem;
     padding: 0;
     width: 100%;
+}
+
+#finalL{
+    text-align: justify;
+}
+
+#finalL div{
+    width: 30%;
+    display: inline-block;
+}
+
+#finalL::after{
+    content: "";
+    display: inline-block;
+}
+
+ul.ba {
+    list-style-type: none;
 }

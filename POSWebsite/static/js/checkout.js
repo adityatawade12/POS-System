@@ -20,16 +20,27 @@ console.log(cart);
 updateTotal(cart);
 
 var modal = document.getElementById("myModal");
+var mod = document.getElementById("myMod");
 var btn = document.getElementById("mapbtn");
+var btn2 = document.getElementById("place");
 var span = document.getElementsByClassName("close")[0];
+var span2 = document.getElementsByClassName("close")[1];
 
 btn.onclick = function() {
   modal.style.display = "block";
 }
 
+btn2.onclick = function() {
+    mod.style.display = "block";
+  }
+
 span.onclick = function() {
   modal.style.display = "none";
 }
+
+span2.onclick = function() {
+    mod.style.display = "none";
+  }
 
 window.onclick = function(event) {
   if (event.target == modal) {
