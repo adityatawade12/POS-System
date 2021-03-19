@@ -37,3 +37,6 @@ def nav(request):
 def feedback(request):
     us=curuser(request)
     return render(request,'feedback.html',{'us':us})
+
+def php(request):
+    pass
