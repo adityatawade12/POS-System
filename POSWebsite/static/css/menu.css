@@ -284,3 +284,18 @@ li:hover span {
 .bar2 a:hover li {
   text-decoration: underline;
 }
+
+._cart ::-webkit-scrollbar-thumb {
+  transition: all 0.6s ease-in-out;
+  visibility: hidden;
+}
+._cart:hover ::-webkit-scrollbar-thumb {
+  transition: all 0.6s ease-in-out;
+  visibility: visible;
+}
+._cart ::-webkit-scrollbar-track {
+  background: transparent;
+}
+._cart ::-webkit-scrollbar-thumb {
+  background: #c7b08dc5;
+}
