@@ -308,3 +308,10 @@ ul.ba {
     margin-left: 15%;
     border:2px solid brown;
 }
+
+.col-lg-7 ::-webkit-scrollbar-track {
+    background: transparent;
+}
+.col-lg-7 ::-webkit-scrollbar-thumb {
+    background: #ffebcd47;
+}

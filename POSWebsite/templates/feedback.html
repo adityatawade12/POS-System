@@ -18,7 +18,8 @@
 		<br>– Bill Gates
 		</span>
 		<br><br>
-		<form>
+		<form action="/orders/feedback"  method="POST">
+			{% csrf_token %}
 			<h1>HOW CAN WE HELP?</h1>
 			<div style="font-size: 1.2em;">
 				Thank you for visiting our <i style="font-family: 'Cedarville Cursive'; font-size: 1.6em;">le mieux</i> Feedback page. 
@@ -73,5 +74,5 @@
 		</form>
 	</div>
 
-
+	<script src="{% static 'js/feedback.js' %}"></script>
 {% endblock tail %} 

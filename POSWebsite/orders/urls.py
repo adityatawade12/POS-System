@@ -6,4 +6,5 @@ urlpatterns=[
     path('category',views.menuCategory,name="category"),
     path('checkout',views.checkout,name="Checkout"),
     path('check',views.check,name="check"),
+    path('feedback',views.feedback,name="feedback"),
 ]
