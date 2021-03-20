@@ -211,10 +211,10 @@
 }
 .fincont div, h4 {
     text-align: center;
-    font-size: 1.8em;
+    
 }
 .fincont div {
-    padding-bottom: 1em;
+    padding-bottom:0.5em;
 }
 .fincont li {
     list-style: none;
@@ -237,9 +237,9 @@
 .modal-content {
     background-color: #f1ddc3;
     margin: auto;
-    padding: 20px;
+    padding:0;
     border: 1px solid #888;
-    width: 40%;
+    width: 50%;
 }
   
 /* The Close Button */
@@ -293,4 +293,32 @@
 }
 .col ::-webkit-scrollbar-thumb {
     background: #ffebcd47;
+}
+
+#finalL{
+    text-align: justify;
+}
+
+#finalL div{
+    width: 30%;
+    display: inline-block;
+}
+
+/*#finalL::after{
+    content: "";
+    display: inline-block;
+}*/
+
+ul.ba {
+    list-style-type: none;
+}
+
+.bill{
+    background-color: white;
+    padding:1%;
+    border-radius: 2em;
+    border-bottom: 2px solid brown;
+    width: 70%;
+    margin-left: 15%;
+    border:2px solid brown;
 }

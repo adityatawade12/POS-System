@@ -24,6 +24,7 @@
 
         <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-2 row-cols-xl-2"  >
             <div class="col" style="margin-top: 5%;width: 55vw;">
+                <h2 style="color: blanchedalmond;">Items you have selected:</h2>
                 <div class="" style="float: left;height:76vh;overflow: overlay;width:100%">
                     {% for item in cart %}
                     <div class="row" style="width: 100%;">
@@ -86,8 +87,44 @@
                             </div>
                         </div>
                     </div>
-                    <div class="protopay">
-                        <a href="javascript:void(0)" class="click">Place Order</a>
+                    <div class="protopay" style="margin-bottom: 10%;">
+                        <a href="javascript:void(0)" id="place" class="click">Place Order</a>
+                        <div id="myMod" class="modal">
+                            <div class="modal-content">
+                                <span class="close">×</span>
+                                <h3>BILL</h3>
+                                <div class="bill">
+                                <ul class="ba" style="border-bottom: 2px solid brown;">
+                                    <li>
+                                        <div id="finalL">
+                                            <div><b>Food Item</b></div>
+                                            <div>&emsp;<b> Quantity</b></div>
+                                            <div><b>Price</b></div>
+                                        </div>
+                                    </li>
+                                {% for item in cart %}
+                                    <li>
+                                        <div id="finalL">
+                                            <div>{{item.itemName}}</div>
+                                            <div>&emsp;&emsp;{{item.itemQty}}</div>
+                                            <div>{{item.totalPrice}}</div>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                                </ul>
+                                    <div style="border-bottom: 2px solid brown;">
+                                    <div >
+                                        <div class="subT"><h6>Sub-Total:&emsp13;<span>100</span></h6></div>
+                                        <div><h6>GST-Charge:&emsp13;<span>5%</span></h6></div>
+                                        <div class="grnT"><h6>Grand-Total:&emsp13;<span>100</span></h6></div>
+                                    </div>
+                                    </div>
+                                    <div >
+                                        <a href="javascript:void(0)" class="click">Pay Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
