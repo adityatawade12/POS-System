@@ -17,6 +17,14 @@ body {
     justify-content: center;
 }
 
+span[id]::before {
+  content: '';
+  display: block;
+  height: 160px;
+  margin-top: -160px;
+  visibility: hidden;
+}
+
 .cont1 {
   display: inline-block;
   width: 75%;
@@ -214,6 +222,7 @@ li:hover span {
   font-family: 'Varela Round', sans-serif;
   font-weight: bold;
   /* display: none; */
+  z-index: 1;
 }
   
 .cartinside::-webkit-scrollbar-track {

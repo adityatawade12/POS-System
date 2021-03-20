@@ -7,8 +7,13 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
+
+        <script>
+                var shiftWindow = function() { scrollBy(0, -100) };
+                // if (location.hash) shiftWindow();
+                // window.addEventListener("hashchange", shiftWindow);
+        </script>
 </head>
 
 <body>
@@ -46,6 +51,7 @@
                                                 {% for item in items %}
                                                         {% if item.Category == cat %}
                                                                 <div class="_cards">
+                                                                        <span id="{{item.Name}}_span"></span>
                                                                         <div id="{{item.Name}}" style="height: 100%;">
                                                                                 <div class="card_img" style="height: 40%; background-image: url('{{item.Image}}');"></div>
                                                                                 <div class="card-body" style="background-color: blanchedalmond ; max-height:60%;font-size:100%;overflow:hidden ">
@@ -94,7 +100,7 @@
                                                 {% for item in cartitems  %}
                                                         <div class="row {{item.itemName}}" style="height: 6em;">
                                                                 <div class="col-4" id="cart_img">
-                                                                        <a href="#{{item.itemName}}" style="text-decoration: none; color: #24252a; background-image: url({{item.itemImage}});"></a>
+                                                                        <a href="#{{item.itemName}}_span" style="text-decoration: none; color: #24252a; background-image: url({{item.itemImage}});"></a>
                                                                         <!-- <img src={{item.itemImage}}> -->
                                                                 </div>
                                                                 <div class="col-4">
