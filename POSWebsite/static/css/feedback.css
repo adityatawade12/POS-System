@@ -91,3 +91,30 @@ textarea:focus {
   background-color: blanchedalmond;
   transition: all 0.4s ease 0s;
 }
+
+input {
+  position: relative;
+}
+input:before {
+  color: #92897a;
+  position: absolute;
+  right: 6px;
+}
+input#date:before {
+  font-family: 'FontAwesome';
+  content: '\f133';
+}
+input#time:before {
+  font-family: 'FontAwesome';
+  content: '\f017';
+}
+input::-webkit-calendar-picker-indicator {
+  background: none;
+  z-index: 1;
+}
+/* input:hover:before {
+  color: blanchedalmond;
+} */
+input:focus:before {
+  color: blanchedalmond;
+}
