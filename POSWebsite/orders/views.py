@@ -78,33 +78,16 @@ def check(request):
     us=curuser(request)
     
     cart=menuCart(request)
-
+    # print(len(cart))
+    if us==None:
+        return redirect('/accounts/login')
+    elif cart==None:
+        return redirect('/accounts/login')
+    elif len(cart)==0:
+        return redirect('/menu')
+    
     return render(request,'checkout.html',{"us":us,"cart":cart})
 
-def feedback(request):
-    if request.method=="POST":
-        subject=request.POST.get("subject")
-        fname=request.POST.get("fname")
-        lname=request.POST.get("lname")
-        num=request.POST.get("num")
-        email=request.POST.get("email")
-        date=request.POST.get("date")
-        time=request.POST.get("time")
-        msg=request.POST.get("msg")
-        timestamp=datetime.now()
-    feed = {
-        u'subject' : subject,
-        u'fname' : fname,
-        u'lname' : lname,
-        u'num' : num,
-        u'email' : email,
-        u'date' : date,
-        u'time' : time,
-        u'msg' : msg,
-        u'timestamp':timestamp
-    }
-    db.collection(u'feedbacks').add(feed)
-    return render(request,"feedback.html")
 
 def confirm(request):
     if request.method=="POST":
@@ -116,7 +99,7 @@ def confirm(request):
             
             timestamp=datetime.datetime.now()
             us=curuser(request)
-            
+            print(type(cart))
             data = {
             u'cart': cart,
             u'user_email':  us['email'],
@@ -128,7 +111,7 @@ def confirm(request):
             u'total':total
             }
             db.collection(u'currentOrders').document(us['localId']).set(data)
-            # db.collection(u'users').document(us['localId']).set({u'cart':[]})
+            db.collection(u'users').document(us['localId']).update({u'cart':[]})
             return JsonResponse({
                 
                 'operation_status': 'ok'
@@ -191,3 +174,38 @@ def updateAddress(request):
                         
                     })
     
+def feedback(request):
+    if request.method=="POST":
+        subject=request.POST.get("subject")
+        fname=request.POST.get("fname")
+        lname=request.POST.get("lname")
+        num=request.POST.get("num")
+        email=request.POST.get("email")
+        date=request.POST.get("date")
+        time=request.POST.get("time")
+        msg=request.POST.get("msg")
+        timestamp=datetime.datetime.now()
+    feed = {
+        u'subject' : subject,
+        u'fname' : fname,
+        u'lname' : lname,
+        u'num' : num,
+        u'email' : email,
+        u'date' : date,
+        u'time' : time,
+        u'msg' : msg,
+        u'timestamp':timestamp
+    }
+    db.collection(u'feedbacks').add(feed)
+    return render(request,"feedback.html")
+
+def currOrders(request):
+    us=curuser(request)
+    if us!=None:
+        doc = db.collection(u'currentOrders').document(us['localId'])
+        docs=doc.get().to_dict()
+        # print("current orders:",docs)
+        currOrder=docs['cart']
+        return render(request,'history.html',{"us":us,"currOrder":currOrder, "order":docs})
+    else:
+        return redirect('/accounts/login')

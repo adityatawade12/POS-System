@@ -124,3 +124,44 @@ input:focus:before {
       padding: 10vw;
   }
 }
+
+/* star input */
+/* div.stars {
+  width: 270px;
+  display: inline-block;
+} */
+ 
+input.star { display: none; }
+ 
+label.star {
+  float: right;
+  padding: 10px;
+  font-size: 36px;
+  color: #92897a;
+  transition: all .2s;
+}
+ 
+input.star:checked ~ label.star:before {
+  content: '\f005';
+  color: blanchedalmond;
+  transition: all .25s;
+}
+ 
+input.star-5:checked ~ label.star:before {
+  color: blanchedalmond;
+  text-shadow: 0 0 10px #952;
+}
+ 
+input.star-1:checked ~ label.star:before { color: #F62; }
+input.star-2:checked ~ label.star:before { color: #f8a07a; }
+input.star-3:checked ~ label.star:before { color: #e4d1b5; }
+input.star-4:checked ~ label.star:before {
+  color: #f5e3c5;
+  text-shadow: 0 0 5px rgba(255, 235, 205, 0.705);
+}
+#divstar {
+  display: flex;
+  justify-content: center;
+}
+ 
+/* label.star:hover { transform: rotate(-15deg) scale(1.3); } */

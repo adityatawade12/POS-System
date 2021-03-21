@@ -16,20 +16,30 @@
     <div class="scroll-pre"></div>
     
     <div class="container">
-        <div class="">
+        <div style="margin: 0 auto; width: 60vw;">
             <h1>CURRENT ORDERS</h1>
-            <div class="" style="float: left; overflow: overlay; width:100%">
-                <div class="row row-cols-3 row-cols-lg-3">
-                    {% for item in cart %}
-                        <div class="card" style="margin:1% 0;">
-                            <div class="row">
-                                Food Item       Quantity        Price
-                                <div class="col-8"></div>
-                            </div>
-
+            <div style="border-bottom: 2px solid brown;">
+                <div class="row" id="heading">
+                    <div class="col-6"><b>Food Item</b></div>
+                    <div class="col-3"><b>Quantity</b></div>
+                    <div class="col-3"><b>Price</b></div>
+                </div>
+                <div id="scroll">
+                    {% for item in currOrder %}
+                        <div class="row">
+                            <div class="col-6"><b>{{item.itemName}}</b></div>
+                            <div class="col-3"><b>{{item.itemQty}}</b></div>
+                            <div class="col-3"><b>&#8377;{{item.totalPrice}}</b></div>
                         </div>
                     {% endfor %}
                 </div>
+            </div>
+            <div style="border-bottom: 2px solid brown; text-align: center; font-size: 1.2em; font-family: 'Varela Round';">
+                <b>Total:&emsp13;<span>&#8377;{{ order.total }}</span></b>
+                <br>
+                <b>Address:&emsp13;<span>{{ order.address }}</span></b>
+                <br>
+                <b>Time:&emsp13;<span>{{ order.timestamp }}</span></b>
             </div>
         </div>
     </div>

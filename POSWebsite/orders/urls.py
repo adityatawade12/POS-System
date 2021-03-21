@@ -9,5 +9,6 @@ urlpatterns=[
     path('feedback',views.feedback,name="feedback"),
     path('confirm',views.confirm,name="confirm"),
     path('getAddresses',views.getAddress,name="getAddress"),
-    path('updateAddresses',views.updateAddress,name="updateAddress")
+    path('updateAddresses',views.updateAddress,name="updateAddress"),
+    path('history',views.currOrders,name="history")
 ]

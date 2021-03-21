@@ -1,7 +1,39 @@
 @import url("fonts.css");
 
+body {
+    font-family: 'Varela Round';
+}
+
 .scroll-pre {
     height: 89.6px;
     width: 100%;
     /* background-color: inherit; */
+}
+
+.row {
+    width: 100%;
+}
+.row div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#heading {
+    font-size: 1.5em;
+}
+#scroll {
+    overflow: overlay;
+    max-height: 30vh;
+}
+#scroll::-webkit-scrollbar-thumb {
+    transition: all 0.6s ease-in-out;
+    visibility: hidden;
+    background: #ffebcd47;
+}
+#scroll:hover::-webkit-scrollbar-thumb {
+    transition: all 0.6s ease-in-out;
+    visibility: visible;
+}
+#scroll::-webkit-scrollbar-track {
+    background: transparent;
 }

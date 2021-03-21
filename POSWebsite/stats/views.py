@@ -3,6 +3,7 @@ from accounts.views import curuser
 from orders.views import menuItems
 from orders.views import menuCart
 from orders.views import menuCategory
+from orders.views import currOrders
 import requests,json
 from django.http import JsonResponse
 
@@ -34,8 +35,6 @@ def nav(request):
     us=curuser(request)
     return render(request,'nav.html',{'us':us})
 
-
-
 def feedback(request):
     us=curuser(request)
     return render(request,'feedback.html',{'us':us})
@@ -49,3 +48,12 @@ def php(request):
     # success code - 200 
     # print(json.loads(r.text)) 
     return JsonResponse(json.loads(r.text))
+
+# def history(request):
+#     # print(items)
+#     # print(category)
+
+#     us=curuser(request)
+#     currOrder = currOrders(request)
+    
+#     return render(request,'history.html',{'us':us,'currOrder':currOrder})
