@@ -1,0 +1,126 @@
+@import url("fonts.css");
+
+body {
+  /* overflow: overlay; */
+  color: blanchedalmond;
+  /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/feedback.jpg");height: 100vh; */
+  background-color: #24252a;
+  font-family: 'Varela Round';
+  /* background-attachment: fixed; */
+  height: 150vh;
+  background-size: cover;
+    background-position: center center;
+    -webkit-background-size: cover;
+  padding-top: 100px;
+}
+
+.form-div {
+  padding: 10vh 20vw 5vh 20vw;
+}
+
+.form-div #butn {
+  padding-left: 0;
+  display: flex;
+  justify-content: center;
+}
+
+label {
+  font-size: 18px;
+  color: #92897a;
+}
+
+input {
+  width: 100%;
+  margin: 8px 0px 0px 0px;
+  /* padding: 0px 1px; */
+  /* display: inline-block; */
+  /* box-sizing: border-box; */
+  background-color: transparent;
+  border-block-style: none;
+  border-bottom-style: groove;
+  border-inline: none;
+  color: blanchedalmond;
+  font-size: 20px;
+  font-family: 'Adobe Clean';
+}
+
+input:focus {
+  outline: none;
+  border-bottom-style: double;
+  border-color: blanchedalmond;
+}
+
+h1 {
+  font-family: 'Varela Round';
+  font-size: 50px;
+  color: blanchedalmond;
+  margin-top: 0.3em;
+}
+
+textarea {
+  width: 100%;
+  background: transparent;
+  border: #92897a 1px solid;
+  color: blanchedalmond;
+  font-size: 20px;
+  font-family: 'Adobe Clean';
+}
+
+textarea:focus {
+  outline: none;
+  border-bottom-style: double;
+  border: blanchedalmond 2px solid;
+}
+
+#click {
+  background-color: transparent;
+  color: blanchedalmond;
+  padding: 14px 20px;
+  border: 1px solid;
+  cursor: pointer;
+  width: auto;
+  border-radius: 100px;
+  font-family: 'Varela Round';
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#click:hover {
+  color: #24252a;
+  background-color: blanchedalmond;
+  transition: all 0.4s ease 0s;
+}
+
+input {
+  position: relative;
+}
+input:before {
+  color: #92897a;
+  position: absolute;
+  right: 6px;
+}
+input#date:before {
+  font-family: 'FontAwesome';
+  content: '\f133';
+}
+input#time:before {
+  font-family: 'FontAwesome';
+  content: '\f017';
+}
+input::-webkit-calendar-picker-indicator {
+  background: none;
+  z-index: 1;
+}
+input:hover:before {
+  color: blanchedalmond;
+}
+input:focus:before {
+  color: blanchedalmond;
+}
+
+@media (max-width: 756px) {
+  .form-div {
+      padding: 10vw;
+  }
+}

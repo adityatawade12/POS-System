@@ -1,18 +1,12 @@
 @import url("fonts.css");
 
-body, html {
-  overflow: hidden;
-  height: 100%;
+body {
+  /* overflow: overlay; */
+  height: 100vh;
   color: blanchedalmond;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/restro2.jpg");height: 100vh;
+  background-size: cover;
   font-family: 'Varela Round';
-}
-
-header {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  background-position: center center;
-  position: relative;
 }
 
 .scroll-pre {
@@ -22,19 +16,19 @@ header {
 }
 
 form {
-  width: 432px;
-  height: 500px;
+  width: auto;
+  height: auto;
   float: right;
   background: #24252ae8;
-  margin-right: 200px;
-  margin-top: 190px;
+  margin: 11em 15%;
   padding: 10px 30px;
 }
 
 .bgimg {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/login.jpg");
+  /* background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/login.jpg"); */
+  /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/restro2.jpg"); */
   height: 100vh;
-  background-size: cover;
+  /* background-size: cover; */
 } 
 
 .login-form {
@@ -85,9 +79,9 @@ input:focus {
   border-color: blanchedalmond;
 }
 
-h1 {
+form h1 {
   font-family: 'Varela Round';
-  font-size: 50px;
+  font-size: 3.1em;
   color: blanchedalmond;
 }
 
@@ -96,7 +90,7 @@ h1 {
   color: dodgerblue;
 }
 
-button {
+#submit {
   background-color: transparent;
   color: blanchedalmond;
   padding: 14px 20px;
@@ -110,7 +104,7 @@ button {
   font-weight: bold;
 }
 
-button:hover {
+#submit:hover {
   color: #24252a;
   background-color: blanchedalmond;
   transition: all 0.4s ease 0s;

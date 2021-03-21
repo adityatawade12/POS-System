@@ -1,7 +1,11 @@
 @import url('fonts.css');
 
+.selector-for-some-widget {
+    box-sizing: content-box;
+}
+
 * {
-    box-sizing: border-box; 
+    /* box-sizing: border-box;  */
     margin: 0;
     padding: 0;
     /* background-color: #24252a; */
@@ -22,7 +26,7 @@ header {
     justify-content: flex-end;
     align-items: center;
     padding: 10px 60px;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F826921.jpg&f=1&nofb=1");
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/home_page.jpg");
     height: 100vh;
     background-size: cover;
     background-position: center center;
@@ -31,38 +35,45 @@ header {
 }
 
 .home_navbar {
-    position: absolute;
+    position: absolute !important;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 0px 60px 5px;
-    align-items: center;
-    justify-content: space-between;
+    /* padding: 0px 60px 5px; */
+    /* align-items: center; */
+    /* justify-content: space-between; */
+    background-color: transparent !important;
 }
 
 .home_navbar li {
-    font-size: 25px;
+    font-size: 25px !important;
+}
+
+.home_navbar ._down {
+    font-size: 25px !important;
 }
 
 .home_navbar.fixed-top {
-    position: fixed;
+    position: fixed !important;
     top: 0;
     width: 100%;
-    background: #24252aee;
+    background-color: #24252aee !important;
     color: #ffebcd;
     padding: 0px 60px;
-    transition: all 0.3s ease 0s;
-    /*
+    /* transition: all 0.3s ease 0s; */
+    
     transition: background .25s ease-in-out,color .25s ease-in-out,box-shadow .25s ease-in-out,opacity .25s ease-in-out,visibility .25s ease-in-out;
         transition-property: background, color, box-shadow, opacity, visibility;
         transition-duration: 0.25s, 0.25s, 0.25s, 0.25s, 0.25s;
         transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out, ease-in-out;
         transition-delay: 0s, 0s, 0s, 0s, 0s;
-    */
+    
 }
-
+.home_navbar.fixed-top ._down {
+    font-size: 20px !important;
+}
 .home_navbar.fixed-top li {
-    font-size: 20px;
+    font-size: 20px !important;
 }
 
 /* WELCOME TEXT IN HEADER */
@@ -76,6 +87,11 @@ header {
     color: blanchedalmond;
 }
 
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/menu.jpg");
+    background-size: cover;
+    background-attachment: fixed;    
+}
 
 /* SCROLLING PAGES */
 .scroll {
@@ -83,26 +99,35 @@ header {
     background-size: cover;
     background-position: center center;
     -webkit-background-size: cover;
-    padding: 200px 300px;
+    padding: 5em;
+    font-size: 1.8em;
+    text-align: -webkit-center;
     font-family: 'Port Lligat Sans', sans-serif;
+    color: blanchedalmond;
+    vertical-align: middle;
 }
 
-#menu {
+/* #menu {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/menu.jpg");
-}
+} */
 
 #offers {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("http://data.freehdw.com/godfather-black-offer-mafia-movie-movies-hd-background.jpg");
 }
 
 marquee {
-    background-color: #ffebcde5;
-    color: #24252a;
+    background-color: transparent;
+    color: blanchedalmond;
     font-family: "Varela Round";
 }
 
 #contact {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/contact.jpg");
+}
+
+#contact li {
+    font-size: 1.5em;
+    list-style: none;
 }
 
 #cart {
@@ -124,7 +149,7 @@ marquee {
 }
 
 .click:hover {
-    transition: all 0.4s ease 0s;
+    transition: all 0.4s ease-in-out;
     background: blanchedalmond;
     color: #24252a;
 }
@@ -144,4 +169,10 @@ marquee {
 .cart img {
     width: 30px;
     height: 30px;
+}
+
+#map div {
+    height: 15em;
+    width: 25em;
+    background-color: #24252a;
 }

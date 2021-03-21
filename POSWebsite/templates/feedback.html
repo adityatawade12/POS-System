@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+  	<title>Feedback</title>
+	<link rel="stylesheet" href="{% static 'css/feedback.css' %}">
+
+</head>
+<body>
+  	<header>
+		{% endblock content %}
+		{% block tail %}
+	</header>
+
+	<div class="form-div">
+		<span style="font-size: 2em; font-family: 'Parisienne';"><i class="fas fa-quote-left fa-xs"></i>We all need people who will give us feedback. That’s how we improve.<i class="fas fa-quote-right  fa-xs"></i>
+		<br>– Bill Gates
+		</span>
+		<br><br>
+		<form action="/orders/feedback"  method="POST">
+			{% csrf_token %}
+			<h1>HOW CAN WE HELP?</h1>
+			<div style="font-size: 1.2em;">
+				Thank you for visiting our <i style="font-family: 'Cedarville Cursive'; font-size: 1.6em;">le mieux</i> Feedback page. 
+				<br>Whether about a great server, a not so great dining experience, or a question about nutritional information, we want to hear from you.
+			</div>
+			<br>
+			<div class="container">
+				<br>
+				<label for="subject">Subject*</label>
+				<input type="text" name="subject" required>
+				<br><br>
+				
+				<div class="row row-cols-1 row-cols-md-2 g-4">
+					<div>
+						<label for="fname">First Name*</label>
+						<br>
+						<input type="text" id="fname" name="fname" required>
+					</div>
+					<div>
+						<label for="lname">Last Name*</label>
+						<br>
+						<input type="text" id="lname" name="lname" required>
+					</div>
+				</div>
+				<br><br>
+				
+				<label for="num">Contact Number*</label>
+				<input value="+91" type="tel" id="num" name="num" required>
+				<br><br>
+				
+				<label for="email">Email*</label>
+				<input type="email" id="email" name="email" required>
+				<br><br>
+
+				<label for="date">Date of order / Visit*</label>
+				<input type="date" id="date" name="date" required>
+				<br><br>
+				
+				<label for="time">Time of order / Visit</label>
+				<input type="time" id="time" name="time">
+				<br><br>
+
+				<label for="msg">Suggestions</label>
+				<br><br>
+				<textarea type="text" name="msg" required rows="4"></textarea>
+				<br><br>
+	
+				<div id="butn">
+					<button type="submit" id="click">Submit</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<script src="{% static 'js/feedback.js' %}"></script>
+{% endblock tail %} 

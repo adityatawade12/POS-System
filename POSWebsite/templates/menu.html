@@ -3,27 +3,133 @@
 
 {% block content %}
 
-    
         <title>Menu Page</title>
         <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
 
-    </head>
-    <body>
-        
+        <script>
+                var shiftWindow = function() { scrollBy(0, -100) };
+                // if (location.hash) shiftWindow();
+                // window.addEventListener("hashchange", shiftWindow);
+        </script>
+</head>
+
+<body>
+
         <header>
-{% endblock content %}
-{% block tail %}
+                {% endblock content %}
+                {% block tail %}
+                <nav class="navbar navbar-expand-lg fixed-top" style="height: 40px; top: 89px; z-index: 5;">
+                        <div class="container-fluid bar2">
+                                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> -->
+                                        <!-- <img src="/static/css/images/down.png" style="width: 25px; height: 25px;"> -->
+                                <!-- </button> -->
+                                <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+                                        <ul class="nav_item navbar-nav me-auto mb-2 mb-lg-0" style=" margin-right: 0 !important;">
+                                                {% for item in category %}
+                                                        <a class="nav-link" href="#{{item}}"><li>{{item}}</li></a>
+                                                {% endfor %}
+                                        </ul>
+                                <!-- </div> -->
+                        </div>
+                </nav>
         </header>
-        
-        <div class="scroll-pre"></div>
 
-        <h1 class="start_page">
-           Menu Page
-        </h1>
-        
+        <!-- <div class="scroll-pre"></div> -->
+
+        <div class="cont1">
+                {% for cat in category %}
+                        <div id="{{cat}}" class="scroll-pre">
+                                <img src="/static/css/images/divider.png" style="width: 50%; height: 79px;">
+                        </div>
+                        <p class="Category">{{cat}}</p>
+                        <div class="div_card container" style=" min-width: 500px;max-width:95%;">
+                                <div style="float: left;padding-left: auto;padding-right: auto">
+                                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 g-4">
+                                                {% for item in items %}
+                                                        {% if item.Category == cat %}
+                                                                <div class="_cards">
+                                                                        <span id="{{item.Name}}_span"></span>
+                                                                        <div id="{{item.Name}}" style="height: 100%;">
+                                                                                <div class="card_img" style="height: 40%; background-image: url('{{item.Image}}');"></div>
+                                                                                <div class="card-body" style="background-color: blanchedalmond ; max-height:60%;font-size:100%;overflow:hidden ">
+                                                                                        <div style="height: 20%;font-size: 1.2em;">
+                                                                                                <h5 class="card-title-1" style="font-size: 1.1em;font-weight: bold;">
+                                                                                                        {{item.Name}}
+                                                                                                </h5>
+                                                                                        </div>
+                                                                                        <div id="desrc">
+                                                                                                <p class="card-text" style="font-size: 0.8em;  ">
+                                                                                                        {{item.Description}}</p>
+                                                                                        </div>
+                                                                                        <br>
+                                                                                        <div style="display: flex; justify-content: center;">
+                                                                                                <div class="click {{item.Name}}"
+                                                                                                        style=" align-items: center;position: absolute;">
+                                                                                                        <a href="javascript:void(0)">Add to cart&emsp;&#8377;{{item.Price}}</a>
+                                                                                                </div>
+                                                                                                <div class="{{item.Name}} incdec" style="align-items: center;display: flex;visibility: hidden;">
+                                                                                                        <div class="click1"><a class="indebtn dec"
+                                                                                                                        href="javascript:void(0)">-</a>1<a
+                                                                                                                        class="indebtn inc"
+                                                                                                                        href="javascript:void(0)">+</a>
+                                                                                                        </div>
+                                                                                                </div>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
+                                                                </div>
+                                                        {% endif %}
+                                                {% endfor %}
+                                        </div>
+                                </div>
+                        </div>
+                {% endfor %}
+        </div>
+
+        <div class="_cart">
+                <div style="top: 25%; position: sticky; background-color: #f5d19d; padding-top: 0.5em; padding-bottom: 1em; border-radius: 2em;">
+                        <div style="width:70%; margin: 0 auto; text-align: center; height: auto; font-size: 2em;">
+                                CART <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                        </div>
+                        <div class="cartinside">
+                                <div id="list" style="width: inherit;">
+                                        {% if cartitems %}
+                                                {% for item in cartitems  %}
+                                                        <div class="row {{item.itemName}}" style="height: 6em;">
+                                                                <div class="col-4" id="cart_img">
+                                                                        <a href="#{{item.itemName}}_span" style="text-decoration: none; color: #24252a; background-image: url({{item.itemImage}});"></a>
+                                                                        <!-- <img src={{item.itemImage}}> -->
+                                                                </div>
+                                                                <div class="col-4">
+                                                                        <a href="#{{item.itemName}}" style="text-decoration: none; color: #24252a;">{{item.itemName}}</a>
+                                                                </div>
+                                                                <div class="col-1">
+                                                                        {{item.itemQty}}
+                                                                </div>
+                                                                <div class="col-2">
+                                                                        &#8377;{{item.totalPrice}}
+                                                                </div>
+                                                                <div class="col-1">
+                                                                        <span><i class='fa fa-trash'></i></span>
+                                                                </div>
+                                                        </div>                   
+                                                {% endfor %}
+                                        {% endif %}
+                                </div>
+                        </div>
+                        <div class="checkout" style="display:flex; width:50%; margin: 0 auto; justify-content: center; height: 2.5em;">
+                                <!-- <a  href="javascript:void(0)" >Checkout</a> -->
+                                <a  href="/orders/check" >Checkout</a>
+                        </div>
+                </div>
+        </div>
+
+        <br>
+        {{ items|json_script:"items" }}
+        {{ cartitems|json_script:"cartitems" }}
+        <script src="{% static 'js/menu.js' %}"></script>
         
 {% endblock tail %}
-
-
-        
