@@ -281,6 +281,20 @@
     padding: 0;
     width: 100%;
 }
+.col ::-webkit-scrollbar-thumb {
+    transition: all 0.6s ease-in-out;
+    visibility: hidden;
+}
+.col:hover ::-webkit-scrollbar-thumb {
+    transition: all 0.6s ease-in-out;
+    visibility: visible;
+}
+.col ::-webkit-scrollbar-track {
+    background: transparent;
+}
+.col ::-webkit-scrollbar-thumb {
+    background: #ffebcd47;
+}
 
 #finalL{
     text-align: justify;

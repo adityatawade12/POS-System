@@ -2,6 +2,7 @@ from django.shortcuts import render
 import accounts.views  
 from firebase_admin import firestore
 import json
+import datetime
 from django.http import HttpResponse,JsonResponse
 from urllib import parse
 # from accounts.views import curuser
@@ -166,3 +167,27 @@ def updateAddress(request):
                         
                     })
     
+def feedback(request):
+    if request.method=="POST":
+        subject=request.POST.get("subject")
+        fname=request.POST.get("fname")
+        lname=request.POST.get("lname")
+        num=request.POST.get("num")
+        email=request.POST.get("email")
+        date=request.POST.get("date")
+        time=request.POST.get("time")
+        msg=request.POST.get("msg")
+        timestamp=datetime.datetime.now()
+    feed = {
+        u'subject' : subject,
+        u'fname' : fname,
+        u'lname' : lname,
+        u'num' : num,
+        u'email' : email,
+        u'date' : date,
+        u'time' : time,
+        u'msg' : msg,
+        u'timestamp':timestamp
+    }
+    db.collection(u'feedbacks').add(feed)
+    return render(request,"feedback.html")

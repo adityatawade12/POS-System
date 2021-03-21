@@ -25,8 +25,8 @@
     <div class="scroll-pre"></div>
     <div class="contain" style="margin-left:3%;margin-bottom: 3%;">
 
-        <div class="row"  >
-            <div class="col-lg-7" style="margin-top: 5%;">
+        <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-2 row-cols-xl-2"  >
+            <div class="col" style="margin-top: 5%;width: 55vw;">
                 <h2 style="color: blanchedalmond;">Items you have selected:</h2>
                 <div class="" style="float: left;height:76vh;overflow: overlay;width:100%">
                     {% for item in cart %}
@@ -63,7 +63,7 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="col-lg-5" style="height: auto;margin-top: 5%;">
+            <div class="col" style="height: auto; margin-top: 5%;width: 39vw;">
                 <div class="fincont" style="padding:1.5%;">
                     <div class="ordetail" style="border-bottom: 2px solid brown; margin-bottom: 1em;">
                         <h2 style="color:brown;/* border-bottom:2px solid black; *//* text-decoration: underline; */">Order Details</h2>
@@ -151,7 +151,10 @@
                                             <div><b>Price</b></div>
                                         </div>
                                     </li>
+                                    <div class="orderPrev">
                                 {% for item in cart %}
+
+                                    
                                     <li>
                                         <div id="finalL">
                                             <div>{{item.itemName}}</div>
@@ -160,6 +163,7 @@
                                         </div>
                                     </li>
                                 {% endfor %}
+                                </div>
                                 </ul>
                                     <div style="border-bottom: 2px solid brown;">
                                     <div >

@@ -38,6 +38,17 @@ btn.onclick = function() {
 btn2.onclick = function() {
     var l=$('.addT').text()
     console.log(l.length)
+    var c1=""
+    cart.forEach((item,i)=>{
+      c1+=`<li>
+      <div id="finalL">
+          <div>`+item.itemName+`</div>
+          <div>&emsp;&emsp;`+item.itemQty+`</div>
+          <div>`+item.totalPrice+`</div>
+      </div>
+    </li>`
+    })
+    $(".orderPrev").html(c1)
     if(l.length>0){
       mod.style.display = "block";
     }else{
@@ -84,7 +95,7 @@ $(".but").on("click","a",function(event){
                 item.itemQty=item.itemQty+1;
             }
             if(item.itemQty==0){
-                $(this).parent().parent().parent().parent().parent().parent().parent().css({"display": "none"})
+                $(this).parent().parent().parent().parent().parent().parent().css({"display": "none"})
                 delete cart[index];
             }
             cart=cart.filter(el => el);

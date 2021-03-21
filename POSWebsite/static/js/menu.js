@@ -120,7 +120,7 @@ function cartRefresh(){
 
         int+=`<div class="row `+item.itemName+`" style="height: 6em;">
             <div class="col-4" id="cart_img">
-                    <div style="background-image: url('`+item.itemImage+`');"></div>
+            <a href="#` +item.itemName+ `_span" style="text-decoration: none; color: #24252a; background-image: url(` +item.itemImage+ `);"></a>
                     <!-- <img src=`+item.itemImage+`> -->
             </div>
             <div class="col-4">
