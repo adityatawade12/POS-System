@@ -112,9 +112,15 @@ input::-webkit-calendar-picker-indicator {
   background: none;
   z-index: 1;
 }
-/* input:hover:before {
+input:hover:before {
   color: blanchedalmond;
-} */
+}
 input:focus:before {
   color: blanchedalmond;
+}
+
+@media (max-width: 756px) {
+  .form-div {
+      padding: 10vw;
+  }
 }
