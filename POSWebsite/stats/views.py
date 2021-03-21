@@ -3,6 +3,8 @@ from accounts.views import curuser
 from orders.views import menuItems
 from orders.views import menuCart
 from orders.views import menuCategory
+import requests,json
+from django.http import JsonResponse
 
 # Create your views here.
 def home(request):
@@ -37,3 +39,13 @@ def nav(request):
 def feedback(request):
     us=curuser(request)
     return render(request,'feedback.html',{'us':us})
+
+def php(request):
+    
+    # print(request.POST.get('url'))
+    r = requests.get(request.POST.get('url')) 
+  
+    # check status code for response received 
+    # success code - 200 
+    # print(json.loads(r.text)) 
+    return JsonResponse(json.loads(r.text))

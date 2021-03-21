@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+  	<title>Orders</title>
+	<link rel="stylesheet" href="{% static 'css/history.css' %}">
+
+</head>
+<body>
+  	<header>
+		{% endblock content %}
+		{% block tail %}
+	</header>
+
+    <div class="scroll-pre"></div>
+    
+    <div class="container">
+        <div class="">
+            <h1>CURRENT ORDERS</h1>
+            <div class="" style="float: left; overflow: overlay; width:100%">
+                <div class="row row-cols-3 row-cols-lg-3">
+                    {% for item in cart %}
+                        <div class="card" style="margin:1% 0;">
+                            <div class="row">
+                                Food Item       Quantity        Price
+                                <div class="col-8"></div>
+                            </div>
+
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+{% endblock tail %}
