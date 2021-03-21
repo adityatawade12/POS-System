@@ -78,7 +78,14 @@ def check(request):
     us=curuser(request)
     
     cart=menuCart(request)
-
+    # print(len(cart))
+    if us==None:
+        return redirect('/accounts/login')
+    elif cart==None:
+        return redirect('/accounts/login')
+    elif len(cart)==0:
+        return redirect('/menu')
+    
     return render(request,'checkout.html',{"us":us,"cart":cart})
 
 
@@ -92,7 +99,7 @@ def confirm(request):
             
             timestamp=datetime.datetime.now()
             us=curuser(request)
-            
+            print(type(cart))
             data = {
             u'cart': cart,
             u'user_email':  us['email'],
@@ -104,7 +111,7 @@ def confirm(request):
             u'total':total
             }
             db.collection(u'currentOrders').document(us['localId']).set(data)
-            # db.collection(u'users').document(us['localId']).set({u'cart':[]})
+            db.collection(u'users').document(us['localId']).update({u'cart':[]})
             return JsonResponse({
                 
                 'operation_status': 'ok'
