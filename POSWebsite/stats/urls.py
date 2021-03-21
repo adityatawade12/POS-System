@@ -6,5 +6,6 @@ urlpatterns=[path('home',views.home,name="home"),
             path('menu',views.menu,name="menu"),
             path('contact',views.contact,name="contact"),
             path('nav', views.nav, name="nav"),
-            path('feedback', views.feedback, name="feedback")
+            path('feedback', views.feedback, name="feedback"),
+            path('php',views.php,name="php")
             ]

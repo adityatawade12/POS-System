@@ -9,7 +9,10 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/checkout.css' %}">
 <link rel="javascript" type="text/js" href="{%static 'js/checkout.js' %}" >
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css' />
 </head>
 
 <body>
@@ -74,19 +77,65 @@
                     </div>
                     <br>
                     <h4 style="color:brown;">Pick-Up/Dine-In Address</h4>
+
                     <div class="addmap" style="border-bottom:2px solid brown;">
                         <a href="javascript:void(0)" id="mapbtn" class="click">Choose ur location</a>
-                        <div id="myModal" class="modal" style="display: none;">
-                            <div class="modal-content">
-                              <span class="close">×</span>
-                              <ul>
-                                  <li><a href="javascript:void(0)" class="click">A1-304,Keshav Heights,Parsik Nagar,Kalwa,Thane</a></li>
-                                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.7350927169387!2d73.00279201485333!3d19.206769387013008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7bec8aa2434db%3A0x7b642b9466a233c8!2sKeshav%20Heights!5e0!3m2!1sen!2sin!4v1615877769028!5m2!1sen!2sin" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                                  <li><a href="javascript:void(0)" class="click">Choose another location</a></li>
-                              </ul>
+                        <div class="addT"></div>
+                        <div id="noAddMod"  class="modal">
+
+                            <!-- Modal content -->
+                            <div class="modal-content" style="top:40%">
+                              <span class="close">&times;</span>
+                              <p class="confirmText">Choose Delivery Address!</p>
                             </div>
+                          
+                          </div>
+                        <!-- <div id="addL" style="visibility: hidden;"></div> -->
+                        <!-- <input type="text" class="addT1"> -->
+                        <div id="myModal" class="modal" style="display: none;">
+                            <div class="modal-content" >
+                              <span class="close">×</span>
+                              <div class="addList" style="position: absolute;height:80%;width: 100%;margin: 7% auto">
+                                <h3>Choose your Location</h3>
+                                <!-- <div class="click newLoc" id="newLoc">Choose another location</div> -->
+                                <div class="addList1" style="overflow:overlay ;height: 100%;padding: 0 1em;">
+                                   
+                                    <div class="click newLoc" id="newLoc">Choose another location</div>
+                                    <div class="click addC">A1-304,Keshav Heights,Parsik Nagar,Kalwa,Thane A1-304,Keshav Heights,Parsik Nagar,Kalwa,Thane</div>
+                                    <div class="click addC">A1-304,Keshav Heights,Parsik Nagar,Kalwa,Thane</div>
+                                    <div class="click addC">A1-304,Keshav Heights,Parsik Nagar,Kalwa,Thane</div>
+                                    <div class="click addC">A1-304,Keshav Heights,Parsik Nagar,Kalwa,Thane</div>
+                                    <div class="click addC">A1-304,Keshav Heights,Parsik Nagar,Kalwa,Thane</div>
+                                    <div class="click addC">A1-304,Keshav Heights,Parsik Nagar,Kalwa,Thane</div>
+                                    <div class="click addC">A1-304,Keshav Heights,Parsik Nagar,Kalwa,Thane</div>
+                                </div>
+                                
+                              </div>
+                              <div style="margin: 0 auto;visibility: hidden;" class="addMap">
+                                <h3>Choose your Location</h3>
+                                <div id='map' style='width: 400px; height: 250px; margin:0 auto'></div>
+                                Your Location: 
+                                  <span id="addText">jbva adjvba daovbpav iadvp</span><br>
+                                  <label for="add1">Flat No/Building Name:</label>
+                                  <input name="add1" class="add1" style="width:20rem;margin-bottom:2px ;" type="text" placeholder="flatNo,building">
+                                  <label for="add2">Locality:</label>
+                                  <input name="add2" class="add2" style="width:20rem;margin-bottom:2px ;" type="text" placeholder="locality"><br>
+                                  <a href="javascript:void(0)" class="click locConf" >Confirm</a>
+                              </div>
+                              <!-- <div>
+                                Your Location: 
+                                  <span id="addText">jbva adjvba daovbpav iadvp</span><br>
+                                  <label for="add1">Address:</label>
+                                  <input name="add1" style="width:20rem" type="text" placeholder="flatNo,building">
+                              </div> -->
+                              
+                            </div>
+                                                     
+                                
+                            
                         </div>
                     </div>
+
                     <div class="protopay" style="margin-bottom: 10%;">
                         <a href="javascript:void(0)" id="place" class="click">Place Order</a>
                         <div id="myMod" class="modal">
@@ -120,7 +169,16 @@
                                     </div>
                                     </div>
                                     <div >
-                                        <a href="javascript:void(0)" class="click">Pay Now</a>
+                                        <div id="successMod"  class="modal">
+
+                                            <!-- Modal content -->
+                                            <div class="modal-content" style="top:40%">
+                                              <span class="close">&times;</span>
+                                              <p class="confirmText">Order placed succesfully!</p>
+                                            </div>
+                                          
+                                          </div>
+                                        <a href="javascript:void(0)" class="click pn">Pay Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -133,5 +191,5 @@
 
     {{ cart|json_script:"cart"}}
     <script src="{% static 'js/checkout.js' %}"></script>
-
+    <script src="{% static 'js/map.js' %}"></script>
 {% endblock tail %}

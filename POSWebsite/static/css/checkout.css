@@ -240,6 +240,7 @@
     padding:0;
     border: 1px solid #888;
     width: 50%;
+    
 }
   
 /* The Close Button */
@@ -257,14 +258,14 @@
 }
 
 .click {
-    line-height: 56px;
-    padding: 5px 20px;
+    /* line-height: 56px; */
+    padding: 1px 20px;
     font-size: 18px;
     border-radius: 40px;
     color: #a52a2a;
     border: 2px solid #a52a2a;
     text-decoration: none;
-    margin: auto;
+    margin: 1em auto;
     font-family: 'Varela Round', sans-serif;
 }
 
