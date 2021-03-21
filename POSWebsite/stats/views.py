@@ -42,10 +42,10 @@ def feedback(request):
 
 def php(request):
     
-    print(request.POST.get('url'))
+    # print(request.POST.get('url'))
     r = requests.get(request.POST.get('url')) 
   
     # check status code for response received 
     # success code - 200 
-    print(json.loads(r.text)) 
+    # print(json.loads(r.text)) 
     return JsonResponse(json.loads(r.text))

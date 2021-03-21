@@ -81,15 +81,26 @@
                     <div class="addmap" style="border-bottom:2px solid brown;">
                         <a href="javascript:void(0)" id="mapbtn" class="click">Choose ur location</a>
                         <div class="addT"></div>
-                        <input type="text" class="addT1">
+                        <div id="noAddMod"  class="modal">
+
+                            <!-- Modal content -->
+                            <div class="modal-content" style="top:40%">
+                              <span class="close">&times;</span>
+                              <p class="confirmText">Choose Delivery Address!</p>
+                            </div>
+                          
+                          </div>
+                        <!-- <div id="addL" style="visibility: hidden;"></div> -->
+                        <!-- <input type="text" class="addT1"> -->
                         <div id="myModal" class="modal" style="display: none;">
                             <div class="modal-content" >
                               <span class="close">×</span>
                               <div class="addList" style="position: absolute;height:80%;width: 100%;margin: 7% auto">
                                 <h3>Choose your Location</h3>
-                                <div style="overflow:overlay ;height: 100%;padding: 0 1em;">
+                                <!-- <div class="click newLoc" id="newLoc">Choose another location</div> -->
+                                <div class="addList1" style="overflow:overlay ;height: 100%;padding: 0 1em;">
                                    
-                                    <div class="click addC" id="newLoc">Choose another location</div>
+                                    <div class="click newLoc" id="newLoc">Choose another location</div>
                                     <div class="click addC">A1-304,Keshav Heights,Parsik Nagar,Kalwa,Thane A1-304,Keshav Heights,Parsik Nagar,Kalwa,Thane</div>
                                     <div class="click addC">A1-304,Keshav Heights,Parsik Nagar,Kalwa,Thane</div>
                                     <div class="click addC">A1-304,Keshav Heights,Parsik Nagar,Kalwa,Thane</div>
@@ -109,7 +120,7 @@
                                   <input name="add1" class="add1" style="width:20rem;margin-bottom:2px ;" type="text" placeholder="flatNo,building">
                                   <label for="add2">Locality:</label>
                                   <input name="add2" class="add2" style="width:20rem;margin-bottom:2px ;" type="text" placeholder="locality"><br>
-                                  <a href="javascript:void(0)" id="locConf">Confirm</a>
+                                  <a href="javascript:void(0)" class="click locConf" >Confirm</a>
                               </div>
                               <!-- <div>
                                 Your Location: 
@@ -158,7 +169,16 @@
                                     </div>
                                     </div>
                                     <div >
-                                        <a href="javascript:void(0)" class="click">Pay Now</a>
+                                        <div id="successMod"  class="modal">
+
+                                            <!-- Modal content -->
+                                            <div class="modal-content" style="top:40%">
+                                              <span class="close">&times;</span>
+                                              <p class="confirmText">Order placed succesfully!</p>
+                                            </div>
+                                          
+                                          </div>
+                                        <a href="javascript:void(0)" class="click pn">Pay Now</a>
                                     </div>
                                 </div>
                             </div>

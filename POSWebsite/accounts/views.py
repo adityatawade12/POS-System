@@ -79,5 +79,5 @@ def curuser(request):
         x=authe.get_account_info(request.session['uid'])
     except:
         x="null"
-    print("user authe",x)
+    # print("user authe",x)
     return authe.current_user
