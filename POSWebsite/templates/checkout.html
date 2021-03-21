@@ -143,30 +143,30 @@
                                 <span class="close">×</span>
                                 <h3>BILL</h3>
                                 <div class="bill">
-                                <ul class="ba" style="border-bottom: 2px solid brown;">
-                                    <li>
-                                        <div id="finalL">
-                                            <div><b>Food Item</b></div>
-                                            <div>&emsp;<b> Quantity</b></div>
-                                            <div><b>Price</b></div>
-                                        </div>
-                                    </li>
-                                {% for item in cart %}
-                                    <li>
-                                        <div id="finalL">
-                                            <div>{{item.itemName}}</div>
-                                            <div>&emsp;&emsp;{{item.itemQty}}</div>
-                                            <div>{{item.totalPrice}}</div>
-                                        </div>
-                                    </li>
-                                {% endfor %}
-                                </ul>
+                                    <ul class="ba" style="border-bottom: 2px solid brown;">
+                                        <li>
+                                            <div id="finalL">
+                                                <div><b>Food Item</b></div>
+                                                <div>&emsp;<b> Quantity</b></div>
+                                                <div><b>Price</b></div>
+                                            </div>
+                                        </li>
+                                    {% for item in cart %}
+                                        <li>
+                                            <div id="finalL">
+                                                <div>{{item.itemName}}</div>
+                                                <div>&emsp;&emsp;{{item.itemQty}}</div>
+                                                <div>{{item.totalPrice}}</div>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                    </ul>
                                     <div style="border-bottom: 2px solid brown;">
-                                    <div >
-                                        <div class="subT"><h6>Sub-Total:&emsp13;<span>100</span></h6></div>
-                                        <div><h6>GST-Charge:&emsp13;<span>5%</span></h6></div>
-                                        <div class="grnT"><h6>Grand-Total:&emsp13;<span>100</span></h6></div>
-                                    </div>
+                                        <div >
+                                            <div class="subT"><h6>Sub-Total:&emsp13;<span>100</span></h6></div>
+                                            <div><h6>GST-Charge:&emsp13;<span>5%</span></h6></div>
+                                            <div class="grnT"><h6>Grand-Total:&emsp13;<span>100</span></h6></div>
+                                        </div>
                                     </div>
                                     <div >
                                         <div id="successMod"  class="modal">
