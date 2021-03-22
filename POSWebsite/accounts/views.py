@@ -49,7 +49,7 @@ def signup(request):
             password=request.POST.get("password")        
             phone=request.POST.get("phone")
             user = auth.create_user(
-            email=email,
+            email=email, 
             email_verified=False,
             phone_number=phone,
             password=password,
@@ -79,5 +79,5 @@ def curuser(request):
         x=authe.get_account_info(request.session['uid'])
     except:
         x="null"
-    # print("user authe",x)
+    print("user authe",x)
     return authe.current_user
