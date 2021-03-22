@@ -8,6 +8,7 @@ from datetime import datetime, timedelta
 import time
 import pyrebase
 cred = credentials.Certificate(r'accounts\mkstrial-91474-firebase-adminsdk-ks5kv-b1e2114ee3.json')
+
 firebase_admin.initialize_app(cred)
 config = {
   "apiKey": "AIzaSyCRdXgH7cvG87cBYmEbgekw-uQGjBdm4D8",
@@ -20,6 +21,8 @@ pirebase = pyrebase.initialize_app(config)
 authe = pirebase.auth()
 # user=authe.current_user
 # Create your views here.
+db = firestore.client()
+
 def login(request):
     if request.method =="POST":
         email=request.POST.get("email")
@@ -55,10 +58,18 @@ def signup(request):
             password=password,
             display_name=name,        
             disabled=False)
-            
             user = authe.sign_in_with_email_and_password(email,password)
+            session_id=user['idToken']
+            request.session['uid']=str(session_id)
+            us=authe.current_user
+            data = {
+            u'cart':[],
+            u'Addresses':[],
+            }
+            db.collection(u'users').document(us['localId']).set(data)
             return redirect('/menu')
-        except:
+        except Exception as e:
+            print("EXCEPTION",e)
             return redirect('/accounts/signup')
     else:    
         us=authe.current_user
