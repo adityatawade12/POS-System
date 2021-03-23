@@ -117,7 +117,7 @@ function updateTotal(cart){
         subT=subT+item.totalPrice;
     });
     console.log(subT);
-    grnT=0.05*subT+subT;
+    grnT=1.05*subT;
     console.log(grnT);
     $(".subT").html('<h6>Sub-Total:&emsp13;&#8377;<span>'+subT+'</span></h6>')
     $(".grnT").html('<h6>Grand-Total:&emsp13;&#8377;<span>'+grnT+'</span></h6>')

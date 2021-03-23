@@ -19,14 +19,14 @@
         <div style="margin: 0 auto; width: 60vw;">
             <h1>CURRENT ORDERS</h1>
             <div style="border-bottom: 2px solid brown;">
-                <div class="row" id="heading">
+                <div class="row r_1" id="heading">
                     <div class="col-6"><b>Food Item</b></div>
                     <div class="col-3"><b>Quantity</b></div>
                     <div class="col-3"><b>Price</b></div>
                 </div>
                 <div id="scroll">
                     {% for item in currOrder %}
-                        <div class="row">
+                        <div class="row r_1">
                             <div class="col-6"><b>{{item.itemName}}</b></div>
                             <div class="col-3"><b>{{item.itemQty}}</b></div>
                             <div class="col-3"><b>&#8377;{{item.totalPrice}}</b></div>

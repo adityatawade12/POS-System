@@ -20,6 +20,8 @@ pirebase = pyrebase.initialize_app(config)
 authe = pirebase.auth()
 # user=authe.current_user
 # Create your views here.
+db = firestore.client()
+
 def login(request):
     if request.method =="POST":
         email=request.POST.get("email")
@@ -37,7 +39,6 @@ def login(request):
         # return render(request, "menu.html",{"e":email,"us":us})
         return redirect('/menu')
     else:
-        
         us=authe.current_user
         return render(request, "login.html",{"us":us})
 
@@ -57,8 +58,17 @@ def signup(request):
             disabled=False)
             
             user = authe.sign_in_with_email_and_password(email,password)
+            session_id=user['idToken']
+            request.session['uid']=str(session_id)
+            us=authe.current_user
+            data = {
+            u'cart':[],
+            u'Addresses':[],
+            }
+            db.collection(u'users').document(us['localId']).set(data)
             return redirect('/menu')
-        except:
+        except Exception as e:
+            print(e)
             return redirect('/accounts/signup')
     else:    
         us=authe.current_user

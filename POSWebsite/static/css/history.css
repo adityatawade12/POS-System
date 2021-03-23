@@ -10,10 +10,10 @@ body {
     /* background-color: inherit; */
 }
 
-.row {
+.r_1 {
     width: 100%;
 }
-.row div {
+.r_1 div {
     display: flex;
     justify-content: center;
     align-items: center;

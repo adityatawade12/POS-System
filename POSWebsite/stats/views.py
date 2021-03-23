@@ -6,6 +6,7 @@ from orders.views import menuCategory
 from orders.views import currOrders
 import requests,json
 from django.http import JsonResponse
+from orders.views import db
 
 # Create your views here.
 def home(request):
@@ -29,7 +30,18 @@ def menu(request):
 
 def contact(request):
     us=curuser(request)
-    return render(request,'contact.html',{'us':us})
+    docs = db.collection(u'openingHours').stream()
+    timing=[]
+    for doc in docs:
+        timing.append(doc.to_dict())
+    position=[1, 2, 3, 4, 5, 6, 7]
+    # print("timing: ",timing)
+    # docs = db.collection(u'timing').document('scM7tbnSbtdqlYnr5Pxe')
+
+    # timing=docs.get().to_dict()
+    # print("to dict",timing)
+
+    return render(request,'contact.html',{'us':us,'timing':timing, 'position':position})
 
 def nav(request):
     us=curuser(request)
@@ -48,12 +60,3 @@ def php(request):
     # success code - 200 
     # print(json.loads(r.text)) 
     return JsonResponse(json.loads(r.text))
-
-# def history(request):
-#     # print(items)
-#     # print(category)
-
-#     us=curuser(request)
-#     currOrder = currOrders(request)
-    
-#     return render(request,'history.html',{'us':us,'currOrder':currOrder})
