@@ -10,10 +10,10 @@ body {
     /* background-color: inherit; */
 }
 
-.row {
+._order .row {
     width: 100%;
 }
-.row div {
+._order .row div {
     display: flex;
     justify-content: center;
     align-items: center;
