@@ -16,10 +16,14 @@ config = {
     "serviceAccount": "accounts/mkstrial-91474-firebase-adminsdk-ks5kv-b1e2114ee3.json",
     "storageBucket": "mkstrial-91474.appspot.com",
 }
+db = firestore.client()
 pirebase = pyrebase.initialize_app(config)
 authe = pirebase.auth()
 # user=authe.current_user
 # Create your views here.
+
+msg = ''
+
 def login(request):
     if request.method =="POST":
         email=request.POST.get("email")
@@ -28,8 +32,8 @@ def login(request):
             user = authe.sign_in_with_email_and_password(email,password)
             print(user)
         except:
-            message="invalid credentials"
-            return render(request,"login.html",{"messg":message})
+            message="Invalid Credentials! Please try again."
+            return render(request,"login.html",{"message":msg})
         #print(user['idToken'])
         session_id=user['idToken']
         request.session['uid']=str(session_id)
@@ -37,7 +41,6 @@ def login(request):
         # return render(request, "menu.html",{"e":email,"us":us})
         return redirect('/menu')
     else:
-        
         us=authe.current_user
         return render(request, "login.html",{"us":us})
 
@@ -57,9 +60,20 @@ def signup(request):
             disabled=False)
             
             user = authe.sign_in_with_email_and_password(email,password)
+            
+            us=authe.current_user
+            data = {
+            u'cart':[],
+            u'Addresses':[],
+            }
+            db.collection(u'users').document(us['localId']).set(data)
+            return JsonResponse({"success": 'yes', "message": msg})
             return redirect('/menu')
-        except:
-            return redirect('/accounts/signup')
+        except Exception as e:
+            # msg = str(e)
+            print(str(e))
+            return JsonResponse({"success": 'no', "message": msg})
+            return render('/accounts/signup', {"message": msg})
     else:    
         us=authe.current_user
         return render(request,'signup.html',{"us":us})

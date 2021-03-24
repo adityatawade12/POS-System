@@ -32,7 +32,7 @@
           <br><br>
           
           <label for="password">Password</label>
-          <input type="password" name="password" required>
+          <input type="password" name="password" minlength="6" required>
           <br><br>
           
           <!-- <label for="psw-repeat">Repeat Password</label>
@@ -57,6 +57,13 @@
       </form>
     </div>
 
+    <div id="successMod" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content" style="top:40%">
+        <!-- <span class="close">&times;</span> -->
+        <p class="errorBox"></p>
+      </div>
+  </div>
     <!-- <div class="credits"><img src="{% static 'css/images/camera.png' %}" alt="">: Daniel Krieger</div> -->
   
     <script src="{% static 'js/signup.js' %}"></script>

@@ -303,7 +303,7 @@ $(".addList1").on("click",".click.addC",function(){
       
       }, // get the form data
       method: "POST", 
-      headers: { "X-CSRFToken": csrftoken  },// GET or POST
+      headers: { "X-CSRFToken": csrftoken },// GET or POST
       url: "/orders/confirm",
       // on success
       success: function(response) {

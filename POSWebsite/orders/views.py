@@ -132,18 +132,15 @@ def getAddress(request):
         doc_ref = db.collection(u'users').document(us['localId'])
 
         doc = doc_ref.get()
-        if doc.exists:
-           addDoc=doc.to_dict()
-           
-           try: 
+        try: 
+            if doc.exists:
+                addDoc=doc.to_dict()
                 n=json.dumps(addDoc['Addresses'])
-                return JsonResponse({"add":n}) 
-                
-           except:
-                return JsonResponse({"status":"error"})
-        else:
-            print(u'No such document!')
-
+                return JsonResponse({"add":n})
+            # else:
+            #     print(u'No such document!')
+                # return JsonResponse({"status":"error"})
+        except:
             return JsonResponse({"status":"error"})
         
     else:
