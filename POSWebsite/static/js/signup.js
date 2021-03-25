@@ -47,3 +47,31 @@ firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
   }
 
 )}
+
+
+$("#submit").click(function(){
+  $.ajax({
+    
+    method: "POST", 
+    headers: { "X-CSRFToken": csrftoken },// GET or POST
+    url: "/accounts/signup",
+    // on success
+    success: function(response) {
+        // alert("Thankyou for reaching us out ");
+        console.log(response)
+        $(".errorBox").text("Order placed succesfully!")
+        successMod.style.display = "block";
+        setTimeout(function(){window.location.href = '/home';}, 3000);
+        
+    },
+    // on error
+    error: function(response) {
+        // alert the error if any error occured
+        // alert(response.responseJSON.errors);
+        $(".confirmText").text("There was an error, try later")
+        successMod.style.display = "block";
+        console.log(response.responseJSON.errors)
+    }
+});
+
+})

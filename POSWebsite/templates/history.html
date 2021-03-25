@@ -15,16 +15,17 @@
 
     <div class="scroll-pre"></div>
     
-    <div class="container">
-        <div style="margin: 0 auto; width: 60vw;">
+    <div class="container _order">
+        <div style="margin: 5em auto; width: 60vw;">
             <h1>CURRENT ORDERS</h1>
-            <div style="border-bottom: 2px solid brown;">
-                <div class="row r_1" id="heading">
+            <br>
+            <div>
+                <div class="row heading">
                     <div class="col-6"><b>Food Item</b></div>
                     <div class="col-3"><b>Quantity</b></div>
                     <div class="col-3"><b>Price</b></div>
                 </div>
-                <div id="scroll">
+                <div class="scroll">
                     {% for item in currOrder %}
                         <div class="row r_1">
                             <div class="col-6"><b>{{item.itemName}}</b></div>
@@ -34,7 +35,7 @@
                     {% endfor %}
                 </div>
             </div>
-            <div style="border-bottom: 2px solid brown; text-align: center; font-size: 1.2em; font-family: 'Varela Round';">
+            <div style="border: solid #432818; border-width: 2px 0px; text-align: center; font-size: 1.2em; font-family: 'Varela Round';">
                 <b>Total:&emsp13;<span>&#8377;{{ order.total }}</span></b>
                 <br>
                 <b>Address:&emsp13;<span>{{ order.address }}</span></b>
@@ -44,5 +45,35 @@
         </div>
     </div>
 
+    <div>
+        <span>
+            <img src="/static/css/images/delivery2.jpg">
+        </span>
+    </div>
+
+    <div class="container _order">
+        <div style="margin: 5em auto; width: 70vw;">
+            <h1>PAST ORDERS</h1>
+            <br>
+            <div style="border-bottom: 2px solid #432818;">
+                <div class="row heading">
+                    <div class="col-2"><b>Date & Time</b></div>
+                    <div class="col-5"><b>Items</b></div>
+                    <div class="col-2"><b>Total</b></div>
+                    <div class="col-3"><b>Address</b></div>
+                </div>
+                <div class="scroll">
+                    {% for detail in pastOrders %}
+                        <div class="row">
+                            <div class="col-2"><b>{{ detail.timestamp }}</b></div>
+                            <div class="col-5"><b>Items</b></div>
+                            <div class="col-2"><b>{{ detail.total }}</b></div>
+                            <div class="col-3"><b>{{ detail.address }}</b></div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
     
 {% endblock tail %}
