@@ -1,19 +1,54 @@
 @import url("font.css");
 
 body {
-    background-color: blanchedalmond;
+    background-color: #e8e8e4;
     color: #24252a;
+    font-family: 'Varela Round';
 }
-.vertical-container {
-    height: 300px;
-    display: -webkit-flex;
-    display:         flex;
-    -webkit-align-items: center;
-            align-items: center;
-    -webkit-justify-content: center;
-            justify-content: center;
+#top {
+    margin: 10vh auto;
+    /* height: 40vh; */
 }
-h1.vertical-container {
-   font-size: 3em;
+#top h1 {
+    font-family: 'Cedarville Cursive';
+    font-size: 3.5em;
+    text-align: center;
+}
+#top h3 {
+    text-align: center;
+    font-size: 3em;
    font-family: 'Port Lligat Sans';
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container form {
+    width: 500px;
+    height: auto;
+    padding: 2%;
+    border: 2px solid #24252a;
+    background-color: #b3b3b3;
+}
+
+.login-form h1 {
+    font-size: 2.5em;
+    text-align: center;
+    font-family: 'Varela Round';
+}
+.login-form a {
+    align-self: center;
+    color: blanchedalmond;
+    background-color: crimson;
+    padding: 0.4em 1.5em;
+    border: 2px solid crimson;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+.login-form div {
+    margin: 0 10%;
+    text-align: center;
 }

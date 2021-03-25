@@ -1,7 +1,7 @@
 {
     "name": "le mieux",
     "short_name": "LM",
-    "start_url":  "/src/index.html",
+    "start_url":  "index.html",
 
     "icons": [
       {
