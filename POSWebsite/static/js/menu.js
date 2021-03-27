@@ -88,27 +88,26 @@ cartRefresh()
 
 $("#list").on("click", "span", function(event){
     var t= $(this).parent().parent().attr('class').slice(4)
-       console.log(t)
-       cart.forEach((item, index) => {
+    console.log(t)
+    cart.forEach((item, index) => {
         if(item.itemName==t){
             delete cart[index]
         }
-           
-});
-cart=cart.filter(el => el);
-var t= $(this).parent().parent().attr('class').slice(4).split(' ').join(".")
-console.log(cart)
-t=t.split(' ').join('.');
-// console.log($(".incdec."+t))
-$("."+t+".incdec").children('div').eq(0).html('<a class="indebtn dec" href="javascript:void(0)" >-</a>1<a class="indebtn inc" href="javascript:void(0)" >+</a>')
+    });
+    cart=cart.filter(el => el);
+    var t= $(this).parent().parent().attr('class').slice(4).split(' ').join(".")
+    console.log(cart)
+    t=t.split(' ').join('.');
+    // console.log($(".incdec."+t))
+    $("."+t+".incdec").children('div').eq(0).html('<a class="indebtn dec" href="javascript:void(0)" >-</a>1<a class="indebtn inc" href="javascript:void(0)" >+</a>')
     $(".incdec."+t).css({"visibility": "hidden"})
     $("."+t+".click").css({"visibility": "visible"})
-	$(this).parent().parent().fadeOut(300,function(){
-       
-		$(this).remove();
+    $(this).parent().parent().fadeOut(300,function(){
+        
+        $(this).remove();
 
-	});
-	event.stopPropagation();
+    });
+    event.stopPropagation();
     myCart();
 });
 
@@ -138,10 +137,7 @@ function cartRefresh(){
         </div> `
 
     });
-    if (int.length == 0)
-    {
-        int = `Your Cart is empty!`;
-    }
+    if (int.length == 0) {int = `Your Cart is empty!`;}
     myCart();
     document.getElementById("list").innerHTML=int
 }
