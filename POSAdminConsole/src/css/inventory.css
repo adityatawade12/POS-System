@@ -1,0 +1,51 @@
+.table-responsive {
+    overflow: overlay !important;
+}
+
+.table_body {
+    max-height: 75vh !important;
+    overflow: overlay !important;
+}
+body {
+    overflow: overlay;
+}
+body::-webkit-scrollbar {
+    width: 10px;
+}
+body::-webkit-scrollbar-thumb {
+    transition: all 0.8s ease-in-out;
+    visibility: hidden;
+    background: #42424282;
+    border-radius: 10px;
+}
+body:hover::-webkit-scrollbar-thumb {
+    transition: all 0.8s ease-in-out;
+    visibility: visible;
+}
+body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+.modal-header {
+    display: initial !important;
+    border-bottom: none !important;
+}
+.modal-footer {
+    border-top: none !important;
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+.edit_form label {
+    padding: 0 1rem;
+}
+.edit_form input {
+    width: 60%;
+}
+.edit_form div {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+    align-items: center;
+}

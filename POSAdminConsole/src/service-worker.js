@@ -1,27 +1,65 @@
-var cacheName = 'admin-console';
-var filesToCache = [
+const staticCacheName = 'static-cache';
+const dynamicCacheName = 'dynamic-cache';
+
+const assets = [
   '/',
-  'index.html',
-  'dashboard.html' 
+  '/index.html',
+  '/database.js'
 ];
 
-self.addEventListener('install', function(e) {
-  console.log('[ServiceWorker] Install');
-  e.waitUntil(
-    caches.open(cacheName).then(function(cache) {
-      console.log('[ServiceWorker] Caching app shell');
-      return cache.addAll(filesToCache);
+//cache size limit function
+const limitCacheSize=(name,size)=>{
+    caches.open(name).then(cache=>{
+        cache.keys().then(keys=>{
+            if(keys.length>size){
+                cache.delete(keys[0]).then(limitCacheSize(name,size));
+            }
+        })
+    })
+}
+
+
+// install event
+self.addEventListener('install', evt => {
+  //console.log('service worker installed');
+  evt.waitUntil(
+    caches.open(staticCacheName).then((cache) => {
+      console.log('caching shell assets');
+      cache.addAll(assets);
     })
   );
 });
 
-self.addEventListener('activate',  event => {
-  event.waitUntil(self.clients.claim());
+// activate event
+self.addEventListener('activate', evt => {
+  //console.log('service worker activated');
+  evt.waitUntil(
+    caches.keys().then(keys => {
+      //console.log(keys);
+      return Promise.all(keys
+        .filter(key => key !== staticCacheName && key !== dynamicCacheName)
+        .map(key => caches.delete(key))
+      );
+    })
+  );
 });
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request, {ignoreSearch:true}).then(response => {
-      return response || fetch(event.request);
+
+// fetch event
+self.addEventListener('fetch', evt => {
+  //console.log('fetch event', evt);
+  evt.respondWith(
+    caches.match(evt.request).then(cacheRes => {
+      return cacheRes || fetch(evt.request).then(fetchRes => {
+        return caches.open(dynamicCacheName).then(cache => {
+          cache.put(evt.request.url, fetchRes.clone());
+          limitCacheSize(dynamicCacheName,15);
+          return fetchRes;
+        })
+      });
+    }).catch(()=>{
+        if(evt.request.url.indexOf('.html')>-1){
+        caches.match('/pages/fallback.html');
+        }
     })
   );
 });

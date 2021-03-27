@@ -1,0 +1,76 @@
+var db = firebase.firestore();
+
+
+var docs = db.collection('dishes');
+
+let temp;
+let str = '';
+let data= '';
+var dishes;
+
+var category=[];
+docs.get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) =>{
+        str = `${doc.get("Category")}`;
+        if (!category.includes(str)) {
+            category.push(str);
+        }
+    });
+
+    dishes = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+    }));
+    // console.log("dishes:", dishes)
+
+    console.log("dishes type:", typeof(dishes))
+
+    // /*
+    category.forEach(cat => {
+        // console.log(`category: ${cat}`)
+        data += `
+        <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title"> `+ cat+ `</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th class="text-right">Price</th>
+                        </thead>
+                        <tbody>
+                        <div class="table_body">`
+
+                    // <!-- for loop -->
+                    dishes.forEach((doc) =>{
+                            if (cat == doc["Category"]) {
+                                data += `
+                                    <tr>
+                                        <td>${doc["Name"]}</td>
+                                        <td>${doc["Category"]}</td>
+                                        <td>${doc["Description"]}</td>
+                                        <td class="text-center">&#8377;${doc["Price"]}</td>
+                                        <td><a onclick="form_('${doc["Name"]}')" id="${doc["Name"]}" href="#myModal" class="dishes btn btn-primary" data-toggle="modal">Edit</a></td>
+                                    </tr>`;
+                            }
+                    });
+                    // <!-- end for loop -->
+        data += ` 
+        </div>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </div>`;
+    });
+
+    document.getElementById("inva").innerHTML=data;
+// */
+
+});
