@@ -6,26 +6,6 @@
     max-height: 75vh !important;
     overflow: overlay !important;
 }
-body {
-    overflow: overlay;
-}
-body::-webkit-scrollbar {
-    width: 10px;
-}
-body::-webkit-scrollbar-thumb {
-    transition: all 0.8s ease-in-out;
-    visibility: hidden;
-    background: #42424282;
-    border-radius: 10px;
-}
-body:hover::-webkit-scrollbar-thumb {
-    transition: all 0.8s ease-in-out;
-    visibility: visible;
-}
-body::-webkit-scrollbar-track {
-    background: transparent;
-}
-
 
 .modal-header {
     display: initial !important;
@@ -35,6 +15,7 @@ body::-webkit-scrollbar-track {
     border-top: none !important;
     border-bottom-right-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
+    padding: 0.75em 1.5em !important;
 }
 
 .edit_form label {

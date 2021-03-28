@@ -29,34 +29,19 @@
                 <div class="table-responsive">
                   <table class="table">
                     <thead class=" text-primary">
-                      <th>
-                        Name
-                      </th>
-                      <th>
-                        Country
-                      </th>
-                      <th>
-                        City
-                      </th>
-                      <th class="text-right">
-                        Salary
-                      </th>
+						<th>Name</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th class="text-right">Price</th>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>
-                          Dakota Rice
-                        </td>
-                        <td>
-                          Niger
-                        </td>
-                        <td>
-                          Oud-Turnhout
-                        </td>
-                        <td class="text-center">
-                          $36,738
-                        </td>
-                      </tr>
+                        <td>Name</td>
+                        <td>Category</td>
+                        <td>Description</td>
+                        <td class="text-right">Price</td>
+                        <td><a href="#myModal" class="dishes btn btn-primary" data-toggle="modal">Edit</a></td>
+					</tr>
                     </tbody>
                   </table>
                 </div>
@@ -121,32 +106,32 @@
               <form class="edit_form">
                 <div>
                   <label>Name</label>
-                  <input type="text" name="Name">
+                  <input type="text" id="Name" name="Name">
                   <br><br>
                 </div>
                 <div>
                   <label>Description</label>
-                  <textarea type="text" name="desc" rows="2" cols="30"></textarea>
+                  <textarea type="text" name="desc" id="desc" rows="2" cols="30"></textarea>
                   <br><br>
                 </div>
                 <div>
                   <label>Category</label>
-                  <input type="text" name="cat">
+                  <input type="text" name="cat" id="cat">
                   <br><br>
                 </div>
                 <div>
                   <label>Price</label>
-                  <input type="number" name="price">
+                  <input type="number" name="price" id="price">
                   <br><br>
                 </div>
                 <div>
                   <label>Image</label>
-                  <input type="text" name="img">
+                  <input type="text" name="img" id="img">
                   <br><br>
                 </div>
                 <div>
                   <label>Available</label>
-                  <input type="text" name="available">
+                  <input type="text" name="available" id="available">
                   <br><br>
                 </div>
               </form>
@@ -162,10 +147,17 @@
       <!-- end of modal -->
       <script type="text/javascript">
         foot();
-        active('invent')
+        active('invent');
       </script>
 
   <script src="js/inventory.js"></script>
+  <script>
+	  try {
+    		dataRetrieve();
+		} catch(err) {
+    		console.log('Error getting documents', err)
+		}
+  </script>
 
 </body>
 

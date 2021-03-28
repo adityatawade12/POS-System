@@ -18,9 +18,7 @@ function inHead(){
     	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     	<script src="https://kit.fontawesome.com/553c78d64a.js" crossorigin="anonymous"></script>
-    
-    	<script type="module"  src="database.js"></script>
-    
+        
     	<!-- CSS Files -->
     	<link href="css/bootstrap.min.css" rel="stylesheet" />
     	<link href="css/paper-dashboard.css" rel="stylesheet" />
@@ -44,6 +42,26 @@ function inHead(){
     			font-size: 1.5em;
     		}
     
+			body {
+				overflow: overlay;
+			}
+			body::-webkit-scrollbar {
+				width: 10px;
+			}
+			body::-webkit-scrollbar-thumb {
+				transition: all 0.8s ease-in-out;
+				visibility: hidden;
+				background: #42424282;
+				border-radius: 10px;
+			}
+			body:hover::-webkit-scrollbar-thumb {
+				transition: all 0.8s ease-in-out;
+				visibility: visible;
+			}
+			body::-webkit-scrollbar-track {
+				background: transparent;
+			}
+
     	</style>
     
     </head>
@@ -235,8 +253,7 @@ function foot(){
       <script src="/__/firebase/8.3.1/firebase-auth.js"></script>
       <script src="/__/firebase/8.3.1/firebase-firestore.js"></script>
 
-    // </body>
-    // 
-    // </html>
+	  <script type="module" src="database.js"></script>
+
     `);
 }

@@ -1,31 +1,58 @@
 var db = firebase.firestore();
 
 
-var docs = db.collection('dishes');
+var dish_doc = db.collection('dishes');
 
 let temp;
 let str = '';
 let data= '';
-var dishes;
-
+let dishes;
 var category=[];
-docs.get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) =>{
-        str = `${doc.get("Category")}`;
-        if (!category.includes(str)) {
-            category.push(str);
-        }
-    });
+let docu;
+/*
+async function daata() {
+dish_doc.get().then((querySnapshot) => {
+    console.log("inside daaaata");
+    docu = querySnapshot;
+    return "querySnapshot";
+});
+}
 
-    dishes = querySnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-    }));
+console.log("dcdsdssds", docu);
+function tem () {
+    const doci = daata();
+    // doci.then((doggo) => {
+    //     console.log(`dcdsdssds ${doggo}`);
+    // });
+    console.log("tem: ", doci);
+}
+tem();
+*/
+// docu.forEach((doc) =>{
+//     str = `${doc.get("Category")}`;
+//     if (!category.includes(str)) {
+//         category.push(str);
+//     }
+// });
+
+
+// dishes = querySnapshot.docs.map((doc) => ({
+    //     id: doc.id,
+    //     ...doc.data(),
+    // }));
+/*
+    dishes = new Promise(function (resolve, reject) {
+        resolve("rex");
+        return "xer";
+    }).then (res => {
+        console.log("res:",res);
+        })
+
+    console.log("dishes:",dishes);
     // console.log("dishes:", dishes)
+*/
 
-    console.log("dishes type:", typeof(dishes))
-
-    // /*
+    /*
     category.forEach(cat => {
         // console.log(`category: ${cat}`)
         data += `
@@ -71,6 +98,7 @@ docs.get().then((querySnapshot) => {
     });
 
     document.getElementById("inva").innerHTML=data;
-// */
 
-});
+
+console.log("DATABASE");
+*/
