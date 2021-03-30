@@ -9,48 +9,7 @@ let data= '';
 let dishes;
 var category=[];
 let docu;
-/*
-async function daata() {
-dish_doc.get().then((querySnapshot) => {
-    console.log("inside daaaata");
-    docu = querySnapshot;
-    return "querySnapshot";
-});
-}
 
-console.log("dcdsdssds", docu);
-function tem () {
-    const doci = daata();
-    // doci.then((doggo) => {
-    //     console.log(`dcdsdssds ${doggo}`);
-    // });
-    console.log("tem: ", doci);
-}
-tem();
-*/
-// docu.forEach((doc) =>{
-//     str = `${doc.get("Category")}`;
-//     if (!category.includes(str)) {
-//         category.push(str);
-//     }
-// });
-
-
-// dishes = querySnapshot.docs.map((doc) => ({
-    //     id: doc.id,
-    //     ...doc.data(),
-    // }));
-/*
-    dishes = new Promise(function (resolve, reject) {
-        resolve("rex");
-        return "xer";
-    }).then (res => {
-        console.log("res:",res);
-        })
-
-    console.log("dishes:",dishes);
-    // console.log("dishes:", dishes)
-*/
 
     /*
     category.forEach(cat => {
@@ -102,3 +61,16 @@ tem();
 
 console.log("DATABASE");
 */
+
+
+// dish_doc.onSnapshot((snapshot) => {
+//     snapshot.docChanges().forEach(change => {
+//         if (change.type === 'added') {
+//             // add the doc data to the page
+//         }
+//         if (change.type === 'removed') {
+//             // remove the doc data from the page
+            
+//         }
+//     });
+// });

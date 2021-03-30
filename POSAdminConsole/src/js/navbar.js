@@ -62,6 +62,21 @@ function inHead(){
 				background: transparent;
 			}
 
+			@media screen and (max-width: 991px) {
+				.sidebar-wrapper p {
+					visibility: hidden;
+				}
+				.sidebar {
+					transform: translate3d(0, 0, 0) !important;
+					width: 75px;
+				}
+				.main-panel {
+					width: 94%;
+				}
+				.logo-normal {
+					visibility: hidden;
+				}
+			}
     	</style>
     
     </head>
@@ -87,8 +102,8 @@ function inHead(){
     				<p>Dashboard</p>
     				</a>
     			</li>
-    			<li id="icons">
-    				<a href="icons.html">
+    			<li id="orders">
+    				<a href="orders.html">
     				<i class="fas fa-receipt"></i>
     				<p>Orders</p>
     				</a>
