@@ -112,22 +112,22 @@ function displayDish(dishes, category) {
 
 
 // FUNCTION FOR VIEWING THE DISH DATA
-function form_ (id) {
+function form_(id) {
 
     var name, img, desc, price, avail, cat;
-    console.log('name of dish to be edited:',name, img, desc, price, avail, cat);
-
-   dishes.forEach((doc) =>{
+    
+    dishes.forEach((doc) =>{
        if (id===doc.id) {
-            name = doc.Name;
-            console.log("inside for loop name: ", name);
-            price = doc["Price"];
-            img = doc["Image"];
-            desc = doc["Description"];
-            avail = doc["IsAvailable"];
-            cat = doc["Category"];
+           name = doc.Name;
+           console.log("inside for loop name: ", name);
+           price = doc["Price"];
+           img = doc["Image"];
+           desc = doc["Description"];
+           avail = doc["IsAvailable"];
+           cat = doc["Category"];
         }
     });
+    console.log('name of dish to be edited:',name, img, desc, price, avail, cat);
 
     document.getElementById("Name").value=name;
     document.getElementById("desc").innerHTML=desc;

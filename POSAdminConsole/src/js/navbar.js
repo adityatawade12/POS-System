@@ -7,7 +7,7 @@ function inHead(){
     document.write(`<meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="theme-color">
+        <meta name="theme-color"  content="#24252a"/>
         <link rel="manifest" href="manifest.json">
 
     	<link rel="apple-touch-icon" href="icons/logo_100.png">
@@ -127,10 +127,10 @@ function inHead(){
     					<p>Employees</p>
     				</a>
     			</li>
-    			<li id="temp">
-    				<a href="tables.html">
-    				<i class="nc-icon nc-tile-56"></i>
-    				<p>Table List</p>
+    			<li id="info">
+    				<a href="restroInfo.html">
+    				<i class="nc-icon nc-alert-circle-i"></i>
+    				<p>Restro Info</p>
     				</a>
     			</li>
     			<li>

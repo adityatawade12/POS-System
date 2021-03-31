@@ -3,162 +3,95 @@
 
 <head>
   
-  <title>Inventory</title>
+	<title>Inventory</title>
 
 	<link rel="icon" type="image/png" href="icons/admin.png">
 	<link rel="stylesheet" type="text/css" href="css/inventory.css">
 
-  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-  <script src="js/navbar.js"></script>
-  <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-  <script type="text/javascript">
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	<script src="js/navbar.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+	<script type="text/javascript">
 		inHead();
-    // displayItems();
+		// displayItems();
 	</script>
 
 
 
-      <div class="content">
+    <div class="content">
         <div class="row" id="inva">
-          <div class="col-md-12">
-            <div class="card">
-              <!-- <div class="card-header">
-                <h4 class="card-title"> Simple Table</h4>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead class=" text-primary">
-						            <th>Name</th>
-                        <th>Category</th>
-                        <th>Description</th>
-                        <th class="text-right">Price</th>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Name</td>
-                        <td>Category</td>
-                        <td>Description</td>
-                        <td class="text-right">Price</td>
-                        <td><a href="#myModal" class="dishes btn btn-primary" data-toggle="modal">Edit</a></td>
-					</tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div> -->
-          </div>
-          <!-- <div class="col-md-12">
-            <div class="card card-plain">
-              <div class="card-header">
-                <h4 class="card-title"> Table on Plain Background</h4>
-                <p class="card-category"> Here is a subtitle for this table</p>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead class=" text-primary">
-                      <th>
-                        Name
-                      </th>
-                      <th>
-                        Country
-                      </th>
-                      <th>
-                        City
-                      </th>
-                      <th class="text-right">
-                        Salary
-                      </th>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          Dakota Rice
-                        </td>
-                        <td>
-                          Niger
-                        </td>
-                        <td>
-                          Oud-Turnhout
-                        </td>
-                        <td class="text-right">
-                          $36,738
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>-->
-          </div> 
+        	<div class="col-md-12">
+            	<div class="card">
+            	</div>
+			</div> 
         </div>
-      </div>
-      <!-- modal for editing -->
-      <div id="myModal" class="modal fade">
+    </div>
+    
+	<!-- modal for editing -->
+    <div id="myModal" class="modal fade">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 class="modal-title">Edit Dish Data</h4>
-            </div>
-            <div class="modal-body">
-              <form class="edit_form">
-                <div>
-                  <label>Name</label>
-                  <input type="text" id="Name" name="Name">
-                  <br><br>
-                </div>
-                <div>
-                  <label>Description</label>
-                  <textarea type="text" name="desc" id="desc" rows="2" cols="30"></textarea>
-                  <br><br>
-                </div>
-                <div>
-                  <label>Category</label>
-                  <input type="text" name="cat" id="cat">
-                  <br><br>
-                </div>
-                <div>
-                  <label>Price</label>
-                  <input type="number" name="price" id="price">
-                  <br><br>
-                </div>
-                <div>
-                  <label>Image</label>
-                  <input type="text" name="img" id="img">
-                  <br><br>
-                </div>
-                <div>
-                  <label>Available</label>
-                  <input type="text" name="available" id="available">
-                  <br><br>
-                </div>
-              </form>
-            </div>
-            <small class="text-warning" style="padding: 0 1rem;">If you don't save, your changes will be lost.</small>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button onclick="editDish()" type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Edit Dish Data</h4>
+				</div>
+				<div class="modal-body">
+					<form class="edit_form">
+						<div>
+							<label>Name</label>
+							<input type="text" id="Name" name="Name">
+							<br><br>
+						</div>
+						<div>
+							<label>Description</label>
+							<textarea type="text" name="desc" id="desc" rows="2" cols="30"></textarea>
+							<br><br>
+						</div>
+						<div>
+							<label>Category</label>
+							<input type="text" name="cat" id="cat">
+							<br><br>
+						</div>
+						<div>
+							<label>Price</label>
+							<input type="number" name="price" id="price">
+							<br><br>
+						</div>
+						<div>
+							<label>Image</label>
+							<input type="text" name="img" id="img">
+							<br><br>
+						</div>
+						<div>
+							<label>Available</label>
+							<input type="text" name="available" id="available">
+							<br><br>
+						</div>
+					</form>
+				</div>
+				<small class="text-warning" style="padding: 0 1rem;">If you don't save, your changes will be lost.</small>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button onclick="editDish()" type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
         </div>
-      </div>
-      <!-- end of modal -->
+    </div>
+    <!-- end of modal -->
 
-      <script type="text/javascript">
+    <script type="text/javascript">
         foot();
         active('invent');
-      </script>
+    </script>
 
-  <script src="js/inventory.js"></script>
-  <script>
-	  try {
-    		dataRetrieve();
+	<script src="js/inventory.js"></script>
+	<script>
+		try {
+			dataRetrieve();
 		} catch(err) {
-    		console.log('Error getting documents', err)
+			console.log('Error getting documents', err)
 		}
-  </script>
+	</script>
 
 </body>
 

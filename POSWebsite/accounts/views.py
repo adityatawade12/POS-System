@@ -38,9 +38,9 @@ def login(request):
         #print(user['idToken'])
         session_id=user['idToken']
         request.session['uid']=str(session_id)
-        # us=authe.current_user
-        # return render(request, "menu.html",{"e":email,"us":us})
-        return redirect('/menu')
+        us=authe.current_user
+        return render(request, "menu.html",{"e":email,"us":us})
+        # return redirect('/menu')
     else:
         us=authe.current_user
         return render(request, "login.html",{"us":us})
