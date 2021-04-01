@@ -25,8 +25,14 @@
             	</div>
 			</div> 
         </div>
+		<div class="row" id="inva">
+        	<div class="col-md-12" style="text-align: center; color: white;">
+				<a class="btn btn-primary" onclick="resetModal(); forAdd()" href="#myModal" data-toggle="modal"><i class="fas fa-plus"></i> Add New Item</a>
+			</div> 
+        </div>
     </div>
     
+
 	<!-- modal for editing -->
     <div id="myModal" class="modal fade">
         <div class="modal-dialog">
@@ -71,13 +77,36 @@
 				</div>
 				<small class="text-warning" style="padding: 0 1rem;">If you don't save, your changes will be lost.</small>
 				<div class="modal-footer">
+					<a onclick="deldish(this)" id="" class="del_btn btn btn-danger" href="#delModal" data-toggle="modal" data-dismiss="modal">Delete</a>
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button onclick="editDish()" type="button" class="btn btn-primary">Save changes</button>
+					<button onclick="editDish(this)" id="" type="button" class="save_btn btn btn-primary">Save changes</button>
+					<button onclick="addItem(this)" id="" type="button" class="add_btn btn btn-primary">Add to Menu</button>
 				</div>
 			</div>
         </div>
     </div>
     <!-- end of modal -->
+
+
+	<div id="delModal" class="modal fade">
+        <div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Delete Item</h4>
+					<!-- <p>Are you sure you want to Delete this item</p> -->
+				</div>
+				<div class="modal-body " id="deli">
+
+				</div>
+				<div class="modal-footer">
+					<button onclick="removeDish(this)" id="" type="button" class="yes_btn btn btn-primary" data-dismiss="modal">Yes</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
     <script type="text/javascript">
         foot();

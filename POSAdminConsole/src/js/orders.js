@@ -11,13 +11,6 @@ function orderRetrieve () {
         // dishes = data;
         console.log("All data in 'currorders' collection", currorders);
         
-        // currorders.forEach((doc) =>{
-        //     str = `${doc.id}`;
-        //     if (!usID.includes(str)) {
-        //         usID.push(str);
-        //     }
-        // });
-
         // snapshot.docChanges().forEach(change => {
         //     console.log(snapshot.docChanges(), change);
         //     if (change.type === 'added') {

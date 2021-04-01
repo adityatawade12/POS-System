@@ -68,13 +68,18 @@ function inHead(){
 				}
 				.sidebar {
 					transform: translate3d(0, 0, 0) !important;
-					width: 75px;
+					width: 10vw;
 				}
 				.main-panel {
-					width: 94%;
+					width: 90vw;
 				}
 				.logo-normal {
 					visibility: hidden;
+				}
+			}
+			@media screen and (max-width: 800px) {
+				.sidebar-wrapper a {
+					margin-left: 0 !important;
 				}
 			}
     	</style>
@@ -272,3 +277,30 @@ function foot(){
 
     `);
 }
+
+function showNotification(from, align, msg, color) {
+    // color = 'primary';
+    let i;
+    if (color == 'success') {
+        i = "far fa-check-circle";
+    }
+    else if (color == 'danger') {
+        i = "fas fa-exclamation";
+    }
+    else {
+        i = "nc-icon nc-bell-55"
+    }
+
+    $.notify({
+      icon: i,
+      message: msg
+
+    }, {
+      type: color,
+      timer: 5000,
+      placement: {
+        from: from,
+        align: align
+      }
+    });
+  }

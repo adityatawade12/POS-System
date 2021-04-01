@@ -26,7 +26,7 @@ function printDT(dt) {
                 <tr>
                     <td class="text-center">${doc.day}</td>
                     <td class="text-center">${doc.hours}</td>
-                    <td class="text-center"><a onclick="edit_time('${doc.day}', '${doc.hours}')" id="${doc.day}" href="#myModal" class="dishes btn btn-primary" data-toggle="modal">Edit</a></td>
+                    <td class="text-center"><a onclick="changeHours(this)" id="${doc.id}" href="#myModal" class="dishes btn btn-primary" data-toggle="modal">Edit</a></td>
                 </tr>
                 `
             }
@@ -35,8 +35,33 @@ function printDT(dt) {
     document.getElementById("timing").innerHTML = data;
 }
 
-function edit_time(day, hours) {
+function changeHours(ele) {
+    var id = ele.id;
+    let name, hour;
 
-    document.getElementById("day").value=day;
-    document.getElementById("hours").innerHTML=hours;
+    dt.forEach(time => {
+        if (id === time.id) {
+            name = time.day;
+            hour = time.hours;
+        }
+    });
+    console.log(name, hour);
+    document.getElementById("day").value = name;
+    document.getElementById("hours").value = hour;
+    document.getElementsByClassName("dates")[0].setAttribute("id", `${id}`);
+}
+
+function edit_time(ele) {
+    var id  = ele.id;
+    db.collection("openingHours").doc(`${ele.id}`)
+    .update({
+        hours: document.getElementById("hours").value,        
+    })
+    .then(() => {
+        showNotification('top', 'center', '<b>Success!</b>  Hours are updated', 'success');
+    })
+    .catch((error) => {
+        console.error("Error updating doc", error);
+        showNotification('top', 'center', '<b>Error</b> Issues updating hours', 'danger');
+    });
 }
