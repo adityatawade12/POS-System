@@ -1,0 +1,37 @@
+{
+    "name": "Hello World PWA",
+    "short_name": "Hi",
+    "icons": [{
+      "src": "/images/icons/icons-72x72.png",
+        "sizes": "72x72",
+        "type": "image/png",
+        "purpose":"maskable any"
+      }, {
+        "src": "/images/icons/icons-96x96.png",
+        "sizes": "96x96",
+        "type": "image/png",
+        "purpose":"maskable any"
+      }, {
+        "src": "/images/icons/icons-144x144.png",
+        "sizes": "144x144",
+        "type": "image/png",
+        "purpose":"maskable any"
+      }, {
+        "src": "/images/icons/icons-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose":"maskable any"
+      },
+      {
+        "src": "/images/icons/icons-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose":"maskable any"
+      }
+    ],
+    "start_url": "/indexk.html",
+    "gcm_sender_id": "103953800507",
+    "display": "standalone",
+    "background_color": "#FF9800",
+    "theme_color": "#FF9800"
+  }
