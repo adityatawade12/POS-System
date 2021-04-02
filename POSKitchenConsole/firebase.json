@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "target": "admin",
+    "target": "kc",
     "public": "src",
     "ignore": [
       "firebase.json",

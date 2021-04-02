@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "target": "admin",
+    "target": "order",
     "public": "src",
     "ignore": [
       "firebase.json",

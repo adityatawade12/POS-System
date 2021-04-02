@@ -5,8 +5,8 @@
   "targets": {
     "mkstrial-91474": {
       "hosting": {
-        "admin": [
-          "le-mieux-admin-console"
+        "kc": [
+          "le-mieux-kitchen-console"
         ]
       }
     }
