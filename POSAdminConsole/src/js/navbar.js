@@ -62,7 +62,7 @@ function inHead(){
 				background: transparent;
 			}
 
-			@media screen and (max-width: 991px) {
+			/* @media screen and (max-width: 991px) {
 				.sidebar-wrapper p {
 					visibility: hidden;
 				}
@@ -81,7 +81,7 @@ function inHead(){
 				.sidebar-wrapper a {
 					margin-left: 0 !important;
 				}
-			}
+			} */
     	</style>
     
     </head>

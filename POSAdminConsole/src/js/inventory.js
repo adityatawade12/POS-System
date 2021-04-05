@@ -188,7 +188,7 @@ function addItem() {
         })
         .then(() => {
             console.log("Document updated"); // Document updated
-            showNotification('top', 'center', '<b>Success!</b>&#8377;Item added to the Menu', 'success');
+            showNotification('top', 'center', '<b>Success!</b> Item added to the Menu', 'success');
         })
         .catch((error) => {
             console.error("Error updating doc", error);
