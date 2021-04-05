@@ -3,7 +3,7 @@ from accounts.views import curuser
 from orders.views import menuItems
 from orders.views import menuCart
 from orders.views import menuCategory
-from orders.views import currOrders
+# from orders.views import currOrders
 import requests,json
 from django.http import JsonResponse
 from orders.views import db
@@ -20,8 +20,8 @@ def home1(request):
 def menu(request):
     items=menuItems()
     category = menuCategory(items)
-    # print(items)
-    # print(category)
+    print(items)
+    print(category)
 
     us=curuser(request)
     cartItems=menuCart(request)

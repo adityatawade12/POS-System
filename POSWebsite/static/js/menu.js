@@ -145,6 +145,7 @@ function cartRefresh(){
   function myCart() {
     cart1=JSON.stringify(cart)
     // create an AJAX call
+    console.log(cart[0].itemPrice)
     console.log(cart)
     console.log(cart1)
     $.ajax({
