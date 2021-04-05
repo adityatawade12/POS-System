@@ -43,6 +43,7 @@ span[id]::before {
   right: 20px;
   height: 430vh;
   margin: 30px !important;
+  z-index: 2;
 }
 
 @media (max-width: 992px)

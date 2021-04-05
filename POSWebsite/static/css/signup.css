@@ -141,3 +141,7 @@ h1 {
   text-decoration: none;
   cursor: pointer;
 }
+#successMod .modal-content {
+  background-color: #24252ae8;
+  border: none;
+}
