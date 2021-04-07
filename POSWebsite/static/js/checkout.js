@@ -44,7 +44,7 @@ btn2.onclick = function() {
       <div id="finalL">
           <div>`+item.itemName+`</div>
           <div>&emsp;&emsp;`+item.itemQty+`</div>
-          <div>`+item.totalPrice+`</div>
+          <div>`+parseInt(item.totalPrice)+`</div>
       </div>
     </li>`
     })
@@ -100,8 +100,8 @@ $(".but").on("click","a",function(event){
             }
             cart=cart.filter(el => el);
             console.log(cart)
-            item.totalPrice=item.itemPrice*item.itemQty;
-            $(this).parent().parent().parent().parent().children('div').eq(2).html('<h2 class="card-title-checkout">&#8377; '+item.totalPrice+' </h2>')
+            parseInt(item.totalPrice)=item.itemPrice*item.itemQty;
+            $(this).parent().parent().parent().parent().children('div').eq(2).html('<h2 class="card-title-checkout">&#8377; '+parseInt(item.totalPrice)+' </h2>')
             $(this).parent().html('<a href="javascript:void(0)" class="minus">-</a><span style="width: 35px;" class="quanval"> '+item.itemQty+' </span><a href="javascript:void(0)" class="plus">+</a>')
             updateTotal(cart);
             myCart();
@@ -114,7 +114,7 @@ function updateTotal(cart){
     subT=0;
     grnT=0;
     cart.forEach((item,index)=>{
-        subT=subT+item.totalPrice;
+        subT=subT+parseInt(item.totalPrice);
     });
     console.log(subT);
     grnT=1.05*subT;

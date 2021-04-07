@@ -87,7 +87,9 @@ cartRefresh()
 });
 
 $("#list").on("click", "span", function(event){
-    var t= $(this).parent().parent().attr('class').slice(4)
+    var t= $(this).parent().parent().parent().attr('class').slice(4)
+    // var t = this.id;
+    console.log("class/id", t)
     console.log(t)
     cart.forEach((item, index) => {
         if(item.itemName==t){
@@ -95,7 +97,7 @@ $("#list").on("click", "span", function(event){
         }
     });
     cart=cart.filter(el => el);
-    var t= $(this).parent().parent().attr('class').slice(4).split(' ').join(".")
+    var t= $(this).parent().parent().parent().attr('class').slice(4).split(' ').join(".")
     console.log(cart)
     t=t.split(' ').join('.');
     // console.log($(".incdec."+t))
@@ -103,7 +105,7 @@ $("#list").on("click", "span", function(event){
     $(".incdec."+t).css({"visibility": "hidden"})
     $("."+t+".click").css({"visibility": "visible"})
     $(this).parent().parent().fadeOut(300,function(){
-        
+
         $(this).remove();
 
     });
@@ -115,31 +117,46 @@ $("#list").on("click", "span", function(event){
 function cartRefresh(){
     var int=""
 
-    cart.forEach((item, index) => {
+    if (cart.length == 0) {
+        int = `
+        <div style="display: flex; align-items: center; justify-content: center; height: -webkit-fill-available; vertical-align: middle;">
+            <div style="text-align: center; ">
+                Your Cart is empty!<br>
+                <i class="fas fa-cart-plus"></i><br>
+                Add an item to the cart to display it here.
+            </div>
+        </div>`;
+    }
+    else {
+        // int=`<div id="list" style="width: inherit;">`;
+        
+        cart.forEach((item, index) => {
+            int+=`
+                <div class="althighlight row `+item.itemName+`" style="min-height: 6em;">
+                    <div class="col-4" id="cart_img">
+                        <a href="#` +item.itemName+ `_span" style="background-image: url(`+item.itemImage+`);"></a>
+                    </div>
+                    <div class="desc col-6">
+                        <div class="row">
+                            <div class="col-12">
+                                <a href="#`+item.itemName+`_span">`+item.itemName+`</a>
+                            </div>
+                            <div class="col-6">Qty: `+item.itemQty+`</div>
+                            <div class="col-6">&#8377;`+item.totalPrice+`</div>
+                            </div>
+                    </div>
+                    <div class="col-2"><span><i class='fa fa-trash'></i></span></div>      
+                    <!-- <div class="col-2"><span onclick='deleteItem("`+item.itemName+`")'><i class='fa fa-trash'></i></span></div> -->  
+                </div>
+                 `
+        });
+        
+        // int+=`</div>`;
+    }
 
-        int+=`<div class="row `+item.itemName+`" style="height: 6em;">
-            <div class="col-4" id="cart_img">
-            <a href="#` +item.itemName+ `_span" style="text-decoration: none; color: #24252a; background-image: url(` +item.itemImage+ `);"></a>
-                    <!-- <img src=`+item.itemImage+`> -->
-            </div>
-            <div class="col-4">
-                    <a href="#`+item.itemName+`" style="text-decoration: none; color: #24252a;">`+item.itemName+`</a>
-            </div>
-            <div class="col-1">
-                    `+item.itemQty+`
-            </div>
-            <div class="col-2">
-                    &#8377;`+item.totalPrice+`
-            </div>
-            <div class="col-1">
-                    <span><i class='fa fa-trash'></i></span>
-            </div>
-        </div> `
-
-    });
-    if (int.length == 0) {int = `Your Cart is empty!`;}
     myCart();
-    document.getElementById("list").innerHTML=int
+    // document.getElementsByClassName("cartinside")[0].innerHTML=int;
+    document.getElementById("list").innerHTML=int;
 }
 
   function myCart() {

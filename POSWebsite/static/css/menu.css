@@ -70,6 +70,15 @@ span[id]::before {
     font-size: 1em;
     padding: 0 1em !important;
   }
+  #cart_img a {
+    max-width: 6em;
+  }
+  .desc {
+    font-size: 1.3em;
+  }
+  .navbar-nav {
+    flex-direction: row;
+  }
 }
 
 .card_img {
@@ -80,7 +89,12 @@ span[id]::before {
   min-height: 9rem;
 }
 /* div_card */
-
+@media (max-width: 756px)
+{
+  .bar2 li {
+    font-size: 0.6em !important;
+  }
+}
 @media (max-width: 576px)
 {
   .card_img {
@@ -129,7 +143,7 @@ span[id]::before {
 }
 
 ._cards {
-  height: 20rem;
+  min-height: 20rem;
 }
 
 .Category{
@@ -156,7 +170,7 @@ span[id]::before {
   overflow: overlay;
   height: 24em;
   margin:1em auto;
-  padding: 0 2em;
+  padding: 0 1.5em;
 }
 
 .cartinside::-webkit-scrollbar-thumb {
@@ -167,11 +181,11 @@ span[id]::before {
   background: transparent;
 }
 
-#list .row:nth-child(2n){
+#list .althighlight:nth-child(2n){
 	background: #ffe0b0;
 }
 
-#list .row:nth-child(2n+1) {
+#list .althighlight:nth-child(2n+1) {
   background: blanchedalmond;
   /* color: #e74c3c; */
 }
@@ -231,30 +245,37 @@ li:hover span {
 }
 
 .checkout{
-  border-radius: 40px;
-  background: #24252a;
-  border: 0.15em solid #24252a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .checkout a{
+  /* width: 80%; */
+  border-radius: 40px;
+  background: #24252a;
+  border: 0.15em solid #24252a;
+  margin: 0 1em;
   color: blanchedalmond;
   text-decoration: none;
   margin: auto;
   font-family: 'Varela Round', sans-serif;
     /* font-weight: bold;*/
+  vertical-align: -webkit-baseline-middle;
+  padding: 0.3em 4em;
 }
-.checkout:hover{
-  background: transparent;
-  
-}
+.checkout a:hover{
+  background: #3b3b3b;
+  color: blanchedalmond;
+  font-weight: bold;
+}/*
 .checkout:hover a{
-  color: #24252a;
-}
+} */
 
 #list .row div {
   display: flex;
   align-items:center;
-  justify-content:center;
+  /* justify-content:center; */
 }
 
 #list img {
@@ -268,7 +289,7 @@ li:hover span {
   -webkit-background-size: cover;
   height: 5em;
   width: 6em;
-  /* padding: 0.2em; */
+  margin-left: 0.4em;
 }
 #cart_img {
   padding: 1%;
@@ -308,4 +329,14 @@ li:hover span {
 }
 ._cart ::-webkit-scrollbar-thumb {
   background: #c7b08dc5;
+}
+.desc a {
+  text-decoration: none;
+  color: #24252a;
+}
+.desc .row {
+  height: -webkit-fill-available;
+}
+.desc .row a {
+  font-size: 1.1em;
 }
