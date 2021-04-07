@@ -11,17 +11,19 @@ function orderRetrieve () {
         // dishes = data;
         console.log("All data in 'currorders' collection", currorders);
         
-        // snapshot.docChanges().forEach(change => {
-        //     console.log(snapshot.docChanges(), change);
-        //     if (change.type === 'added') {
-                // add the doc data to the page
-                // console.log("dishes",dishes,"cate:", category);
-               displayOrder(currorders);
-        //     }
-        //     if (change.type === 'removed') {
-        //         // remove the doc data from the page        
-        //     }
-        // });
+        displayOrder(currorders);
+
+
+        snapshot.docChanges().forEach(change => {
+            console.log(snapshot.docChanges(), change);
+            if (change.type === 'added') {
+                console.log(change);
+                showNotification(top, right, `<b>New Order received!</b> from customer: `, 'info');
+            }
+            if (change.type === 'removed') {
+                showNotification(top, right, `<b>New Order received!</b> from customer: `, 'info');       
+            }
+        });
         
     });
 }

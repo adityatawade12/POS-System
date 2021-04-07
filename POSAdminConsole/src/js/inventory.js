@@ -214,7 +214,7 @@ function editDish(dish) {
                 Name: document.getElementById("Name").value,
                 Description: document.getElementById("desc").value,
                 Category: document.getElementById("cat").value,
-                Price: document.getElementById("price").value,
+                Price: parseInt(document.getElementById("price").value, 10),
                 Image: document.getElementById("img").value,
                 IsAvailable: document.getElementById("available").value,
             })
