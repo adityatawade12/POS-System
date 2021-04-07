@@ -27,38 +27,40 @@
 
         <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-2 row-cols-xl-2"  >
             <div class="col" style="margin-top: 5%;width: 55vw;">
-                <h2 style="color: blanchedalmond;">Items you have selected:</h2>
-                <div class="" style="float: left;height:76vh;overflow: overlay;width:100%">
-                    {% for item in cart %}
-                    <div class="row" style="width: 100%;">
-                            <div class="card" style="margin:1% 0;">
-                                <!-- <h5 class="card-header">Featured</h5> -->
-                                <div class="row">
-                                    <div class="col-3"  >
-                                        <img src={{item.itemImage}} style="height:6em;width:7em" >
-                                    </div>
-                                    <div class="col-7">
-                                        <div class="card-body" style="margin-left: 0%;">
-                                            <div class="tle" style="margin-bottom: 3%;">
-                                                <h2 class="card-title-checkout">{{item.itemName}}</h2>
-                                            </div>
-                                            
-                                            <div class="but {{item.itemName}}">
-                                               <a href="javascript:void(0)" class="minus">-</a>
-                                                <span style="width: 35px;" class="quanval">{{item.itemQty}}</span>
-                                                <a href="javascript:void(0)" class="plus">+</a>
-                                            </div>
+                <div class="card" style="background-color: #ffebcdd1;">
+                    <h2 style="color: #24252a;">Items you have selected:</h2>
+                    <div class="" style="float: left;height:76vh;overflow: overlay;width:100%">
+                        {% for item in cart %}
+                        <div class="row" style="width: 100%; margin: 1% auto;">
+                                <div class="card">
+                                    <!-- <h5 class="card-header">Featured</h5> -->
+                                    <div class="row">
+                                        <div class="col-3"  >
+                                            <img src={{item.itemImage}} style="height:6em;width:7em" >
+                                        </div>
+                                        <div class="col-7">
+                                            <div class="card-body" style="margin-left: 0%;">
+                                                <div class="tle" style="margin-bottom: 3%;">
+                                                    <h2 class="card-title-checkout">{{item.itemName}}</h2>
+                                                </div>
+                                                
+                                                <div class="but {{item.itemName}}">
+                                                <a href="javascript:void(0)" class="minus">-</a>
+                                                    <span style="width: 35px;" class="quanval">{{item.itemQty}}</span>
+                                                    <a href="javascript:void(0)" class="plus">+</a>
+                                                </div>
 
+                                            </div>
+                                        </div>
+                                        <div class="col-2" style="padding:1.5em 0;"> 
+                                                <h2 class="card-title-checkout">&#8377;{{item.totalPrice}}</h2>
                                         </div>
                                     </div>
-                                    <div class="col-2" style="padding:1.5em 0;"> 
-                                            <h2 class="card-title-checkout">&#8377;{{item.totalPrice}}</h2>
-                                    </div>
-                                </div>
 
-                            </div>
+                                </div>
+                        </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                 </div>
             </div>
             <div class="col" style="height: auto; margin-top: 5%;width: 39vw;">

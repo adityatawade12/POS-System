@@ -118,14 +118,16 @@ function cartRefresh(){
     var int=""
 
     if (cart.length == 0) {
+        console.log("cart len:", cart.length);
         int = `
-        <div style="display: flex; align-items: center; justify-content: center; height: -webkit-fill-available; vertical-align: middle;">
+        <div id='empty' style="display: flex; align-items: center; justify-content: center; height: -webkit-fill-available; vertical-align: middle;">
             <div style="text-align: center; ">
                 Your Cart is empty!<br>
                 <i class="fas fa-cart-plus"></i><br>
                 Add an item to the cart to display it here.
             </div>
         </div>`;
+        document.getElementById("list").innerHTML=int;
     }
     else {
         // int=`<div id="list" style="width: inherit;">`;
@@ -152,11 +154,13 @@ function cartRefresh(){
         });
         
         // int+=`</div>`;
+        document.getElementById("list").innerHTML=int;
+
     }
 
     myCart();
     // document.getElementsByClassName("cartinside")[0].innerHTML=int;
-    document.getElementById("list").innerHTML=int;
+    // document.getElementById("list").innerHTML=int;
 }
 
   function myCart() {

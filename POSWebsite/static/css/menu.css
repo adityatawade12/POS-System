@@ -46,6 +46,12 @@ span[id]::before {
   z-index: 2;
 }
 
+@media (min-width: 992px) 
+{
+  #empty {
+    height: 50vh !important;
+  }
+}
 @media (max-width: 992px)
 {
   ._cart {
