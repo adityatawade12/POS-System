@@ -1,9 +1,10 @@
 var db = firebase.firestore();
-let data, dt;
 let position = [1, 2, 3, 4, 5, 6, 7];
+
+
 function date_time () {
     db.collection("openingHours").onSnapshot((snapshot) => {
-        dt = snapshot.docs.map((doc) => ({
+        let dt = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
@@ -17,7 +18,7 @@ function date_time () {
 // FUNCTION FOR PRINTING THE DATE AND OPENING HOURS
 function printDT(dt) {
 
-    data = ``;
+    let data = ``;
     for (var i = 1; i < 8; i++) {
         dt.forEach(doc => {
             // console.log("i", i, " dt.pos", doc.pos);

@@ -1,16 +1,17 @@
 var db = firebase.firestore();
-let str, dishes , category=[], dishdata, data='';
+var category=[];
 
-console.log("INVENTORY");
+// console.log("INVENTORY");
 
 // RETRIEVING DATA FROM FIRESTORE
 function dataRetrieve() {
+    let str = ``;
     db.collection("dishes").onSnapshot((snapshot) => {
-        dishes = snapshot.docs.map((doc) => ({
+        let dishes = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
-        // dishes = data;
+        
         // console.log("All data in 'dishes' collection", dishes);
         
         dishes.forEach((doc) =>{
@@ -62,7 +63,7 @@ function dataRetrieve() {
 
 // FUNCTION FOR PRINTING THE DISHES ON THE PAGE
 function displayDish(dishes, category) {
-    data = '';
+    let data = '';
     category.forEach(cat => {
         // console.log(`category: ${cat}`)
         data += `
@@ -188,11 +189,11 @@ function addItem() {
         })
         .then(() => {
             console.log("Document updated"); // Document updated
-            showNotification('top', 'center', '<b>Success!</b> Item added to the Menu', 'success');
+            showNotification('top', 'center', '<b>Success!</b> Item added to the Menu', 'success', 5000);
         })
         .catch((error) => {
             console.error("Error updating doc", error);
-            showNotification('top', 'center', '<b>Error</b> Issues adding the item', 'danger');
+            showNotification('top', 'center', '<b>Error</b> Issues adding the item', 'danger', 5000);
         });
 }
 
@@ -220,11 +221,11 @@ function editDish(dish) {
             })
             .then(() => {
                 console.log("Document updated"); // Document updated
-                showNotification('top', 'center', '<b>Success!</b>  Item details are updated', 'success');
+                showNotification('top', 'center', '<b>Success!</b>  Item details are updated', 'success', 5000);
             })
             .catch((error) => {
                 console.error("Error updating doc", error);
-                showNotification('top', 'center', '<b>Error</b> Issues updating the item details', 'danger');
+                showNotification('top', 'center', '<b>Error</b> Issues updating the item details', 'danger', 5000);
             });
 }
 
@@ -250,39 +251,39 @@ function removeDish(dish) {
     .delete()
     .then(() => {
         console.log("Document deleted"); // Document updated
-        showNotification('top', 'center', '<b>Success!</b>  Item deleted from the Menu', 'success');
+        showNotification('top', 'center', '<b>Success!</b>  Item deleted from the Menu', 'success', 5000);
     })
     .catch((error) => {
         console.error("Error updating doc", error);
-        showNotification('top', 'center', '<b>Error</b> Issues deleting the item', 'danger');
+        showNotification('top', 'center', '<b>Error</b> Issues deleting the item', 'danger', 5000);
     });
 
 }
 
 
-function showNotification(from, align, msg, color) {
-    // color = 'primary';
-    let i;
-    if (color == 'success') {
-        i = "far fa-check-circle";
-    }
-    else if (color == 'danger') {
-        i = "fas fa-exclamation";
-    }
-    else {
-        i = "nc-icon nc-bell-55"
-    }
+// function showNotification(from, align, msg, color) {
+//     // color = 'primary';
+//     let i;
+//     if (color == 'success') {
+//         i = "far fa-check-circle";
+//     }
+//     else if (color == 'danger') {
+//         i = "fas fa-exclamation";
+//     }
+//     else {
+//         i = "nc-icon nc-bell-55"
+//     }
 
-    $.notify({
-      icon: i,
-      message: msg
+//     $.notify({
+//       icon: i,
+//       message: msg
 
-    }, {
-      type: color,
-      timer: 5000,
-      placement: {
-        from: from,
-        align: align
-      }
-    });
-  }
+//     }, {
+//       type: color,
+//       timer: 5000,
+//       placement: {
+//         from: from,
+//         align: align
+//       }
+//     });
+//   }
