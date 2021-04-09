@@ -11,7 +11,9 @@ function orderRetrieve () {
         }))
         snapshot.docChanges().forEach(change => {
 			console.log("change: ",change.doc.data());
-			showNotification('top', 'right', `<b>New Order received!</b> from customer: ${change.doc.data()['user_name']}`, 'info', 20000);
+            if (change.type === 'added') {
+                showNotification('top', 'right', `<b>New Order received!</b> <br>ID: ${change.doc.data().id}`, 'info', 20000);
+            }
 		})
         orders.forEach(or => {
             // console.log()
