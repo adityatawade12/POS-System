@@ -108,14 +108,17 @@ def confirm(request):
             u'address': address,
             u'loc':loc,
             u'timestamp':timestamp,
-            u'total':total
+            u'total':total,
+            u'delivered':False,
+            u'notify': int(1)
             }
-            db.collection(u'currentOrders').document(us['localId']).set(data)
+            db.collection(u'currentOrders').add(data)
+            # ****************************************************************** (1+1 orders not permitted) clause remaining
             db.collection(u'users').document(us['localId']).update({u'cart':[]})
             return JsonResponse({
                 
                 'operation_status': 'ok'
-                
+
             })
         except:
             return JsonResponse({
