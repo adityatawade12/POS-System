@@ -1,7 +1,7 @@
 console.log($("tbody").html())
 var db = firebase.firestore();
 let staff
-
+var emp={}
 function getStaffData(){
     db.collection("staff").onSnapshot((snapshot) => {
         staff = snapshot.docs.map((doc) => ({
@@ -61,16 +61,17 @@ $(".dataBtn").on("click",function(){
 
 $(".staffList").on("click","tr",function(){
     var empId=$(this).attr('id')
-    var emp={}
+    
     staff.forEach(item=>{
         if(item.id==empId){
-            
+            emp=item
             $(".staffName").val(item.name)
             $(".staffNo").val(item.phone)
             $(".staffAddress").val(item.address)
             $(".staffRole").val(item.role)
             $(".staffDateJoined").val(item.joined)
             $(".staffEmail").val(item.email)
+            
         }
     })
     console.log(emp)
@@ -78,4 +79,25 @@ $(".staffList").on("click","tr",function(){
 
 
 
+})
+
+$(".updateProfile").on("click",function(){
+    var washingtonRef = db.collection("staff").doc(emp.id);
+
+    // Set the "capital" field of the city 'DC'
+    return washingtonRef.update({
+         address:$(".staffAddress").val(),
+         email:$(".staffEmail").val(),
+         name:$(".staffName").val(),
+         phone:$(".staffNo").val(),
+        role:$(".staffRole").val()
+           
+    })
+    .then(() => {
+        console.log("Document successfully updated!");
+    })
+    .catch((error) => {
+        // The document probably doesn't exist.
+        console.error("Error updating document: ", error);
+    });
 })

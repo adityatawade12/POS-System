@@ -4,9 +4,12 @@
 <head>
 
 	<title>Employee Details</title>
-
+	<link rel="stylesheet" href="css/calendar.css">
 	<script src="js/navbar.js"></script>
-
+	<link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.min.css' rel='stylesheet' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.min.js'></script>
+	<script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/locales-all.min.js'></script>
+  
 	<script type="text/javascript">
 		inHead();
 	</script>
@@ -38,123 +41,11 @@
 									<tr style="visibility: hidden;"><td></td><td></td><td></td></tr>
 										<tr><td style="border: 0;"></td><td style="border: 0;" class="text-center"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="spinner" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-spinner fa-w-16 fa-spin fa-lg"><path fill="currentColor" d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z" class=""></path></svg></td><td style="border: 0;"></td></tr> 
 									
-									<!-- <tr>
-										<td class="text-center"> osjando saondpsd1 </td>
-										<td class="text-center"> chef </td>
-										 <td class="text-center"> Acitve </td>
-										 
-									</tr>
-									<tr>
-										<td class="text-center"> osjando saondpsd </td>
-										<td class="text-center"> chef </td>
-										 <td class="text-center"> Acitve </td>
-										
-									</tr>
-									<tr>
-										<td class="text-center"> osjando saondpsd </td>
-										<td class="text-center"> chef </td>
-										 <td class="text-center"> Acitve </td>
-										
-									</tr>
-									<tr>
-										<td class="text-center"> osjando saondpsd </td>
-										<td class="text-center"> chef </td>
-										 <td class="text-center"> Acitve </td>
-										
-									</tr>
-									<tr>
-										<td class="text-center"> osjando saondpsd </td>
-										<td class="text-center"> chef </td>
-										 <td class="text-center"> Acitve </td>
-										 
-									</tr>
-									<tr>
-										<td class="text-center"> osjando saondpsd </td>
-										<td class="text-center"> chef </td>
-										 <td class="text-center"> Acitve </td>
-										<!-- <td class="text-right"> $36,738 </td> 
-									</tr>
 									
-									<tr>
-										<td class="text-center"> osjando saondpsd </td>
-										<td class="text-center"> chef </td>
-										 <td class="text-center"> Acitve </td>
-										<!-- <td class="text-right"> $36,738 </td> 
-									</tr> -->
-									<!-- <tr><td></td> </tr> 
-									
-									<tr><td></td><td><i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i></td> <td></td></tr>  -->
 							</table>
 						</div>
 						<ul class="list-unstyled team-members">
-							<!-- <li>
-						<div class="row">
-						<div class="col-md-2 col-2">
-							<div class="avatar">
-							<img src="../assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-							</div>
-						</div>
-						<div class="col-md-7 col-7">
-							DJ Khaled
-							<br />
-							<span class="text-muted"><small>Offline</small></span>
-						</div>
-						<div class="col-md-3 col-3 text-right">
-							<btn class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></btn>
-						</div>
-						</div>
-					</li>
-					<li>
-						<div class="row">
-						<div class="col-md-2 col-2">
-							<div class="avatar">
-							<img src="../assets/img/faces/joe-gardner-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-							</div>
-						</div>
-						<div class="col-md-7 col-7">
-							Creative Tim
-							<br />
-							<span class="text-success"><small>Available</small></span>
-						</div>
-						<div class="col-md-3 col-3 text-right">
-							<btn class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></btn>
-						</div>
-						</div>
-					</li>
-					<li>
-						<div class="row">
-						<div class="col-md-2 col-2">
-							<div class="avatar">
-							<img src="../assets/img/faces/joe-gardner-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-							</div>
-						</div>
-						<div class="col-md-7 col-7">
-							Creative Tim
-							<br />
-							<span class="text-success"><small>Available</small></span>
-						</div>
-						<div class="col-md-3 col-3 text-right">
-							<btn class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></btn>
-						</div>
-						</div>
-					</li>
-					<li>
-						<div class="row">
-						<div class="col-md-2 col-2">
-							<div class="avatar">
-							<img src="../assets/img/faces/joe-gardner-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-							</div>
-						</div>
-						<div class="col-md-7 col-7">
-							Creative Tim
-							<br />
-							<span class="text-success"><small>Available</small></span>
-						</div>
-						<div class="col-md-3 col-3 text-right">
-							<btn class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></btn>
-						</div>
-						</div>
-					</li>-->
+							
 
 						</ul>
 					</div>
@@ -178,9 +69,7 @@
 									<div class="panel-heading" role="tab" id="headingOne">
 									  <h4 class="panel-title card-title" >
 										  Collapsible Group Item #1
-										<!-- <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-										  Collapsible Group Item #1
-										</a> -->
+										
 									  </h4>
 									</div>
 									<!-- <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">  -->
@@ -208,9 +97,7 @@
 								<div class="panel-heading" role="tab" id="headingTwo">
 								  <h4 class="panel-title card-title" >
 									  Contract
-									<!-- <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-									  Collapsible Group Item #1
-									</a> -->
+									
 								  </h4>
 								</div>
 								<div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo"> 
@@ -223,9 +110,7 @@
 								<div class="panel-heading" role="tab" id="headingThree">
 								  <h4 class="panel-title card-title" >
 									  Collapsible Group Item #1
-									<!-- <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-									  Collapsible Group Item #1
-									</a> -->
+									
 								  </h4>
 								</div>
 								<div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree"> 
@@ -245,7 +130,7 @@
 					</div>
 				</div>
 				<!-- -- -->
-				<div class="card card-user attendance" style="display: none;">
+				<div class="card card-user attendance" style="display: block;">
 					<div class="card-header" style="position: absolute;width: 100%;">
 						<span class="dataBtn" style="float: left;"><i class="fa fa-arrow-left fa-1.5x"   aria-hidden="true"></i><span style="font-size: 20px;"> Data</span></span>
 					<span class="salaryBtn" style="float: right;"><span style="font-size: 20px;">Salary </span><i class="fa fa-arrow-right "  aria-hidden="true"></i></span>
@@ -256,101 +141,92 @@
 					<div class="card-body">
 						<form>
 							<div class="row">
-								<div class="col-md-5 pr-1">
-									<div class="form-group">
-										<label>Companynoy (disabled)</label>
-										<input type="text" class="form-control" disabled="" placeholder="Company"
-											value="Creative Code Inc.">
-									</div>
+								<div class="col-md-5">
+									<h3>Application</h3>
+									<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+										<div class="card" style="padding-left: 2vw;padding-right: 2vw;padding-bottom: 1vh;">
+											<div class="panel panel-default  " role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour" >
+												<div class="panel-heading" role="tab" id="headingFour">
+												  <h4 class="panel-title card-title" >
+													  Today's Attendance
+													</h4>
+												</div>
+												
+											  </div>
+											  <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour"> 
+												<div class="panel-body">
+													<button type="submit" class="btn btn-success btn-round">Present</button>
+													<button type="submit" class="btn btn-danger btn-round">Absent</button>
+													
+													
+												  </div>
+											  </div>
+										</div>
+										<div class="card" style="padding-left: 2vw;padding-right: 2vw;padding-bottom: 1vh;">
+											<div class="panel panel-default  " role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive" >
+												<div class="panel-heading" role="tab" id="headingFive">
+												  <h4 class="panel-title card-title" >
+													  Leave Application
+													</h4>
+												</div>
+												
+											  </div>
+											  <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFive"> 
+												<div class="panel-body">
+													<div class="col-md-9 ">
+														<div class="form-group">
+															<label>Start Date</label>
+															<input type="date" class="form-control" placeholder="Start Date">
+																
+														</div>
+
+													</div>
+													<div class="col-md-9">
+														<div class="form-group">
+															<label>End Date</label>
+															<input type="date" class="form-control" placeholder="End Date">
+														</div>
+
+													</div>
+													<div class="col-md-12 update ml-auto mr-auto">
+														<button type="submit" class="btn btn-primary btn-round">Approve Leave</button>
+													</div>
+													
+												  </div>
+											  </div>
+										</div>
+			
+										
+										  
+								
+									
+									  </div>
+
 								</div>
-								<div class="col-md-3 px-1">
-									<div class="form-group">
-										<label>Username</label>
-										<input type="text" class="form-control" placeholder="Username"
-											value="michael23">
-									</div>
+								<div class="col-md-7">
+									
+									  <div class="col-md-12" id="calendar"></div>
 								</div>
-								<div class="col-md-4 pl-1">
-									<div class="form-group">
-										<label for="exampleInputEmail1">Email address</label>
-										<input type="email" class="form-control" placeholder="Email">
-									</div>
-								</div>
+
 							</div>
-							<div class="row">
-								<div class="col-md-6 pr-1">
-									<div class="form-group">
-										<label>First Name</label>
-										<input type="text" class="form-control" placeholder="Company" value="Chet">
-									</div>
-								</div>
-								<div class="col-md-6 pl-1">
-									<div class="form-group">
-										<label>Last Name</label>
-										<input type="text" class="form-control" placeholder="Last Name" value="Faker">
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-12">
-									<div class="form-group">
-										<label>Address</label>
-										<input type="text" class="form-control" placeholder="Home Address"
-											value="Melbourne, Australia">
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-4 pr-1">
-									<div class="form-group">
-										<label>City</label>
-										<input type="text" class="form-control" placeholder="City" value="Melbourne">
-									</div>
-								</div>
-								<div class="col-md-4 px-1">
-									<div class="form-group">
-										<label>Country</label>
-										<input type="text" class="form-control" placeholder="Country" value="Australia">
-									</div>
-								</div>
-								<div class="col-md-4 pl-1">
-									<div class="form-group">
-										<label>Postal Code</label>
-										<input type="number" class="form-control" placeholder="ZIP Code">
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-12">
-									<div class="form-group">
-										<label>About Me</label>
-										<textarea
-											class="form-control textarea">Oh so, your weak rhyme You doubt I'll bother, reading into it</textarea>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="update ml-auto mr-auto">
-									<button type="submit" class="btn btn-primary btn-round">Update Profile</button>
-								</div>
-							</div>
+
+
 						</form>
 					</div>
 				</div>
 				<!--  -->
-				<div class="card card-user data" style="display: block;">
+				<div class="card card-user data" style="display: none;">
 					<div class="card-header" style="position: absolute;width: 100%;">
 						<span class="attendanceBtn" style="float: left;"><i class="fa fa-arrow-left fa-1.5x"   aria-hidden="true"></i><span style="font-size: 20px;"> Attendance</span></span>
 					<span class="salaryBtn" style="float: right;"><span style="font-size: 20px;">Salary </span><i class="fa fa-arrow-right "  aria-hidden="true"></i></span>
 					</div>
 					<div class="card-header">
 						
-						<!-- <span style="float: left;"><i class="fa fa-arrow-left fa-1.5x"   aria-hidden="true"></i><span style="font-size: 20px;"> Attendance</span></span>
-					<span style="float: right;"><span style="font-size: 20px;">Salary</span><i class="fa fa-arrow-right "  aria-hidden="true"></i></span> -->
+					
 						<h5 class="card-title" style="text-align: center;">User Data</h5>
 					</div>
 					<div class="card-body">
-						<form>
+						<!-- <form> -->
 
 							<div class="row">
 								<div class="col-md-12 ">
@@ -359,21 +235,10 @@
 										<input  type="text" class="form-control staffName" placeholder="Company" value="Chet">
 									</div>
 								</div>
-								<!-- <div class="col-md-6 pl-1">
-									<div class="form-group">
-										<label>Last Name</label>
-										<input type="text" class="form-control" placeholder="Last Name" value="Faker">
-									</div>
-								</div> -->
+								
 							</div>
 							<div class="row">
-								<!-- <div class="col-md-5 pr-1">
-									<div class="form-group">
-										<label>Companynoy (disabled)</label>
-										<input type="text" class="form-control" disabled="" placeholder="Company"
-											value="Creative Code Inc.">
-									</div>
-								</div> -->
+								
 								<div class="col-md-6 pr-1">
 									<div class="form-group">
 										<label>Phone No.</label>
@@ -410,28 +275,15 @@
 										<input type="text" class="form-control staffDateJoined" placeholder="Country" value="Australia" disabled>
 									</div>
 								</div>
-								<!-- <div class="col-md-4 pl-1">
-									<div class="form-group">
-										<label>Postal Code</label>
-										<input type="number" class="form-control" placeholder="ZIP Code">
-									</div>
-								</div> -->
+								
 							</div>
-							<!-- <div class="row">
-								<div class="col-md-12">
-									<div class="form-group">
-										<label>About Me</label>
-										<textarea
-											class="form-control textarea">Oh so, your weak rhyme You doubt I'll bother, reading into it</textarea>
-									</div>
-								</div>
-							</div> -->
+						
 							<div class="row">
 								<div class="update ml-auto mr-auto">
-									<button type="submit" class="btn btn-primary btn-round">Update Profile</button>
+									<button type="submit" class="updateProfile btn btn-primary btn-round">Update Profile</button>
 								</div>
 							</div>
-						</form>
+						<!-- </form> -->
 					</div>
 				</div>
 			</div>
@@ -447,44 +299,9 @@
 				</div>
 				<div class="modal-body">
 					<embed src="https://drive.google.com/file/d/1JUQ1UtDsKHbYH_0Jae_aKpLAEs58QHqK/preview?usp=sharing" width="100%" height="600vh" />
-					<!-- <form class="edit_form">
-						<div>
-							<label>Name</label>
-							<input type="text" id="Name" name="Name">
-							<br><br>
-						</div>
-						<div>
-							<label>Description</label>
-							<textarea type="text" name="desc" id="desc" rows="2" cols="30"></textarea>
-							<br><br>
-						</div>
-						<div>
-							<label>Category</label>
-							<input type="text" name="cat" id="cat">
-							<br><br>
-						</div>
-						<div>
-							<label>Price</label>
-							<input type="number" name="price" id="price">
-							<br><br>
-						</div>
-						<div>
-							<label>Image</label>
-							<input type="text" name="img" id="img">
-							<br><br>
-						</div>
-						<div>
-							<label>Available</label>
-							<input type="text" name="available" id="available">
-							<br><br>
-						</div>
-					</form> -->
+					
 				</div>
-				<!-- <small class="text-warning" style="padding: 0 1rem;">If you don't save, your changes will be lost.</small> -->
-				<!-- <div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button onclick="editDish()" type="button" class="btn btn-primary">Save changes</button>
-				</div> -->
+				
 			</div>
         </div>
     </div>
@@ -495,6 +312,9 @@
 	</script>
 	<script src="demo/demo.js"></script>
 	<script src="js/employee.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+	<script src="js/calendar.js"></script>
+	
 	</body>
 
 </html>
