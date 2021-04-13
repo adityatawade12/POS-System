@@ -1,5 +1,5 @@
 var db = firebase.firestore();
-var category=[];
+var category=[], dishdata;
 
 // console.log("INVENTORY");
 
@@ -10,16 +10,16 @@ function dataRetrieve() {
         let dishes = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
-        }));
-        
-        // console.log("All data in 'dishes' collection", dishes);
-        
+        }))
         dishes.forEach((doc) =>{
             str = `${doc["Category"]}`;
             if (!category.includes(str)) {
                 category.push(str);
             }
         });
+        
+        // console.log("All data in 'dishes' collection", dishes);
+        
 
         // snapshot.docChanges().forEach(change => {
         //     console.log(snapshot.docChanges(), change);
@@ -63,6 +63,7 @@ function dataRetrieve() {
 
 // FUNCTION FOR PRINTING THE DISHES ON THE PAGE
 function displayDish(dishes, category) {
+    dishdata = dishes;
     let data = '';
     category.forEach(cat => {
         // console.log(`category: ${cat}`)
@@ -125,7 +126,7 @@ function form_(id) {
     del.setAttribute("id", `${id}`);
     
     
-    dishes.forEach((doc) =>{
+    dishdata.forEach((doc) =>{
        if (id===doc.id) {
            name = doc.Name;
         //    console.log("inside for loop name: ", name);
@@ -234,7 +235,7 @@ function deldish(ele) {
     let id = ele.id;
     let name;
 
-    dishes.forEach(doc => {
+    dishdata.forEach(doc => {
         if (id === doc.id) {
             name = doc.Name;
         }
@@ -257,7 +258,6 @@ function removeDish(dish) {
         console.error("Error updating doc", error);
         showNotification('top', 'center', '<b>Error</b> Issues deleting the item', 'danger', 5000);
     });
-
 }
 
 
