@@ -202,10 +202,22 @@ def feedback(request):
 def currOrders(request):
     us=curuser(request)
     if us!=None:
-        doc = db.collection(u'currentOrders').document(us['localId'])
-        docs=doc.get().to_dict()
-        # print("current orders:",docs)
-        currOrder=docs['cart']
-        return render(request,'history.html',{"us":us,"currOrder":currOrder, "order":docs})
+        doc1 = db.collection(u'currentOrders').stream()
+        doc2 = db.collection(u'pastOrders').stream()
+        past = []
+        curr = {}
+        for d in doc1:
+            if d.to_dict()['user_id'] == us['localId']:
+                curr = d.to_dict()
+
+        for d in doc2:
+            print(d)
+            if d.to_dict()['user_id'] == us['localId']:
+                past.append(d.to_dict())
+
+        print("current orders:",curr)
+        print("past orders:",past)
+
+        return render(request,'history.html',{"us":us,"currOrder":curr, "pastOrders":past})
     else:
         return redirect('/accounts/login')

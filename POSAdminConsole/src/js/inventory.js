@@ -16,7 +16,7 @@ function dataRetrieve() {
             if (!category.includes(str)) {
                 category.push(str);
             }
-        });
+        })
         
         // console.log("All data in 'dishes' collection", dishes);
         
@@ -259,31 +259,3 @@ function removeDish(dish) {
         showNotification('top', 'center', '<b>Error</b> Issues deleting the item', 'danger', 5000);
     });
 }
-
-
-// function showNotification(from, align, msg, color) {
-//     // color = 'primary';
-//     let i;
-//     if (color == 'success') {
-//         i = "far fa-check-circle";
-//     }
-//     else if (color == 'danger') {
-//         i = "fas fa-exclamation";
-//     }
-//     else {
-//         i = "nc-icon nc-bell-55"
-//     }
-
-//     $.notify({
-//       icon: i,
-//       message: msg
-
-//     }, {
-//       type: color,
-//       timer: 5000,
-//       placement: {
-//         from: from,
-//         align: align
-//       }
-//     });
-//   }

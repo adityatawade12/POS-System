@@ -80,14 +80,35 @@ header {
 /* WELCOME TEXT IN HEADER */
 .wel-txt {
     /* position: absolute; */
-    width: 600px;
+    /* width: 600px; */
     text-align: center;
     margin: auto;
-    font-size: 100px;
+    /* font-size: 100px; */
     font-family: 'Port Lligat Sans';
+    font-family: 'Cedarville cursive';
     color: blanchedalmond;
 }
-
+#blurp-top {
+    position: absolute;
+    bottom: 1px;
+    color: blanchedalmond;
+    left: 50%;
+    z-index: 10;
+    margin-left: -96px;
+    margin-bottom: -12px;
+    cursor: pointer;
+}
+#down-arrow {
+    position: absolute;
+    bottom: 1px;
+    color: #24252a;
+    left: 50%;
+    font-size: 1.5em;
+    z-index: 10;
+    margin-left: -10px;
+    margin-bottom: 6px;
+    cursor: pointer;
+}
 /* body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/menu.jpg");
     background-size: cover;
@@ -126,8 +147,10 @@ header {
 }
 marquee {
     background-color: transparent;
-    color: blanchedalmond;
+    color: #24252a;
+    /* color: blanchedalmond; */
     font-family: "Varela Round";
+    font-size:  0.65em;
 }
 
 #menu {
@@ -157,6 +180,7 @@ marquee {
     background-size: cover;
     background-position: center center;
     -webkit-background-size: cover;
+    background-attachment: fixed;
     display: flex;
     align-items: center;
     /* margin: 5em 0; */
@@ -208,16 +232,16 @@ marquee {
     width: 100%;
 }
 
-.triangle:before {
+.triangle {
     left: -12px;
     transform: skew(45deg);
     border-left: black !important;
 }
-.triangle:after {
+/* .triangle:after {
     right: -12px;
     transform: skew(-45deg);
     border-right: black !important;
-}
+} */
 .triangle:after, .triangle:before {
     content: "";
     position: absolute;

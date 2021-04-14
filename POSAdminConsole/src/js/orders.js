@@ -2,10 +2,12 @@ var db = firebase.firestore();
 
 var currorders=[], pastorders=[];
 
+// function curOrderRetrieve () {
+
+// }
 function orderRetrieve () {
     db.collection("currentOrders").onSnapshot((snapshot) => {
-        currorders=[], pastorders=[];
-        let orders = snapshot.docs.map((doc) => ({
+        currorders = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }))
@@ -15,28 +17,42 @@ function orderRetrieve () {
                 showNotification('top', 'right', `<b>New Order received!</b> <br>ID: ${change.doc.data().id}`, 'info', 20000);
             }
 		})
-        orders.forEach(or => {
-            // console.log()
-            if ((or['delivered'] == false) &&  !currorders.includes(or)) {
-                currorders.push(or);
-            }
-            else if ((or['delivered'] == true) &&  !pastorders.includes(or)){
-                pastorders.push(or);
-            }
-        });
+        // orders.forEach(or => {
+        //     // console.log()
+        //     if ((or['delivered'] == false) &&  !currorders.includes(or)) {
+        //         currorders.push(or);
+        //     }
+        //     else if ((or['delivered'] == true) &&  !pastorders.includes(or)){
+        //         pastorders.push(or);
+        //     }
+        // });
         
-        console.log("orderR invoked!");
+        // console.log("orderR invoked!");
         // newOrder();
 
+        displayCurrOrd(currorders);   
+    })
+    db.collection("pastOrders").onSnapshot((snapshot) => {
+        pastorders = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }))
+        snapshot.docChanges().forEach(change => {
+            console.log("change: ",change.doc.data());
+            // if (change.type === 'added') {
+            //     showNotification('top', 'right', `<b>New Order received!</b> <br>ID: ${change.doc.data().id}`, 'info', 20000);
+            // }
+        });
+ 
         console.log("pastorders: ", pastorders, "currorders: ", currorders);
-        
-        displayOrder(currorders, pastorders);        
+        displayPastOrd(currorders);
     });
+
 }
 
 
 // FUNC FOR DISPLAYING ORDERS
-function displayOrder(currorders, pastorders) {
+function displayCurrOrd(currorders) {
     let data = ``;
     currorders.forEach(curor => {
         // console.log(`category: ${cat}`)
@@ -86,9 +102,10 @@ function displayOrder(currorders, pastorders) {
             </div>
         `;
     });
-
     document.getElementById('COrder').innerHTML = data;
+}
 
+function displayPastOrd(pastOrders) {
     var past = `<div id="accordion">`;
     pastorders.forEach(curor => {
         past += `
@@ -124,23 +141,66 @@ function displayOrder(currorders, pastorders) {
 
 function deliver(id) {
     // var id = ele.id;
-    var name;
+    var name, cart, email, address, loc, timestamp, total, uid;
+
     currorders.forEach(cor => {
         if (id === cor.id) {
             name = cor.user_name;
+            cart = cor.cart;
+            email = cor.user_email;
+            address = cor.address;
+            loc = cor.loc;
+            timestamp = cor.timestamp;
+            total = cor.total;
+            uid = cor.user_id;
         }
     });
+
     console.log("name: ", name);
+
+    db.collection("pastOrders").doc(`${id}`)
+    .set({
+        cart: cart,
+        user_email: email,
+        user_name: name,
+        user_id: uid,
+        address:  address,
+        loc: loc,
+        timestamp: timestamp,
+        total: total,
+        delivered: true,
+        })
+        .then(() => {
+            console.log("Order delivered");
+            showNotification('top', 'center', `<b>Success!</b>  The order (id: ${id}) is delivered to the customer`, 'success', 5000);
+        })
+        .catch((error) => {
+            console.error("Error updating doc", error);
+            showNotification('top', 'center', '<b>Error</b> Issues adding the item', 'danger', 5000);
+        });
+
+        console.log("past: ", db.collection("pastOrders"));
+    // db.collection("currentOrders").doc(`${id}`)
+    // .update({
+    //             delivered: true
+    //         })
+    //         .then(() => {
+    //             console.log("Order delivered");
+    //             showNotification('top', 'center', `<b>Success!</b>  The order (id: ${id}) is delivered to the customer`, 'success', 5000);
+    //         })
+    //         .catch((error) => {
+    //             console.error("Error updating doc", error);
+    //             showNotification('top', 'center', '<b>Error</b> Issues updating the order status', 'danger', 5000);
+    //         });
+
     db.collection("currentOrders").doc(`${id}`)
-    .update({
-                delivered: true
-            })
-            .then(() => {
-                console.log("Order delivered");
-                showNotification('top', 'center', `<b>Success!</b>  The order (id: ${id}) is delivered to the customer`, 'success', 5000);
-            })
-            .catch((error) => {
-                console.error("Error updating doc", error);
-                showNotification('top', 'center', '<b>Error</b> Issues updating the order status', 'danger', 5000);
-            });
+    .delete()
+    .then(() => {
+        console.log("Document deleted from the current orders");
+        // showNotification('top', 'center', '<b>Success!</b>  Item deleted from the current orders', 'success', 5000);
+    })
+    .catch((error) => {
+        console.error("Error deleting doc", error);
+        // showNotification('top', 'center', '<b>Error</b> Issues deleting the item', 'danger', 5000);
+    });
 }
