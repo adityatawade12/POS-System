@@ -1,4 +1,4 @@
-var id=""
+var uploadDocid=""
 
     
 
@@ -18,7 +18,7 @@ function getToken() {
     $.ajax({
         type: 'POST',
         url: "https://www.googleapis.com/oauth2/v4/token",
-        
+        async:false,
         data: {
             // code:code,
             // redirect_uri:redirect_uri,
@@ -93,9 +93,9 @@ function getToken() {
     Upload.prototype.getName = function() {
         return this.file.name;
     };
-    Upload.prototype.doUpload = function () {
+    Upload.prototype.doUpload = function (folder) {
         var that = this;
-        
+        console.log(this.file)
         var formData = new FormData();
 
         // // add assoc key values, this will be posts values
@@ -134,7 +134,7 @@ function getToken() {
             },
             success: function (data) {
                 console.log(data);
-                id=data.id;
+                uploadDocid=data.id;
             },
             error: function (error) {
                 console.log(error);
@@ -147,9 +147,9 @@ function getToken() {
             processData: false,
             timeout: 60000
         });
-        console.log(id)
-        var nfd= new FormData();
-        nfd.append("title",id)
+        console.log(uploadDocid)
+        // var nfd= new FormData();
+        // nfd.append("title",id)
         $.ajax({
             type: "PUT",
             beforeSend: function(request) {
@@ -159,7 +159,7 @@ function getToken() {
             // headers:{ 
             //     "Content-Type": "application/json"
             // },
-            url: "https://www.googleapis.com/drive/v2/files/"+id+"?uploadType=multipart&addParents=1Kt21l6edZho0oxm2tkzml-lD0831bYmF",
+            url: "https://www.googleapis.com/drive/v2/files/"+uploadDocid+"?uploadType=multipart&addParents="+folder,
             // data:JSON.stringify({
             //     "title":id
             // }),
@@ -176,7 +176,7 @@ function getToken() {
             error: function (error) {
                 console.log(error);
             },
-            async: true,
+            async: false,
             // data: formData,
             
             cache: false,
@@ -184,6 +184,7 @@ function getToken() {
             processData: false,
             timeout: 60000
         });
+        return uploadDocid
     };
     
     Upload.prototype.progressHandling = function (event) {
@@ -199,15 +200,15 @@ function getToken() {
         $(progress_bar_id + " .status").text(percent + "%");
     };
 
-    $("#upload").on("click", function (e) {
-        var file = $("#files")[0].files[0];
-        var upload = new Upload(file);
+    // $("#upload").on("click", function (e) {
+    //     var file = $("#files")[0].files[0];
+    //     var upload = new Upload(file);
     
-        // maby check size or type here with upload.getSize() and upload.getType()
+    //     // maby check size or type here with upload.getSize() and upload.getType()
     
-        // execute upload
-        upload.doUpload();
-    });
+    //     // execute upload
+    //     upload.doUpload();
+    // });
 
 
     // $(".deleteBtn").on("click",function(){

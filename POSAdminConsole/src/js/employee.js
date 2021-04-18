@@ -62,7 +62,8 @@ $(".dataBtn").on("click",function(){
 })
 
 $(".staffList").on("click","tr",function(){
-    staffDataRefresh()
+    var empId=$(this).attr('id')
+    staffDataRefresh(empId)
     // var empId=$(this).attr('id')
     
     // staff.forEach(item=>{
@@ -192,16 +193,20 @@ $("tbody.cdocs").on("click",".delCBtn",function(){
                     "docLink":item.docLink,
                     "docName":item.docName
                 })
+            }).then(()=>{
+                staffDataRefresh(emp.id)
             });
         }
     })
     // getStaffData();
-    refreshPdocs()
-    refreshCdocs()
+    staffDataRefresh(cId)
+    // refreshPdocs()
+    // refreshCdocs()
     
 })
-
+var file=null;
 $(".uploadDocFile").change(function(e){
+    file=e.target.files[0]
     console.log(e.target.files[0].name)
     $(".uploadDocName").text(e.target.files[0].name)
 })
@@ -343,15 +348,16 @@ $(".paddDoc").on("click",function(){
     $(".deleteBtn").css({"display":"none"})
     $(".editSubmitBtn").css({"display":"none"})
     
-    $(".editDocName").val(" ")
+    $(".newDocName").val(" ")
     $(".uploadDocName").text(" ")
     $(".uploadDocFile").val("")
     $(".newDocSubmitBtn").css({"display":"initial"})
 })
 
+
 $(".caddDoc").on("click",function(){
     persOrCont=1;
-    $(".editDocName").val(" ")
+    $(".newDocName").val(" ")
     $(".uploadDocFile").val("")
     $(".uploadDocName").text(" ")
     $(".deleteBtn").css({"display":"none"})
@@ -430,11 +436,12 @@ function delDocs(id) {
         // },
         success: function (data) {
             console.log(data);
+            
         },
         error: function (error) {
             console.log(error);
         },
-        async: true,
+        async: false,
         // data: formData,
         
         cache: false,
@@ -442,6 +449,7 @@ function delDocs(id) {
         processData: false,
         timeout: 60000
     });
+    
 }
 
 function refreshPdocs() {
@@ -462,9 +470,9 @@ function refreshCdocs() {
      $(".cdocs").html(p)
 }
 
-function staffDataRefresh(){
-    var empId=$(this).attr('id')
-    
+function staffDataRefresh(empId){
+    // var empId=$(this).attr('id')
+    console.log("471")
     staff.forEach(item=>{
         if(item.id==empId){
             emp=item
@@ -491,6 +499,8 @@ function staffDataRefresh(){
                 calendar.addEvent(item2)
                 
             })
+            refreshPdocs()
+    refreshCdocs()
             // calendar=loadCalendar(item.attendance)
             // calendar.fullCalendar( 'addEventSource',  )
             // console.log(calendar.getEventSources())
@@ -499,6 +509,46 @@ function staffDataRefresh(){
         }
     })
     // console.log(emp)
-    refreshPdocs()
-    refreshCdocs()
+    // refreshPdocs()
+    // refreshCdocs()
 }
+
+$(".newDocSubmitBtn").on("click",function () {
+    var fileName=$(".newDocName").val()
+    var upload = new Upload(file);
+    var fileId="";
+    var docRef = db.collection("staff").doc(emp.id);
+    getToken()
+    if (persOrCont==0){
+        //pers
+        fileId=upload.doUpload("1YfQpuljYgeicw9n5TYqpPG09bvuwh5Wp");
+        docRef.update({
+            personalDocs: firebase.firestore.FieldValue.arrayUnion({
+                "docLink":fileId,
+                "docName":fileName
+            })
+        }).then(()=>{
+            
+            staffDataRefresh(emp.id)
+        })
+    }
+    else{
+        fileId=upload.doUpload("1Kt21l6edZho0oxm2tkzml-lD0831bYmF");
+        docRef.update({
+            contractDocs: firebase.firestore.FieldValue.arrayUnion({
+                "docLink":fileId,
+                "docName":fileName
+            })
+        }).then(()=>{
+            
+            staffDataRefresh(emp.id)
+        });
+    }
+    
+    console.log(emp.id)
+    
+
+    // getStaffData();
+
+    // staffDataRefresh(emp.id)
+})
