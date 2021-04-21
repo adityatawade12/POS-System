@@ -87,8 +87,7 @@ cartRefresh()
 });
 
 $("#list").on("click", "span", function(event){
-    var t= $(this).parent().parent().parent().attr('class').slice(4)
-    // var t = this.id;
+    var t = $(this).attr('class');
     console.log("class/id", t)
     console.log(t)
     cart.forEach((item, index) => {
@@ -97,7 +96,7 @@ $("#list").on("click", "span", function(event){
         }
     });
     cart=cart.filter(el => el);
-    var t= $(this).parent().parent().parent().attr('class').slice(4).split(' ').join(".")
+    var t= $(this).attr('class').split(' ').join(".")
     console.log(cart)
     t=t.split(' ').join('.');
     // console.log($(".incdec."+t))
@@ -110,12 +109,13 @@ $("#list").on("click", "span", function(event){
 
     });
     event.stopPropagation();
-    myCart();
+    cartRefresh();
 });
 
 
 function cartRefresh(){
     var int=""
+    cost = 0;
 
     if (cart.length == 0) {
         console.log("cart len:", cart.length);
@@ -124,7 +124,7 @@ function cartRefresh(){
             <div style="text-align: center; ">
                 Your Cart is empty!<br>
                 <i class="fas fa-cart-plus"></i><br>
-                Add an item to the cart to display it here.
+                Add an item to the cart to get started.
             </div>
         </div>`;
         document.getElementById("list").innerHTML=int;
@@ -133,6 +133,7 @@ function cartRefresh(){
         // int=`<div id="list" style="width: inherit;">`;
         
         cart.forEach((item, index) => {
+            cost += item.totalPrice;
             int+=`
                 <div class="althighlight row `+item.itemName+`" style="min-height: 6em;">
                     <div class="col-4" id="cart_img">
@@ -147,8 +148,8 @@ function cartRefresh(){
                             <div class="col-6">&#8377;`+item.totalPrice+`</div>
                             </div>
                     </div>
-                    <div class="col-2"><span><i class='fa fa-trash'></i></span></div>      
-                    <!-- <div class="col-2"><span onclick='deleteItem("`+item.itemName+`")'><i class='fa fa-trash'></i></span></div> -->  
+                    <!-- <div class="col-2"><span><i class='fa fa-trash'></i></span></div>       -->
+                    <div class="col-2"><span class="`+ item.itemName +`"><i class='fa fa-trash'></i></span></div>  
                 </div>
                  `
         });
@@ -157,6 +158,8 @@ function cartRefresh(){
         document.getElementById("list").innerHTML=int;
 
     }
+
+    document.getElementsByClassName('checkout')[0].innerHTML = `<a  href="/orders/check" >Checkout &emsp;&#8377;${cost}</a>`;
 
     myCart();
     // document.getElementsByClassName("cartinside")[0].innerHTML=int;
@@ -192,3 +195,11 @@ function scrolldiv(arg) {
     var elem = document.getElementById(arg); 
     elem.scrollIntoView();
 }
+// document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+//     anchor.addEventListener('click', function (e) {
+//         e.preventDefault();
+//         document.querySelector(this.getAttribute('href')).scrollIntoView({
+//             behavior: 'smooth'
+//         });
+//     });
+// });

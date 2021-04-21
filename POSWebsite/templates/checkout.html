@@ -72,6 +72,7 @@
                     <h4 style="color:brown;">Price Details</h4>
                     <div style="border-bottom:2px solid brown;padding-bottom: 1em;">
                         <li class="subT"><h6>Sub-Total: <span> 0 </span></h6></li>
+                        <div class="discount"></div>
                         <li><h6>GST-Charge: <span>5%</span></h6></li>
                         <li class="grnT"><h6>Grand-Total: <span> 0 </span></h6></li>
                     </div>
@@ -166,6 +167,7 @@
                                     <div style="border-bottom: 2px solid brown;">
                                         <div >
                                             <div class="subT"><h6>Sub-Total:&emsp13;&#8377;<span>100</span></h6></div>
+                                            <div class="discount"></div>
                                             <div><h6>GST-Charge:&emsp13;<span>5%</span></h6></div>
                                             <div class="grnT"><h6>Grand-Total:&emsp13;&#8377;<span>100</span></h6></div>
                                         </div>
@@ -192,6 +194,8 @@
     </div>
 
     {{ cart|json_script:"cart"}}
+    {{ emptyCurr|json_script:"emptyCurr"}}
+    {{ emptyPast|json_script:"emptyPast"}}
     <script src="{% static 'js/checkout.js' %}"></script>
     <script src="{% static 'js/map.js' %}"></script>
 {% endblock tail %}
