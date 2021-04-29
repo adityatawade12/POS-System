@@ -17,6 +17,23 @@ function admin_login() {
         var errorCode = error.code;
         var errorMessage = error.message;
         console.log(errorMessage);
-        // window.location.href() ='index.html';
+        showNotification('top', 'center', `<b>Error!</b> ${errorMessage}`, 'error', 5000);
       });
 }
+
+
+// auth()
+//   .getUserByEmail('admin@mail.com')
+//   .then((user) => {
+//     // Confirm user is verified.
+//     if (user.emailVerified) {
+//       // Add custom claims for additional privileges.
+//       // This will be picked up by the user on token refresh or next sign in on new device.
+//       return auth().setCustomUserClaims(user.uid, {
+//         admin: true,
+//       });
+//     }
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });

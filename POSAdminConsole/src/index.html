@@ -9,7 +9,7 @@
 
     <title>Home</title>
     
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="css/index.css">
 
 </head>
@@ -29,7 +29,7 @@
   </div> -->
 
     <div class="container">
-      <form>
+      <form method="POST" onSubmit="javascript:admin_login();">
         <div class="login-form">
           <h1>Log In</h1>
           <br>
@@ -45,13 +45,11 @@
           </div>
           <br><br>
           <div>
-            <a onclick="admin_login()" id="submit" href="javascript:void(0)">Login</a>
+            <button type="submit" id="submitBtn">Login</button>
           </div>
         </div>
       </form>
     </div>
-
-    <script src="js/index.js"></script>
 
     <script>
         if ('serviceWorker' in navigator) {
@@ -71,6 +69,11 @@
     <!-- Add Firebase products that you want to use -->
   <script src="/__/firebase/8.3.1/firebase-auth.js"></script>
   <script src="/__/firebase/8.3.1/firebase-firestore.js"></script>
+  
+  <script src="js/index.js"></script>
 
+  <!-- <script>
+    import { auth } from 'firebase-admin';
+  </script> -->
 </body>
 </html>
