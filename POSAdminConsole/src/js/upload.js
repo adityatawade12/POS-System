@@ -8,7 +8,7 @@ var uploadDocid=""
     const client_secret = "Bx8MwGHNsjKlqTg_FV52exqk"; // replace with your client secret
     const scope = "https://www.googleapis.com/auth/drive";
     var access_token= "";
-    var refresh_token="1//0gLXO5bFxcdSfCgYIARAAGBASNwF-L9IrLF8Egv6OGmHGRPaKbKKjx6WvV6hlybwX5Zi0RPleKs6Ign8d6GNE6jxxRJemR8wNVB0";
+    var refresh_token="1//0gEMCy82zB7HZCgYIARAAGBASNwF-L9IrSduOpmpcFHBGvI5wf6y7ho7fjh-N6ADnehWB5COPwzXm4NQ_pOeaVoxc2L0-zuMI8J0";
     var client_id = "392020718713-p2lk0sb95kqc4e4rheonon7d7eqa6254.apps.googleusercontent.com"// replace it with your client id;
    var pdocId="1YfQpuljYgeicw9n5TYqpPG09bvuwh5Wp"
    var cdocId="1Kt21l6edZho0oxm2tkzml-lD0831bYmF"
@@ -41,7 +41,10 @@ function getToken() {
            
            
            
-        }
+        },
+        error: function (error) {
+            console.log(error);
+        },
   });
 }
    

@@ -22,18 +22,30 @@
 					<div class="card-header">
 						<h4 class="card-title">Team Members</h4>
 					</div>
-					<div class="card-body" style="overflow: overlay;">
-						<div class="table-responsive"style="overflow: overlay;" >
-							<table class="table">
+					<!-- <table class="table">
+						<thead class=" text-primary">
+							<tr>
+								<th class="text-center"> Name </th>
+								<th class="text-center"> Role </th>
+								 <th class="text-center"> Active </th>
+								
+							</tr>
+						</thead>
+					</table> -->
+					<div class="card-body tc" style="overflow: overlay;">
+						
+						<div class="table-responsive" style="overflow: overlay;" >
+
+							<table class="table" >
 								<thead class=" text-primary">
 									<tr>
 										<th class="text-center"> Name </th>
 										<th class="text-center"> Role </th>
 										 <th class="text-center"> Active </th>
-										<!--<th class="text-right"> Salary </th> -->
+										
 									</tr>
 								</thead>
-								<tbody class="staffList">
+								<tbody class="staffList" >
 									<tr style="visibility: hidden;"><td></td><td></td><td></td></tr>
 									<tr style="visibility: hidden;"><td></td><td></td><td></td></tr>
 									<tr style="visibility: hidden;"><td></td><td></td><td></td></tr>
@@ -48,6 +60,9 @@
 							
 
 						</ul>
+					</div>
+					<div class="update ml-auto mr-auto">
+						<button  class="btn btn-primary btn-round newStaff">Add Staff</button>
 					</div>
 				</div>
 			</div>
@@ -236,7 +251,7 @@
 								<div class="col-md-12 ">
 									<div class="form-group">
 										<label>Name</label>
-										<input  type="text" class="form-control staffName" placeholder="Company" value="Chet">
+										<input  type="text" class="form-control staffName" placeholder="Company">
 									</div>
 								</div>
 								
@@ -246,8 +261,7 @@
 								<div class="col-md-6 pr-1">
 									<div class="form-group">
 										<label>Phone No.</label>
-										<input type="text" class="form-control staffNo" placeholder="Username"
-											value="michael23">
+										<input type="text" class="form-control staffNo" placeholder="Username">
 									</div>
 								</div>
 								<div class="col-md-6 pl-1">
@@ -261,8 +275,7 @@
 								<div class="col-md-12">
 									<div class="form-group">
 										<label>Address</label>
-										<input type="text" class="form-control staffAddress" placeholder="Home Address"
-											value="Melbourne, Australia">
+										<input type="text" class="form-control staffAddress" placeholder="Home Address">
 									</div>
 								</div>
 							</div>
@@ -270,13 +283,13 @@
 								<div class="col-md-6 pr-1">
 									<div class="form-group">
 										<label>Role:</label>
-										<input type="text" class="form-control staffRole" placeholder="City" value="Melbourne">
+										<input type="text" class="form-control staffRole" placeholder="City" >
 									</div>
 								</div>
 								<div class="col-md-6 pl-1">
 									<div class="form-group">
 										<label>Date Joined:</label>
-										<input type="text" class="form-control staffDateJoined" placeholder="Country" value="Australia" disabled>
+										<input type="date" class="form-control staffDateJoined" placeholder="Date Joined"  disabled>
 									</div>
 								</div>
 								
@@ -285,6 +298,9 @@
 							<div class="row">
 								<div class="update ml-auto mr-auto">
 									<button type="submit" class="updateProfile btn btn-primary btn-round">Update Profile</button>
+									<button type="submit"   class="removeEmp btn btn-danger btn-round">Remove Employee</button>
+									<button type="submit" style="display: none;" class="addNewStaff btn btn-primary btn-round">Add New Staff</button>
+									<button type="submit"  style="display: none;" class="cancelNewStaff btn btn-danger btn-round">Cancel</button>
 								</div>
 							</div>
 						<!-- </form> -->
@@ -343,7 +359,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12 ">
-					<a  class="btn btn-primary btn-round previewBtn">Preview</a>
+					<a href="#myModal" data-toggle="modal"  class="btn btn-primary btn-round previewBtn">Preview</a>
 					<a  class="btn btn-primary btn-round editSubmitBtn">Edit</a>
 					<a data-dismiss="modal" class="btn btn-primary btn-round newDocSubmitBtn">Submit</a>
 					<a  class="btn btn-danger btn-round deleteBtn">Delete</a>

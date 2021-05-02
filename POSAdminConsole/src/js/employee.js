@@ -4,6 +4,7 @@ let staff
 var emp={}
 var persOrCont=0;
 var arrayEvent=[]
+var attArray=[]
 function getStaffData(){
     db.collection("staff").onSnapshot((snapshot) => {
         staff = snapshot.docs.map((doc) => ({
@@ -13,11 +14,13 @@ function getStaffData(){
         // dishes = data;
         // console.log("All data in 'dishes' collection", staff);
         var x=""
+        
+        staff.sort((a,b) => b.active - a.active)
         staff.forEach((item)=>{
             x+=`<tr id=${item.id}>
             <td class="text-center"> ${item.name} </td>
             <td class="text-center"> ${item.role} </td>
-             <td class="text-center"> Acitve </td>
+             <td class="text-center">${item.active==true?"Active":"Not Active"}</td>
             
         </tr>`
 
@@ -63,8 +66,11 @@ $(".dataBtn").on("click",function(){
 
 $(".staffList").on("click","tr",function(){
     var empId=$(this).attr('id')
+    $("tr").css({"background-color":"white"})
+    $(this).css({"background-color":"#e6e6e6"})
     staffDataRefresh(empId)
     // var empId=$(this).attr('id')
+    console.log(calendar.getEvents())
     
     // staff.forEach(item=>{
     //     if(item.id==empId){
@@ -170,13 +176,31 @@ $("tbody.cdocs").on("click",".viewBtn",function(){
 $("tbody.pdocs").on("click",".delPBtn",function(){
     // $(".newDocSubmitBtn").css({"display":"none"})
     // $(".deleteBtn").css({"display":"initial"})
+    // emp.personalDocs.forEach(item=>{
+    //     if(item.docLink==$(this).parent().parent().attr("id")){
+    //         $(".editDocName").val(item.docName)
+    //         console.log("sad")
+    //     }
+    // })
+   
+    var cId=$(this).parent().parent().attr("id")
+    delDocs(cId)
+    var docRef = db.collection("staff").doc(emp.id);
     emp.personalDocs.forEach(item=>{
-        if(item.docLink==$(this).parent().parent().attr("id")){
-            $(".editDocName").val(item.docName)
-            console.log("sad")
+        if(item.docLink==cId){
+            docRef.update({
+                personalDocs: firebase.firestore.FieldValue.arrayRemove({
+                    "docLink":item.docLink,
+                    "docName":item.docName
+                })
+            }).then(()=>{
+                staffDataRefresh(emp.id)
+            });
         }
     })
-   
+    // getStaffData();
+    staffDataRefresh(cId)
+
 })
 
 $("tbody.cdocs").on("click",".delCBtn",function(){
@@ -209,6 +233,17 @@ $(".uploadDocFile").change(function(e){
     file=e.target.files[0]
     console.log(e.target.files[0].name)
     $(".uploadDocName").text(e.target.files[0].name)
+    if (e.target.files.length > 0) {
+        var fileReader = new FileReader();
+
+        fileReader.onload = function (event) {
+            
+            $(".modal-body.pdfView").html(`<embed src="https://drive.google.com/file/d/${event.target.result}/preview?usp=sharing" width="100%" height="600vh" />`)
+            // console.log(event.target.result)
+        };
+
+        fileReader.readAsDataURL(file);
+    }
 })
 var x=new Date()
 
@@ -233,8 +268,9 @@ $(".present").on("click",function () {
     
     try {
         calendar.getEventById(datestr).remove()
+        console.log("no error pres")
     } catch (error) {
-        
+        console.log(error)
     }
     var endDate=new Date(datestr)
     endDate.setDate(endDate.getDate()+1)
@@ -253,8 +289,10 @@ $(".present").on("click",function () {
 $(".absent").on("click",function () {
     try {
         calendar.getEventById(datestr).remove()
+        console.log("no error abs")
     } catch (error) {
-        
+        console.log(error)
+
     }
     var endDate=new Date(datestr)
     endDate.setDate(endDate.getDate()+1)
@@ -308,9 +346,11 @@ $(".aplv").on("click",function () {
 })
 
 function updateAttendance() {
+    arrayEvent.splice(0, arrayEvent.length)
     calendar.getEvents().forEach(item=>{
-             
+            //  console.log(item.id)
         arrayEvent.push({
+            id:item.id,
             title:item.title,
             start:formatDate(item.start),
             end:item.end==undefined?formatDate(item.start.getDate()+1):formatDate(item.end),
@@ -471,17 +511,26 @@ function refreshCdocs() {
 }
 
 function staffDataRefresh(empId){
-    // var empId=$(this).attr('id')
-    console.log("471")
+    
+   
+    $("tr").css({"background-color":"white"});
+    $("#"+empId).css({"background-color":"#e6e6e6"})
     staff.forEach(item=>{
         if(item.id==empId){
             emp=item
+            // attArray.splice(0, attArray.length)
+            // attArray=item.attendance
             $(".staffName").val(item.name)
             $(".staffNo").val(item.phone)
             $(".staffAddress").val(item.address)
             $(".staffRole").val(item.role)
             $(".staffDateJoined").val(item.joined)
             $(".staffEmail").val(item.email)
+            if(item.active==false){
+                $(".removeEmp").text("Restore Employee")
+            }else{
+                $(".removeEmp").text("Remove Employee")
+            }
             // try {
             //     calendar.eventSources.remove()
             // } catch (error) {
@@ -500,7 +549,9 @@ function staffDataRefresh(empId){
                 
             })
             refreshPdocs()
-    refreshCdocs()
+            refreshCdocs()
+            $(".tc").scrollTop($(".tc").scrollTop() + $("#"+emp.id).position().top - $(".tc").height()/2 + $("#"+emp.id).height()/2);
+            // $(".tc").scrollTop($(".tc").scrollTop() + $("#"+emp.id).position().top);
             // calendar=loadCalendar(item.attendance)
             // calendar.fullCalendar( 'addEventSource',  )
             // console.log(calendar.getEventSources())
@@ -522,6 +573,7 @@ $(".newDocSubmitBtn").on("click",function () {
     if (persOrCont==0){
         //pers
         fileId=upload.doUpload("1YfQpuljYgeicw9n5TYqpPG09bvuwh5Wp");
+        console.log(fileId)
         docRef.update({
             personalDocs: firebase.firestore.FieldValue.arrayUnion({
                 "docLink":fileId,
@@ -534,6 +586,7 @@ $(".newDocSubmitBtn").on("click",function () {
     }
     else{
         fileId=upload.doUpload("1Kt21l6edZho0oxm2tkzml-lD0831bYmF");
+        console.log(fileId)
         docRef.update({
             contractDocs: firebase.firestore.FieldValue.arrayUnion({
                 "docLink":fileId,
@@ -551,4 +604,100 @@ $(".newDocSubmitBtn").on("click",function () {
     // getStaffData();
 
     // staffDataRefresh(emp.id)
+})
+
+$(".newStaff").on("click",function(){
+    console.log("ZS");
+    $(".updateProfile").css({"display":"none"})
+    $(".cancelNewStaff").css({"display":"initial"})
+    $(".addNewStaff").css({"display":"initial"})
+    $(".staffName").val("")
+    $(".staffNo").val("")
+    $(".staffAddress").val("")
+    $(".staffRole").val("")
+    $(".staffDateJoined").val("")
+    $(".staffEmail").val("")
+    $(".staffDateJoined").prop('disabled', false);
+    $(".attendanceBtn").css({"display":"none"})
+    $(".salaryBtn").css({"display":"none"})
+    $('.staffList').unbind('click')
+    $("tr").css({"background-color":"white"})
+    $(".salary").css({"display":"none"})
+    $(".attendance").css({"display":"none"})
+    $(".removeEmp").css({"display":"none"})
+    $(".data").css({"display":"block"})
+})
+
+$(".cancelNewStaff").on("click",function(){
+    console.log("ZS");
+    $(".updateProfile").css({"display":"initial"})
+    $(".cancelNewStaff").css({"display":"none"})
+    $(".addNewStaff").css({"display":"none"})
+    $(".attendanceBtn").css({"display":"initial"})
+    $(".salaryBtn").css({"display":"initial"})
+    $(".removeEmp").css({"display":"initial"})
+    $(".staffDateJoined").prop('disabled', true);
+    staffDataRefresh(staff[0].id)
+    $(".staffList").children("tr").eq(0).css({"background-color":"#e6e6e6"})
+    $(".staffList").on("click","tr",function(){
+        var empId=$(this).attr('id')
+        staffDataRefresh(empId)
+        
+    })
+})
+
+$(".addNewStaff").on("click",function(){
+    
+    db.collection("staff").add({
+        address:$(".staffAddress").val(),
+        email:$(".staffEmail").val(),
+        name:$(".staffName").val(),
+        phone:$(".staffNo").val(),
+       role:$(".staffRole").val(),
+       attendance:{},
+       contractDocs:[],
+       personalDocs:[],
+       joined:$(".staffDateJoined").val()
+    })
+    .then((docRef) => {
+        $(".attendanceBtn").css({"display":"initial"})
+        $(".salaryBtn").css({"display":"initial"})
+        $(".staffDateJoined").prop('disabled', true);
+        
+        staffDataRefresh(docRef.id)
+        $(".staffList").on("click","tr",function(){
+            var empId=$(this).attr('id')            
+            staffDataRefresh(empId)
+            
+        })
+        console.log("Document written with ID: ", docRef.id);
+    })
+    .catch((error) => {
+        console.error("Error adding document: ", error);
+    });
+    // Set the "capital" field of the city 'DC'
+
+})
+
+$(".removeEmp").on("click",function(){
+    
+    
+    var docRef = db.collection("staff").doc(emp.id);
+    
+    // Set the "capital" field of the city 'DC'
+     docRef.update({
+         active:emp.active?false:true,
+        
+           
+    }).then(()=>{
+
+        if(emp.active){
+            $(".removeEmp").text("Restore Employee")
+        }else{
+            $(".removeEmp").text("Remove Employee")
+        }
+        emp.active=!emp.active
+        staffDataRefresh(emp.id)
+    })
+   
 })
