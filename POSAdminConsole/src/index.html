@@ -29,7 +29,7 @@
   </div> -->
 
     <div class="container">
-      <form>
+      <form action="index.html" method="POST" id="login">
         <div class="login-form">
           <h1>Log In</h1>
           <br>
@@ -45,13 +45,11 @@
           </div>
           <br><br>
           <div>
-            <a onclick="admin_login()" id="submit" href="javascript:void(0)">Login</a>
+            <a onclick="admin_login()" href="#" type="submit" id="submit">Login</a>
           </div>
         </div>
       </form>
     </div>
-
-    <script src="js/index.js"></script>
 
     <script>
         if ('serviceWorker' in navigator) {
@@ -71,6 +69,8 @@
     <!-- Add Firebase products that you want to use -->
   <script src="/__/firebase/8.3.1/firebase-auth.js"></script>
   <script src="/__/firebase/8.3.1/firebase-firestore.js"></script>
+
+  <script src="js/index.js"></script>
 
 </body>
 </html>

@@ -39,7 +39,7 @@ body {
     text-align: center;
     font-family: 'Varela Round';
 }
-.login-form a {
+.login-form #submit {
     align-self: center;
     color: blanchedalmond;
     background-color: crimson;
