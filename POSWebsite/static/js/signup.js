@@ -14,7 +14,20 @@ function getCookie(name) {
   return cookieValue;
 }
 const csrftoken = getCookie('csrftoken');
+var successMod = document.getElementById("successMod");
+$(".modal-content").on("click","span",function(event){
+  successMod.style.display='none';
+})
 
+// close1.onClick=function(event){
+//   console.log("Hello")
+//   successMod.style.display='none';
+// }
+window.onclick = function(event) {
+  if (event.target == successMod) {
+    successMod.style.display = "none";
+  }
+}
 
 function sb(){
   var email = $("#email").val();
@@ -55,13 +68,29 @@ $("#submit").click(function(){
     method: "POST", 
     headers: { "X-CSRFToken": csrftoken },// GET or POST
     url: "/accounts/signup",
+    data:{
+        name:$("#name").val(),
+        email:$("#email").val(),
+        password:$("#password").val(),
+        phone:$("#phone").val(),
+
+
+    },
     // on success
     success: function(response) {
         // alert("Thankyou for reaching us out ");
         console.log(response)
-        $(".errorBox").text("Order placed succesfully!")
-        successMod.style.display = "block";
-        setTimeout(function(){window.location.href = '/home';}, 3000);
+        if(response.success=="yes"){
+          $(".errorBox").text("Account created succesfully!")
+          successMod.style.display = "block";
+           setTimeout(function(){window.location.href = '/menu';}, 3000);
+        }
+        else{
+          $(".errorBox").text(response.error)
+          successMod.style.display = "block";
+          //  setTimeout(function(){window.location.href = '/menu';}, 3000);
+        }
+        
         
     },
     // on error

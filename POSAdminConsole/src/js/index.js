@@ -20,4 +20,3 @@ function admin_login() {
         // window.location.href() ='index.html';
       });
 }
-console.log("Hello mfs")

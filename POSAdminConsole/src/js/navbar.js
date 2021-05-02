@@ -7,7 +7,7 @@ function inHead(){
     document.write(`<meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="theme-color">
+        <meta name="theme-color"  content="#24252a"/>
         <link rel="manifest" href="manifest.json">
 
     	<link rel="apple-touch-icon" href="icons/logo_100.png">
@@ -18,33 +18,12 @@ function inHead(){
     	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     	<script src="https://kit.fontawesome.com/553c78d64a.js" crossorigin="anonymous"></script>
-    
-    	<script type="module"  src="database.js"></script>
-    
+        
     	<!-- CSS Files -->
     	<link href="css/bootstrap.min.css" rel="stylesheet" />
     	<link href="css/paper-dashboard.css" rel="stylesheet" />
-    	<link href="demo/demo.css" rel="stylesheet" />
-    
-    <style>
-    		@import url("css/font.css");
-    
-    		.logo a {
-    		color: blanchedalmond;
-    		font-family: 'Cedarville Cursive' !important;
-    		text-transform: lowercase !important;
-    		font-size: 3em !important;
-    		text-align: center;
-    		}
-    		.sidebar-wrapper {
-    		overflow: hidden !important;
-    		}
-    		.le {
-    			font-family: 'Cedarville Cursive' !important;
-    			font-size: 1.5em;
-    		}
-    
-    	</style>
+    	<link href="css/navbar.css" rel="stylesheet">
+    	<link href="demo/demo.css" rel="stylesheet">
     
     </head>
     
@@ -69,8 +48,8 @@ function inHead(){
     				<p>Dashboard</p>
     				</a>
     			</li>
-    			<li id="icons">
-    				<a href="icons.html">
+    			<li id="orders">
+    				<a href="orders.html">
     				<i class="fas fa-receipt"></i>
     				<p>Orders</p>
     				</a>
@@ -94,10 +73,10 @@ function inHead(){
     					<p>Employees</p>
     				</a>
     			</li>
-    			<li id="temp">
-    				<a href="tables.html">
-    				<i class="nc-icon nc-tile-56"></i>
-    				<p>Table List</p>
+    			<li id="info">
+    				<a href="restroInfo.html">
+    				<i class="nc-icon nc-alert-circle-i"></i>
+    				<p>Restro Info</p>
     				</a>
     			</li>
     			<li>
@@ -209,7 +188,7 @@ function foot(){
       <!--  Notifications Plugin    -->
       <script src="js/plugins/bootstrap-notify.js"></script>
       <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-      <script src="js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
+      <script src="js/paper-dashboard.min.js" type="text/javascript"></script>
       <script>
         $(document).ready(function() {
           // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
@@ -235,8 +214,41 @@ function foot(){
       <script src="/__/firebase/8.3.1/firebase-auth.js"></script>
       <script src="/__/firebase/8.3.1/firebase-firestore.js"></script>
 
-    // </body>
-    // 
-    // </html>
+	<script src="database.js"></script>
+	<script>
+		try {
+			newOrder();
+		} catch(err) {
+			console.log('Error getting documents', err)
+		}
+	</script>
+
     `);
 }
+
+function showNotification(from, align, msg, color, timer) {
+    // color = 'primary';
+    let i;
+    if (color == 'success') {
+        i = "far fa-check-circle";
+    }
+    else if (color == 'danger') {
+        i = "fas fa-exclamation";
+    }
+    else {
+        i = "nc-icon nc-bell-55"
+    }
+
+    $.notify({
+      icon: i,
+      message: msg
+
+    }, {
+      type: color,
+      timer: timer,
+      placement: {
+        from: from,
+        align: align
+      }
+    });
+  }

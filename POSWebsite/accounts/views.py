@@ -38,8 +38,8 @@ def login(request):
         #print(user['idToken'])
         session_id=user['idToken']
         request.session['uid']=str(session_id)
-        # us=authe.current_user
-        # return render(request, "menu.html",{"e":email,"us":us})
+        us=authe.current_user
+        
         return redirect('/menu')
     else:
         us=authe.current_user
@@ -62,25 +62,23 @@ def signup(request):
             
             user = authe.sign_in_with_email_and_password(email,password)
             session_id=user['idToken']
+
             request.session['uid']=str(session_id)
             
             us=authe.current_user
             data = {
             u'cart':[],
             u'Addresses':[],
+            u'PastOrders':[]
             }
             db.collection(u'users').document(us['localId']).set(data)
-            return redirect('/menu')
+            return JsonResponse({"success": 'yes'})
+            # return redirect('/menu')
+
         except Exception as e:
-            print(e)
-            return redirect('/accounts/signup')
-        #     return JsonResponse({"success": 'yes', "message": msg})
-        #     return redirect('/menu')
-        # except Exception as e:
-        #     # msg = str(e)
-        #     print(str(e))
-        #     return JsonResponse({"success": 'no', "message": msg})
-        #     return render('/accounts/signup', {"message": msg})
+            print(str(e))
+            return JsonResponse({"success": 'no',"error":str(e)})
+            # return redirect('/accounts/signup')
     else:    
         us=authe.current_user
         return render(request,'signup.html',{"us":us})

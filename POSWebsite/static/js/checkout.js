@@ -17,6 +17,10 @@ const csrftoken = getCookie('csrftoken');
 var subT=0;
 var grnT=0;
 var cart = JSON.parse(document.getElementById('cart').textContent);
+var emptyPast = JSON.parse(document.getElementById('emptyPast').textContent);
+var emptyCurr = JSON.parse(document.getElementById('emptyCurr').textContent);
+console.log("past: ", emptyPast, "curr: ", emptyCurr);
+
 console.log(cart);
 updateTotal(cart);
 
@@ -44,7 +48,7 @@ btn2.onclick = function() {
       <div id="finalL">
           <div>`+item.itemName+`</div>
           <div>&emsp;&emsp;`+item.itemQty+`</div>
-          <div>`+item.totalPrice+`</div>
+          <div>`+parseInt(item.totalPrice, 10)+`</div>
       </div>
     </li>`
     })
@@ -100,8 +104,8 @@ $(".but").on("click","a",function(event){
             }
             cart=cart.filter(el => el);
             console.log(cart)
-            item.totalPrice=item.itemPrice*item.itemQty;
-            $(this).parent().parent().parent().parent().children('div').eq(2).html('<h2 class="card-title-checkout">&#8377; '+item.totalPrice+' </h2>')
+            parseInt(item.totalPrice, 10)=item.itemPrice*item.itemQty;
+            $(this).parent().parent().parent().parent().children('div').eq(2).html('<h2 class="card-title-checkout">&#8377; '+parseInt(item.totalPrice, 10)+' </h2>')
             $(this).parent().html('<a href="javascript:void(0)" class="minus">-</a><span style="width: 35px;" class="quanval"> '+item.itemQty+' </span><a href="javascript:void(0)" class="plus">+</a>')
             updateTotal(cart);
             myCart();
@@ -114,12 +118,17 @@ function updateTotal(cart){
     subT=0;
     grnT=0;
     cart.forEach((item,index)=>{
-        subT=subT+item.totalPrice;
+        subT=subT+parseInt(item.totalPrice, 10);
     });
     console.log(subT);
     grnT=1.05*subT;
     console.log(grnT);
+    if (emptyPast) {
+      grnT = 0.7 * grnT;
+      $(".discount").html('<h6>First Order Discount:&emsp13;<span>30%</span></h6>')
+    }
     $(".subT").html('<h6>Sub-Total:&emsp13;&#8377;<span>'+subT+'</span></h6>')
+    grnT = grnT.toFixed();
     $(".grnT").html('<h6>Grand-Total:&emsp13;&#8377;<span>'+grnT+'</span></h6>')
 }
 

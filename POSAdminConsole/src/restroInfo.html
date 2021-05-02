@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  	<title>Restaurant Info</title>
+
+	<link rel="icon" type="image/png" href="icons/admin.png">
+	<link rel="stylesheet" type="text/css" href="css/restroInfo.css">
+
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	<script src="js/navbar.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+	<script type="text/javascript">
+			inHead();
+	</script>
+
+	<style>
+		.table-responsive { overflow: hidden !important; }
+	</style>
+
+    <div class="content">
+        <div class="row">
+			<div class="col-md-12">
+				<div class="card card-plain">
+					<div class="card-header">
+						<h4 class="card-title" style="-webkit-text-stroke: medium;">Address</h4>
+					</div>
+					<div class="card-body">
+						<p class="">KJ Somaiya College Of Engineering, VidyaVihar Ghatkopar East, Mumbai, Maharashtra 400077</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="card card-plain">
+					<div class="card-header">
+						<h4 class="card-title" style="-webkit-text-stroke: medium;">Open Hours</h4>
+						<!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+					</div>
+				<div class="card-body">
+					<div class="table-responsive">
+					<table class="table">
+						<thead class=" text-primary">
+							<th class="text-center">Days</th>
+							<th class="text-center">Timing</th>
+                            <th class="text-center"><i class="far fa-edit"></i></th>
+						</thead>
+						<tbody id="timing">
+						<tr>
+							<td class="text-center">-</td>
+							<td class="text-center">-</td>
+						</tr>
+						</tbody>
+					</table>
+					</div>
+				</div>
+				</div>
+			</div> 
+		</div>
+    </div>
+    
+	<!-- modal for editing -->
+	<div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">Edit Hours</h4>
+            </div>
+            <div class="modal-body">
+				<form class="edit_form">
+					<div>
+						<label>Day</label>
+						<input type="text" id="day" name="day" disabled>
+						<br><br>
+					</div>
+					<div>
+						<label>Hours</label>
+						<textarea type="text" name="hours" id="hours" rows="2" cols="30"></textarea>
+						<br><br>
+					</div>
+				</form>
+            </div>
+            <small class="text-warning" style="padding: 0 1rem;">If you don't save, your changes will be lost.</small>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button onclick="edit_time(this)" type="button" class="dates btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end of modal -->
+
+    <script type="text/javascript">
+        foot();
+        active('info');
+    </script>
+
+	<script src="js/restroInfo.js"></script>
+	<script>
+		try {
+			date_time();
+		} catch(err) {
+			console.log('Error getting documents', err)
+		}
+	</script>
+
+</body>
+</html>
