@@ -29,7 +29,7 @@
   </div> -->
 
     <div class="container">
-      <form method="POST" id="loginForm" onSubmit="javascript:admin_login();">
+      <form action="index.html" method="POST" id="login">
         <div class="login-form">
           <h1>Log In</h1>
           <br>
@@ -45,7 +45,7 @@
           </div>
           <br><br>
           <div>
-            <button type="submit" id="submitBtn">Login</button>
+            <a onclick="admin_login()" href="#" type="submit" id="submit">Login</a>
           </div>
         </div>
       </form>
@@ -72,8 +72,5 @@
   
   <script src="js/index.js"></script>
 
-  <!-- <script>
-    import { auth } from 'firebase-admin';
-  </script> -->
 </body>
 </html>
