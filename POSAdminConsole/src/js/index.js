@@ -1,4 +1,9 @@
-function admin_login() {
+// Form
+let contactForm = document.getElementById("loginForm");
+
+// Event listener
+contactForm.addEventListener("submit", function (e) {
+// function admin_login() {
     var email = document.getElementById('admin').value;
     var password = document.getElementById('password').value;
 
@@ -19,7 +24,8 @@ function admin_login() {
         console.log(errorMessage);
         showNotification('top', 'center', `<b>Error!</b> ${errorMessage}`, 'error', 5000);
       });
-}
+// }
+});
 
 
 // auth()
