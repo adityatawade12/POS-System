@@ -1,20 +1,22 @@
 var db = firebase.firestore();
-
+var c = 0;
 
 // notify when new orders are made
-function newOrder() {
-	db.collection("currentOrders").where("notify", "==", 1).onSnapshot((snapshot) => {
-        console.log("New order invoked!");
-		// console.log(snapshot.docChanges());
-		snapshot.docChanges().forEach(change => {
-			console.log("change: ",change.doc.data());
+// function newOrder() {
+//     c = c + 1;
+
+//     console.log(c, "New order invoked!");
+//     db.collection("currentOrders").where("notify", "==", 1).onSnapshot((snapshot) => {
+// 		console.log("snap",snapshot.docChanges());
+// 		snapshot.docChanges().forEach(change => {
+// 			console.log("change: ",change.doc.data());
 			
-			showNotification('top', 'right', `<b>New Order received!</b> <br> Customer Name: ${change.doc.data()['user_name']}
-			<br> Order ID: ${change.doc.id}`, 'info', 20000);
-			notified(change.doc);
-		});
-	});
-}
+// 			showNotification('top', 'right', `<b>New Order received!</b> <br> Customer Name: ${change.doc.data()['user_name']}
+// 			<br> Order ID: ${change.doc.id}`, 'info', 20000);
+// 			notified(change.doc);
+// 		});
+// 	});
+// }
 
 // once notification is done
 function notified(doc) {

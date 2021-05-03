@@ -11,6 +11,18 @@ function orderRetrieve () {
           ...doc.data(),
         }))
 
+        snapshot.docChanges().forEach(change => {
+            // console.log("change: ",change.doc.data());
+            if (change.doc.data().notify === 1) {
+                // in-app notifiaction
+                showNotification('top', 'right', `
+                <b>New Order received!</b> 
+                <br> Order ID: ${change.doc.id}
+                <br> Customer Name: ${change.doc.data()['user_name']}`, 'info', 20000);
+                notified(change.doc);
+            }
+        });
+
         // console.log("orderR invoked!");
         // newOrder();
 
@@ -80,7 +92,7 @@ function displayCurrOrd(currorders) {
                         <p class="card-category">
                             Customer Name: ${curor.user_name}<br>
                             Address: ${curor.address}<br>
-                            Time: ${new Date((curor["timestamp"].seconds)*1000).toUTCString()}
+                            Time: ${new Date((curor["timestamp"].seconds)*1000)}
                         </p>
                         <a class="btn btn-primary" onclick="deliver('${curor.id}')" href="javascript:void(0)"><i class="fas fa-check"></i> Done</a>
                         

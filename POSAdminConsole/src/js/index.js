@@ -73,5 +73,9 @@ function admin_login() {
 				window.location.href = 'dashboard.html';
 			}
 		})
+    if (found_user == 0) {
+      // alert("The user doesn't exist!");
+      showNotification('top', 'center', '<b>Error</b> Invalid username or password!', 'danger', 5000);
+    }
     });
 }
