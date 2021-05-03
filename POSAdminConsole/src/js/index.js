@@ -1,45 +1,77 @@
-// Form
-let contactForm = document.getElementById("loginForm");
+var found_user = 0;
+var db = firebase.firestore();
 
-// Event listener
-contactForm.addEventListener("submit", function (e) {
-// function admin_login() {
-    var email = document.getElementById('admin').value;
+let form  = document.getElementById('login');
+
+// form.addEventListener('submit', (event) => {
+
+// 	let adminId = form.elements['admin'].value;
+// 	let password = form.elements['password'].value;
+
+// 	db.collection("admin-data").onSnapshot((snapshot) => {
+// 		let adminLogin = snapshot.docs.map((doc) => ({
+// 		id: doc.id,
+// 		...doc.data(),
+// 		}))
+
+// 		adminLogin.forEach((doc) =>{
+// 			window.setTimeout(console.log(adminId, password), 10000);
+// 			console.log('usera:', doc.id);
+// 			if (doc['admin-id'] == adminId && doc['password'] == password) {
+// 			user = doc;
+// 			console.log("user: ", user);
+
+// 			found_user = 1;
+// 			// window.setTimeout(window.location.assign('/dashboard.html'), 50000);
+// 			// window.location.assign('/dashboard.html');
+// 			window.location.href = 'dashboard.html';
+// 			}
+// 		})
+// 	});
+
+// 	// console.log(adminId, password);
+
+// });
+
+function admin_login() {
+    var adminId = document.getElementById('admin').value;
     var password = document.getElementById('password').value;
 
-    console.log(email)
+    console.log(adminId)
     console.log(password)
 
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        // Signed in
-        var user = userCredential.user;
-        console.log(user);
-        // ...
-        window.location.href ='dashboard.html';
-      })
-      .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(errorMessage);
-        showNotification('top', 'center', `<b>Error!</b> ${errorMessage}`, 'error', 5000);
-      });
-// }
-});
+    // firebase.auth().signInWithEmailAndPassword(email, password)
+    //   .then((userCredential) => {
+    //     // Signed in
+    //     var user = userCredential.user;
+    //     setTimeout(console.log("hi: ",user), 8000);
+    //     // ...
+    //     // window.location.href = 'dashboard.html';
+    //     setTimeout(window.location.assign('/dashboard.html'), 10000);
+    //     // window.location.assign('/dashboard.html');
+    //   })
+    //   .catch((error) => {
+    //     var errorCode = error.code;
+    //     var errorMessage = error.message;
+    //     console.log(errorMessage);
+    //     // window.location.href() ='index.html';
+    //   });
 
-
-// auth()
-//   .getUserByEmail('admin@mail.com')
-//   .then((user) => {
-//     // Confirm user is verified.
-//     if (user.emailVerified) {
-//       // Add custom claims for additional privileges.
-//       // This will be picked up by the user on token refresh or next sign in on new device.
-//       return auth().setCustomUserClaims(user.uid, {
-//         admin: true,
-//       });
-//     }
-//   })
-//   .catch((error) => {
-//     console.log(error);
-//   });
+    db.collection("admin-data").onSnapshot((snapshot) => {
+		let adminLogin = snapshot.docs.map((doc) => ({
+			id: doc.id,
+			...doc.data(),
+		}))
+		adminLogin.forEach((doc) =>{
+			console.log('usera:', doc.id);
+			if (doc['admin-id'] == adminId && doc['password'] == password) {
+				user = doc;
+				console.log("user: ", user);
+				found_user = 1;
+				// window.setTimeout(window.location.assign('/dashboard.html'), 50000);
+				// window.location.assign('/dashboard.html');
+				window.location.href = 'dashboard.html';
+			}
+		})
+    });
+}

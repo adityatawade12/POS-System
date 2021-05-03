@@ -10,8 +10,8 @@ function inHead(){
         <meta name="theme-color"  content="#24252a"/>
         <link rel="manifest" href="manifest.json">
 
-    	<link rel="apple-touch-icon" href="icons/logo_100.png">
-    	<link rel="icon" type="image/png" href="icons/logo_100.png">
+    	<link rel="apple-touch-icon" href="icons/logo.svg">
+    	<link rel="icon" type="image/png" href="icons/logo.svg">
     
     	<!--     Fonts and icons     -->
     	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
@@ -33,7 +33,7 @@ function inHead(){
             <div class="sidebar" data-color="black" data-active-color="danger">
     		<div class="logo">
     			<div class="logo-image-big" style="justify-content: center; display: flex;">
-    				<img src="icons/admin.png">
+    				<img src="icons/logo.svg">
     			</div>
     			<!-- <p>CT</p> -->
     			<a class="simple-text logo-normal">
@@ -215,13 +215,6 @@ function foot(){
       <script src="/__/firebase/8.3.1/firebase-firestore.js"></script>
 
 	<script src="database.js"></script>
-	<script>
-		try {
-			newOrder();
-		} catch(err) {
-			console.log('Error getting documents', err)
-		}
-	</script>
 
     `);
 }
