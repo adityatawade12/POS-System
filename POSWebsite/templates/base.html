@@ -7,7 +7,7 @@
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
 
-            <link rel="icon" type="image/png" href="/static/css/images/compnay_logo_100.png">
+            <link rel="icon" type="image/png" href="/static/css/images/admin.png">
             
             <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -40,7 +40,7 @@
                         {% if us %}
                             <li class="nav-item dropdown">
                                 <a class="navi nav-link dropdown-toggle _down" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{us.email}}
+                                    <i class="far fa-user"></i> {{us.displayName}}
                                 </a>
                                 <ul class="dropdown-menu _drop" aria-labelledby="navbarDropdown" data-bs-popper="none">
                                     <li><a class="dropdown-item" href="/orders/check">Cart</a></li>

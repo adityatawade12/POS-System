@@ -1,76 +1,49 @@
-var db = firebase.firestore();
+// function admin_login() {
+//     var email = document.getElementById('admin').value;
+//     var password = document.getElementById('password').value;
+
+//     console.log(email)
+//     console.log(password)
+
+//     firebase.auth().signInWithEmailAndPassword(email, password)
+//       .then((userCredential) => {
+//         // Signed in
+//         var user = userCredential.user;
+//         console.log(user);
+//         session_id=user['idToken']
+//         // ...
+//         window.location.href ='dashboard.html';
+//       })
+//       .catch((error) => {
+//         var errorCode = error.code;
+//         var errorMessage = error.message;
+//         console.log(errorMessage);
+//         // window.location.href() ='index.html';
+//       });
+// }
 
 
-var dish_doc = db.collection('dishes');
 
-let temp;
-let str = '';
-let data= '';
-let dishes;
-var category=[];
-let docu;
+function newOrder() {
+	firebase.firestore().collection("currentOrders").where("notify", "==", 1).onSnapshot((snapshot) => {
+        console.log("New order invoked!");
+		// console.log(snapshot.docChanges());
+		snapshot.docChanges().forEach(change => {
+			console.log("change: ",change.doc.data());
+			// if (change)
+			// if (change.type === 'added') {
+			// 	console.log(change.doc.data());
+				showNotification('top', 'right', `<b>New Order received!</b> from customer: ${change.doc.data()['user_name']}`, 'info', 20000);
+			// }
+			// if (change.type === 'removed') {
+			// 	// showNotification('top', 'right', `<b>New Order received!</b> from customer: `, 'info', 12000);       
+			// }
+		});
+	});
+}
 
-
-    /*
-    category.forEach(cat => {
-        // console.log(`category: ${cat}`)
-        data += `
-        <div class="col-md-12">
-        <div class="card">
-            <div class="card-header">
-                <h4 class="card-title"> `+ cat+ `</h4>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead class=" text-primary">
-                        <th>Name</th>
-                        <th>Category</th>
-                        <th>Description</th>
-                        <th class="text-right">Price</th>
-                        </thead>
-                        <tbody>
-                        <div class="table_body">`
-
-                    // <!-- for loop -->
-                    dishes.forEach((doc) =>{
-                            if (cat == doc["Category"]) {
-                                data += `
-                                    <tr>
-                                        <td>${doc["Name"]}</td>
-                                        <td>${doc["Category"]}</td>
-                                        <td>${doc["Description"]}</td>
-                                        <td class="text-center">&#8377;${doc["Price"]}</td>
-                                        <td><a onclick="form_('${doc["Name"]}')" id="${doc["Name"]}" href="#myModal" class="dishes btn btn-primary" data-toggle="modal">Edit</a></td>
-                                    </tr>`;
-                            }
-                    });
-                    // <!-- end for loop -->
-        data += ` 
-        </div>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        </div>`;
-    });
-
-    document.getElementById("inva").innerHTML=data;
-
-
-console.log("DATABASE");
-*/
-
-
-// dish_doc.onSnapshot((snapshot) => {
-//     snapshot.docChanges().forEach(change => {
-//         if (change.type === 'added') {
-//             // add the doc data to the page
-//         }
-//         if (change.type === 'removed') {
-//             // remove the doc data from the page
-            
-//         }
-//     });
-// });
+// try {
+// 	newOrder();
+// } catch(err) {
+// 	console.log('Error getting documents', err)
+// }

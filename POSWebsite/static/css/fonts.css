@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Vampiro+One&display=swap');
-@import url('https://allfont.net/allfont.css?fonts=scifly');
 @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Port+Lligat+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
@@ -12,8 +11,17 @@
         url('fonts/AdobeClean/AdobeClean-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
-  }
+}
 
+@font-face {
+  font-family: scifly-sans;
+  font-style: normal;
+  font-weight: 400;
+  src: local('SciFly-Sans'),
+      local('SciFly-Sans'),
+      url(http://fr.allfont.net/cache/fonts/scifly_7dfed6e19fc0f5bd0f0b5ef740a0d365.woff) format('woff'),
+      url(http://fr.allfont.net/cache/fonts/scifly_7dfed6e19fc0f5bd0f0b5ef740a0d365.ttf) format('truetype')
+}
 /*
     font-families:
     Parisienne 

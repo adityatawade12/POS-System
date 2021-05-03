@@ -11,10 +11,11 @@
 }
 .card
 {
-    /*padding: 2%;*/
+    padding: 2%;
     background-color: blanchedalmond;
-    box-shadow: 10px;
-    /* width: 50vw; */
+    border-radius: 17px;
+    box-shadow: 0 6px 10px -4px rgb(0 0 0 / 15%);
+    transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
 }
 .swanny
 {
@@ -293,7 +294,8 @@
     background: transparent;
 }
 .col ::-webkit-scrollbar-thumb {
-    background: #ffebcd47;
+    background: #b99e7a8a;
+    border-radius: 5px;
 }
 
 #finalL{
