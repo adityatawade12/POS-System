@@ -79,13 +79,6 @@ def signup(request):
             print(str(e))
             return JsonResponse({"success": 'no',"error":str(e)})
             # return redirect('/accounts/signup')
-        #     return JsonResponse({"success": 'yes', "message": msg})
-        #     return redirect('/menu')
-        # except Exception as e:
-        #     # msg = str(e)
-        #     print(str(e))
-        #     return JsonResponse({"success": 'no', "message": msg})
-        #     return render('/accounts/signup', {"message": msg})
     else:    
         us=authe.current_user
         return render(request,'signup.html',{"us":us})

@@ -76,17 +76,32 @@ def menuCart(request):
 
 def check(request):
     us=curuser(request)
-    
+   
     cart=menuCart(request)
     # print(len(cart))
     if us==None:
         return redirect('/accounts/login')
-    elif cart==None:
-        return redirect('/accounts/login')
-    elif len(cart)==0:
-        return redirect('/menu')
+    else:
+        currorder = db.collection(u'currentOrders').where(u'user_id', u'==', us['localId']).get()
+        past = db.collection(u'pastOrders').where(u'user_id', u'==', us['localId']).get()
+
+        if len(currorder) != 0:
+            return redirect('/orders/history')
+        # elif cart==None:
+        #     return redirect('/accounts/login')
+        elif len(cart)==0:
+            return redirect('/menu')
     
-    return render(request,'checkout.html',{"us":us,"cart":cart})
+    empty_past = False
+    empty_curr = False
+    
+    if len(past) == 0:
+        empty_past = True
+    if len(currorder) == 0:
+        empty_curr = True
+        print('no curr orders')
+    
+    return render(request,'checkout.html',{"us": us,"cart": cart, "emptyPast": empty_past, "emptyCurr": empty_curr})
 
 
 def confirm(request):
@@ -99,7 +114,7 @@ def confirm(request):
             
             timestamp=datetime.datetime.now()
             us=curuser(request)
-            print(type(cart))
+            # print(type(cart))
             data = {
             u'cart': cart,
             u'user_email':  us['email'],
@@ -113,12 +128,11 @@ def confirm(request):
             u'notify': int(1)
             }
             db.collection(u'currentOrders').add(data)
-            # ****************************************************************** (1+1 orders not permitted) clause remaining
+
             db.collection(u'users').document(us['localId']).update({u'cart':[]})
             return JsonResponse({
-                
-                'operation_status': 'ok'
 
+                'operation_status': 'ok'
             })
         except:
             return JsonResponse({
@@ -184,6 +198,9 @@ def feedback(request):
         date=request.POST.get("date")
         time=request.POST.get("time")
         msg=request.POST.get("msg")
+        star=int(request.POST.get("star"))
+
+        # print(star)
         timestamp=datetime.datetime.now()
     feed = {
         u'subject' : subject,
@@ -194,6 +211,7 @@ def feedback(request):
         u'date' : date,
         u'time' : time,
         u'msg' : msg,
+        u'star' : star,
         u'timestamp':timestamp
     }
     db.collection(u'feedbacks').add(feed)
@@ -211,12 +229,12 @@ def currOrders(request):
                 curr = d.to_dict()
 
         for d in doc2:
-            print(d)
+            # print(d)
             if d.to_dict()['user_id'] == us['localId']:
                 past.append(d.to_dict())
 
-        print("current orders:",curr)
-        print("past orders:",past)
+        # print("current orders:",curr)
+        # print("past orders:",past)
 
         return render(request,'history.html',{"us":us,"currOrder":curr, "pastOrders":past})
     else:

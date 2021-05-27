@@ -116,7 +116,7 @@
 									<div class="col-6">&#8377;{{item.totalPrice }}</div>
                                                                 </div>
                                                         </div>
-                                                        <div class="col-2"><span onclick='deleteItem("{{item.itemName}}")'><i class='fa fa-trash'></i></span></div>
+                                                        <div class="col-2"><span class="{{item.itemName}}"><i class='fa fa-trash'></i></span></div>
                                                 </div>
                                                 {% endfor %}
 					{% else %}
@@ -124,7 +124,7 @@
 							<div style="text-align: center; ">
 								Your Cart is empty!<br>
 								<i class="fas fa-cart-plus"></i><br>
-								Add an item to the cart to display it here.
+								Add an item to the cart to get started.
 							</div>
 						</div>
 					{% endif %}

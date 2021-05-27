@@ -17,6 +17,10 @@ const csrftoken = getCookie('csrftoken');
 var subT=0;
 var grnT=0;
 var cart = JSON.parse(document.getElementById('cart').textContent);
+var emptyPast = JSON.parse(document.getElementById('emptyPast').textContent);
+var emptyCurr = JSON.parse(document.getElementById('emptyCurr').textContent);
+console.log("past: ", emptyPast, "curr: ", emptyCurr);
+
 console.log(cart);
 updateTotal(cart);
 
@@ -119,7 +123,12 @@ function updateTotal(cart){
     console.log(subT);
     grnT=1.05*subT;
     console.log(grnT);
+    if (emptyPast) {
+      grnT = 0.7 * grnT;
+      $(".discount").html('<h6>First Order Discount:&emsp13;<span>30%</span></h6>')
+    }
     $(".subT").html('<h6>Sub-Total:&emsp13;&#8377;<span>'+subT+'</span></h6>')
+    grnT = grnT.toFixed();
     $(".grnT").html('<h6>Grand-Total:&emsp13;&#8377;<span>'+grnT+'</span></h6>')
 }
 
