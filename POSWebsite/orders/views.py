@@ -198,6 +198,9 @@ def feedback(request):
         date=request.POST.get("date")
         time=request.POST.get("time")
         msg=request.POST.get("msg")
+        star=int(request.POST.get("star"))
+
+        # print(star)
         timestamp=datetime.datetime.now()
     feed = {
         u'subject' : subject,
@@ -208,6 +211,7 @@ def feedback(request):
         u'date' : date,
         u'time' : time,
         u'msg' : msg,
+        u'star' : star,
         u'timestamp':timestamp
     }
     db.collection(u'feedbacks').add(feed)

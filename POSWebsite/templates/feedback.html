@@ -66,15 +66,15 @@
 				<br>
 				<div id="divstar">
 					<span>
-						<input class="star star-5" id="star-5" type="radio" name="star"/>
+						<input class="star star-5" id="star-5" value="5" type="radio" name="star"/>
 						<label class="star fas fa-star star-5" for="star-5"></label>
-						<input class="star star-4" id="star-4" type="radio" name="star"/>
+						<input class="star star-4" id="star-4" value="4" type="radio" name="star"/>
 						<label class="star fas fa-star star-4" for="star-4"></label>
-						<input class="star star-3" id="star-3" type="radio" name="star"/>
+						<input class="star star-3" id="star-3" value="3" type="radio" name="star"/>
 						<label class="star fas fa-star star-3" for="star-3"></label>
-						<input class="star star-2" id="star-2" type="radio" name="star"/>
+						<input class="star star-2" id="star-2" value="2" type="radio" name="star"/>
 						<label class="star fas fa-star star-2" for="star-2"></label>
-						<input class="star star-1" id="star-1" type="radio" name="star"/>
+						<input class="star star-1" id="star-1" value="1" type="radio" name="star"/>
 						<label class="star fas fa-star star-1" for="star-1"></label>
 					</span>
 					<!-- <input class="star star-1" id="star-1" type="radio" name="star"/>
@@ -90,7 +90,7 @@
 				</div>
 				<br><br>
 
-				<label for="msg">Suggestions</label>
+				<label for="msg">Suggestions/Remarks</label>
 				<br><br>
 				<textarea type="text" name="msg" required rows="4"></textarea>
 				<br><br>
@@ -103,4 +103,6 @@
 	</div>
 
 	<script src="{% static 'js/feedback.js' %}"></script>
+
+
 {% endblock tail %} 

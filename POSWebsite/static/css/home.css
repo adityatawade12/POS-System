@@ -394,3 +394,32 @@ marquee {
     padding: 0.5px 0px;
     border-radius: 100%;
 }
+
+#feedback {
+    border-top-right-radius: 90px;
+    border-bottom-left-radius: 90px;
+    background-color: blanchedalmond;
+    min-height: 40vh;
+    display: flex;
+    justify-content: space-evenly;
+    background: url('images/ind-food.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+#feedbackCarousel {
+    min-width: 80vw;
+    display: flex;
+    align-items: center;
+}
+
+#feedback span
+{
+    font-size: 3em;
+    color: #24252a;
+}
+
+.feedback-caption {
+    color: #24252a;
+    text-align: center;
+}
