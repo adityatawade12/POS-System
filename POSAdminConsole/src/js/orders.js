@@ -1,6 +1,6 @@
 var db = firebase.firestore();
 
-var currorders=[], pastorders=[], pastordersDine=[], tables=[];
+var currorders=[], currDine=[], pastorders=[], pastordersDine=[], tables=[];
 
 
 // retrieve from the database
@@ -15,11 +15,10 @@ function orderRetrieve () {
             // console.log("change: ",change.doc.data());
             if (change.doc.data().notify === 1) {
                 // in-app notifiaction
-                showNotification('top', 'right', `
-                <b>New Order received!</b> 
+                showNotification('top', 'right', `<b>New Online Order received!</b>
                 <br> Order ID: ${change.doc.id}
                 <br> Customer Name: ${change.doc.data()['user_name']}`, 'info', 20000);
-                notified(change.doc);
+                notified(change.doc, 'currentOrders');
             }
         });
 
@@ -29,6 +28,28 @@ function orderRetrieve () {
         displayCurrOrd(currorders);
     })
 
+    // retrieve current dine-in orders
+    db.collection("currentDining").onSnapshot((snapshot) => {
+        currDine = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }))
+        
+        snapshot.docChanges().forEach(change => {
+            // console.log("change: ",change.doc.data());
+            if (change.doc.data().notify === 1) {
+                // in-app notifiaction
+                showNotification('top', 'right', `<b>New Dine-In Order received!</b>
+                <br> Order ID: ${change.doc.id}
+                <br> Customer Name: ${change.doc.data()['user_name']}`, 'info', 20000);
+                notified(change.doc, 'currentOrders');
+            }
+        });
+ 
+        displayPastOrd(pastorders);
+    })
+
+    // retireve past online orders
     db.collection("pastOrders").where("user_id", "!=", "").onSnapshot((snapshot) => {
         pastorders = snapshot.docs.map((doc) => ({
           id: doc.id,

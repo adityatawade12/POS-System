@@ -19,8 +19,8 @@ var c = 0;
 // }
 
 // once notification is done
-function notified(doc) {
-    db.collection("currentOrders").doc(doc.id)
+function notified(doc, collec) {
+    db.collection(collec).doc(doc.id)
     .update({
 		// cart: doc.data().cart,
         // user_email: doc.data().user_email,
