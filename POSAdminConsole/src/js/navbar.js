@@ -75,7 +75,7 @@ function inHead(){
     			</li>
 				<li id="feedback">
 				<a href="feedback.html">
-					<i class="nc-icon nc-badge"></i>
+					<i class="nc-icon nc-chat-33"></i>
 					<!--<i class="far fa-id-card"></i>-->
 					<p>Feedbacks</p>
 				</a>
