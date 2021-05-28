@@ -1,0 +1,7 @@
+POSWebsite/accounts/__pycache__/*
+POSWebsite/orders/__pycache__/*
+POSWebsite/*/__pycache__/
+POSWebsite/stats/__pycache__/*
+
+.vscode
+*/.vscode 

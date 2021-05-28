@@ -1,18 +1,12 @@
 @import url("fonts.css");
 
-body, html {
-  overflow: hidden;
-  height: 100%;
+body {
+  /* overflow: overlay; */
+  height: 100vh;
   color: blanchedalmond;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/restro2.jpg");height: 100vh;
+  background-size: cover;
   font-family: 'Varela Round';
-}
-
-header {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  background-position: center center;
-  position: relative;
 }
 
 .scroll-pre {
@@ -22,20 +16,30 @@ header {
 }
 
 form {
-  width: 432px;
-    height: 500px;
-    float: right;
-    background: #24252ae8;
-    margin-right: 200px;
-    margin-top: 190px;
-    padding: 10px 30px;
+  width: auto;
+  height: auto;
+  float: right;
+  background: #24252ae8;
+  margin: 11em 15%;
+  padding: 10px 30px;
 }
 
 .bgimg {
+  /* background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/login.jpg"); */
+  /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/restro2.jpg"); */
   height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/login.jpg");
-  background-size: cover;
+  /* background-size: cover; */
 } 
+
+.login-form {
+  padding: 15px;
+  height: 480px;
+}
+
+#frgt-pass {
+  float: right;
+  padding-top: 25px;
+}
 
 .credits {
   color: blanchedalmond;
@@ -50,6 +54,10 @@ form {
   vertical-align: sub;
 }
 
+label {
+  font-size: 18px;
+  color: #92897a;
+}
 input {
   width: 100%;
   margin: 8px 0px 0px 0px;
@@ -60,13 +68,21 @@ input {
   border-block-style: none;
   border-bottom-style: groove;
   border-inline: none;
+  color: blanchedalmond;
+  font-size: 20px;
+  font-family: 'Adobe Clean';
 }
 
-h1 {
+input:focus {
+  outline: none;
+  border-bottom-style: double;
+  border-color: blanchedalmond;
+}
+
+form h1 {
   font-family: 'Varela Round';
-  font-size: 50px;
+  font-size: 3.1em;
   color: blanchedalmond;
-  font-weight: 100;
 }
 
 .link {
@@ -74,59 +90,22 @@ h1 {
   color: dodgerblue;
 }
 
-/* swanand cho code */
-/* Bordered form */
-/* form {
-    border: 3px solid #f1f1f1;
-  } */
+#submit {
+  background-color: transparent;
+  color: blanchedalmond;
+  padding: 14px 20px;
+  margin-left: 90px;
+  border: 1px solid;
+  cursor: pointer;
+  width: 50%;
+  border-radius: 100px;
+  font-family: 'Varela Round';
+  font-size: 15px;
+  font-weight: bold;
+}
 
-  
-  /* Set a style for all buttons */
-  button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-  }
-  
-  /* Add a hover effect for buttons */
-  button:hover {
-    opacity: 0.8;
-  }
-
-  /* Center the avatar image inside this container */
-  .imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-  }
-  
-  /* Avatar image */
-  img.avatar {
-    width: 40%;
-    border-radius: 50%;
-  }
-  
-  /* Add padding to containers */
-  .container {
-    padding: 16px;
-  }
-  
-  /* The "Forgot password" text */
-  span.psw {
-    float: right;
-    padding-top: 16px;
-  }
-  
-  /* Change styles for span and cancel button on extra small screens */
-  @media screen and (max-width: 300px) {
-    span.psw {
-      display: block;
-      float: none;
-    }
-    .cancelbtn {
-      width: 100%;
-    }
-  }
+#submit:hover {
+  color: #24252a;
+  background-color: blanchedalmond;
+  transition: all 0.4s ease 0s;
+}

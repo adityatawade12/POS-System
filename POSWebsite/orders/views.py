@@ -134,7 +134,9 @@ def confirm(request):
 
                 'operation_status': 'ok'
             })
-        except:
+        except Exception as e:
+            print(e)
+            
             return JsonResponse({
                 
                 'operation_status': 'error'
@@ -216,8 +218,8 @@ def feedback(request):
 def currOrders(request):
     us=curuser(request)
     if us!=None:
-        doc1 = db.collection(u'currentOrders').stream()
-        doc2 = db.collection(u'pastOrders').stream()
+        doc1 = db.collection(u'currentOrders').where("user_id","==",us['localId']).stream()
+        doc2 = db.collection(u'pastOrders').where("user_id","==",us['localId']).stream()
         past = []
         curr = {}
         for d in doc1:
@@ -226,8 +228,12 @@ def currOrders(request):
 
         for d in doc2:
             # print(d)
-            if d.to_dict()['user_id'] == us['localId']:
-                past.append(d.to_dict())
+            try:
+                if d.to_dict()['user_id'] == us['localId']:
+                    past.append(d.to_dict())
+            except:
+                pass
+
 
         # print("current orders:",curr)
         # print("past orders:",past)
