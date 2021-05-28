@@ -1,0 +1,23 @@
+{
+    "name": "LE MIEUX ADMIN",
+    "short_name": "LM AC",
+    "start_url":  "index.html",
+
+    "icons": [
+      {
+        "src": "icons/main-192.jpg",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "maskable any"
+      },
+      {
+        "src": "icons/main-512.jpg",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "maskable any"
+      }
+    ],
+    "background_color": "#24252a",
+    "theme_color": "#24252a",
+    "display": "standalone"
+}

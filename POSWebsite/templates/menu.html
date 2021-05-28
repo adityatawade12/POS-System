@@ -59,7 +59,7 @@
                                                                                                 <h5 class="card-title-1" style="font-size: 1.1em;font-weight: bold;">
                                                                                                         {{item.Name}}
                                                                                                 </h5>
-                                                                                        </div>
+                                                                                        </div> 
                                                                                         <div id="desrc">
                                                                                                 <p class="card-text" style="font-size: 0.8em;  ">
                                                                                                         {{item.Description}}</p>
@@ -131,5 +131,26 @@
         {{ items|json_script:"items" }}
         {{ cartitems|json_script:"cartitems" }}
         <script src="{% static 'js/menu.js' %}"></script>
+        <script>
+                window.onload = window.onresize = function cart_h() {
+                        var cart = document.getElementsByClassName("_cart")[0];
+                        var cont = document.getElementsByClassName("cont1")[0];
+                        console.log("cart:",cart.offsetHeight,"cont1:",cont.offsetHeight);
+                        
+                        let marginTop = parseInt(getComputedStyle(cart).marginTop);
+                        let marginBottom = parseInt(getComputedStyle(cart).marginBottom);
+                        console.log(marginTop, marginBottom)
+                        
+                        if (window.innerWidth > 992) {
+                                if (cart.clientHeight < cont.clientHeight) {
+                                        cart.style.height = cont.offsetHeight - (marginBottom + marginTop + 110) + "px";
+                                }
+                        }
+                        else {
+                                cart.style.height = "16.5em";       
+                        }
+                        console.log("cart:",cart.offsetHeight,"cont1:",cont.offsetHeight);
+                }
+        </script>
         
 {% endblock tail %}

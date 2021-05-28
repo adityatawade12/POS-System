@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+  	<title>Orders</title>
+	<link rel="stylesheet" href="{% static 'css/history.css' %}">
+
+</head>
+<body>
+  	<header>
+		{% endblock content %}
+		{% block tail %}
+	</header>
+
+    <div class="scroll-pre"></div>
+    
+    <div class="container _order">
+        <div class="card" style="margin: 5em auto; width: 60vw;">
+            <div class="card-header">
+                <h1>CURRENT ORDER</h1>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary heading">
+                            <th class="text-center"><b>Food Item</b></th>
+                            <th class="text-center"><b>Quantity</b></th>
+                            <th class="text-center"><b>Price</b></th>
+                        </thead>
+                        <tbody>
+                            <div class="scroll">
+                                {% for item in currOrder %}
+                                    <tr>
+                                        <td class="text-center"><b>{{item.itemName}}</b></td>
+                                        <td class="text-center"><b>{{item.itemQty}}</b></td>
+                                        <td class="text-center"><b>&#8377;{{item.totalPrice}}</b></td>
+                                    </tr>
+                                {% endfor %}
+                            </div>
+                        </tbody>
+                    </table>
+                    
+                    <div style="border-top: solid #432818; border-width: 2px 0px; text-align: center; font-size: 1.2em; font-family: 'Varela Round';">
+                        <b>Total:&emsp13;<span>&#8377;{{ order.total }}</span></b>
+                        <br>
+                        <b>Address:&emsp13;<span>{{ order.address }}</span></b>
+                        <br>
+                        <b>Time:&emsp13;<span>{{ order.timestamp }}</span></b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <span>
+            <img src="/static/css/images/delivery2.jpg">
+        </span>
+    </div>
+
+    <div class="container _order">
+        <div style="margin: 5em auto; width: 70vw;">
+            <h1>PAST ORDERS</h1>
+            <br>
+            <div style="border-bottom: 2px solid #432818;">
+                <div class="row heading">
+                    <div class="col-2"><b>Date & Time</b></div>
+                    <div class="col-5"><b>Items</b></div>
+                    <div class="col-2"><b>Total</b></div>
+                    <div class="col-3"><b>Address</b></div>
+                </div>
+                <div class="scroll">
+                    {% for detail in pastOrders %}
+                        <div class="row">
+                            <div class="col-2"><b>{{ detail.timestamp }}</b></div>
+                            <div class="col-5"><b>Items</b></div>
+                            <div class="col-2"><b>{{ detail.total }}</b></div>
+                            <div class="col-3"><b>{{ detail.address }}</b></div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock tail %}

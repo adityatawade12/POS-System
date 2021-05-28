@@ -16,7 +16,8 @@
     <!-- <div class="scroll-pre"></div> -->
     
     <div class="bgimg">
-      <form action="/accounts/signup" method="POST">
+      <!-- <form action="#" > -->
+        <div class="form">
         {% csrf_token %}
         <div class="container">
           <h1>Sign Up</h1>
@@ -28,35 +29,43 @@
           <br><br>
           
           <label for="email">Email</label>
-          <input type="text" id="email" name="email" required>
+          <input type="email" id="email" name="email" required>
           <br><br>
           
           <label for="password">Password</label>
-          <input type="password" name="password" required>
+          <input type="password" id="password" name="password" minlength="6" required>
           <br><br>
           
-          <label for="psw-repeat">Repeat Password</label>
+          <!-- <label for="psw-repeat">Repeat Password</label>
           <input type="password" id="password-rpt" name="psw-repeat" required>
-          <br><br>
+          <br><br> -->
 
-          <label for="add">Address</label>
-          <input type="text" name="address" required>
-          <br><br>
+          <!-- <label for="add">Address</label>
+          <input type="text" id="address" name="address" required>
+          <br><br> -->
           
           <label for="cont">Contact Number</label>
-          <input type="text" name="phone" required>
+          <input type="text" id="phone" name="phone" required>
           <br><br>
         
           <p>By creating an account you agree to our <a href="#" class="link">Terms & Privacy</a>.</p>
           <br>
             
           <div>
-            <button type="submit" id="submit">Create account</button>
+            <button  id="submit">Create account</button>
           </div>
         </div>
-      </form>
+      <!-- </form> -->
+    </div>
     </div>
 
+    <div id="successMod" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content" style="top:40%">
+        <!-- <span id="close" class="close">&times;</span> -->
+        <p class="errorBox" style="color: blanchedalmond;"></p>
+      </div>
+  </div>
     <!-- <div class="credits"><img src="{% static 'css/images/camera.png' %}" alt="">: Daniel Krieger</div> -->
   
     <script src="{% static 'js/signup.js' %}"></script>

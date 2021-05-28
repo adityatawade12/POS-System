@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "target": "kc",
+    "public": "src",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

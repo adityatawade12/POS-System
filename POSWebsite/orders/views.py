@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 import accounts.views  
 from firebase_admin import firestore
 import json
@@ -78,7 +78,14 @@ def check(request):
     us=curuser(request)
     
     cart=menuCart(request)
-
+    # print(len(cart))
+    if us==None:
+        return redirect('/accounts/login')
+    elif cart==None:
+        return redirect('/accounts/login')
+    elif len(cart)==0:
+        return redirect('/menu')
+    
     return render(request,'checkout.html',{"us":us,"cart":cart})
 
 
@@ -92,7 +99,7 @@ def confirm(request):
             
             timestamp=datetime.datetime.now()
             us=curuser(request)
-            
+            print(type(cart))
             data = {
             u'cart': cart,
             u'user_email':  us['email'],
@@ -104,7 +111,7 @@ def confirm(request):
             u'total':total
             }
             db.collection(u'currentOrders').document(us['localId']).set(data)
-            # db.collection(u'users').document(us['localId']).set({u'cart':[]})
+            db.collection(u'users').document(us['localId']).update({u'cart':[]})
             return JsonResponse({
                 
                 'operation_status': 'ok'
@@ -125,18 +132,15 @@ def getAddress(request):
         doc_ref = db.collection(u'users').document(us['localId'])
 
         doc = doc_ref.get()
-        if doc.exists:
-           addDoc=doc.to_dict()
-           
-           try: 
+        try: 
+            if doc.exists:
+                addDoc=doc.to_dict()
                 n=json.dumps(addDoc['Addresses'])
-                return JsonResponse({"add":n}) 
-                
-           except:
-                return JsonResponse({"status":"error"})
-        else:
-            print(u'No such document!')
-
+                return JsonResponse({"add":n})
+            # else:
+            #     print(u'No such document!')
+                # return JsonResponse({"status":"error"})
+        except:
             return JsonResponse({"status":"error"})
         
     else:
@@ -191,3 +195,14 @@ def feedback(request):
     }
     db.collection(u'feedbacks').add(feed)
     return render(request,"feedback.html")
+
+def currOrders(request):
+    us=curuser(request)
+    if us!=None:
+        doc = db.collection(u'currentOrders').document(us['localId'])
+        docs=doc.get().to_dict()
+        # print("current orders:",docs)
+        currOrder=docs['cart']
+        return render(request,'history.html',{"us":us,"currOrder":currOrder, "order":docs})
+    else:
+        return redirect('/accounts/login')

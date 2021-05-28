@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>le mieux</title>
+  <!-- materialize icons, css & js -->
+  <link type="text/css" href="css/materialize.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" href="css/styles.css" rel="stylesheet">
+  <link rel="manifest" href="manifest.json">
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+  <!-- top nav -->
+  <nav>
+    <div class="nav-wrapper container">
+      <div class="logo">
+
+      </div>
+      <a href="index.html">le mieux</span></a>
+      <span class="right grey-text text-darken-1">
+        <i class="material-icons sidenav-trigger" data-target="side-menu">menu</i>
+      </span>
+    </div>
+  </nav>
+
+  <!-- side nav -->
+  <ul id="side-menu" class="sidenav side-menu">
+    <li><a class="subheader">le mieux</a></li>
+    <li><a href="pages/menu.html" class="waves-effect">Home</a></li>
+    <li><a href="pages/about.html" class="waves-effect">About</a></li>
+    <li>
+      <div class="divider"></div>
+    </li>
+    <li><a class="waves-effect">
+        <div class="tab-but">Table-1</div>
+      </a></li>
+    <li><a class="waves-effect">
+        <div class="tab-but">Table-2</div>
+      </a></li>
+    <li><a class="waves-effect">
+        <div class="tab-but">Table-3</div>
+      </a></li>
+    <li><a class="waves-effect">
+        <div class="tab-but">Table-4</div>
+      </a></li>
+    <li><a class="waves-effect">
+        <div class="tab-but">Table-5</div>
+      </a></li>
+    <li>
+      <div class="divider"></div>
+    </li>
+    <li><a href="pages/contact.html" class="waves-effect">
+        <i class="material-icons">mail_outline</i>Contact</a>
+    </li>
+  </ul>
+
+
+
+  <!-- recipes -->
+  <div id="dis">
+    <div class="recipes container grey-text text-darken-1">
+
+      <div class="card-head">
+        <h4 class="card-title"></h4>
+      </div>
+
+      <div class="card-panel recipe white row">
+        <div class="img" style="background-image: url('img/dish.png');">
+
+        </div>
+        <div class="recipe-details">
+          <div class="recipe-title">Edame Noodles</div>
+          <div class="recipe-ingredients">Edame Beans, Noodels, Garlic oil</div>
+        </div>
+        <div class="recipe-delete">
+          <div class="center">
+            <a class="btn-floating btn-small btn-large add-btn sidenav-trigger" data-target="side-form">
+              <i class="material-icons cart" onclick="displayCart()">add</i>
+            </a>
+          </div>
+          <div class="center mod">
+            <a class="btn-floating btn-small btn-large add-btn sidenav-trigger" data-target="side-form">
+              <i class="material-icons cart" onclick="displayCart()">subtract</i>
+              <i class="material-icons cart" onclick="displayCart()">add</i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!--<div class="center">
+    <a class="btn-floating btn-small btn-large add-btn sidenav-trigger" data-target="side-form" onclick="displayCart()">
+      <i class="material-icons addB">add</i>
+    </a>
+  </div>-->
+
+  <!-- add recipe side nav -->
+  <div id="side-form" class="sidenav side-form side-cart">
+    <div class="Clogo">
+    </div>
+    <div id="cartbody">
+      <div class="rec-cart">
+        <div class="carthead">
+          <h4>Snacks</h4>
+        </div>
+        <div class="row" style="border: 1px solid black;">
+          <div class="col s6" style="border: 1px solid black;">
+            Veg Machurian
+          </div>
+          <div class="col s3" style="border: 1px solid black;">
+            2
+          </div>
+          <div class="col s3" style="border: 1px solid black;">
+            600
+          </div>
+        </div>
+        <div>
+          <button id="check-btn" onclick="checkout()">Checkout</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
+
+  <!--<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCz5fn67lLevVtDgpVWGrnTa1gsPDvn6kM",
+      authDomain: "pwa-web-app-temp.firebaseapp.com",
+      projectId: "pwa-web-app-temp",
+      storageBucket: "pwa-web-app-temp.appspot.com",
+      messagingSenderId: "482937537463",
+      appId: "1:482937537463:web:ab404054098816b87a1e32"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>-->
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="/__/firebase/8.3.1/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="/__/firebase/8.3.1/firebase-analytics.js"></script>
+
+  <!-- Initialize Firebase -->
+  <script src="/__/firebase/init.js?useEmulator=true"></script>
+  <!-- Add Firebase products that you want to use -->
+  <script src="/__/firebase/8.3.1/firebase-auth.js"></script>
+  <script src="/__/firebase/8.3.1/firebase-firestore.js"></script>
+
+  <script src="js/app.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/ui.js"></script>
+
+  <script>
+    dataRetrieval();
+    displayCart();
+    Indicart();
+  </script>
+</body>
+
+</html>

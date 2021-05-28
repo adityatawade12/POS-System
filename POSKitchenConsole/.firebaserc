@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "mkstrial-91474"
+  },
+  "targets": {
+    "mkstrial-91474": {
+      "hosting": {
+        "kc": [
+          "le-mieux-kitchen-console"
+        ]
+      }
+    }
+  }
+}

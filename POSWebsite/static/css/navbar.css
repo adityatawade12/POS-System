@@ -141,6 +141,14 @@ li, a {
     background-color: blanchedalmond;
     color: #24252a;
 }
+._drop a:hover {
+    text-decoration: underline !important;
+    color: blanchedalmond;
+} 
+._drop li a:hover{
+    text-decoration: none;
+    background: transparent;
+}
 /* NAV ITEMS END */
 
 /* CHANGES IN BOOTSTRAP */

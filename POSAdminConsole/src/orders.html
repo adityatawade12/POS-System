@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  	<title>Orders</title>
+
+	<link rel="icon" type="image/png" href="icons/admin.png">
+
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	<script src="js/navbar.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+	<script type="text/javascript">
+			inHead();
+	</script>
+
+	<style>
+		.table-responsive { overflow: hidden !important; }
+	</style>
+
+    <div class="content">
+        <div class="row">
+			<div class="col-md-12">
+				<div class="card">
+				<div class="card-header">
+					<h4 class="card-title" style="-webkit-text-stroke: thin;">Ongoing Orders</h4>
+					<!-- <p class="card-category">Customer Name: Bill Gates</p> -->
+					<div id="order">
+					
+					</div>
+				</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="card card-plain">
+					<div class="card-header">
+						<h4 class="card-title" style="-webkit-text-stroke: thin;">Past Orders</h4>
+						<p class="card-category"> Here is a subtitle for this table</p>
+					</div>
+				<div class="card-body">
+					<div class="table-responsive">
+					<table class="table">
+						<thead class=" text-primary">
+						<th>
+							Name
+						</th>
+						<th>
+							Country
+						</th>
+						<th>
+							City
+						</th>
+						<th class="text-right">
+							Salary
+						</th>
+						</thead>
+						<tbody>
+						<tr>
+							<td>
+							Dakota Rice
+							</td>
+							<td>
+							Niger
+							</td>
+							<td>
+							Oud-Turnhout
+							</td>
+							<td class="text-middle">
+							$36,738
+							</td>
+						</tr>
+						</tbody>
+					</table>
+					</div>
+				</div>
+				</div>
+			</div> 
+		</div>
+    </div>
+    
+
+    <script type="text/javascript">
+        foot();
+        active('orders');
+    </script>
+
+	<script src="js/orders.js"></script>
+	<script>
+		try {
+			orderRetrieve();
+		} catch(err) {
+			console.log('Error getting documents', err)
+		}
+	</script>
+
+</body>
+</html>
