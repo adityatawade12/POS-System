@@ -1,11 +1,19 @@
 @import url("fonts.css");
 
+.selector-for-some-widget {
+    box-sizing: content-box;
+}
+
 * {
-    box-sizing: border-box; 
+    /* box-sizing: border-box;  */
     margin: 0;
     padding: 0;
     line-height: 1.5;
     /* background-color: #24252a; */
+}
+
+body {
+    overflow: overlay;
 }
 
 img {
@@ -17,6 +25,21 @@ li, a {
     font-weight: 500;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+} 
+ 
+::-webkit-scrollbar-thumb {
+  background: rgba(197, 189, 181, 0.705);
+  border-radius: 2em;
+}
+  
+::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 10px 0;
+}
+    
+
 /* NAVBAR */
 .barnav {
     position: fixed;
@@ -25,7 +48,7 @@ li, a {
     width: 100%;
     background: #24252a;
     color: #ffebcd;
-    padding: 0px 60px;
+    padding: 0em 4em;
     transition: all 0.3s ease 0s;
     z-index:500 ;
     /*
@@ -37,17 +60,39 @@ li, a {
     */
 }
 
-.barnav li {
-    font-size: 20px;
-}
-
 /* NAVBAR ITEMS */
-.navi {
-    text-decoration: none;
+/* COMPANY LOGO AND NAME */
+.logo {
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+}
+.company {
+    float: left;
+    padding: 0px 10px 0px 0px;
+    font-size: 47px;
+    /* font-style: italic; */
+    color: blanchedalmond;
+    /* font-family: 'Parisienne', cursive; */
+    /* font-family: 'Vampiro one'; */
+    font-family: 'Cedarville Cursive', cursive;
+    display: flex;
+    height: 89.6px;
+    align-items: center;
+    justify-content: center;
+    z-index: 600;
+}
+.company div {
+    float: right;
+}
+.company:hover {
+    /* filter: drop-shadow(1px 1px 0.3px cyan); */
+    filter: drop-shadow(1px 1px 10px black);
+    color: blanchedalmond;
 }
 
 .navi li {
-    /* font-size: 20px; */
+    font-size: 20px;
     color: #ffebcd;
     list-style: none;
     font-family: 'Varela Round';
@@ -57,12 +102,7 @@ li, a {
 .nav_item {
     cursor: pointer;
     margin-bottom: 0;
-    float: right;
-}
-
-.nav_item a {
-    display: inline-block;
-    padding: 30px 20px;
+    float: right !important;
 }
 
 .nav_item li a {
@@ -71,38 +111,142 @@ li, a {
 }
 
 .navi:hover {
-    transition: all 0.3s ease 0s;
+    transition: all 0.5s ease 0.1s;
     background: blanchedalmond;
 }
 .navi:hover li{
-    transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0.1s;
     color: #24252a;
 }
 
-/* COMPANY LOGO AND NAME */
-.logo {
-    cursor: pointer;
-    width: 80px;
-    height: 80px;
-}
-
-.company {
-    float: left;
-    padding: 9px 10px 0px 0px;
-    font-size: 47px;
-    /* font-style: italic; */
+._drop a {
     color: blanchedalmond;
-    /* font-family: 'Parisienne', cursive; */
-    /* font-family: 'Vampiro one'; */
-    font-family: 'Cedarville Cursive', cursive;
-    vertical-align: middle;
+    background-color: #24252a;
+    font-family: 'Varela Round';
 }
 
-.company div {
-    float: right;
+._drop {
+    background-color: #24252a !important;
+    color: #24252a;
+}
+._drop hr {
+    background-color: blanchedalmond;
+    color: blanchedalmond;
 }
 
-.company:hover {
-    /* filter: drop-shadow(1px 1px 0.3px cyan); */
-    filter: drop-shadow(1px 1px 10px black);
+._down {
+    color: blanchedalmond;
+    text-decoration: none;
+    /* padding: 30px 20px; */
+}
+._down:hover {
+    background-color: blanchedalmond;
+    color: #24252a;
+}
+._drop a:hover {
+    text-decoration: underline !important;
+    color: blanchedalmond;
+} 
+._drop li a:hover{
+    text-decoration: none;
+    background: transparent;
+}
+/* NAV ITEMS END */
+
+/* CHANGES IN BOOTSTRAP */
+.navbar {
+    background-color: #24252a;
+    padding: 0 1em !important;
+}
+    
+.navbar-collapse {
+    flex-grow: 0 !important;
+}
+
+.navbar-toggler {
+    border: 1px solid blanchedalmond !important;
+}
+    
+.navbar-toggler:focus {
+    box-shadow: blanchedalmond 0 0 0 0.15rem !important;
+}
+/* CHANGES IN BOOTSTRAP END */
+
+/* WINDOW SIZE SPECIFIC CHANGES */
+@media (max-width: 992px) {
+    .navi:hover {
+        transition: all 0.5s ease 0.1s;
+        background: transparent;
+    }
+    .navi:hover li{
+        transition: all 0.4s ease 0.1s;
+        /* text-decoration: underline; */
+        color: blanchedalmond;
+    }
+    ._down:hover {
+        color: blanchedalmond;
+    }
+}
+
+@media (min-width: 992px) {
+    .navi {
+        text-decoration: none;
+        padding: 30px !important;
+    }
+}
+/* WINDOW SIZE SPECIFIC CHANGES END*/
+
+
+footer {
+    background-color: #24252a;
+    color: blanchedalmond;
+    font-family: 'Varela Round';
+    font-size: 1em;
+    padding: 2em 5em;
+    margin-top: 5em;
+}
+
+footer .container {
+    /* display: flex;
+    justify-content: center; */
+    text-align: center;
+}
+
+footer .click {
+    text-decoration: none;
+    /* color: dodgerblue; */
+    background-color: transparent;
+    color: blanchedalmond;
+    padding: 0.35em;
+    border: 1px solid;
+    cursor: pointer;
+    width: auto;
+    border-radius: 100px;
+    font-size: 0.8em;
+}
+
+footer .click:hover {
+    color: #24252a;
+    background-color: blanchedalmond;
+    transition: all 0.4s ease 0s;
+}
+
+#bottom {
+    font-size: 0.8em;
+    text-align: center;
+    color: rgb(143, 127, 105);
+}
+
+footer li {
+    list-style: none;
+}
+
+footer .link {
+    text-decoration: none;
+    color: blanchedalmond;
+}
+
+footer .link:hover {
+    color:blanchedalmond;
+    text-decoration: underline;
 }
