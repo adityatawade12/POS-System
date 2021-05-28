@@ -12,7 +12,16 @@ from orders.views import db
 def home(request):
 
     us=curuser(request)
-    return render(request,'home.html',{'us':us})
+
+    docs = db.collection(u'feedbacks')
+    fbs = docs.where(u'display', u'==', True).stream()
+
+    feedbacks=[]
+    for doc in fbs:
+        feedbacks.append(doc.to_dict())
+    # print(feedbacks)
+
+    return render(request,'home.html',{'us':us,'feeds':feedbacks})
 
 def home1(request):
     return redirect('/home')
@@ -20,8 +29,8 @@ def home1(request):
 def menu(request):
     items=menuItems()
     category = menuCategory(items)
-    print(items)
-    print(category)
+    # print(items)
+    # print(category)
 
     us=curuser(request)
     cartItems=menuCart(request)

@@ -212,6 +212,7 @@ def feedback(request):
         u'time' : time,
         u'msg' : msg,
         u'star' : star,
+        u'display' : False,
         u'timestamp':timestamp
     }
     db.collection(u'feedbacks').add(feed)
@@ -229,9 +230,13 @@ def currOrders(request):
                 curr = d.to_dict()
 
         for d in doc2:
-            # print(d)
-            if d.to_dict()['user_id'] == us['localId']:
-                past.append(d.to_dict())
+            # print("past orders: ",d.to_dict())
+            # iff userid exists, proceed
+            if 'user_id' in d.to_dict():
+                print("id",d.to_dict()['user_name'], " us: ", us['localId'])
+                if d.to_dict()['user_id'] == us['localId']:
+                    print("past orders: ",d.to_dict())
+                    past.append(d.to_dict())
 
         # print("current orders:",curr)
         # print("past orders:",past)
