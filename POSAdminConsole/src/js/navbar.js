@@ -125,35 +125,35 @@ function inHead(){
     				</div>
     				</form> -->
     				<ul class="navbar-nav">
-    				<li class="nav-item">
+    			<!--	<li class="nav-item">
     					<a class="nav-link btn-magnify" href="javascript:;">
     					<i class="nc-icon nc-layout-11"></i>
     					<p>
     						<span class="d-lg-none d-md-block">Stats</span>
     					</p>
     					</a>
-    				</li>
+    				</li> -->
     				<li class="nav-item btn-rotate dropdown">
     					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    						<i class="fas fa-bell"></i>
+    						<i class="nc-icon nc-circle-10"></i>
     						<p>
-    							<span class="d-lg-none d-md-block">Some Actions</span>
+    							<span class="d-md-block">Admin</span>
     						</p>
     					</a>
     					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-    					<a class="dropdown-item" href="#">Action</a>
-    					<a class="dropdown-item" href="#">Another action</a>
-    					<a class="dropdown-item" href="#">Something else here</a>
+						<!--	<a class="dropdown-item" href="#">Action</a>
+    					<a class="dropdown-item" href="#">Another action</a> -->
+    					<a class="dropdown-item" href="#" onclick="logout()">Logout</a>
     					</div>
     				</li>
-    				<li class="nav-item">
+    				<!-- <li class="nav-item">
     					<a class="nav-link btn-rotate" href="javascript:vois(0);">
     						<i class="fas fa-cog"></i>
     						<p>
     							<span class="d-lg-none d-md-block">Account</span>
     						</p>
     					</a>
-    				</li>
+    				</li> -->
     				</ul>
     			</div>
     			</div>
@@ -178,6 +178,8 @@ function foot(){
     		</footer>
     		</div>
     	</div>
+	
+
       <!--   Core JS Files   -->
       <script src="js/core/jquery.min.js"></script>
       <script src="js/core/popper.min.js"></script>
@@ -214,7 +216,12 @@ function foot(){
       <script src="/__/firebase/8.3.1/firebase-auth.js"></script>
       <script src="/__/firebase/8.3.1/firebase-firestore.js"></script>
 
-	<script src="database.js"></script>
+	  <script src="database.js"></script>
+
+		<script>
+			let user = checkuser();
+			console.log("user:", user);
+		</script>
 
     `);
 }

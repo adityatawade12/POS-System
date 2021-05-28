@@ -12,8 +12,8 @@ function orderRetrieve () {
         }))
 
         snapshot.docChanges().forEach(change => {
-            // console.log("change: ",change.doc.data());
             if (change.doc.data().notify === 1) {
+                console.log("ORDER.JS NOTIFICATION\nchange: ",change.doc.data());
                 // in-app notifiaction
                 showNotification('top', 'right', `<b>New Online Order received!</b>
                 <br> Order ID: ${change.doc.id}
@@ -41,12 +41,13 @@ function orderRetrieve () {
                 // in-app notifiaction
                 showNotification('top', 'right', `<b>New Dine-In Order received!</b>
                 <br> Order ID: ${change.doc.id}
-                <br> Customer Name: ${change.doc.data()['user_name']}`, 'info', 20000);
-                notified(change.doc, 'currentOrders');
+                <br> Table: ${change.doc.data()['table']}
+                <br> Waiter: ${change.doc.data()['waiter']}`, 'info', 20000);
+                notified(change.doc, 'currentDining');
             }
         });
- 
-        displayPastOrd(pastorders);
+
+        displayCurrDine(currDine);
     })
 
     // retireve past online orders
@@ -84,7 +85,7 @@ function orderRetrieve () {
             // }
         });
 
-        console.log("pastorders: ", pastorders, "pastorders dine: ", pastordersDine, "currorders: ", currorders);
+        console.log("pastorders: ", pastorders, "pastorders dine: ", pastordersDine, "currorders: ", currorders, "currDineorders: ", currDine);
         displayPastOrdDine(pastordersDine);
     });
 }
@@ -156,6 +157,75 @@ function displayCurrOrd(currorders) {
     document.getElementById('COrder').innerHTML = data;
 }
 
+function displayCurrDine(currDine) {
+    console.log("Curr dine print")
+
+    let data = ``;
+
+    if (currDine.length == 0) {
+        data = `
+        <div class="card">
+        <div class="card-header">
+            <p class="card-category">
+                There are no orders placed currently.
+            </p>
+        </div>
+        `;
+    }
+    else {
+        currDine.forEach(curor => {
+            // console.log(`category: ${cat}`)
+            console.log("curor:", curor.id)
+            data += `
+            <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Order ID: ${curor.id}</h4>
+                        <p class="card-category">
+                            Table: ${curor.table}<br>
+                            Waiter: ${curor.waiter}<br>
+                            Time: ${new Date(curor["timestamp"])}
+                            </p>
+                        <a class="btn btn-primary" onclick="deliverDine('${curor.id}')" href="javascript:void(0)"><i class="fas fa-check"></i> Done</a>
+                        
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>Food Item</th>
+                                    <th class="text-center">Quantity</th>
+                                    <th class="text-center">Price</th>
+                                <!-- <th>Total Price</th> -->
+                                </thead>
+                                <tbody>
+                                `;
+                                curor.cart.forEach(cart => {
+                                    data += 
+                                    `
+                                        <tr>
+                                            <td>${cart.name}</td>
+                                            <td class="text-center">${cart.quantity}</td>
+                                            <td class="text-center">&#8377;${cart.total_price}</td>
+                                        </tr>
+                                    `;
+                                });
+                        data += `
+                                    <tr>
+                                        <td class="text-success"><b>Total Price</b></td>
+                                        <td></td>
+                                        <td class="text-center text-success"><b>&#8377;${curor.total_price}</b></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+    }
+    document.getElementById('DIorder').innerHTML = data;
+}
+
 function displayPastOrd(pastOrders) {
     var past = `<div id="accordion">`;
     pastorders.forEach(curor => {
@@ -172,14 +242,14 @@ function displayPastOrd(pastOrders) {
                 </div>
                 <div id="${curor.id}_collapse" class="collapse" aria-labelledby="${curor.id}_head" data-parent="#accordion">
                 <div class="card-body" style="padding: 15px;">
-                    Date & Time: ${new Date((curor["timestamp"].seconds)*1000).toUTCString()}<br> 
-                    Customer Name: ${curor.user_name}<br>Address: ${curor.address}<br>Items: `;
+                    <b>Date & Time</b>: ${new Date((curor["timestamp"].seconds)*1000).toUTCString()}<br> 
+                    <b>Customer Name</b>: ${curor.user_name}<br><b>Address</b>: ${curor.address}<br><b>Items</b>: `;
                     curor.cart.forEach(cart => {
                         past += `${cart.itemName}, `; 
                     });
 
             past +=`<br>
-                    Total: &#8377;${curor.total}
+                    <b>Total</b>: &#8377;${curor.total}
                 </div>
             </div>
         </div>
@@ -207,13 +277,16 @@ function displayPastOrdDine(pastordersDine) {
                 <div id="${curor.id}_collapse" class="collapse" aria-labelledby="${curor.id}_head" data-parent="#accordion1">
                     <div class="card-body" style="padding: 15px;">
                         
-                        Waiter: ${curor.waiter}<br>Items: `;
+                        <b>Time</b>: ${new Date(curor.timestamp)}<br>
+                        <b>Table</b>: ${curor.table}<br>
+                        <b>Waiter</b>: ${curor.waiter}<br><b>Items</b>: `;
+
                         curor.cart.forEach(cart => {
-                            past += `${cart.name}, `; 
+                             past += `${cart.name}, `;
                         });
 
                 past +=`<br>
-                        Total: &#8377;${curor.total_price}
+                        <b>Total</b>: &#8377;${curor.total_price}
                     </div>
                 </div>
             </div>
@@ -280,6 +353,59 @@ function deliver(id) {
     //         });
 
     db.collection("currentOrders").doc(`${id}`)
+    .delete()
+    .then(() => {
+        console.log("Document deleted from the current orders");
+        // showNotification('top', 'center', '<b>Success!</b>  Item deleted from the current orders', 'success', 5000);
+    })
+    .catch((error) => {
+        console.error("Error deleting doc", error);
+        // showNotification('top', 'center', '<b>Error</b> Issues deleting the item', 'danger', 5000);
+    });
+}
+
+function deliverDine(id) {
+    console.log("delivered dine in order");
+
+    var delivered, notify, table, total_price, waiter, timestamp;
+
+    currDine.forEach(cor => {
+        if (id === cor.id) {
+            delivered = cor.delivered;
+            notify = cor.notify;
+            table = cor.table;
+            total_price = cor.total_price;
+            waiter = cor.waiter;
+            cart = cor.cart;
+            timestamp = cor.timestamp;
+        }
+    });
+
+    // console.log("name: ", name);
+
+    db.collection("pastOrders").doc(`${id}`)
+    .set({
+        cart: cart,
+        delivered: true,
+        notify: notify,
+        table: table,
+        total_price: total_price,
+        waiter: waiter,
+        timestamp: timestamp
+        })
+        .then(() => {
+            console.log("Order delivered");
+            showNotification('top', 'center', `<b>Success!</b>  The order (id: ${id}) is delivered to the customer`, 'success', 5000);
+        })
+        .catch((error) => {
+            console.error("Error updating doc", error);
+            showNotification('top', 'center', '<b>Error</b> Issues adding the item', 'danger', 5000);
+        });
+
+        console.log("past: ", db.collection("pastOrders"));
+    
+
+    db.collection("currentDining").doc(`${id}`)
     .delete()
     .then(() => {
         console.log("Document deleted from the current orders");

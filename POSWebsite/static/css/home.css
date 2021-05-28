@@ -402,7 +402,7 @@ marquee {
     min-height: 40vh;
     display: flex;
     justify-content: space-evenly;
-    background: url('images/ind-food.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/ind-food.jpg');
     background-position: center;
     background-size: cover;
 }
@@ -411,15 +411,19 @@ marquee {
     min-width: 80vw;
     display: flex;
     align-items: center;
+    justify-content: space-around;
+}
+.carousel-inner {
+    width: 80% !important;
 }
 
-#feedback span
+#feedback span, .carousel-indicators
 {
     font-size: 3em;
-    color: #24252a;
+    color: blanchedalmond;
 }
 
 .feedback-caption {
-    color: #24252a;
+    color: blanchedalmond;
     text-align: center;
 }
