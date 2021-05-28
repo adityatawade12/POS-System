@@ -73,6 +73,13 @@ function inHead(){
     					<p>Employees</p>
     				</a>
     			</li>
+				<li id="feedback">
+				<a href="feedback.html">
+					<i class="nc-icon nc-badge"></i>
+					<!--<i class="far fa-id-card"></i>-->
+					<p>Feedbacks</p>
+				</a>
+			</li>
     			<li id="info">
     				<a href="restroInfo.html">
     				<i class="nc-icon nc-alert-circle-i"></i>
