@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Admin Dashboard</title>
+
+	<script src="js/navbar.js"></script>
+	<link rel="icon" type="image/png" href="icons/admin.png">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.0/chart.min.js"></script>
+	<script type="text/javascript">
+		inHead();
+	</script>
+
+
+		<div class="content">
+			<h3>Online Orders</h3>
+			<hr>
+			<div class="row">
+			<div class="col-lg-3 col-md-6 col-sm-6">
+				<div class="card card-stats" style="height: 150px;padding-top: 10px;font-size: x-large;">
+				<div class="card-body ">
+					<div class="row">
+					<div class="col-5 col-md-4">
+						<div class="icon-big text-center icon-warning">
+						<i class="nc-icon nc-globe text-warning"></i>
+						</div>
+					</div>
+					<div class="col-7 col-md-8">
+						<div class="numbers">
+						<p class="card-category">Today's Orders</p>
+						<p class="card-title totOrd">0<p>
+						</div>
+					</div>
+					</div>
+				</div>
+				
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-6">
+				<div class="card card-stats" style="height: 150px;padding-top: 10px;font-size: x-large;">
+				<div class="card-body ">
+					<div class="row">
+					<div class="col-5 col-md-4">
+						<div class="icon-big text-center icon-warning">
+						<i class="nc-icon nc-money-coins text-success"></i>
+						</div>
+					</div>
+					<div class="col-7 col-md-8">
+						<div class="numbers">
+						<p class="card-category">Completed Orders</p>
+						<p class="card-title compOrd">0<p>
+						</div>
+					</div>
+					</div>
+				</div>
+				
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-6">
+				<div class="card card-stats" style="height: 150px;padding-top: 10px;font-size: x-large;">
+				<div class="card-body ">
+					<div class="row">
+					<div class="col-5 col-md-4">
+						<div class="icon-big text-center icon-warning">
+						<i class="nc-icon nc-vector text-danger"></i>
+						</div>
+					</div>
+					<div class="col-7 col-md-8">
+						<div class="numbers">
+						<p class="card-category">Unfinished Orders</p>
+						<p class="card-title unfOrd">0<p>
+						</div>
+					</div>
+					</div>
+				</div>
+				
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-6">
+				<div class="card card-stats" style="height: 150px;padding-top: 10px;font-size: x-large;">
+				<div class="card-body ">
+					<div class="row">
+					<div class="col-5 col-md-4">
+						<div class="icon-big text-center icon-warning">
+						<i class="nc-icon nc-favourite-28 text-primary"></i>
+						</div>
+					</div>
+					<div class="col-7 col-md-8">
+						<div class="numbers">
+						<p class="card-category">Total Online Customers</p>
+						<p class="card-title totCust">+45K<p>
+						</div>
+					</div>
+					</div>
+				</div>
+				
+				</div>
+			</div>
+			</div>
+			<h3>Dine-In</h3>
+			<hr>
+			<div class="row">
+				
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="card card-stats" style="height: 150px;padding-top: 10px;font-size: x-large;">
+					<div class="card-body ">
+						<div class="row">
+						<div class="col-5 col-md-4">
+							<div class="icon-big text-center icon-warning">
+							<i class="nc-icon nc-globe text-warning"></i>
+							</div>
+						</div>
+						<div class="col-7 col-md-8">
+							<div class="numbers">
+							<p class="card-category">DineIn Orders</p>
+							<p class="card-title totOrdD">0<p>
+							</div>
+						</div>
+						</div>
+					</div>
+					
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="card card-stats" style="height: 150px;padding-top: 10px;font-size: x-large;">
+					<div class="card-body ">
+						<div class="row">
+						<div class="col-5 col-md-4">
+							<div class="icon-big text-center icon-warning">
+							<i class="nc-icon nc-money-coins text-success"></i>
+							</div>
+						</div>
+						<div class="col-7 col-md-8">
+							<div class="numbers">
+							<p class="card-category">DineIn Finished</p>
+							<p class="card-title compOrdD">0<p>
+							</div>
+						</div>
+						</div>
+					</div>
+					
+					</div>
+					
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="card card-stats" style="height: 150px;padding-top: 10px;font-size: x-large;">
+					<div class="card-body ">
+						<div class="row">
+						<div class="col-5 col-md-4">
+							<div class="icon-big text-center icon-warning">
+							<i class="nc-icon nc-vector text-danger"></i>
+							</div>
+						</div>
+						<div class="col-7 col-md-8">
+							<div class="numbers">
+							<p class="card-category">Running Orders</p>
+							<p class="card-title unfOrdD">0<p>
+							</div>
+						</div>
+						</div>
+					</div>
+					
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="card card-stats" style="height: 150px;padding-top: 10px;font-size: x-large;">
+					<div class="card-body ">
+						<div class="row">
+						<div class="col-5 col-md-4">
+							<div class="icon-big text-center icon-warning">
+							<i class="nc-icon nc-favourite-28 text-primary"></i>
+							</div>
+						</div>
+						<div class="col-7 col-md-8">
+							<div class="numbers">
+							<p class="card-category">Total Dine-In Customers</p>
+							<p class="card-title">+1K<p>
+							</div>
+						</div>
+						</div>
+					</div>
+					
+					</div>
+				</div>
+				</div>
+
+			<div class="row">
+			<div class="col-md-12">
+				<div class="card ">
+				<div class="card-header ">
+					<h5 class="card-title">Reports</h5>
+					<p class="card-category">Top Selling Items</p>
+				</div>
+				<div class="card-body ">
+					<canvas id="myChart" width="400" height="100"></canvas>
+				</div>
+				
+				</div>
+			</div>
+			</div>
+			
+		</div>
+		
+		<!-- FOOT -->
+		<script type="text/javascript">
+			foot();
+			active('dash');
+		</script>
+		
+		<script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -3,8 +3,10 @@ from accounts.views import curuser
 from orders.views import menuItems
 from orders.views import menuCart
 from orders.views import menuCategory
+# from orders.views import currOrders
 import requests,json
 from django.http import JsonResponse
+from orders.views import db
 
 # Create your views here.
 def home(request):
@@ -18,8 +20,8 @@ def home1(request):
 def menu(request):
     items=menuItems()
     category = menuCategory(items)
-    # print(items)
-    # print(category)
+    print(items)
+    print(category)
 
     us=curuser(request)
     cartItems=menuCart(request)
@@ -28,13 +30,22 @@ def menu(request):
 
 def contact(request):
     us=curuser(request)
-    return render(request,'contact.html',{'us':us})
+    docs = db.collection(u'openingHours').stream()
+    timing=[]
+    for doc in docs:
+        timing.append(doc.to_dict())
+    position=[1, 2, 3, 4, 5, 6, 7]
+    # print("timing: ",timing)
+    # docs = db.collection(u'timing').document('scM7tbnSbtdqlYnr5Pxe')
+
+    # timing=docs.get().to_dict()
+    # print("to dict",timing)
+
+    return render(request,'contact.html',{'us':us,'timing':timing, 'position':position})
 
 def nav(request):
     us=curuser(request)
     return render(request,'nav.html',{'us':us})
-
-
 
 def feedback(request):
     us=curuser(request)

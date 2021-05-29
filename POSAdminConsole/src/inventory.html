@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+	<title>Inventory</title>
+
+	<link rel="icon" type="image/png" href="icons/admin.png">
+	<link rel="stylesheet" type="text/css" href="css/inventory.css">
+
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	<script src="js/navbar.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+	<script type="text/javascript">
+		inHead();
+		// displayItems();
+	</script>
+
+
+
+    <div class="content">
+        <div class="row" id="inva">
+        	<div class="col-md-12">
+            	<div class="card">
+					<div class="card-body" style="height: 15em;">
+						<div class="loader">Loading...</div>
+					</div>
+            	</div>
+			</div> 
+        </div>
+		<div class="row" id="inva">
+        	<div class="col-md-12" style="text-align: center; color: white;">
+				<a class="btn btn-primary" onclick="resetModal(); forAdd()" href="#myModal" data-toggle="modal"><i class="fas fa-plus"></i> Add New Item</a>
+			</div> 
+        </div>
+    </div>
+    
+
+	<!-- modal for editing -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Edit Dish Data</h4>
+				</div>
+				<div class="modal-body">
+					<form class="edit_form">
+						<div>
+							<label>Name</label>
+							<input type="text" id="Name" name="Name">
+							<br><br>
+						</div>
+						<div>
+							<label>Description</label>
+							<textarea type="text" name="desc" id="desc" rows="2" cols="30"></textarea>
+							<br><br>
+						</div>
+						<div>
+							<label>Category</label>
+							<input type="text" name="cat" id="cat">
+							<br><br>
+						</div>
+						<div>
+							<label>Price</label>
+							<input type="number" name="price" id="price">
+							<br><br>
+						</div>
+						<div>
+							<label>Image</label>
+							<input type="text" name="img" id="img">
+							<br><br>
+						</div>
+						<div>
+							<label>Available</label>
+							<input type="text" name="available" id="available">
+							<br><br>
+						</div>
+					</form>
+				</div>
+				<small class="text-warning" style="padding: 0 1rem;">If you don't save, your changes will be lost.</small>
+				<div class="modal-footer">
+					<a onclick="deldish(this)" id="" class="del_btn btn btn-danger" href="#delModal" data-toggle="modal" data-dismiss="modal">Delete</a>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button onclick="editDish(this)" id="" type="button" class="save_btn btn btn-primary">Save changes</button>
+					<button onclick="addItem(this)" id="" type="button" class="add_btn btn btn-primary">Add to Menu</button>
+				</div>
+			</div>
+        </div>
+    </div>
+    <!-- end of modal -->
+
+
+	<div id="delModal" class="modal fade">
+        <div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Delete Item</h4>
+					<!-- <p>Are you sure you want to Delete this item</p> -->
+				</div>
+				<div class="modal-body " id="deli">
+
+				</div>
+				<div class="modal-footer">
+					<button onclick="removeDish(this)" id="" type="button" class="yes_btn btn btn-primary" data-dismiss="modal">Yes</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+    <script type="text/javascript">
+        foot();
+        active('invent');
+    </script>
+
+	<script src="js/inventory.js"></script>
+	<script>
+		try {
+			dataRetrieve();
+		} catch(err) {
+			console.log('Error getting documents', err)
+		}
+	</script>
+     
+</body>
+
+</html>

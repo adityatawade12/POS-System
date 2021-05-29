@@ -27,25 +27,39 @@
     <br>
 
     <div class="contactP">
-        <h3 style="color: rgb(117, 73, 6);border-bottom: 2px solid black;">Contact Info</h3>
-        <p><b>ADDRESS:-</b>KJ Somaiya College Of Engineering VidyaVihar
-            Ghatkopar East,Mumbai,Maharashtra 400077</p>
+        <h3>CONTACT INFO</h3>
+        <div>
+            <b>ADDRESS:-</b>KJ Somaiya College Of Engineering VidyaVihar
+            Ghatkopar East,Mumbai,Maharashtra 400077
+        </div>
+    </div>
+
+    <div class="contactP height">
+        <!-- <h3>Hours</h3> -->
+        <div class="row row-cols-2">
+            <div class="col col-4"><h3>DAYS</h3></div>
+            <div class="col col-8"><h3>TIMING</h3></div>
+        </div>
+        {% for X in position %}
+            {% for day in timing  %}
+                {% if X == day.pos  %}
+                <div class="row row-cols-2">
+                    <div class="col col-4">{{ day.day }}</div>
+                    <div class="col col-8">{{ day.hours }}</div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
     </div>
 
     <div class="contactP">
-        <h3 style="color: rgb(117, 73, 6);border-bottom: 2px solid black;">Hours</h3>
-            <p>Open all days
-            <br>Monday to Friday: 15:00 - 22:30
-            <br>Saturday & Sunday: 10:00 - 22:30</p>
+        <h3>OUR MEMBERS</h3>
+        <ul style="list-style: none; text-align: center;">
+            <li>VEDANT SARNOBAT (vedant.sarnobat@somaiya.edu)</li>
+            <li>OMKAR SAWANT (omkar18@somaiya.edu)</li>
+            <li>SWANAND APTE (swanand.apte@somaiya.edu)</li>
+            <li>ADITYA TAWADE (aditya.tawade@somaiya.edu)</li>
+        </ul>
     </div>
-
-    <div class="contactP">
-        <h3 style="color: rgb(117, 73, 6);border-bottom: 2px solid black;">Our Members</h3>
-                <li>VEDANT SARNOBAT</li>
-                <li>OMKAR SAWANT</li>
-                <li>SWANAND APTE</li>
-                <li>ADITYA TAWADE</li>
-    </div>
-
     
-    {% endblock tail %}
+{% endblock tail %}

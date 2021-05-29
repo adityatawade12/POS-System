@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "target": "order",
+    "public": "src",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

@@ -1,5 +1,13 @@
-body, html {
-  height: 100%;
+@import url("fonts.css");
+
+body{
+  color: blanchedalmond;
+  font-family: 'Varela Round';
+  /* background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/login2.jpg"); */
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("images/login1.jpeg");
+  background-size: cover;
+  /* background-attachment: fixed; */
+  height: 150vh;
 }
 
 .scroll-pre {
@@ -8,72 +16,132 @@ body, html {
   background-color: inherit;
 }
 
-/**/
-* {box-sizing: border-box}
-
-/* Full-width input fields */
-  input[type=text], input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
+.bgimg {
+  height: 130vh;
 }
 
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
+.form {
+  width: 432px;
+  float: right;
+  background: #24252ae8;
+  margin: 120px 200px 30px 0px;
+  padding: 10px 30px;
+}
+
+label {
+  font-size: 18px;
+  color: #92897a;
+}
+
+input {
+  width: 100%;
+  margin: 8px 0px 0px 0px;
+  /* padding: 0px 1px; */
+  /* display: inline-block; */
+  /* box-sizing: border-box; */
+  background-color: transparent;
+  border-block-style: none;
+  border-bottom-style: groove;
+  border-inline: none;
+  color: blanchedalmond;
+  font-size: 20px;
+  font-family: 'Adobe Clean';
+}
+
+input:focus {
   outline: none;
+  border-bottom-style: double;
+  border-color: blanchedalmond;
 }
 
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
+h1 {
+  font-family: 'Varela Round';
+  font-size: 50px;
+  color: blanchedalmond;
+  margin-top: 0.3em;
 }
 
-/* Set a style for all buttons */
-button {
-  background-color: #4CAF50;
-  color: white;
+.link {
+  text-decoration: none;
+  color: dodgerblue;
+}
+
+#submit {
+  background-color: transparent;
+  color: blanchedalmond;
   padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
+  margin-left: 90px;
+  border: 1px solid;
   cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
-
-button:hover {
-  opacity:1;
-}
-
-/* Extra styles for the cancel button */
-.cancelbtn {
-  padding: 14px 20px;
-  background-color: #f44336;
-}
-
-/* Float cancel and signup buttons and add an equal width */
-.cancelbtn, .signupbtn {
-  float: left;
   width: 50%;
+  border-radius: 100px;
+  font-family: 'Varela Round';
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-/* Add padding to container elements */
-.container {
-  padding: 16px;
+#submit:hover {
+  color: #24252a;
+  background-color: blanchedalmond;
+  transition: all 0.4s ease 0s;
+}
+/* 
+.credits {
+  color: blanchedalmond;
+  position: absolute;
+  bottom: 15px;
+  left: 10px;
 }
 
-/* Clear floats */
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
+.credits img {
+  height: 20px;
+  width: 20px;
+  vertical-align: sub;
+} */
+
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
 }
 
-/* Change styles for cancel button and signup button on extra small screens */
-@media screen and (max-width: 300px) {
-  .cancelbtn, .signupbtn {
-    width: 100%;
-  }
+/* Modal Content */
+.modal-content {
+  background-color: #f1ddc3;
+  margin: auto;
+  padding:5px 5px;
+  border: 1px solid #888;
+  width: 50%;
+  
+}
+.errorBox{
+  color:#000;
+  text-align: center;
+  margin: 3% 10%;
+}
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+#successMod .modal-content {
+  background-color: #24252ae8;
+  border: none;
 }

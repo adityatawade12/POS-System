@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#24252a"/>
+    <link rel="manifest" href="manifest.json">
+
+    <title>Home</title>
+    
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="css/index.css">
+
+</head>
+<body>
+  
+  <div id="top">
+    <h1><!-- <img src="icons/comp_logo.jpg" height="70px" width="70px"> --> le mieux</h1>
+    <br>
+    <br>
+    <h3>ADMIN CONSOLE</h3>
+  </div>
+
+  <!-- <div>
+    <a href="xtreme/xtreme-html/ltr/index.html">Index</a>
+    <a href="paper-dashboard-master\examples\dashboard.html">Dashboard2</a>
+    <a href="dashboard.html">Main Dashboard</a>
+  </div> -->
+
+    <div class="container">
+      <form action="index.html" method="POST" id="login">
+        <div class="login-form">
+          <h1>Log In</h1>
+          <br>
+          <br>
+          <div>
+            <label for="admin">Admin ID</label>
+            <!-- <br> -->&emsp;
+            <input type="email" id="admin" name="admin" required>
+            <br><br>
+            <label for="password">Password</label>
+            <!-- <br> -->&emsp;
+            <input type="password" id="password" name="password" required>
+          </div>
+          <br><br>
+          <div>
+            <a onclick="admin_login()" href="#" type="submit" id="submit">Login</a>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js');
+        }
+    </script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/8.3.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/8.3.1/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js?useEmulator=true"></script>
+    <!-- Add Firebase products that you want to use -->
+  <script src="/__/firebase/8.3.1/firebase-auth.js"></script>
+  <script src="/__/firebase/8.3.1/firebase-firestore.js"></script>
+  
+  <script src="js/index.js"></script>
+
+</body>
+</html>

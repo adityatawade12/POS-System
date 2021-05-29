@@ -55,12 +55,12 @@
                                                                         <div id="{{item.Name}}" style="height: 100%;">
                                                                                 <div class="card_img" style="height: 40%; background-image: url('{{item.Image}}');"></div>
                                                                                 <div class="card-body" style="background-color: blanchedalmond ; max-height:60%;font-size:100%;overflow:hidden ">
-                                                                                        <div style="height: 20%;font-size: 1.2em;">
+                                                                                        <div style="height: 50px;font-size: 1.2em;">
                                                                                                 <h5 class="card-title-1" style="font-size: 1.1em;font-weight: bold;">
                                                                                                         {{item.Name}}
                                                                                                 </h5>
                                                                                         </div>
-                                                                                        <div id="desrc">
+                                                                                        <div id="desrc" data-toggle="tooltip" data-placement="bottom" title="{{item.Description}}">
                                                                                                 <p class="card-text" style="font-size: 0.8em;  ">
                                                                                                         {{item.Description}}</p>
                                                                                         </div>
@@ -70,11 +70,15 @@
                                                                                                         style=" align-items: center;position: absolute;">
                                                                                                         <a href="javascript:void(0)">Add to cart&emsp;&#8377;{{item.Price}}</a>
                                                                                                 </div>
-                                                                                                <div class="{{item.Name}} incdec" style="align-items: center;display: flex;visibility: hidden;">
-                                                                                                        <div class="click1"><a class="indebtn dec"
-                                                                                                                        href="javascript:void(0)">-</a>1<a
-                                                                                                                        class="indebtn inc"
-                                                                                                                        href="javascript:void(0)">+</a>
+                                                                                                <div id="{{item.Name}}_btn" class="{{item.Name}} incdec" style="align-items: center;display: flex;visibility: hidden;">
+                                                                                                        <div class="click1">
+														<a class="indebtn dec"href="javascript:void(0)">
+															-
+														</a>
+														1
+														<a class="indebtn inc" href="javascript:void(0)">
+															+
+														</a>
                                                                                                         </div>
                                                                                                 </div>
                                                                                         </div>
@@ -90,37 +94,43 @@
         </div>
 
         <div class="_cart">
-                <div style="top: 25%; position: sticky; background-color: #f5d19d; padding-top: 0.5em; padding-bottom: 1em; border-radius: 2em;">
-                        <div style="width:70%; margin: 0 auto; text-align: center; height: auto; font-size: 2em;">
+                <div style="top: 25%; position: sticky; background-color: blanchedalmond; padding-top: 0.5em; padding-bottom: 1em; border-radius: 1em;">
+                        <div style="width:70%; margin: 0 auto; text-align: center; height: auto; font-size: 1.8em;">
                                 CART <i class="fas fa-shopping-cart" aria-hidden="true"></i>
                         </div>
                         <div class="cartinside">
-                                <div id="list" style="width: inherit;">
-                                        {% if cartitems %}
+				<div id="list" style="width: inherit;">
+					{% if cartitems %}
                                                 {% for item in cartitems  %}
-                                                        <div class="row {{item.itemName}}" style="height: 6em;">
-                                                                <div class="col-4" id="cart_img">
-                                                                        <a href="#{{item.itemName}}_span" style="text-decoration: none; color: #24252a; background-image: url({{item.itemImage}});"></a>
-                                                                        <!-- <img src={{item.itemImage}}> -->
+                                                <div class="althighlight row {{item.itemName}}" style="min-height: 6em;">
+                                                        <div class="col-4" id="cart_img">
+                                                            	<a href="#{{item.itemName}}_span" style="text-decoration: none; color: #24252a; background-image: url({{item.itemImage}});"></a>
+                                                           	<!-- <img src={ {item.itemImage }}> -->
+                                                        </div>
+                                                        <div class="desc col-6">
+                                                            	<div class="row">
+									<div class="col-12">
+										<a href=" #{{item.itemName}}_span">{{item.itemName}}</a>
+									</div>
+									<div class="col-6">Qty: {{ item.itemQty }}</div>
+									<div class="col-6">&#8377;{{item.totalPrice }}</div>
                                                                 </div>
-                                                                <div class="col-4">
-                                                                        <a href="#{{item.itemName}}" style="text-decoration: none; color: #24252a;">{{item.itemName}}</a>
-                                                                </div>
-                                                                <div class="col-1">
-                                                                        {{item.itemQty}}
-                                                                </div>
-                                                                <div class="col-2">
-                                                                        &#8377;{{item.totalPrice}}
-                                                                </div>
-                                                                <div class="col-1">
-                                                                        <span><i class='fa fa-trash'></i></span>
-                                                                </div>
-                                                        </div>                   
+                                                        </div>
+                                                        <div class="col-2"><span class="{{item.itemName}}"><i class='fa fa-trash'></i></span></div>
+                                                </div>
                                                 {% endfor %}
-                                        {% endif %}
-                                </div>
+					{% else %}
+						<div id='empty' style="display: flex; align-items: center; justify-content: center; height: -webkit-fill-available; vertical-align: middle;">
+							<div style="text-align: center; ">
+								Your Cart is empty!<br>
+								<i class="fas fa-cart-plus"></i><br>
+								Add an item to the cart to get started.
+							</div>
+						</div>
+					{% endif %}
+					</div>
                         </div>
-                        <div class="checkout" style="display:flex; width:50%; margin: 0 auto; justify-content: center; height: 2.5em;">
+                        <div class="checkout">
                                 <!-- <a  href="javascript:void(0)" >Checkout</a> -->
                                 <a  href="/orders/check" >Checkout</a>
                         </div>
@@ -131,5 +141,26 @@
         {{ items|json_script:"items" }}
         {{ cartitems|json_script:"cartitems" }}
         <script src="{% static 'js/menu.js' %}"></script>
+        <script>
+                window.onload = window.onresize = function cart_h() {
+                        var cart = document.getElementsByClassName("_cart")[0];
+                        var cont = document.getElementsByClassName("cont1")[0];
+                        // console.log("cart:",cart.offsetHeight,"cont1:",cont.offsetHeight);
+                        
+                        let marginTop = parseInt(getComputedStyle(cart).marginTop);
+                        let marginBottom = parseInt(getComputedStyle(cart).marginBottom);
+                        // console.log(marginTop, marginBottom)
+                        
+                        if (window.innerWidth > 992) {
+                                if (cart.clientHeight < cont.clientHeight) {
+                                        cart.style.height = cont.offsetHeight - (marginBottom + marginTop + 110) + "px";
+                                }
+                        }
+                        else {
+                                cart.style.height = "16.5em";       
+                        }
+                        // console.log("cart:",cart.offsetHeight,"cont1:",cont.offsetHeight);
+                }
+        </script>
         
 {% endblock tail %}

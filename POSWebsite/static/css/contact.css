@@ -29,9 +29,21 @@ footer {
 .contactP {
   background-color: blanchedalmond;
   width: 40%;
-  height: 30%;
+  height: auto;
   margin-left: 30%;
   margin-bottom: 2%;
   padding: 2%;
   border-radius: 1em;
+  /* display: flex;
+  justify-content: center; */
+}
+
+.contactP h3 {
+  color: rgb(117, 73, 6);
+  text-align: center;
+  border-bottom: 2px solid black;
+  padding-bottom: 0.5em;
+}
+.col {
+  text-align: center;
 }
