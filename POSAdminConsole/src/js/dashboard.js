@@ -117,15 +117,15 @@ function getData() {
         }));
         
         staff.forEach((i)=>{
-            
         
-            if(new Date((i.timestamp).setHours(0, 0, 0, 0)==new Date().setHours(0, 0, 0, 0))){
+            if(new Date((i.timestamp)).setHours(0, 0, 0, 0)==new Date().setHours(0, 0, 0, 0)){
                 curOrD+=1;
                 todaysOrdersD+=1
             }
         })
         $(".unfOrdD").html(curOrD)
         unfinishedOrdersD=curOrD
+        console.log("orderyoyoyooyy");
       
        $(".totOrdD").html(todaysOrdersD)
         
@@ -143,7 +143,7 @@ function getData() {
           ...doc.data(),
         }));
         // curOr=1
-       
+        
         staff.forEach((i)=>{
             console.log(i.timestamp.seconds)
             var dt=null

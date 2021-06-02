@@ -3,11 +3,11 @@ var c = 0;
 
 function checkuser() {
     admin_user = JSON.parse(localStorage.getItem('admin_cred'));
-    console.log("admin data:", admin_user);
-    console.log("type of", typeof(admin_user));
+    // console.log("admin data:", admin_user);
+    // console.log("type of", typeof(admin_user));
 
     let adminId = admin_user.id;
-    console.log("admin id:", adminId, admin_user['id']);
+    // console.log("admin id:", adminId, admin_user['id']);
     let found_user = 0;
 
     db.collection("admin-data").onSnapshot((snapshot) => {
@@ -16,11 +16,11 @@ function checkuser() {
 			...doc.data(),
 		}))
 		adminLogin.forEach((doc) =>{
-			console.log('usera:', doc.id);
+			// console.log('usera:', doc.id);
 
             if (doc['admin-id'] == adminId) {
                 user = doc;
-                console.log("user: ", user);
+                // console.log("user: ", user);
                 found_user = 1;
 			}
 		})

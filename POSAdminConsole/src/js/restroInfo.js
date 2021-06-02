@@ -1,10 +1,10 @@
 var db = firebase.firestore();
 let position = [1, 2, 3, 4, 5, 6, 7];
-
+let dt;
 
 function date_time () {
     db.collection("openingHours").onSnapshot((snapshot) => {
-        let dt = snapshot.docs.map((doc) => ({
+        dt = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));

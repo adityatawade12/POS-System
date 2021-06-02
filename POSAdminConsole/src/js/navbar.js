@@ -86,12 +86,12 @@ function inHead(){
     				<p>Restro Info</p>
     				</a>
     			</li>
-    			<li>
+    			<!-- <li>
     				<a href="#">
     				<i class="nc-icon nc-globe"></i>
     				<p>Links</p>
     				</a>
-    			</li>
+    			</li> -->
     			<!-- <li class="active-pro">
     				<a href="./upgrade.html">
     				<i class="nc-icon nc-spaceship"></i>
@@ -226,8 +226,7 @@ function foot(){
 	  <script src="database.js"></script>
 
 		<script>
-			let user = checkuser();
-			console.log("user:", user);
+			let adminuser0101 = checkuser();
 		</script>
 
     `);
