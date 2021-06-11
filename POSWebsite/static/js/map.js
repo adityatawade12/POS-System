@@ -1,6 +1,6 @@
 var address=[]
 var longlat={}
-mapboxgl.accessToken = 'pk.eyJ1IjoibWtzMTgiLCJhIjoiY2ttZGR0dXZnMmtjdzJwb2poanV1dXJyZiJ9.IoK236JvqD9mETA7On0GGw';
+mapboxgl.accessToken = '';
 var map = new mapboxgl.Map({
   container: 'map',
   zoom:15,
@@ -104,7 +104,7 @@ function setMarker(lng,lat){
     headers: { "X-CSRFToken": csrftoken  },
     data: {
         // url: JSON.stringify(api_url),
-        url:"https://api.tomtom.com/search/2/reverseGeocode/+"+lat+","+lng+".JSON?key=ZYNJngIGXOiQca5cvigxA8tTQmdOcpbG"
+        url:""
     },
     success: function (result) {
         console.log(result)
@@ -163,7 +163,7 @@ function getAddresses(){
     // headers: { "X-CSRFToken": csrftoken  },
     // data: {
     //     // url: JSON.stringify(api_url),
-    //     url:"https://api.tomtom.com/search/2/reverseGeocode/+"+lat+","+lng+".JSON?key=ZYNJngIGXOiQca5cvigxA8tTQmdOcpbG"
+    //     url:""
     // },
     success: function (result) {
         console.log(result)
