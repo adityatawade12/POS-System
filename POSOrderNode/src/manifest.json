@@ -1,23 +1,28 @@
 {
-    "name": "le mieux",
-    "short_name": "LM",
-    "start_url":  "/index.html",
-
-    "icons": [
-        {
-          "src": "icons/manifest-icon-192.png",
-          "sizes": "192x192",
-          "type": "image/png",
-          "purpose": "maskable any"
-        },
-        {
-          "src": "icons/manifest-icon-512.png",
-          "sizes": "512x512",
-          "type": "image/png",
-          "purpose": "maskable any"
-        }
-    ],
-    "background_color": "#e05a47",
-    "theme_color": "#e05a47",
-    "display": "standalone"
+  "name" : "le miux",
+  "short_name" : "lemiux",
+  "start_url" : "index.html",
+  "display" : "standalone",
+  "background_color" : "blanchedalmond",
+  "theme_color" : "rgba(54, 52, 52, 0.7)",
+  "icons" : [
+      {
+          "src" : "icons/logo.png",
+          "type" : "image/png",
+          "sizes" : "100x100",
+          "purpose": "any"
+      },
+      {
+          "src" : "icons/hamburg.png",
+          "type" : "image/png",
+          "sizes" : "50x50",
+          "purpose": "any"
+      },
+      {
+        "src": "icons/main-192.jpg",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "maskable any"
+      }
+  ]
 }

@@ -1,0 +1,156 @@
+/* colours */
+:root{
+  --primary: rgba(54, 52, 52, 0.7);
+  --title: blanchedalmond;
+}
+
+/* layout styles */
+nav{
+  background: var(--primary);
+  height: 5em;
+}
+
+nav a{
+  font-family: 'Cedarville Cursive', cursive;
+  color: var(--title);
+  font-size: 1.7em;
+  margin-top:0.5em;
+}
+nav a span{
+  font-weight: bold;
+}
+nav .sidenav-trigger{
+  margin: 0;
+}
+
+/* recipe styles */
+.recipes{
+  margin-top: 20px;
+}
+.card-panel.recipe{
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0px 1px 3px rgba(90,90,90,0.1);
+  display: grid;
+  grid-template-columns: 2fr 6fr 1fr;
+  grid-template-areas: "image details delete";
+  position: relative;
+}
+.recipe img{
+  grid-area: image;
+  max-width: 60px;
+}
+.recipe-details{
+  grid-area: details;
+  margin-top: 6px;
+}
+.recipe-delete{
+  grid-area: delete;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+.recipe-delete i{
+  font-size: 18px;
+}
+.recipe-title{
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.recipe-ingredients{
+  font-size: 0.8em;
+}
+
+/* form-styles */
+.add-btn{
+  background: rgba(54, 52, 52, 0.7);
+}
+input{
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+.side-form button{
+  background: rgba(54, 52, 52, 0.7);
+  box-shadow: 1px 1px 3px rgba(90,90,90,0.2);
+}
+form .input-field{
+  margin-top: 30px;
+}
+
+.sidenav-trigger{
+  color:blanchedalmond; ;
+}
+
+body{
+  background-color: blanchedalmond;
+}
+
+.img{
+  width:6em;
+  height: 6em;
+  float: left;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-right: 1em;
+}
+
+.logo{
+  width: 4.2em;
+  height: 4.2em;
+  
+  float: left;
+  margin-right: 0.2em;
+  background-image: url('../logo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.addD{
+  color: brown;
+  border:1px solid black;
+}
+
+/*.incdec{
+  display:;
+}*/
+
+.side-cart{
+  width: 100% !important;
+  background-color: rgba(54, 52, 52, 0.9) !important;
+}
+
+.Clogo{
+  width: 24%;
+  margin-left: 38%;
+  height: 12vh;
+  background-image: url('../logo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.wcred{
+  color: rgb(90, 59, 12) !important;
+}
+
+#check-btn{
+  background-color: transparent;
+  color: blanchedalmond;
+  padding: 14px 20px;
+  margin-left: 90px;
+  border: 1px solid;
+  cursor: pointer;
+  width: 50%;
+  border-radius: 100px;
+  font-family: 'Varela Round';
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#check-btn:hover{
+  color: #24252a;
+  background-color: blanchedalmond;
+  transition: all 0.4s ease 0s;
+}

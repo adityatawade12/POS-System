@@ -120,7 +120,7 @@ function form_(id) {
     var name, img, desc, price, avail, cat;
 
     // console.log("save btn:",);
-    var btn = document.getElementsByClassName("save_btn")[0];
+    var btn = document.getElementsByClassName("save_btn")[0]; 
     btn.setAttribute("id", `${id}`);
     var del = document.getElementsByClassName("del_btn")[0];
     del.setAttribute("id", `${id}`);

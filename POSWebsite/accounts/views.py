@@ -53,13 +53,12 @@ def signup(request):
             password=request.POST.get("password")        
             phone=request.POST.get("phone")
             user = auth.create_user(
-            email=email,
+            email=email, 
             email_verified=False,
             phone_number=phone,
             password=password,
             display_name=name,        
             disabled=False)
-            
             user = authe.sign_in_with_email_and_password(email,password)
             session_id=user['idToken']
 

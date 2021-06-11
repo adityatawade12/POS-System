@@ -1,24 +1,36 @@
-var cacheName = 'hello-world-page';
-var filesToCache = [
-  '/',
-  '/index.html'
+const staticCacheName = "site-cache";
+const assets=[
+    '/',
+    '/index.html',
+    '/pages/menu.html',
+    '/js/app.js',
+    '/js/materialize.min.js',
+    '/js/ui.js',
+    '/css/materialize.min.css',
+    '/css/styles.css',
+    '/img/dish.png',
+    '/img/logo.png',
+    'https://fonts.googleapis.com/icon?family=Material+Icons',
 ];
-self.addEventListener('install', function(e) {
-  console.log('[ServiceWorker] Install');
-  e.waitUntil(
-    caches.open(cacheName).then(function(cache) {
-      console.log('[ServiceWorker] Caching app shell');
-      return cache.addAll(filesToCache);
-    })
-  );
+
+self.addEventListener('install',evt=>{
+    //console.log("service worker installed!");
+    evt.waitUntil(
+        caches.open(staticCacheName).then(cache=>{
+            cache.addAll(assets);
+        })
+    );
+    
 });
-self.addEventListener('activate',  event => {
-  event.waitUntil(self.clients.claim());
+
+self.addEventListener('activate',evt=>{
+    console.log("service worker activated!");
 });
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request, {ignoreSearch:true}).then(response => {
-      return response || fetch(event.request);
-    })
-  );
+
+self.addEventListener('fetch',evt=>{
+    evt.respondWith(
+        caches.match(evt.request).then(cacheRes=>{
+            return cacheRes || fetch(evt.request);
+        })
+    );
 });
