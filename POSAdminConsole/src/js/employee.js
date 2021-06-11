@@ -572,7 +572,7 @@ $(".newDocSubmitBtn").on("click",function () {
     getToken()
     if (persOrCont==0){
         //pers
-        fileId=upload.doUpload("1YfQpuljYgeicw9n5TYqpPG09bvuwh5Wp");
+        fileId=upload.doUpload("");
         console.log(fileId)
         docRef.update({
             personalDocs: firebase.firestore.FieldValue.arrayUnion({
@@ -585,7 +585,7 @@ $(".newDocSubmitBtn").on("click",function () {
         })
     }
     else{
-        fileId=upload.doUpload("1Kt21l6edZho0oxm2tkzml-lD0831bYmF");
+        fileId=upload.doUpload("");
         console.log(fileId)
         docRef.update({
             contractDocs: firebase.firestore.FieldValue.arrayUnion({
