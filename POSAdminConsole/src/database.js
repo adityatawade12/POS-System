@@ -3,14 +3,20 @@ var c = 0;
 
 function checkuser() {
     admin_user = JSON.parse(localStorage.getItem('admin_cred'));
-    // console.log("admin data:", admin_user);
+    console.log("admin data:", admin_user);
     // console.log("type of", typeof(admin_user));
+
+    if (admin_user === null) {
+        console.log(found_user, 'user not found');
+        window.location.href = 'index.html';
+        return;
+    }
 
     let adminId = admin_user.id;
     // console.log("admin id:", adminId, admin_user['id']);
-    let found_user = 0;
+    var found_user = 0;
 
-    db.collection("admin-data").onSnapshot((snapshot) => {
+    db.collection("admin-data").get().then((snapshot) => {
 		let adminLogin = snapshot.docs.map((doc) => ({
 			id: doc.id,
 			...doc.data(),
@@ -20,15 +26,18 @@ function checkuser() {
 
             if (doc['admin-id'] == adminId) {
                 user = doc;
-                // console.log("user: ", user);
+                console.log("user: ", user);
                 found_user = 1;
 			}
 		})
         
         if (found_user === 0) {
+            console.log(found_user, 'user not found');
             window.location.href = 'index.html';
         }
-    
+        else {
+            console.log(found_user, "user found");
+        }
     });
     
     return admin_user;

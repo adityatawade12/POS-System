@@ -226,7 +226,9 @@ function foot(){
 	  <script src="database.js"></script>
 
 		<script>
+			console.log("user checking");
 			let adminuser0101 = checkuser();
+
 		</script>
 
     `);

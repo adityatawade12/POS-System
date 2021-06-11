@@ -13,7 +13,7 @@ function orderRetrieve () {
 
         snapshot.docChanges().forEach(change => {
             if (change.doc.data().notify === 1) {
-                console.log("ORDER.JS NOTIFICATION\nchange: ",change.doc.data());
+                // console.log("ORDER.JS NOTIFICATION\nchange: ",change.doc.data());
                 // in-app notifiaction
                 showNotification('top', 'right', `<b>New Online Order received!</b>
                 <br> Order ID: ${change.doc.id}
@@ -78,14 +78,14 @@ function orderRetrieve () {
                 tables.push(str);
             }
         })
-        snapshot.docChanges().forEach(change => {
-            console.log("change: ",change.doc.data());
-            // if (change.type === 'added') {
-            //     showNotification('top', 'right', `<b>New Order received!</b> <br>ID: ${change.doc.data().id}`, 'info', 20000);
-            // }
-        });
+        // snapshot.docChanges().forEach(change => {
+        //     console.log("change: ",change.doc.data());
+        //     // if (change.type === 'added') {
+        //     //     showNotification('top', 'right', `<b>New Order received!</b> <br>ID: ${change.doc.data().id}`, 'info', 20000);
+        //     // }
+        // });
 
-        console.log("pastorders: ", pastorders, "pastorders dine: ", pastordersDine, "currorders: ", currorders, "currDineorders: ", currDine);
+        // console.log("pastorders: ", pastorders, "pastorders dine: ", pastordersDine, "currorders: ", currorders, "currDineorders: ", currDine);
         displayPastOrdDine(pastordersDine);
     });
 }
@@ -158,7 +158,7 @@ function displayCurrOrd(currorders) {
 }
 
 function displayCurrDine(currDine) {
-    console.log("Curr dine print")
+    // console.log("Curr dine print")
 
     let data = ``;
 
@@ -175,7 +175,7 @@ function displayCurrDine(currDine) {
     else {
         currDine.forEach(curor => {
             // console.log(`category: ${cat}`)
-            console.log("curor:", curor.id)
+            // console.log("curor:", curor.id)
             data += `
             <div class="card">
                     <div class="card-header">
@@ -315,7 +315,7 @@ function deliver(id) {
         }
     });
 
-    console.log("name: ", name);
+    // console.log("name: ", name);
 
     db.collection("pastOrders").doc(`${id}`)
     .set({
@@ -338,7 +338,7 @@ function deliver(id) {
             showNotification('top', 'center', '<b>Error</b> Issues adding the item', 'danger', 5000);
         });
 
-        console.log("past: ", db.collection("pastOrders"));
+        // console.log("past: ", db.collection("pastOrders"));
     // db.collection("currentOrders").doc(`${id}`)
     // .update({
     //             delivered: true
@@ -402,7 +402,7 @@ function deliverDine(id) {
             showNotification('top', 'center', '<b>Error</b> Issues adding the item', 'danger', 5000);
         });
 
-        console.log("past: ", db.collection("pastOrders"));
+        // console.log("past: ", db.collection("pastOrders"));
     
 
     db.collection("currentDining").doc(`${id}`)
