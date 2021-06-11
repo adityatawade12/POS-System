@@ -7,14 +7,14 @@ from datetime import datetime, timedelta
 
 import time
 import pyrebase
-cred = credentials.Certificate(r'accounts/mkstrial-91474-firebase-adminsdk-ks5kv-b1e2114ee3.json')
+cred = credentials.Certificate(r'')
 firebase_admin.initialize_app(cred)
 config = {
-  "apiKey": "AIzaSyCRdXgH7cvG87cBYmEbgekw-uQGjBdm4D8",
-    "authDomain": "mkstrial-91474.firebaseapp.com",
-    "databaseURL": "https://mkstrial-91474-default-rtdb.firebaseio.com",
-    "serviceAccount": "accounts/mkstrial-91474-firebase-adminsdk-ks5kv-b1e2114ee3.json",
-    "storageBucket": "mkstrial-91474.appspot.com",
+  "apiKey": "",
+    "authDomain": "",
+    "databaseURL": "",
+    "serviceAccount": "",
+    "storageBucket": "",
 }
 db = firestore.client()
 pirebase = pyrebase.initialize_app(config)
