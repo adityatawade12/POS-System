@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- <head> -->
+	
+	<title>Feedback</title>
+
+	<script src="js/navbar.js"></script>
+    <style>
+        .checked {
+          color: orange;
+        }
+        .fbt{
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+       
+        </style>
+	<script type="text/javascript">
+		inHead();
+		active('feedback')
+	</script>
+
+		<div class="content">
+			<div class="row">
+
+			<div class="col-md-12">
+				
+				<div class="card card-user userData" >
+					
+					<div class="card-header">
+						
+						<h5 class="card-title" style="text-align: center;">Feedbacks</h5>
+					</div>
+					<div class="card-body">
+                        <div class="table-responsive" style="overflow: overlay;" >
+                            <table class="table">
+                                <thead class=" text-primary">
+									<tr>
+										<th class="text-center"> Stars </th>
+										<th class="text-center"> Subject </th>
+										 <th class="text-center"> Dining Date </th>
+                                         <th class="text-center"> Dining Time </th>
+										
+									</tr>
+								</thead>
+                                <tbody class="fbList">
+                                    <!-- <tr> <td>5 star</td><td class="text-right"><a  href="#myModal" class="dishes btn btn-primary" data-toggle="modal">View</a></td><td class="text-center"><a  href="#myModal1" class=" btn btn-primary" data-toggle="modal">Edit</a></td></tr> -->
+                                    <tr> <td class="text-center" ></td><td  ></td><td class="text-center"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="spinner" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-spinner fa-w-16 fa-spin fa-lg"><path fill="currentColor" d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z" class=""></path></svg></td><td class="text-center"></td><td class="text-center"></td></tr>
+                                    
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+						
+
+					
+						  
+						
+						 
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+        <div id="myModal" class="modal fade">
+            <div class="modal-dialog" style="margin:0 auto; margin-left: 33vw; margin-top: 7vw;">
+                <div class="modal-content" style="width: 40vw;" >
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" style="margin: -1rem -11rem -1rem auto" aria-hidden="true">&times;</button>
+                        <h4 class="doc modal-title">Feedback</h4>
+                    </div>
+                    <div class="modal-body ">
+                        <div class="container fbView" style="font-size:medium ;">
+                            <div class="row"> <div class="col-4 fbt">Name:</div><div class="col-8">Aditya Tawade</div>   </div>
+                            <div class="row"> <div class="col-4 fbt ">Number:</div><div class="col-8">798456130</div>   </div>
+                            <div class="row"> <div class="col-4 fbt">Email:</div><div class="col-8">viratkohli@mail.com</div>   </div>
+                            <div class="row"> <div class="col-4 fbt ">Dining Date:</div><div class="col-8">25-6-2021</div>   </div>
+                            <div class="row"> <div class="col-4 fbt ">Dining Time:</div><div class="col-8">5.30</div>   </div>
+                            <div class="row"> <div class="col-4 fbt ">Recoded:</div><div class="col-8">1:00:39 AM</div>   </div>
+                            <div class="row"> <div class="col-4 fbt">Stars:</div><div class="col-8"><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star "></span><span class="fa fa-star "></span><span class="fa fa-star "></span></div>   </div>
+                            <div class="row"> <div class="col-4 fbt">Subject:</div><div class="col-8">Review</div>   </div>
+                            <div class="row"> <div class="col-4 fbt">Message:</div><div class="col-8">Excellent food. Menu is extensive and seasonal to a particularly high standard. Definitely fine dining. It can be expensive but worth it and they do different deals on different nights so it’s worth checking them out before you book. Highly recommended.</div>   </div>
+  
+                    </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+		<script type="text/javascript">
+			foot();
+			active('feedback');		
+		</script>
+	<script src="js/feedback.js"></script>
+	 <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+	<!-- <script src="../assets/demo/demo.js"></script> -->
+</body>
+</html>
