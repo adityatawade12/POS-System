@@ -5,13 +5,13 @@ var uploadDocid=""
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
     const redirect_uri = "http://localhost:5500/cshik/upload.html" // replace with your redirect_uri;
-    const client_secret = "Bx8MwGHNsjKlqTg_FV52exqk"; // replace with your client secret
+    const client_secret = ""; // replace with your client secret
     const scope = "https://www.googleapis.com/auth/drive";
     var access_token= "";
-    var refresh_token="1//0gI2uOemLQVFXCgYIARAAGBASNwF-L9Ir4lKVdY99GK7bey_xL8Kr7zStGVgkJSwF9OxJkJ_ldXU1tP714CFBau1y8UkvIWNmVfE";
-    var client_id = "392020718713-p2lk0sb95kqc4e4rheonon7d7eqa6254.apps.googleusercontent.com"// replace it with your client id;
-   var pdocId="1YfQpuljYgeicw9n5TYqpPG09bvuwh5Wp"
-   var cdocId="1Kt21l6edZho0oxm2tkzml-lD0831bYmF"
+    var refresh_token="";
+    var client_id = ""// replace it with your client id;
+   var pdocId=""
+   var cdocId=""
     var u="https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id="+client_id+"&redirect_uri="+redirect_uri+"&scope="+scope+""
     console.log(u)
 function getToken() {
