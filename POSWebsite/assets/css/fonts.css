@@ -1,9 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Vampiro+One&display=swap');
-@import url('https://allfont.net/allfont.css?fonts=scifly');
 @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Port+Lligat+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
+@font-face {
+    font-family: 'Adobe Clean';
+    src: local('Adobe Clean Light'), local('Adobe-Clean-Light'),
+        url('fonts/AdobeClean/AdobeClean-Light.woff2') format('woff2'),
+        url('fonts/AdobeClean/AdobeClean-Light.woff') format('woff'),
+        url('fonts/AdobeClean/AdobeClean-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: scifly-sans;
+  font-style: normal;
+  font-weight: 400;
+  src: local('SciFly-Sans'),
+      local('SciFly-Sans'),
+      url(https://fr.allfont.net/cache/fonts/scifly_7dfed6e19fc0f5bd0f0b5ef740a0d365.woff) format('woff'),
+      url(https://fr.allfont.net/cache/fonts/scifly_7dfed6e19fc0f5bd0f0b5ef740a0d365.ttf) format('truetype')
+}
 /*
     font-families:
     Parisienne 
@@ -12,4 +30,12 @@
     Cedarville
     Port Lligat Sans
     Varela Round
+    Adobe Clean
 */
+
+/*
+  images credit: 
+  restro: <span>Photo by <a href="https://unsplash.com/@jsycra?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Siyuan</a> on <a href="https://unsplash.com/s/photos/restaurant?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+
+  restro 2: <span>Photo by <a href="https://unsplash.com/@whaleitsjessica?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Jessica Tan</a> on <a href="https://unsplash.com/s/photos/restaurant?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+  */

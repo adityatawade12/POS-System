@@ -10,8 +10,8 @@ function inHead(){
         <meta name="theme-color"  content="#24252a"/>
         <link rel="manifest" href="manifest.json">
 
-    	<link rel="apple-touch-icon" href="icons/logo_100.png">
-    	<link rel="icon" type="image/png" href="icons/logo_100.png">
+    	<link rel="apple-touch-icon" href="icons/logo.svg">
+    	<link rel="icon" type="image/png" href="icons/logo.svg">
     
     	<!--     Fonts and icons     -->
     	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
@@ -22,67 +22,8 @@ function inHead(){
     	<!-- CSS Files -->
     	<link href="css/bootstrap.min.css" rel="stylesheet" />
     	<link href="css/paper-dashboard.css" rel="stylesheet" />
-    	<link href="demo/demo.css" rel="stylesheet" />
-    
-    <style>
-    		@import url("css/font.css");
-    
-    		.logo a {
-    		color: blanchedalmond;
-    		font-family: 'Cedarville Cursive' !important;
-    		text-transform: lowercase !important;
-    		font-size: 3em !important;
-    		text-align: center;
-    		}
-    		.sidebar-wrapper {
-    		overflow: hidden !important;
-    		}
-    		.le {
-    			font-family: 'Cedarville Cursive' !important;
-    			font-size: 1.5em;
-    		}
-    
-			body {
-				overflow: overlay;
-			}
-			body::-webkit-scrollbar {
-				width: 10px;
-			}
-			body::-webkit-scrollbar-thumb {
-				transition: all 0.8s ease-in-out;
-				visibility: hidden;
-				background: #42424282;
-				border-radius: 10px;
-			}
-			body:hover::-webkit-scrollbar-thumb {
-				transition: all 0.8s ease-in-out;
-				visibility: visible;
-			}
-			body::-webkit-scrollbar-track {
-				background: transparent;
-			}
-
-			/* @media screen and (max-width: 991px) {
-				.sidebar-wrapper p {
-					visibility: hidden;
-				}
-				.sidebar {
-					transform: translate3d(0, 0, 0) !important;
-					width: 10vw;
-				}
-				.main-panel {
-					width: 90vw;
-				}
-				.logo-normal {
-					visibility: hidden;
-				}
-			}
-			@media screen and (max-width: 800px) {
-				.sidebar-wrapper a {
-					margin-left: 0 !important;
-				}
-			} */
-    	</style>
+    	<link href="css/navbar.css" rel="stylesheet">
+    	<link href="demo/demo.css" rel="stylesheet">
     
     </head>
     
@@ -92,7 +33,7 @@ function inHead(){
             <div class="sidebar" data-color="black" data-active-color="danger">
     		<div class="logo">
     			<div class="logo-image-big" style="justify-content: center; display: flex;">
-    				<img src="icons/admin.png">
+    				<img src="icons/logo.svg">
     			</div>
     			<!-- <p>CT</p> -->
     			<a class="simple-text logo-normal">
@@ -132,6 +73,13 @@ function inHead(){
     					<p>Employees</p>
     				</a>
     			</li>
+				<li id="feedback">
+				<a href="feedback.html">
+					<i class="nc-icon nc-chat-33"></i>
+					<!--<i class="far fa-id-card"></i>-->
+					<p>Feedbacks</p>
+				</a>
+			</li>
     			<li id="info">
     				<a href="restroInfo.html">
     				<i class="nc-icon nc-alert-circle-i"></i>
@@ -247,7 +195,7 @@ function foot(){
       <!--  Notifications Plugin    -->
       <script src="js/plugins/bootstrap-notify.js"></script>
       <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-      <script src="js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
+      <script src="js/paper-dashboard.min.js" type="text/javascript"></script>
       <script>
         $(document).ready(function() {
           // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
@@ -273,12 +221,12 @@ function foot(){
       <script src="/__/firebase/8.3.1/firebase-auth.js"></script>
       <script src="/__/firebase/8.3.1/firebase-firestore.js"></script>
 
-	  <script type="module" src="database.js"></script>
+	<script src="database.js"></script>
 
     `);
 }
 
-function showNotification(from, align, msg, color) {
+function showNotification(from, align, msg, color, timer) {
     // color = 'primary';
     let i;
     if (color == 'success') {
@@ -297,7 +245,7 @@ function showNotification(from, align, msg, color) {
 
     }, {
       type: color,
-      timer: 5000,
+      timer: timer,
       placement: {
         from: from,
         align: align

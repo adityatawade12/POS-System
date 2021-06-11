@@ -1,24 +1,25 @@
 var db = firebase.firestore();
-let str, dishes , category=[], dishdata, data='';
+var category=[], dishdata;
 
-console.log("INVENTORY");
+// console.log("INVENTORY");
 
 // RETRIEVING DATA FROM FIRESTORE
 function dataRetrieve() {
+    let str = ``;
     db.collection("dishes").onSnapshot((snapshot) => {
-        dishes = snapshot.docs.map((doc) => ({
+        let dishes = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
-        }));
-        // dishes = data;
-        // console.log("All data in 'dishes' collection", dishes);
-        
+        }))
         dishes.forEach((doc) =>{
             str = `${doc["Category"]}`;
             if (!category.includes(str)) {
                 category.push(str);
             }
-        });
+        })
+        
+        // console.log("All data in 'dishes' collection", dishes);
+        
 
         // snapshot.docChanges().forEach(change => {
         //     console.log(snapshot.docChanges(), change);
@@ -62,7 +63,8 @@ function dataRetrieve() {
 
 // FUNCTION FOR PRINTING THE DISHES ON THE PAGE
 function displayDish(dishes, category) {
-    data = '';
+    dishdata = dishes;
+    let data = '';
     category.forEach(cat => {
         // console.log(`category: ${cat}`)
         data += `
@@ -124,7 +126,7 @@ function form_(id) {
     del.setAttribute("id", `${id}`);
     
     
-    dishes.forEach((doc) =>{
+    dishdata.forEach((doc) =>{
        if (id===doc.id) {
            name = doc.Name;
         //    console.log("inside for loop name: ", name);
@@ -188,11 +190,11 @@ function addItem() {
         })
         .then(() => {
             console.log("Document updated"); // Document updated
-            showNotification('top', 'center', '<b>Success!</b> Item added to the Menu', 'success');
+            showNotification('top', 'center', '<b>Success!</b> Item added to the Menu', 'success', 5000);
         })
         .catch((error) => {
             console.error("Error updating doc", error);
-            showNotification('top', 'center', '<b>Error</b> Issues adding the item', 'danger');
+            showNotification('top', 'center', '<b>Error</b> Issues adding the item', 'danger', 5000);
         });
 }
 
@@ -214,17 +216,17 @@ function editDish(dish) {
                 Name: document.getElementById("Name").value,
                 Description: document.getElementById("desc").value,
                 Category: document.getElementById("cat").value,
-                Price: document.getElementById("price").value,
+                Price: parseInt(document.getElementById("price").value, 10),
                 Image: document.getElementById("img").value,
                 IsAvailable: document.getElementById("available").value,
             })
             .then(() => {
                 console.log("Document updated"); // Document updated
-                showNotification('top', 'center', '<b>Success!</b>  Item details are updated', 'success');
+                showNotification('top', 'center', '<b>Success!</b>  Item details are updated', 'success', 5000);
             })
             .catch((error) => {
                 console.error("Error updating doc", error);
-                showNotification('top', 'center', '<b>Error</b> Issues updating the item details', 'danger');
+                showNotification('top', 'center', '<b>Error</b> Issues updating the item details', 'danger', 5000);
             });
 }
 
@@ -233,7 +235,7 @@ function deldish(ele) {
     let id = ele.id;
     let name;
 
-    dishes.forEach(doc => {
+    dishdata.forEach(doc => {
         if (id === doc.id) {
             name = doc.Name;
         }
@@ -250,39 +252,10 @@ function removeDish(dish) {
     .delete()
     .then(() => {
         console.log("Document deleted"); // Document updated
-        showNotification('top', 'center', '<b>Success!</b>  Item deleted from the Menu', 'success');
+        showNotification('top', 'center', '<b>Success!</b>  Item deleted from the Menu', 'success', 5000);
     })
     .catch((error) => {
         console.error("Error updating doc", error);
-        showNotification('top', 'center', '<b>Error</b> Issues deleting the item', 'danger');
+        showNotification('top', 'center', '<b>Error</b> Issues deleting the item', 'danger', 5000);
     });
-
 }
-
-
-function showNotification(from, align, msg, color) {
-    // color = 'primary';
-    let i;
-    if (color == 'success') {
-        i = "far fa-check-circle";
-    }
-    else if (color == 'danger') {
-        i = "fas fa-exclamation";
-    }
-    else {
-        i = "nc-icon nc-bell-55"
-    }
-
-    $.notify({
-      icon: i,
-      message: msg
-
-    }, {
-      type: color,
-      timer: 5000,
-      placement: {
-        from: from,
-        align: align
-      }
-    });
-  }

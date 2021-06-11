@@ -3,8 +3,7 @@ const dynamicCacheName = 'dynamic-cache';
 
 const assets = [
   '/',
-  '/index.html',
-  '/database.js'
+  '/index.html'
 ];
 
 //cache size limit function
