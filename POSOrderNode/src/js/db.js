@@ -315,6 +315,8 @@ function checkout(){
         total_price: totP,
         waiter:currentWaiter,
         notify:1,
+        delivered: "False",
+        timestamp: Date.now(),
     })
     .then((docRef) => {
         console.log("Document written with ID: ", docRef.id);
