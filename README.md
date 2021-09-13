@@ -14,9 +14,9 @@ Besides, the restaurant employee information is also stored manually in register
 With modernization and advancements in technology where everyone works on a touch of technology, it is necessary to upgrade ourselves and move ahead with this changing world. Hence, we are creating a website for customers and an app for the waiters which will ease the process of ordering food. Our app also includes record-keeping.
 
 <p align="center">
-  <img alt='illustrations' src='https://github.com/adityatawade12/POS-System/blob/master/readme-images/website-illustration.png' width='500'>
-  <img alt='illustrations' src='https://github.com/adityatawade12/POS-System/blob/master/readme-images/admin-illustraion.png' width='500'>
-  <img alt='illustrations' src='https://github.com/adityatawade12/POS-System/blob/master/readme-images/order-node-illustration.png' width='500'>
+  <img alt='illustrations' src='https://github.com/adityatawade12/POS-System/blob/master/readme-images/website-illustration.png' width='60%'>
+  <img alt='illustrations' src='https://github.com/adityatawade12/POS-System/blob/master/readme-images/admin-illustraion.png' width='60%'>
+  <img alt='illustrations' src='https://github.com/adityatawade12/POS-System/blob/master/readme-images/order-node-illustration.png' width='60%'>
 </p>
 
 # Some Screenshots:
