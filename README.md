@@ -11,7 +11,7 @@ Nowadays, many restaurants manage their business manually, especially taking cus
 The restaurant waiter takes the customer’s order by manually writing on a piece of paper. Not to mention but the formal conversations, demanding for today’s menu and discussion over menu items takes 5 to 10 minutes to book an order. Also, the waiter books the order on paper so there is probability of losing information.
 Besides, the restaurant employee information is also stored manually in register and this is difficult for restaurant administrator to find waiter information, probability missing the paper and difficult to arrange the schedule.
 
-With modernization and advancements in technology where everyone works on a touch of technology, it is necessary to upgrade ourselves and move ahead with this changing world. Hence, we are creating a website for customers and an app for the waiters which will ease the process of ordering food. Our app also includes record-keeping.
+With modernization and advancements in technology where everyone works on a touch of technology, it is necessary to upgrade ourselves and move ahead with this changing world. Hence, we are creating a website for customers and an app for the waiters which will ease the process of ordering food. Our app also includes record-keeping. 
 
 <p align="center">
   <img alt='illustrations' src='https://github.com/adityatawade12/POS-System/blob/master/readme-images/website-illustration.png' width='60%'>
