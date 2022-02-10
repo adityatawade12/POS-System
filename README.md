@@ -19,6 +19,12 @@ With modernization and advancements in technology where everyone works on a touc
   <img alt='illustrations' src='https://github.com/adityatawade12/POS-System/blob/master/readme-images/order-node-illustration.png' width='60%'>
 </p>
 
+# Demo:
+- Website:
+<a href='https://www.youtube.com/watch?v=eRz3IA37oi4'>Link to video</a>
+- Admin Console:
+<a href='https://www.youtube.com/watch?v=DN490pZmevQ'>Link to video</a>
+
 # Some Screenshots:
 - Website:
 
