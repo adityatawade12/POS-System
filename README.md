@@ -1,5 +1,5 @@
 <p align="center">
-<img height='200' src='https://le-mieux-website.herokuapp.com/static/css/images/logo.svg' alt='Logo'>
+<img height='200' src='https://github.com/adityatawade12/POS-System/blob/master/POSWebsite/static/css/images/admin.png' alt='Logo'>
 <h1 align='center'><i style="font-family: 'Cedarville Cursive', cursive; font-size: 130px">le mieux</i></h1>
 <br>
 </p>
@@ -37,7 +37,8 @@ With modernization and advancements in technology where everyone works on a touc
 
 </p>
 
-# Hosted Applications: 
+# Hosted Applications:
+(The Heroku links are not functioning due to the termination of its free tier 😞)
 - <a href='https://le-mieux-website.herokuapp.com'>Website</a>
 - <a href='https://le-mieux-admin-console.firebaseapp.com'>Admin Console</a>
-- <a href='https://le-mieux-order-node.firebaseapp.com'>Order Node</a>
+- <a href='https://le-mieux-order-node.firebaseapp.com'>Order Node (better in mobile view)</a>
